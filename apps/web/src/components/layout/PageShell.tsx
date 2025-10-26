@@ -11,8 +11,7 @@ type PageShellProps = {
  * Adds background gradient and nav spacing.
  */
 export const PageShell: FC<PageShellProps> = ({ children }) => (
-  <div className="relative min-h-screen w-full bg-neutral-950 text-neutral-50">
+  <div className="relative min-h-screen w-full overflow-x-hidden bg-neutral-950 text-neutral-50">
     {children}
   </div>
 );
-

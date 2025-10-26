@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
-import { PrimaryNav } from "@/components/navigation/PrimaryNav";
 import { PageShell } from "@/components/layout/PageShell";
 
 const geistSans = Geist({
@@ -33,7 +32,6 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <PageShell>
-          <PrimaryNav />
           {children}
         </PageShell>
         <Analytics />
