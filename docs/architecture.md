@@ -7,7 +7,7 @@ This document outlines the overall project architecture for Project Web NMD, inc
 If the project includes a significant user interface, a separate Frontend Architecture Document will detail the frontend-specific design and MUST be used in conjunction with this document. Core technology stack choices documented herein (see "Tech Stack") are definitive for the entire project, including any frontend components.
 
 ### Starter Template or Existing Project
-Adopting a customized Next.js 16 + Turborepo scaffold (via `create-next-app` inside a monorepo) as the foundation. This gives us App Router defaults, shared package support (`packages/ui`, `packages/animation`), and smooth integration with Shadcn UI, Tailwind, Codex CI/CD, and Vercel deploy scripts while leaving room for GSAP/Three.js tooling from Epic 1.
+Adopting a customized Next.js 16 + Turborepo scaffold (via `create-next-app` inside a monorepo) as the foundation. This gives us App Router defaults, shared package support (`packages/ui`, `packages/animation`, `packages/commerce`), and smooth integration with Shadcn UI, Tailwind, Codex CI/CD, and Vercel deploy scripts while leaving room for GSAP/Three.js tooling from Epic 1.
 
 ### Change Log
 
@@ -23,9 +23,10 @@ Project Web NMD is a monorepo-hosted, server-rendered web experience built on Ne
 ### High Level Overview
 1. **Architectural Style:** Modular monolith (Next.js app with serverless endpoints) optimized for immersive frontends; no separate backend services required initially.  
 2. **Repo Structure:** Monorepo using Turborepo/PNPM workspaces housing `apps/web`, shared component packages, and infrastructure scripts.  
-3. **Service Architecture:** Frontend-focused Next.js server handling SSR/ISR, API routes for form submissions + telemetry, and integrations with external services (Spotify deep links, Supabase).  
-4. **Primary Flow:** User hits Vercel edge → Next.js streams loader/hero UI → GSAP/Three orchestrate client-side motion → audio previews served via CDN → contact submissions POST to Vercel Function → stored in Supabase and notified via webhook/email.  
+3. **Service Architecture:** Frontend-focused Next.js server handling SSR/ISR, API routes for form submissions + telemetry, and integrations with external services (Spotify deep links, Supabase).
+4. **Primary Flow:** User hits Vercel edge → Next.js streams loader/hero UI → GSAP/Three orchestrate client-side motion → audio previews served via CDN → contact submissions POST to Vercel Function → stored in Supabase and notified via webhook/email.
 5. **Key Decisions:** Use App Router/RSC for performance, centralize motion helpers in shared package, rely on Vercel platform for hosting + analytics, keep data footprint light (Supabase for form data) while instrumenting custom events in PostHog for KPI tracking.
+6. **Commerce Extension:** Integrate a headless commerce provider (preferred: Shopify Storefront API; fallback Commerce Layer) via server-side SDK wrappers to expose merch catalog, cart, and checkout handoff without spinning up custom payment infrastructure.
 
 ### High Level Project Diagram
 ```mermaid
@@ -41,6 +42,13 @@ graph TD
     UI --> Spotify[Spotify Deep Links]
     NextApp --> Analytics[Vercel Analytics & PostHog]
 ```
+
+### Commerce Integration Overview
+- **Provider Evaluation:** Prefer Shopify Storefront API for catalog + checkout speed; Commerce Layer is the backup if enterprise contracts require vendor neutrality.
+- **Data Flow:** App Router server components fetch products/collections via server-side SDK; client components manage cart state via Zustand and call Storefront mutations; checkout redirects to provider-hosted payment page to keep PCI scope minimal.
+- **Webhooks:** Provider webhooks hit a Vercel Function (`/api/commerce/webhook`) to reconcile orders, update inventory caches, and trigger revalidation of merch displays.
+- **Caching:** Product lists cached with ISR tags per collection; stock/price updates bust caches via webhook-triggered `revalidateTag`.
+- **Analytics:** Cart and checkout events routed through shared analytics module with SKU metadata for funnel dashboards.
 
 ## Tech Stack
 
@@ -59,6 +67,7 @@ graph TD
 | Styling | Tailwind CSS | 3.4.x | Utility-first styling + theming tokens | Fast iteration for bespoke visuals |
 | Animation | GSAP / Three.js | GSAP 3.12.x, Three.js 0.164.x | Scroll/motion/3D engine | Meets FR1–FR5 animation requirements |
 | State/Data Layer | React Server Components + Zustand (optional) | RSC native, Zustand 4.x | Lightweight shared state for audio/teaser toggles | Avoids heavier global stores |
+| Commerce | Shopify Storefront API (preferred) / Commerce Layer | Latest stable | Headless merch catalog, cart, checkout APIs | Provides PCI-compliant payments without custom backend |
 | Bundler/Build | Turborepo + PNPM | Turborepo 1.12, PNPM 9 | Monorepo orchestration & package management | Speeds shared package builds (`ui`, `animation`) |
 | Testing (unit) | Vitest | 1.6.x | Fast unit/utility tests | TS-native, compatible with Next.js |
 | Testing (e2e/visual) | Playwright | 1.43.x | End-to-end + visual regression (GSAP flows) | Handles motion, multi-browser coverage |
@@ -114,7 +123,7 @@ graph TD
 **Responsibility:** Encapsulate GSAP timelines, Three.js scenes, audio preview controller shared across sections.  
 **Key Interfaces:** Exposes hooks/components (`useLoaderTimeline`, `<AudioPreview />`).  
 **Dependencies:** GSAP, Three.js, Web Audio API, Zustand store.  
-**Technology Stack:** Custom package `packages/animation`.
+**Technology Stack:** Custom packages `packages/animation` and `packages/commerce`.
 
 ### Asset Pipeline & CDN
 **Responsibility:** Store and deliver portraits, GLB logo, audio snippets with caching + signed URLs.  
@@ -124,8 +133,8 @@ graph TD
 
 ### Contact & Telemetry API
 **Responsibility:** Handle POST submissions, validate inputs, persist to Supabase, emit notifications and analytics events.  
-**Key Interfaces:** `/api/contact` (POST JSON), `/api/event` (POST metrics).  
-**Dependencies:** Supabase client, email/webhook service (Supabase functions or Resend), PostHog SDK.  
+**Key Interfaces:** `/api/contact` (POST JSON), `/api/event` (POST metrics), `/api/commerce/webhook` (POST provider webhook).  
+**Dependencies:** Supabase client, email/webhook service (Supabase functions or Resend), PostHog SDK, commerce provider webhook secret.  
 **Technology Stack:** Vercel Functions (Node 20), Supabase JS client.
 
 ### Analytics & Monitoring Layer
@@ -499,7 +508,7 @@ Merge to main ➜ CI ➜ Vercel Production ➜ Supabase migration apply
 - **Code Requirements:** No secrets hardcoded; access via `process.env`; never log secrets.
 
 ### API Security
-- **Rate Limiting:** Middleware using `@upstash/ratelimit` (Redis) or Vercel Edge Config to cap contact submissions (e.g., 5/min/IP).  
+- **Commerce Webhook Verification:** Validate HMAC signatures from the commerce provider and reject mismatches before mutating caches or analytics.
 - **CORS Policy:** Same-origin for site API; allow preview domains.  
 - **Security Headers:** `Strict-Transport-Security`, `Content-Security-Policy` (restrict script origins), `Permissions-Policy` (limit sensors).  
 - **HTTPS Enforcement:** Vercel-managed TLS; set `forceHttps` in `vercel.json`.
@@ -537,9 +546,11 @@ Merge to main ➜ CI ➜ Vercel Production ➜ Supabase migration apply
 ### Architect Prompt (for Frontend Architecture / Dev Handoff)
 ```
 Use docs/architecture.md and docs/front-end-spec.md for Project Web NMD to elaborate the frontend/component architecture. Focus on:
-- Monorepo structure (apps/web + packages/ui + packages/animation)
+- Monorepo structure (apps/web + packages/ui + packages/animation + packages/commerce)
 - How Shadcn/Tailwind tokens map to cinematic UX spec
 - GSAP/Three timeline orchestration and reduced-motion fallbacks
 - Shared hooks for audio previews + analytics events
 Produce a detailed frontend architecture ready for dev agents.
 ```
+
+

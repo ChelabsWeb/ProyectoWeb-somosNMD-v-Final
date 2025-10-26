@@ -8,6 +8,7 @@
 - Showcase current and upcoming releases (e.g., “Junta”, “Midnight Is Close”) with interactive previews, tracklists, and teasers that build anticipation.
 - Establish a maintainable, high-performance foundation (Next.js 16, GSAP, Three.js, Shadcn UI, Tailwind, Vercel) that can expand with future drops.
 - Reinforce the collective’s brand identity by merging motion graphics, 3D logo work, and curated references (GTA VI, Travis Scott Utopia, Lando Norris).
+- Introduce a merch shopping experience that converts fans directly within the cinematic journey while preserving performance and accessibility standards.
 
 ### Background Context
 Project Web NMD responds to a fragmented digital presence where social snippets, isolated microsites, and individual portfolios fail to tell the collective’s story cohesively. Fans, collaborators, and industry scouts must stitch together who the 12 artists are and what they sound like, resulting in short sessions, weak brand perception, and missed opportunities. The new experience acts as a “living music video” landing page—opening with a Three.js logo loader, flowing into a GTA VI-inspired hero reveal, and continuing through horizontal artist galleries, music highlights, and teasers for upcoming releases. It must feel like entering a digital music video while still performing smoothly across modern web platforms.
@@ -34,13 +35,15 @@ Project Web NMD responds to a fragmented digital presence where social snippets,
 4. **FR4:** The music projects area must feature album/single cards (starting with “Junta”) that display artwork, concept summary, tracklist, Spotify link, and play an authorized 5–10 second preview on hover or tap with mobile fallbacks.
 5. **FR5:** The “Upcoming Release” teaser must display large animated typography (e.g., “Midnight Is Close”) with subtle distortion/parallax and optionally link to more info when available.
 6. **FR6:** The site must provide clear pathways for collaboration/booking inquiries (CTA + form) and store submissions for follow-up.
+7. **FR7:** The experience must surface a merch storefront that lets users browse featured products, manage a cart, and complete checkout via an integrated headless commerce provider without leaving the site.
 
 ### Non Functional
 1. **NFR1:** Maintain Core Web Vitals targets (LCP < 2.5s, CLS < 0.1) on modern desktop and mobile via lazy loading, asset optimization, and reduced-motion fallbacks.
 2. **NFR2:** Support the latest two versions of Chromium, Safari, and Firefox with progressive enhancement for older browsers and graceful degradation when motion is disabled.
 3. **NFR3:** Respect accessibility best practices: honor `prefers-reduced-motion`, ensure keyboard navigation through galleries, provide descriptive text for imagery, and supply captions or transcripts for audio previews.
 4. **NFR4:** Deploy on Vercel with Codex CI/CD, enabling automated previews, production rollouts with rollback, and uptime monitoring.
-5. **NFR5:** Instrument analytics for Spotify clicks, audio preview plays, scroll depth, and inquiry completions while storing events securely and complying with privacy requirements (e.g., GDPR if emails collected).
+ 5. **NFR5:** Instrument analytics for Spotify clicks, audio preview plays, scroll depth, and inquiry completions while storing events securely and complying with privacy requirements (e.g., GDPR if emails collected).
+  6. **NFR6:** Commerce flows must route payments through the chosen headless provider for PCI compliance, maintain Core Web Vitals budgets, and honor regional privacy/consent requirements when tracking merch conversions.
 
 ## MVP Scope
 
@@ -53,7 +56,7 @@ Project Web NMD responds to a fragmented digital presence where social snippets,
 
 ### Out of Scope for MVP
 - Full CMS or self-service content management (updates remain code-driven).
-- Ecommerce/merch stores, checkout, or digital collectibles.
+- Loyalty programs, user accounts, or persistent personalization tied to purchases.
 - Multi-language localization and region-specific content.
 - Live video livestreams, fan chat, or interactive concert rooms.
 - Deep community features (accounts, personalization) beyond tracking engagement signals.
@@ -128,9 +131,10 @@ Unit + integration focus: Vitest/Jest for utilities (audio helpers, analytics tr
 
 ## Epic List
 
-1. **Epic 1 – Immersive Foundation & Loader Experience:** Stand up the Next.js/Shadcn stack, codify design tokens, and deliver the cinematic entry (Three.js logo loader into GTA VI–style hero) with baseline analytics and performance guardrails.
-2. **Epic 2 – Artist & Music Storytelling Canvas:** Implement the horizontal artist gallery with profile overlays plus the music projects grid/cards (audio previews, tracklists, Spotify links) so visitors can explore the collective’s work end-to-end.
-3. **Epic 3 – Release Anticipation & Engagement Layer:** Ship the “Midnight Is Close” teaser scene, collaboration/contact pathways, and deeper analytics instrumentation to capture hype and conversion signals for upcoming drops.
+1. **Epic 1 � Immersive Foundation & Loader Experience:** Stand up the Next.js/Shadcn stack, codify design tokens, and deliver the cinematic entry (Three.js logo loader into GTA VI�style hero) with baseline analytics and performance guardrails.
+2. **Epic 2 � Artist & Music Storytelling Canvas:** Implement the horizontal artist gallery with profile overlays plus the music projects grid/cards (audio previews, tracklists, Spotify links) so visitors can explore the collective�s work end-to-end.
+3. **Epic 3 � Release Anticipation & Engagement Layer:** Ship the �Midnight Is Close� teaser scene, collaboration/contact pathways, and deeper analytics instrumentation to capture hype and conversion signals for upcoming drops.
+4. **Epic 4 - Merch Commerce Experience:** Introduce an integrated storefront that surfaces merch within the cinematic flow, maintains cart state, and hands off to a PCI-compliant checkout while tracking conversions.
 
 ## Epic 1 Immersive Foundation & Loader Experience
 
@@ -283,6 +287,39 @@ so that cinematic effects never compromise reliability.
 2: Visual regression snapshots (Percy, Chromatic, or Playwright) capture loader, hero, gallery, music, and teaser scenes after animations settle.
 3: Performance budgets for CPU/GPU/memory are defined and monitored via Lighthouse CI or WebPageTest; alerts trigger when thresholds exceed.
 4: Launch checklist verifies reduced-motion, accessibility, and telemetry behavior post-deploy.
+## Epic 4 Merch Commerce Experience
+
+Goal: Integrate a headless commerce flow so merch can be featured, browsed, and purchased without breaking the cinematic narrative or performance budgets.
+
+### Story 4.1 Merch Showcase & Catalog Integration
+As a merch lead,
+I want a storefront section that highlights featured drops within the cinematic flow and lists the full catalog,
+so that fans can browse and add products to their cart without leaving the experience.
+#### Acceptance Criteria
+1: Commerce or CMS backend exposes product data (name, price, variants, media) and hydrates Next.js RSCs with ISR caching.
+2: Featured merch tiles can be embedded in hero/teaser scenes while the full catalog lives in a dedicated section or modal.
+3: Product detail overlays display sizing guides, availability, and related items with motion that respects accessibility.
+4: Analytics events capture product views and add-to-cart actions with SKU metadata.
+
+### Story 4.2 Cart State & Checkout Handoff
+As a shopper,
+I want to manage my cart and complete checkout confidently,
+so that I can purchase merch through the headless provider using familiar payment methods.
+#### Acceptance Criteria
+1: Client-side cart store supports add/remove/update quantity with persistence across navigation.
+2: Checkout button triggers provider-hosted checkout or secure API flow that meets PCI requirements.
+3: Error states (inventory mismatch, payment failure) surface clear feedback and recovery actions.
+4: Post-checkout confirmation routes users back with order summary and tracking guidance.
+
+### Story 4.3 Merch Operations & Telemetry
+As an operations analyst,
+I want inventory sync, order webhooks, and conversion dashboards,
+so that the collective can understand demand and support customers.
+#### Acceptance Criteria
+1: Webhooks or scheduled jobs refresh inventory/pricing in cache without full redeploys.
+2: Product analytics records cart -> checkout -> purchase funnel with revenue metrics in PostHog (or equivalent).
+3: Admin alerts notify the team when inventory is low or webhook processing fails.
+4: Documentation outlines support process for refunds/exchanges and links to commerce admin tooling.
 
 ## Checklist Results Report
 - **Execution:** Comprehensive PM checklist review completed 2024-06-03.
@@ -297,3 +334,7 @@ so that cinematic effects never compromise reliability.
 ### UX Expert Prompt
 
 ### Architect Prompt
+
+
+
+
