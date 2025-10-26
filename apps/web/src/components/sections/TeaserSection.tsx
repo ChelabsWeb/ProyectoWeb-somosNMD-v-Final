@@ -11,7 +11,7 @@ export const TeaserSection: FC = () => {
     <section
       id="teaser"
       aria-label="Upcoming release teaser"
-      className="relative overflow-hidden bg-gradient-to-br from-purple-700 via-fuchsia-600 to-black px-6 py-20 text-neutral-50 md:px-12"
+      className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-purple-700 via-fuchsia-600 to-black px-6 py-20 text-neutral-50 md:px-12"
     >
       {!prefersReducedMotion && (
         <div className="pointer-events-none absolute inset-0 opacity-30">
@@ -42,4 +42,3 @@ export const TeaserSection: FC = () => {
     </section>
   );
 };
-

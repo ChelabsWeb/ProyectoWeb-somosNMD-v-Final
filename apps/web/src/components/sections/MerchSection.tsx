@@ -25,7 +25,7 @@ export const MerchSection: FC = () => (
   <section
     id="merch"
     aria-label="Merch shop teaser"
-    className="bg-black px-6 py-16 text-neutral-50 md:px-12"
+    className="flex min-h-screen items-center bg-black px-6 py-16 text-neutral-50 md:px-12"
   >
     <div className="mx-auto flex max-w-5xl flex-col gap-8">
       <header className="space-y-2">

@@ -5,6 +5,7 @@ import { MusicSection } from "@/components/sections/MusicSection";
 import { MerchSection } from "@/components/sections/MerchSection";
 import { TeaserSection } from "@/components/sections/TeaserSection";
 import { ContactSection } from "@/components/sections/ContactSection";
+import { AppReadySignal } from "@/components/system/AppReadySignal";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <MerchSection />
       <TeaserSection />
       <ContactSection />
+      <AppReadySignal />
     </main>
   );
 }
