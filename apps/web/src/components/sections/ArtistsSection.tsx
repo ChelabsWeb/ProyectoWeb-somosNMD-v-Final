@@ -7,15 +7,27 @@ import { useReducedMotionPreference } from "@nmd/animation";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
-const ARTIST_PLACEHOLDERS = Array.from({ length: 12 }, (_, index) => {
-  const number = String(index + 1).padStart(2, "0");
-  return {
-    id: `artist-${number}`,
-    name: `Artist ${number}`,
-    blurb: "Placeholder bio copy for the collective member.",
-    imageSrc: `/assets/artists/nmdfinal-${number}.jpg`,
-  };
-});
+const ARTIST_IMAGE_FILES = [
+  "01",
+  "02",
+  "05",
+  "08",
+  "10",
+  "11",
+  "13",
+  "15",
+  "18",
+  "19",
+  "21",
+  "23",
+] as const;
+
+const ARTIST_PLACEHOLDERS = ARTIST_IMAGE_FILES.map((suffix, index) => ({
+  id: `artist-${suffix}`,
+  name: `Artist ${String(index + 1).padStart(2, "0")}`,
+  blurb: "Placeholder bio copy for the collective member.",
+  imageSrc: `/assets/artists/nmdfinal-${suffix}.jpg`,
+}));
 
 /**
  * Horizontal artist gallery with GSAP ScrollTrigger.
