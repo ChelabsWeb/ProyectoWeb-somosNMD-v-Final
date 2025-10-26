@@ -20,7 +20,8 @@ export const LoaderSection: FC = () => {
   const [progress, setProgress] = useState(0);
   const [isBlockingScroll, setIsBlockingScroll] = useState(true);
   const animationStartRef = useRef<number>(0);
-  const scrollRestorationRef = useRef<string | null>(null);
+  const scrollRestorationRef =
+    useRef<History["scrollRestoration"] | null>(null);
 
   useEffect(() => {
     if (typeof window === "undefined") {

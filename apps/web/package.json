@@ -12,6 +12,8 @@
   "dependencies": {
     "@nmd/animation": "workspace:*",
     "@nmd/ui": "workspace:*",
+    "@vercel/analytics": "^1.5.0",
+    "@vercel/speed-insights": "^1.2.0",
     "gsap": "^3.13.0",
     "next": "16.0.0",
     "react": "19.2.0",
