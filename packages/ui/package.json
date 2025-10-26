@@ -1,0 +1,17 @@
+{
+  "name": "@nmd/ui",
+  "version": "0.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "echo \"@nmd/ui build placeholder\"",
+    "dev": "pnpm build",
+    "lint": "echo \"@nmd/ui lint placeholder\"",
+    "test": "echo \"@nmd/ui test placeholder\""
+  },
+  "peerDependencies": {
+    "react": "^18 || ^19",
+    "react-dom": "^18 || ^19"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "@nmd/animation",
+  "version": "0.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "echo \"@nmd/animation build placeholder\"",
+    "dev": "pnpm build",
+    "lint": "echo \"@nmd/animation lint placeholder\"",
+    "test": "echo \"@nmd/animation test placeholder\""
+  },
+  "peerDependencies": {
+    "react": "^18 || ^19"
+  }
+}

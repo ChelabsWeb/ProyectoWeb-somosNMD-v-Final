@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+:root {
+  --color-bg: #05060e;
+  --color-surface-950: #080811;
+  --color-surface-900: #0f101a;
+  --color-surface-800: #151625;
+  --color-surface-700: #27283b;
+  --color-text: #f5f6fb;
+  --color-muted: rgba(245, 246, 251, 0.6);
+  --color-primary: #eb2c75;
+  --color-secondary: #1e6df8;
+  --color-accent: #f5c84c;
+  --shadow-neon: 0 0 32px rgba(235, 44, 117, 0.45);
+}
+
+@theme inline {
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-text);
+  --color-muted: var(--color-muted);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: radial-gradient(circle at top, rgba(30, 109, 248, 0.2), transparent 45%),
+    radial-gradient(circle at 20% 60%, rgba(235, 44, 117, 0.18), transparent 55%),
+    var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+section {
+  scroll-margin-top: 6rem;
+}
+
+.animate-pulse-slow {
+  animation: pulse 6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
