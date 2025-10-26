@@ -1,0 +1,411 @@
+
+> web@0.1.0 dev C:\Users\lucci\OneDrive\Desktop\ProyectoWeb-somosNMD-v-Final\apps\web
+> next dev
+
+ ⚠ `eslint` configuration in next.config.ts is no longer supported. See more info here: https://nextjs.org/docs/app/api-reference/cli/next#next-lint-options
+ ⚠ Invalid next.config.ts options detected: 
+ ⚠     Unrecognized key(s) in object: 'eslint'
+ ⚠ See more info here: https://nextjs.org/docs/messages/invalid-next-config
+   ▲ Next.js 16.0.0 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.68.110:3000
+
+ ✓ Starting...
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+ ✓ Ready in 940ms
+ GET / 200 in 1948ms (compile: 1753ms, render: 195ms)
+ GET / 200 in 47ms (compile: 5ms, render: 42ms)
+ GET / 200 in 57ms (compile: 3ms, render: 53ms)
+ GET / 200 in 68ms (compile: 4ms, render: 64ms)
+ ✓ Compiled in 66ms
+ GET / 200 in 188ms (compile: 99ms, render: 89ms)
+ ✓ Compiled in 73ms
+ ✓ Compiled in 79ms
+ GET / 200 in 259ms (compile: 119ms, render: 140ms)
+ GET / 200 in 59ms (compile: 4ms, render: 55ms)
+ ✓ Compiled in 165ms
+ ✓ Compiled in 33ms
+ ✓ Compiled in 46ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET / 200 in 262ms (compile: 145ms, render: 118ms)
+ GET / 200 in 69ms (compile: 5ms, render: 64ms)
+ ✓ Compiled in 41ms
+ GET / 200 in 198ms (compile: 93ms, render: 104ms)
+ GET / 200 in 52ms (compile: 3ms, render: 49ms)
+ GET / 200 in 71ms (compile: 6ms, render: 65ms)
+ ✓ Compiled in 53ms
+ GET / 200 in 213ms (compile: 95ms, render: 118ms)
+ GET / 200 in 76ms (compile: 6ms, render: 70ms)
+ GET / 200 in 57ms (compile: 3ms, render: 54ms)
+ GET / 200 in 61ms (compile: 3ms, render: 59ms)
+ ✓ Compiled in 39ms
+ ✓ Compiled in 33ms
+ ✓ Compiled in 32ms
+ ✓ Compiled in 35ms
+ ✓ Compiled in 30ms
+ ✓ Compiled in 81ms
+ ✓ Compiled in 33ms
+ GET / 200 in 237ms (compile: 115ms, render: 122ms)
+ ✓ Compiled in 61ms
+ GET / 200 in 239ms (compile: 118ms, render: 121ms)
+ GET / 200 in 47ms (compile: 3ms, render: 44ms)
+ GET / 200 in 80ms (compile: 4ms, render: 76ms)
+ ✓ Compiled in 66ms
+ ✓ Compiled in 51ms
+ GET / 200 in 328ms (compile: 154ms, render: 174ms)
+ ✓ Compiled in 56ms
+ ✓ Compiled in 66ms
+ GET / 200 in 283ms (compile: 120ms, render: 163ms)
+ GET / 200 in 76ms (compile: 6ms, render: 70ms)
+ ✓ Compiled in 44ms
+ GET / 200 in 319ms (compile: 145ms, render: 174ms)
+ ✓ Compiled in 34ms
+ GET / 200 in 292ms (compile: 132ms, render: 161ms)
+ GET / 200 in 237ms (compile: 108ms, render: 130ms)
+ GET / 200 in 59ms (compile: 3ms, render: 56ms)
+ GET / 200 in 67ms (compile: 3ms, render: 64ms)
+ GET / 200 in 70ms (compile: 3ms, render: 68ms)
+ GET / 200 in 71ms (compile: 3ms, render: 68ms)
+ GET / 200 in 268ms (compile: 125ms, render: 142ms)
+ GET / 200 in 58ms (compile: 3ms, render: 55ms)
+ ✓ Compiled in 34ms
+ GET / 200 in 249ms (compile: 106ms, render: 143ms)
+ GET / 200 in 78ms (compile: 6ms, render: 72ms)
+ ✓ Compiled in 35ms
+ ✓ Compiled in 31ms
+ ✓ Compiled in 34ms
+ GET / 200 in 237ms (compile: 102ms, render: 135ms)
+ GET / 200 in 73ms (compile: 3ms, render: 69ms)
+ GET / 200 in 76ms (compile: 3ms, render: 73ms)
+ GET / 200 in 62ms (compile: 2ms, render: 59ms)
+ GET / 200 in 67ms (compile: 2ms, render: 65ms)
+ GET / 200 in 78ms (compile: 6ms, render: 72ms)
+ GET / 200 in 67ms (compile: 3ms, render: 64ms)
+ GET / 200 in 60ms (compile: 3ms, render: 58ms)
+ ✓ Compiled in 41ms
+ ✓ Compiled in 27ms
+ ✓ Compiled in 43ms
+ ✓ Compiled in 45ms
+ ✓ Compiled in 36ms
+ ✓ Compiled in 33ms
+ GET / 200 in 241ms (compile: 103ms, render: 139ms)
+ GET / 200 in 64ms (compile: 3ms, render: 61ms)
+ GET / 200 in 99ms (compile: 4ms, render: 94ms)
+ GET / 200 in 80ms (compile: 4ms, render: 76ms)
+ GET / 200 in 64ms (compile: 4ms, render: 60ms)
+ GET / 200 in 60ms (compile: 4ms, render: 56ms)
+ ✓ Compiled in 38ms
+ GET / 200 in 229ms (compile: 96ms, render: 132ms)
+ GET / 200 in 81ms (compile: 4ms, render: 76ms)
+ GET / 200 in 64ms (compile: 3ms, render: 61ms)
+ GET / 200 in 84ms (compile: 5ms, render: 79ms)
+ GET / 200 in 221ms (compile: 153ms, render: 68ms)
+ ✓ Compiled in 44ms
+ GET / 200 in 242ms (compile: 89ms, render: 153ms)
+ GET / 200 in 98ms (compile: 5ms, render: 93ms)
+ GET / 200 in 90ms (compile: 4ms, render: 86ms)
+ GET / 200 in 121ms (compile: 5ms, render: 116ms)
+ GET / 200 in 90ms (compile: 5ms, render: 85ms)
+ GET / 200 in 86ms (compile: 4ms, render: 82ms)
+ GET / 200 in 54ms (compile: 3ms, render: 51ms)
+ GET / 200 in 50ms (compile: 2ms, render: 48ms)
+ GET / 200 in 65ms (compile: 3ms, render: 63ms)
+ GET / 200 in 74ms (compile: 4ms, render: 70ms)
+ GET / 200 in 54ms (compile: 5ms, render: 49ms)
+ GET / 200 in 56ms (compile: 4ms, render: 52ms)
+ GET / 200 in 52ms (compile: 4ms, render: 48ms)
+ GET / 200 in 262ms (compile: 107ms, render: 155ms)
+ GET / 200 in 67ms (compile: 2ms, render: 65ms)
+ GET / 200 in 76ms (compile: 3ms, render: 73ms)
+ GET / 200 in 56ms (compile: 4ms, render: 51ms)
+ ✓ Compiled in 30ms
+ GET / 200 in 337ms (compile: 142ms, render: 194ms)
+ GET / 200 in 86ms (compile: 4ms, render: 82ms)
+ GET / 200 in 92ms (compile: 7ms, render: 84ms)
+ GET / 200 in 88ms (compile: 5ms, render: 84ms)
+ GET / 200 in 89ms (compile: 4ms, render: 85ms)
+ ✓ Compiled in 36ms
+ GET / 200 in 227ms (compile: 94ms, render: 133ms)
+ GET / 200 in 70ms (compile: 5ms, render: 66ms)
+ GET / 200 in 79ms (compile: 5ms, render: 74ms)
+ GET / 200 in 72ms (compile: 4ms, render: 68ms)
+ GET / 200 in 87ms (compile: 7ms, render: 79ms)
+ GET / 200 in 86ms (compile: 3ms, render: 83ms)
+ GET / 200 in 77ms (compile: 4ms, render: 72ms)
+ GET / 200 in 77ms (compile: 4ms, render: 74ms)
+ ✓ Compiled in 50ms
+ GET / 200 in 374ms (compile: 148ms, render: 226ms)
+ GET / 200 in 64ms (compile: 6ms, render: 58ms)
+ ✓ Compiled in 46ms
+ GET / 200 in 219ms (compile: 105ms, render: 114ms)
+ GET / 200 in 80ms (compile: 4ms, render: 76ms)
+ ✓ Compiled in 47ms
+ GET / 200 in 228ms (compile: 100ms, render: 128ms)
+ GET / 200 in 77ms (compile: 4ms, render: 72ms)
+ GET / 200 in 75ms (compile: 3ms, render: 72ms)
+ ✓ Compiled in 31ms
+ GET / 200 in 231ms (compile: 110ms, render: 121ms)
+ GET / 200 in 87ms (compile: 3ms, render: 84ms)
+ GET / 200 in 93ms (compile: 5ms, render: 88ms)
+ ✓ Compiled in 40ms
+ ✓ Compiled in 52ms
+ GET / 200 in 416ms (compile: 217ms, render: 199ms)
+ ✓ Compiled in 104ms
+ GET / 200 in 425ms (compile: 208ms, render: 217ms)
+ GET / 200 in 244ms (compile: 10ms, render: 234ms)
+ GET / 200 in 235ms (compile: 20ms, render: 215ms)
+ GET / 200 in 119ms (compile: 9ms, render: 110ms)
+ ⨯ ./apps/web/src/app/page.tsx:2:1
+Module not found: Can't resolve '@/components/sections/HeroSection'
+[0m [90m 1 |[39m [36mimport[39m { [33mLoaderSection[39m } [36mfrom[39m [32m"@/components/sections/LoaderSection"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mHeroSection[39m } [36mfrom[39m [32m"@/components/sections/HeroSection"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m { [33mArtistsSection[39m } [36mfrom[39m [32m"@/components/sections/ArtistsSection"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m { [33mMusicSection[39m } [36mfrom[39m [32m"@/components/sections/MusicSection"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { [33mMerchSection[39m } [36mfrom[39m [32m"@/components/sections/MerchSection"[39m[33m;[39m[0m
+
+Import map: aliased to relative './src/components/sections/HeroSection' inside of [project]/apps/web
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./apps/web/src/app/page.tsx:2:1
+Module not found: Can't resolve '@/components/sections/HeroSection'
+[0m [90m 1 |[39m [36mimport[39m { [33mLoaderSection[39m } [36mfrom[39m [32m"@/components/sections/LoaderSection"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mHeroSection[39m } [36mfrom[39m [32m"@/components/sections/HeroSection"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m { [33mArtistsSection[39m } [36mfrom[39m [32m"@/components/sections/ArtistsSection"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m { [33mMusicSection[39m } [36mfrom[39m [32m"@/components/sections/MusicSection"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { [33mMerchSection[39m } [36mfrom[39m [32m"@/components/sections/MerchSection"[39m[33m;[39m[0m
+
+Import map: aliased to relative './src/components/sections/HeroSection' inside of [project]/apps/web
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./apps/web/src/app/page.tsx:2:1
+Module not found: Can't resolve '@/components/sections/HeroSection'
+[0m [90m 1 |[39m [36mimport[39m { [33mLoaderSection[39m } [36mfrom[39m [32m"@/components/sections/LoaderSection"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mHeroSection[39m } [36mfrom[39m [32m"@/components/sections/HeroSection"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m { [33mArtistsSection[39m } [36mfrom[39m [32m"@/components/sections/ArtistsSection"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m { [33mMusicSection[39m } [36mfrom[39m [32m"@/components/sections/MusicSection"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { [33mMerchSection[39m } [36mfrom[39m [32m"@/components/sections/MerchSection"[39m[33m;[39m[0m
+
+Import map: aliased to relative './src/components/sections/HeroSection' inside of [project]/apps/web
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./apps/web/src/app/page.tsx:2:1
+Module not found: Can't resolve '@/components/sections/HeroSection'
+[0m [90m 1 |[39m [36mimport[39m { [33mLoaderSection[39m } [36mfrom[39m [32m"@/components/sections/LoaderSection"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mHeroSection[39m } [36mfrom[39m [32m"@/components/sections/HeroSection"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m { [33mArtistsSection[39m } [36mfrom[39m [32m"@/components/sections/ArtistsSection"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m { [33mMusicSection[39m } [36mfrom[39m [32m"@/components/sections/MusicSection"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { [33mMerchSection[39m } [36mfrom[39m [32m"@/components/sections/MerchSection"[39m[33m;[39m[0m
+
+Import map: aliased to relative './src/components/sections/HeroSection' inside of [project]/apps/web
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./apps/web/src/app/page.tsx:2:1
+Module not found: Can't resolve '@/components/sections/HeroSection'
+[0m [90m 1 |[39m [36mimport[39m { [33mLoaderSection[39m } [36mfrom[39m [32m"@/components/sections/LoaderSection"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mHeroSection[39m } [36mfrom[39m [32m"@/components/sections/HeroSection"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m { [33mArtistsSection[39m } [36mfrom[39m [32m"@/components/sections/ArtistsSection"[39m[33m;[39m
+ ✓ Compiled in 988ms
+ [90m 4 |[39m [36mimport[39m { [33mMusicSection[39m } [36mfrom[39m [32m"@/components/sections/MusicSection"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { [33mMerchSection[39m } [36mfrom[39m [32m"@/components/sections/MerchSection"[39m[33m;[39m[0m
+
+Import map: aliased to relative './src/components/sections/HeroSection' inside of [project]/apps/web
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./apps/web/src/app/page.tsx:2:1
+Module not found: Can't resolve '@/components/sections/HeroSection'
+[0m [90m 1 |[39m [36mimport[39m { [33mLoaderSection[39m } [36mfrom[39m [32m"@/components/sections/LoaderSection"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mHeroSection[39m } [36mfrom[39m [32m"@/components/sections/HeroSection"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m { [33mArtistsSection[39m } [36mfrom[39m [32m"@/components/sections/ArtistsSection"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m { [33mMusicSection[39m } [36mfrom[39m [32m"@/components/sections/MusicSection"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { [33mMerchSection[39m } [36mfrom[39m [32m"@/components/sections/MerchSection"[39m[33m;[39m[0m
+
+Import map: aliased to relative './src/components/sections/HeroSection' inside of [project]/apps/web
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./apps/web/src/app/page.tsx:2:1
+Module not found: Can't resolve '@/components/sections/HeroSection'
+[0m [90m 1 |[39m [36mimport[39m { [33mLoaderSection[39m } [36mfrom[39m [32m"@/components/sections/LoaderSection"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mHeroSection[39m } [36mfrom[39m [32m"@/components/sections/HeroSection"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m { [33mArtistsSection[39m } [36mfrom[39m [32m"@/components/sections/ArtistsSection"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m { [33mMusicSection[39m } [36mfrom[39m [32m"@/components/sections/MusicSection"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { [33mMerchSection[39m } [36mfrom[39m [32m"@/components/sections/MerchSection"[39m[33m;[39m[0m
+
+Import map: aliased to relative './src/components/sections/HeroSection' inside of [project]/apps/web
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./apps/web/src/app/page.tsx:2:1
+Module not found: Can't resolve '@/components/sections/HeroSection'
+[0m [90m 1 |[39m [36mimport[39m { [33mLoaderSection[39m } [36mfrom[39m [32m"@/components/sections/LoaderSection"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mHeroSection[39m } [36mfrom[39m [32m"@/components/sections/HeroSection"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m { [33mArtistsSection[39m } [36mfrom[39m [32m"@/components/sections/ArtistsSection"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m { [33mMusicSection[39m } [36mfrom[39m [32m"@/components/sections/MusicSection"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { [33mMerchSection[39m } [36mfrom[39m [32m"@/components/sections/MerchSection"[39m[33m;[39m[0m
+
+Import map: aliased to relative './src/components/sections/HeroSection' inside of [project]/apps/web
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./apps/web/src/app/page.tsx:2:1
+Module not found: Can't resolve '@/components/sections/HeroSection'
+[0m [90m 1 |[39m [36mimport[39m { [33mLoaderSection[39m } [36mfrom[39m [32m"@/components/sections/LoaderSection"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mHeroSection[39m } [36mfrom[39m [32m"@/components/sections/HeroSection"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m { [33mArtistsSection[39m } [36mfrom[39m [32m"@/components/sections/ArtistsSection"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m { [33mMusicSection[39m } [36mfrom[39m [32m"@/components/sections/MusicSection"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { [33mMerchSection[39m } [36mfrom[39m [32m"@/components/sections/MerchSection"[39m[33m;[39m[0m
+
+Import map: aliased to relative './src/components/sections/HeroSection' inside of [project]/apps/web
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./apps/web/src/app/page.tsx:2:1
+Module not found: Can't resolve '@/components/sections/HeroSection'
+[0m [90m 1 |[39m [36mimport[39m { [33mLoaderSection[39m } [36mfrom[39m [32m"@/components/sections/LoaderSection"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mHeroSection[39m } [36mfrom[39m [32m"@/components/sections/HeroSection"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m { [33mArtistsSection[39m } [36mfrom[39m [32m"@/components/sections/ArtistsSection"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m { [33mMusicSection[39m } [36mfrom[39m [32m"@/components/sections/MusicSection"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { [33mMerchSection[39m } [36mfrom[39m [32m"@/components/sections/MerchSection"[39m[33m;[39m[0m
+
+Import map: aliased to relative './src/components/sections/HeroSection' inside of [project]/apps/web
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./apps/web/src/app/page.tsx:2:1
+Module not found: Can't resolve '@/components/sections/HeroSection'
+[0m [90m 1 |[39m [36mimport[39m { [33mLoaderSection[39m } [36mfrom[39m [32m"@/components/sections/LoaderSection"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mHeroSection[39m } [36mfrom[39m [32m"@/components/sections/HeroSection"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m { [33mArtistsSection[39m } [36mfrom[39m [32m"@/components/sections/ArtistsSection"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m { [33mMusicSection[39m } [36mfrom[39m [32m"@/components/sections/MusicSection"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { [33mMerchSection[39m } [36mfrom[39m [32m"@/components/sections/MerchSection"[39m[33m;[39m[0m
+
+Import map: aliased to relative './src/components/sections/HeroSection' inside of [project]/apps/web
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./apps/web/src/app/page.tsx:2:1
+Module not found: Can't resolve '@/components/sections/HeroSection'
+[0m [90m 1 |[39m [36mimport[39m { [33mLoaderSection[39m } [36mfrom[39m [32m"@/components/sections/LoaderSection"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mHeroSection[39m } [36mfrom[39m [32m"@/components/sections/HeroSection"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m { [33mArtistsSection[39m } [36mfrom[39m [32m"@/components/sections/ArtistsSection"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m { [33mMusicSection[39m } [36mfrom[39m [32m"@/components/sections/MusicSection"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { [33mMerchSection[39m } [36mfrom[39m [32m"@/components/sections/MerchSection"[39m[33m;[39m[0m
+
+Import map: aliased to relative './src/components/sections/HeroSection' inside of [project]/apps/web
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./apps/web/src/app/page.tsx:2:1
+Module not found: Can't resolve '@/components/sections/HeroSection'
+[0m [90m 1 |[39m [36mimport[39m { [33mLoaderSection[39m } [36mfrom[39m [32m"@/components/sections/LoaderSection"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mHeroSection[39m } [36mfrom[39m [32m"@/components/sections/HeroSection"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m { [33mArtistsSection[39m } [36mfrom[39m [32m"@/components/sections/ArtistsSection"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m { [33mMusicSection[39m } [36mfrom[39m [32m"@/components/sections/MusicSection"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { [33mMerchSection[39m } [36mfrom[39m [32m"@/components/sections/MerchSection"[39m[33m;[39m[0m
+
+Import map: aliased to relative './src/components/sections/HeroSection' inside of [project]/apps/web
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./apps/web/src/app/page.tsx:2:1
+Module not found: Can't resolve '@/components/sections/HeroSection'
+[0m [90m 1 |[39m [36mimport[39m { [33mLoaderSection[39m } [36mfrom[39m [32m"@/components/sections/LoaderSection"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mHeroSection[39m } [36mfrom[39m [32m"@/components/sections/HeroSection"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m { [33mArtistsSection[39m } [36mfrom[39m [32m"@/components/sections/ArtistsSection"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m { [33mMusicSection[39m } [36mfrom[39m [32m"@/components/sections/MusicSection"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { [33mMerchSection[39m } [36mfrom[39m [32m"@/components/sections/MerchSection"[39m[33m;[39m[0m
+
+Import map: aliased to relative './src/components/sections/HeroSection' inside of [project]/apps/web
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./apps/web/src/app/page.tsx:2:1
+Module not found: Can't resolve '@/components/sections/HeroSection'
+[0m [90m 1 |[39m [36mimport[39m { [33mLoaderSection[39m } [36mfrom[39m [32m"@/components/sections/LoaderSection"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mHeroSection[39m } [36mfrom[39m [32m"@/components/sections/HeroSection"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m { [33mArtistsSection[39m } [36mfrom[39m [32m"@/components/sections/ArtistsSection"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m { [33mMusicSection[39m } [36mfrom[39m [32m"@/components/sections/MusicSection"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { [33mMerchSection[39m } [36mfrom[39m [32m"@/components/sections/MerchSection"[39m[33m;[39m[0m
+
+Import map: aliased to relative './src/components/sections/HeroSection' inside of [project]/apps/web
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./apps/web/src/app/page.tsx:2:1
+Module not found: Can't resolve '@/components/sections/HeroSection'
+[0m [90m 1 |[39m [36mimport[39m { [33mLoaderSection[39m } [36mfrom[39m [32m"@/components/sections/LoaderSection"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mHeroSection[39m } [36mfrom[39m [32m"@/components/sections/HeroSection"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m { [33mArtistsSection[39m } [36mfrom[39m [32m"@/components/sections/ArtistsSection"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m { [33mMusicSection[39m } [36mfrom[39m [32m"@/components/sections/MusicSection"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { [33mMerchSection[39m } [36mfrom[39m [32m"@/components/sections/MerchSection"[39m[33m;[39m[0m
+
+Import map: aliased to relative './src/components/sections/HeroSection' inside of [project]/apps/web
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 200 in 511ms (compile: 327ms, render: 183ms)
+ ✓ Compiled in 230ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 46ms
+ GET / 200 in 477ms (compile: 201ms, render: 276ms)
+ GET / 200 in 135ms (compile: 10ms, render: 126ms)
+ GET / 200 in 122ms (compile: 9ms, render: 113ms)
+ GET / 200 in 232ms (compile: 9ms, render: 222ms)
+ GET / 200 in 137ms (compile: 10ms, render: 127ms)

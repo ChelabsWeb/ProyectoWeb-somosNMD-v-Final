@@ -12,6 +12,8 @@ Project Web NMD is an immersive Next.js 16 landing experience for a 12-member ar
 ## Proposed Solution
 Project Web NMD delivers a cinematic, scroll-driven landing page built on Next.js 16 with GSAP timelines and Three.js accents to merge art, music, and tech into one cohesive narrative. The experience opens with a Three.js-rendered 3D logo loader that seamlessly fades into a hero scene featuring the group portrait and a GTA VI–style scroll-mask reveal of the SVG logo. Horizontal scrolling galleries spotlight each of the 12 artists with GSAP-powered parallax, interactive particles, and quick profile reveals (bio, socials, related projects). Music sections elevate the debut album “Junta” and subsequent releases via animated cards that preview audio snippets, show tracklists, and deep-link to Spotify, while the “Midnight Is Close” teaser uses large animated typography and motion distortion to build hype for upcoming drops. Shadcn UI and Tailwind provide consistent, modern UI primitives, and Vercel handles deployment with Codex CI/CD so releases stay fast and reliable.
 
+As the collective matures, the roadmap now includes a merch shop module tightly integrated with the cinematic journey. Featured products will surface alongside hero and teaser beats, and a connected storefront will allow fans to browse, add to cart, and check out through a headless commerce provider without leaving the immersive experience.
+
 ## Target Users
 ### Primary User Segment: Fans & Culture Enthusiasts
 - Music lovers (18-34) who follow digital-first collectives, enjoy cinematic experiences, and actively discover new artists across streaming platforms.

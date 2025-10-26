@@ -55,6 +55,7 @@ apps/web/
 
 packages/ui/              # Theme tokens + re-exported components
 packages/animation/       # GSAP/Three helpers + Zustand stores
+packages/commerce/        # Commerce SDK wrappers + queries
 packages/config/          # ESLint, Tailwind, TS configs
 ```
 
@@ -63,15 +64,18 @@ packages/config/          # ESLint, Tailwind, TS configs
 - **Presentation vs. orchestration:** Client components handle GSAP timelines/audio; server components fetch content (e.g., artist metadata MDX).
 - **Shared primitives:** Buttons, chips, nav markers, overlays derived from Shadcn and themed via tokens in `packages/ui`.
 - **Data flow:** Server components stream data into props; client components subscribe to Zustand stores for playback state, motion toggles, or analytics events.
+- **Commerce surfaces:** Merch sections use server components for product queries and client cart store for interactions; checkout handoff uses provider SDK wrappers in packages/commerce.
 - **Accessibility hooks:** `useReducedMotionPreference`, `useFocusVisible` ensure cinematic effects always respect user settings.
 
 ## State Management
 ### State Directory Structure
 ```plaintext
 packages/animation/src/state/
-├── audio-store.ts        # Current track, status, volume
-├── motion-store.ts       # Reduced-motion flag, parallax toggles
-└── teaser-store.ts       # Countdown/notify modal state
+    audio-store.ts        # Current track, status, volume
+    motion-store.ts       # Reduced-motion flag, parallax toggles
+    teaser-store.ts       # Countdown/notify modal state
+packages/commerce/src/state/
+    cart-store.ts         # Line items, subtotal, checkout URL
 ```
 
 ### State Management Template
@@ -90,6 +94,56 @@ export const useAudioStore = create<AudioState>((set) => ({
   status: 'idle',
   play: (id) => set({ trackId: id, status: 'playing' }),
   stop: () => set({ trackId: null, status: 'idle' }),
+));
+```
+
+```ts
+type CartState = {
+  items: Array<{ id: string; title: string; price: number; quantity: number; imageUrl: string; variantId?: string }>;
+  subtotal: number;
+  checkoutUrl: string | null;
+  addItem: (item: CartState['items'][number]) => void;
+  removeItem: (id: string) => void;
+  setQuantity: (id: string, quantity: number) => void;
+  setCheckoutUrl: (url: string) => void;
+  reset: () => void;
+};
+
+export const useCartStore = create<CartState>((set) => ({
+  items: [],
+  subtotal: 0,
+  checkoutUrl: null,
+  addItem: (item) => set((state) => {
+    const existing = state.items.find((entry) => entry.id === item.id);
+    if (existing) {
+      return {
+        items: state.items.map((entry) =>
+          entry.id === item.id ? { ...entry, quantity: entry.quantity + item.quantity } : entry
+        ),
+        subtotal: state.subtotal + item.price * item.quantity,
+      };
+    }
+    return {
+      items: [...state.items, item],
+      subtotal: state.subtotal + item.price * item.quantity,
+    };
+  }),
+  removeItem: (id) => set((state) => ({
+    items: state.items.filter((entry) => entry.id !== id),
+    subtotal: state.items
+      .filter((entry) => entry.id !== id)
+      .reduce((total, entry) => total + entry.price * entry.quantity, 0),
+  })),
+  setQuantity: (id, quantity) => set((state) => ({
+    items: state.items.map((entry) =>
+      entry.id === id ? { ...entry, quantity } : entry
+    ),
+    subtotal: state.items
+      .map((entry) => (entry.id === id ? { ...entry, quantity } : entry))
+      .reduce((total, entry) => total + entry.price * entry.quantity, 0),
+  })),
+  setCheckoutUrl: (url) => set({ checkoutUrl: url }),
+  reset: () => set({ items: [], subtotal: 0, checkoutUrl: null }),
 }));
 ```
 
@@ -112,6 +166,27 @@ export async function submitContact(payload: ContactPayload): Promise<ContactRes
   }
 
   return res.json();
+}
+```
+
+### Commerce Client Template
+```ts
+import { getCommerceClient } from '@nmd/commerce/client';
+import { CommerceCart } from '@nmd/commerce/types';
+
+export async function fetchFeaturedMerch(): Promise<CommerceCart['items']> {
+  const client = getCommerceClient();
+  const { data } = await client.collections.fetchByHandle('featured');
+  return data?.products ?? [];
+}
+
+export async function startCheckout(lineItems: CommerceCart['items']): Promise<string> {
+  const client = getCommerceClient();
+  const { data } = await client.checkout.create({ lineItems });
+  if (!data?.checkoutUrl) {
+    throw new Error('Checkout URL missing');
+  }
+  return data.checkoutUrl;
 }
 ```
 
@@ -208,6 +283,7 @@ describe('AudioPreview', () => {
 4. **Coverage Goals**: Aim for 80% code coverage  
 5. **Test Structure**: Arrange-Act-Assert pattern  
 6. **Mock External Dependencies**: API calls, routing, state management
+7. **Commerce Checkout**: Use provider sandbox APIs and MSW handlers to simulate cart mutations and checkout redirects.
 
 ## Environment Configuration
 ```dotenv
@@ -218,12 +294,16 @@ NEXT_PUBLIC_CONTACT_RATE_LIMIT=5
 SUPABASE_URL=https://xyz.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=env-managed
 POSTHOG_API_KEY=server-key
+SHOPIFY_STORE_DOMAIN=nmd-shop.myshopify.com
+SHOPIFY_STOREFRONT_TOKEN=env-managed
+SHOPIFY_API_VERSION=2024-04
 ```
 Use Vercel env editor for production values; never commit `.env.local`.
 
 ## Frontend Developer Standards
 ### Critical Coding Rules
-- Client components must check `useReducedMotion()` before running motion-intense timelines.
+- Client components must check useReducedMotion() before running motion-intense timelines.
+- Commerce requests go through @nmd/commerce utilities; never call provider SDKs directly in components.
 - Never call `gsap.to` directly inside server components; wrap in client-only hooks located in `packages/animation`.
 - All analytics events go through `useAnalytics().track()` to ensure PostHog schema consistency.
 - Form components must use React Hook Form + Zod resolver for validation parity with backend.
@@ -252,3 +332,4 @@ Patterns:
 - Client sections compose Shadcn primitives + animation hooks
 - Shared tokens live in `packages/ui/theme.ts`
 ```
+

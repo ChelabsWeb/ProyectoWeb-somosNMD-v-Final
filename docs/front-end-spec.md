@@ -45,10 +45,13 @@ graph TD
     F --> F1[Contact Modal/Section]
     E --> G["Notify Me" / Spotify CTA]
     B --> H[Global Footer (Social Links)]
+    B --> I[Merch Shop]
+    I --> I1[Product Detail Overlay]
+    I --> I2[Cart Drawer / Checkout Handoff]
 ```
 
 ### Navigation Structure
-**Primary Navigation:** Minimal anchor-based nav surfaced as floating markers (Artists · Music · Release · Contact) plus persistent CTA button (“Listen / Spotify”). On desktop, markers sit along the right edge; on mobile they collapse into a pill that expands on tap.
+**Primary Navigation:** Minimal anchor-based nav surfaced as floating markers (Artists -> Music -> Merch -> Release -> Contact) plus persistent CTA button (“Listen / Spotify”). On desktop, markers sit along the right edge; on mobile they collapse into a pill that expands on tap.
 
 **Secondary Navigation:** Within sections, horizontal gallery scrubber dots, artist overlay tabs (Bio · Projects · Socials), and inline “Next Section” chevrons guiding continuous scroll.
 
@@ -187,6 +190,33 @@ graph TD
 
 **Notes:** Consider optional countdown timer; ensure text contrast stays AA+ even with distortion.
 
+### Merch Browsing & Checkout Flow
+**User Goal:** Explore merch drops, inspect details, and purchase without leaving the cinematic journey.
+
+**Entry Points:** Hero merch teaser, dedicated Merch navigation marker, or inline calls-to-action within artist overlays.
+
+**Success Criteria:** User views at least one product detail, adds to cart, and reaches provider-hosted checkout (or completes purchase) with minimal friction.
+
+#### Flow Diagram
+`mermaid
+graph TD
+    M0[Merch Teaser CTA] --> M1[Merch Section Scroll]
+    M1 --> M2[Select Product]
+    M2 --> M3[Product Detail Overlay]
+    M3 --> M4[Add to Cart]
+    M4 --> M5[Cart Drawer Review]
+    M5 --> M6{Checkout Path}
+    M6 -- Hosted Checkout --> M7[Commerce Provider]
+    M6 -- Save for Later --> M8[Close Drawer / Continue Browsing]
+`
+
+#### Edge Cases & Error Handling
+- Inventory sold out -> show "Out of stock" badge and disable CTA.
+- Checkout failure from provider -> display toast with retry + support link.
+- User closes overlay with active cart -> persist cart badge state and analytics event.
+
+**Notes:** Cart badge should surface in primary nav; track merch funnel events (view -> add -> checkout) and coordinate styling with performance budgets.
+
 ## Wireframes & Mockups
 
 **Primary Design Files:** Figma – Project Web NMD / UX Concepts (to be shared via `/figma/project-web-nmd`).
@@ -293,6 +323,24 @@ graph TD
 
 **Usage Guidelines:** Maintain 48px min height; pair with icon when linking externally; add trailing arrow for scroll actions.
 
+#### Merch Product Card
+**Purpose:** Showcase apparel/collectible items with imagery, price, and quick add-to-cart.
+
+**Variants:** Feature (large hero tile), standard grid card, low-inventory (badge).
+
+**States:** Idle, hover (parallax zoom), selected (open detail overlay), sold out (disabled).
+
+**Usage Guidelines:** Reuse media optimization pipeline outputs; ensure price and size availability are readable over hover effects; include `aria-describedby` for accessibility.
+
+#### Cart Drawer
+**Purpose:** Provide persistent summary of selected items and entry point to checkout.
+
+**Variants:** Desktop drawer (right-side), mobile full-height sheet.
+
+**States:** Closed, open (with focus trap), loading (when syncing), error toast.
+
+**Usage Guidelines:** Trigger from nav icon; maintain keyboard focus within drawer; show subtotal, taxes/fees estimate, and checkout CTA that launches provider-hosted flow.
+
 ## Branding & Style Guide
 
 ### Visual Identity
@@ -347,11 +395,13 @@ graph TD
 - Keyboard navigation: Support tab order through nav markers, gallery cards, overlays, forms; provide skip-to-content link.
 - Screen reader support: Announce section titles as they enter viewport; describe animations succinctly.
 - Touch targets: Minimum 44x44px; keep horizontal gallery handles reachable with thumb zones.
+- Cart drawer: Trap focus while open, announce item count updates, and expose checkout CTA as a proper button element.
 
 **Content:**
 - Alternative text: Detailed descriptions for hero portrait, album art, artist imagery.
 - Heading structure: H1 for hero, sequential H2/H3 for sections to aid assistive tech.
 - Form labels: Persistent labels + helper text; error messaging ties to inputs via `aria-describedby`.
+- Pricing & merch: Include currency in accessible text (`aria-label`, visually), and mark limited inventory badges with textual equivalents.
 
 ### Testing Strategy
 Manual audits with VoiceOver/NVDA, axe DevTools, and Playwright accessibility scans per milestone. Include reduced-motion and high-contrast simulations in regression checklist.
@@ -367,10 +417,10 @@ Manual audits with VoiceOver/NVDA, axe DevTools, and Playwright accessibility sc
 | Wide | 1440px | - | Large monitors, cinematic displays |
 
 ### Adaptation Patterns
-**Layout Changes:** Stack sections vertically on mobile with condensed paddings; convert horizontal gallery to swipeable carousel; maintain 16:9 hero but crop with focus area.  
+**Layout Changes:** Stack sections vertically on mobile with condensed paddings; convert horizontal gallery to swipeable carousel; maintain 16:9 hero but crop with focus area; merch grid drops to 2-column cards with horizontal scroll overflow.  
 **Navigation Changes:** Floating nav markers collapse into a single “Menu” pill on mobile; contact CTA docks at bottom-right as FAB.  
-**Content Priority:** Surface CTA + key stats higher on mobile; defer secondary copy into accordions; keep audio previews optional to save data.  
-**Interaction Changes:** Replace hover cues with tap states; provide swipe hints for galleries; reduce motion intensity by ~40% on tablet/mobile to conserve battery.
+**Content Priority:** Surface CTA + key stats higher on mobile; defer secondary copy into accordions; keep audio previews optional to save data; highlight featured merch tile ahead of full catalog.  
+**Interaction Changes:** Replace hover cues with tap states; provide swipe hints for galleries; reduce motion intensity by ~40% on tablet/mobile to conserve battery; add cart drawer swipe-down gesture on mobile.
 
 ## Animation & Micro-interactions
 
@@ -414,3 +464,6 @@ Leverage Next.js image optimization and video-atlas sprites for particles; lazy-
 
 ## Checklist Results
 UI/UX checklist pending (run after stakeholder review of full spec).
+
+
+
