@@ -3,8 +3,9 @@
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, type FC, type ReactNode } from "react";
+import { useEffect, useState, type FC, type ReactNode } from "react";
 import { CustomCursor } from "@/components/system/CustomCursor";
+import { LenisProvider } from "@/context/LenisContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,6 +18,7 @@ type PageShellProps = {
  * Adds background gradient and nav spacing.
  */
 export const PageShell: FC<PageShellProps> = ({ children }) => {
+  const [lenis, setLenis] = useState<Lenis | null>(null);
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
@@ -26,18 +28,20 @@ export const PageShell: FC<PageShellProps> = ({ children }) => {
       return;
     }
 
-    const lenis = new Lenis({
+    const lenisInstance = new Lenis({
       // Slightly lower lerp and longer duration create a softer easing curve.
       lerp: 0.075,
       duration: 1.1,
       smoothWheel: true,
     });
 
+    setLenis(lenisInstance);
+
     let animationFrameId: number;
     let currentScroll = 0;
 
     const raf = (time: number) => {
-      lenis.raf(time);
+      lenisInstance.raf(time);
       animationFrameId = requestAnimationFrame(raf);
     };
 
@@ -48,12 +52,12 @@ export const PageShell: FC<PageShellProps> = ({ children }) => {
       ScrollTrigger.update();
     };
 
-    lenis.on("scroll", handleLenisScroll);
+    lenisInstance.on("scroll", handleLenisScroll);
 
     ScrollTrigger.scrollerProxy(document.body, {
       scrollTop(value) {
         if (typeof value === "number") {
-          lenis.scrollTo(value, { immediate: true });
+          lenisInstance.scrollTo(value, { immediate: true });
         }
         return currentScroll;
       },
@@ -69,7 +73,7 @@ export const PageShell: FC<PageShellProps> = ({ children }) => {
     });
 
     const handleRefresh = () => {
-      lenis.resize();
+      lenisInstance.resize();
     };
 
     ScrollTrigger.addEventListener("refresh", handleRefresh);
@@ -77,10 +81,10 @@ export const PageShell: FC<PageShellProps> = ({ children }) => {
 
     const handleMotionPreferenceChange = (event: MediaQueryListEvent) => {
       if (event.matches) {
-        lenis.stop();
+        lenisInstance.stop();
         cancelAnimationFrame(animationFrameId);
       } else {
-        lenis.start();
+        lenisInstance.start();
         animationFrameId = requestAnimationFrame(raf);
       }
     };
@@ -89,7 +93,7 @@ export const PageShell: FC<PageShellProps> = ({ children }) => {
 
     return () => {
       cancelAnimationFrame(animationFrameId);
-      lenis.off("scroll", handleLenisScroll);
+      lenisInstance.off("scroll", handleLenisScroll);
       prefersReducedMotion.removeEventListener(
         "change",
         handleMotionPreferenceChange,
@@ -112,14 +116,17 @@ export const PageShell: FC<PageShellProps> = ({ children }) => {
         },
         pinType: "fixed",
       });
-      lenis.destroy();
+      lenisInstance.destroy();
+      setLenis(null);
     };
   }, []);
 
   return (
-    <div className="relative min-h-screen w-full overflow-x-hidden bg-neutral-950 text-neutral-50">
-      {children}
-      <CustomCursor />
-    </div>
+    <LenisProvider value={lenis}>
+      <div className="relative min-h-screen w-full overflow-x-hidden bg-neutral-950 text-neutral-50">
+        {children}
+        <CustomCursor />
+      </div>
+    </LenisProvider>
   );
 };

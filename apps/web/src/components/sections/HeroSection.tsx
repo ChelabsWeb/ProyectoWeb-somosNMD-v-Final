@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useLayoutEffect, useRef, type FC, type RefObject, useCallback } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLenis } from "@/context/LenisContext";
 import { useReducedMotionPreference } from "@nmd/animation";
 import { trackEvent } from "../../lib/analytics";
 
@@ -28,6 +29,8 @@ export const HeroSection: FC = () => {
   const heroImageRef = useRef<HTMLDivElement | null>(null);
   const overlayRectRef = useRef<SVGRectElement | null>(null);
   const logoGroupRef = useRef<SVGGElement | null>(null);
+  const fadeOutRef = useRef<HTMLDivElement | null>(null);
+  const lenis = useLenis();
   const hasTrackedCompletionRef = useRef(false);
   const prefersReducedMotion = useReducedMotionPreference();
 
@@ -36,8 +39,9 @@ export const HeroSection: FC = () => {
     const heroImage = heroImageRef.current;
     const overlayRect = overlayRectRef.current;
     const logoGroup = logoGroupRef.current;
+    const fadeOut = fadeOutRef.current;
 
-    if (!section || !heroImage || !overlayRect || !logoGroup) return;
+    if (!section || !heroImage || !overlayRect || !logoGroup || !fadeOut) return;
 
     if (prefersReducedMotion) {
       gsap.set(heroImage, { scale: 1 });
@@ -60,7 +64,7 @@ export const HeroSection: FC = () => {
       });
 
       const timeline = gsap.timeline({
-        defaults: { ease: "power3.out" },
+        defaults: { ease: "power2.inOut" },
         scrollTrigger: {
           trigger: section,
           start: "top top",
@@ -80,7 +84,7 @@ export const HeroSection: FC = () => {
       // Imagen del hero (leve zoom-out)
       timeline.to(
         heroImage,
-        { scale: 0.85, transformOrigin: "50% 50%", duration: 0.5 },
+        { scale: 0.85, transformOrigin: "50% 50%", duration: 0.5, ease: "power2.inOut" },
         1.0
       );
 
@@ -88,12 +92,12 @@ export const HeroSection: FC = () => {
       timeline.fromTo(
         logoGroup,
         { scale: INITIAL_LOGO_SCALE, y: INITIAL_LOGO_Y_OFFSET },
-        { scale: FINAL_LOGO_SCALE, y: FINAL_LOGO_Y_OFFSET, duration: 1.2 },
+        { scale: FINAL_LOGO_SCALE, y: FINAL_LOGO_Y_OFFSET, duration: 1.2, ease: "expo.inOut" },
         0
       );
 
       // Suaviza la transición final a negro
-      timeline.to({}, { duration: 0.35 });
+      timeline.to(fadeOut, { autoAlpha: 1, duration: 0.5 }, "-=0.5");
     });
 
     return () => ctx.revert();
@@ -102,14 +106,16 @@ export const HeroSection: FC = () => {
   const handleScrollTo = useCallback(
     (id: string) => {
       const el = document.getElementById(id);
-      if (!el) return;
+      if (!el || !lenis) return;
+
+      const distance = Math.abs(el.offsetTop - lenis.scroll);
+      const velocity = 1500; // pixels per second
+      const duration = distance / velocity;
+
       trackEvent("hero_cta_click", { target: id });
-      el.scrollIntoView({
-        behavior: prefersReducedMotion ? "auto" : "smooth",
-        block: "start",
-      });
+      lenis.scrollTo(el, { duration: duration, easing: (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2) });
     },
-    [prefersReducedMotion],
+    [lenis, prefersReducedMotion],
   );
 
   return (
@@ -122,6 +128,8 @@ export const HeroSection: FC = () => {
         />
 
         <MaskOverlay overlayRectRef={overlayRectRef} logoGroupRef={logoGroupRef} />
+
+        <div ref={fadeOutRef} className="absolute inset-0 bg-black opacity-0" />
 
         <div className="relative z-10 flex min-h-screen flex-col justify-end gap-6 px-6 py-16 text-neutral-50 md:px-12">
           <div className="pointer-events-none absolute left-6 top-6 z-20 md:left-12 md:top-10">
