@@ -7,11 +7,21 @@
   "scripts": {
     "build": "echo \"@nmd/ui build placeholder\"",
     "dev": "pnpm build",
-    "lint": "echo \"@nmd/ui lint placeholder\"",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "test": "echo \"@nmd/ui test placeholder\""
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.1.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.5.2"
   },
   "peerDependencies": {
     "react": "^18 || ^19",
     "react-dom": "^18 || ^19"
+  },
+  "devDependencies": {
+    "eslint": "^9.14.0",
+    "@nmd/config": "workspace:*"
   }
 }

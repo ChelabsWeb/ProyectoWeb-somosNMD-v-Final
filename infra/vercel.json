@@ -1,0 +1,24 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
+  "builds": [
+    {
+      "src": "apps/web/package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "installCommand": "pnpm install --frozen-lockfile",
+  "buildCommand": "pnpm turbo run lint test && pnpm --filter web build",
+  "outputDirectory": "apps/web/.next",
+  "framework": "nextjs",
+  "git": {
+    "deploymentEnabled": {
+      "preview": true,
+      "production": true
+    }
+  },
+  "env": {
+    "NEXT_TELEMETRY_DISABLED": "1"
+  }
+}
+

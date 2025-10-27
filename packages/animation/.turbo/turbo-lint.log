@@ -1,5 +1,4 @@
 
-> @nmd/animation@0.0.0 lint C:\Users\lucci\OneDrive\Desktop\ProyectoWeb-somosNMD-v-Final\packages\animation
-> echo "@nmd/animation lint placeholder"
+> @nmd/animation@0.0.0 lint C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\packages\animation
+> eslint "src/**/*.{ts,tsx}"
 
-"@nmd/animation lint placeholder"

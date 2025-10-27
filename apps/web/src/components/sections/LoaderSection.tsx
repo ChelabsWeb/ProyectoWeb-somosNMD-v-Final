@@ -17,7 +17,6 @@ export const LoaderSection: FC = () => {
   const logoRef = useRef<HTMLDivElement | null>(null);
   const containerRef = useRef<HTMLElement | null>(null);
   const prefersReducedMotion = useReducedMotionPreference();
-  const [progress, setProgress] = useState(0);
   const [isBlockingScroll, setIsBlockingScroll] = useState(true);
   const animationStartRef = useRef<number>(0);
   const scrollRestorationRef =
@@ -78,7 +77,6 @@ export const LoaderSection: FC = () => {
     }
 
     const originalOverflow = document.body.style.overflow;
-    let raf: number | null = null;
     let fallbackTimeout: number | null = null;
     let finishTimeout: number | null = null;
     let loaderDone = false;
@@ -90,11 +88,6 @@ export const LoaderSection: FC = () => {
         return;
       }
       loaderDone = true;
-      if (raf) {
-        cancelAnimationFrame(raf);
-        raf = null;
-      }
-      setProgress(100);
       window.scrollTo({ top: 0, left: 0, behavior: "auto" });
       gsap.to(section, {
         autoAlpha: 0,
@@ -118,21 +111,6 @@ export const LoaderSection: FC = () => {
       finishTimeout = window.setTimeout(finalize, remaining);
     };
 
-    const step = (timestamp: number) => {
-      if (loaderDone) {
-        return;
-      }
-      const elapsed = timestamp - animationStartRef.current;
-      const nextValue = Math.min(
-        100,
-        Math.floor((elapsed / duration) * 100),
-      );
-      setProgress((prev) => (nextValue > prev ? nextValue : prev));
-      if (!loaderDone && nextValue < 100) {
-        raf = requestAnimationFrame(step);
-      }
-    };
-
     const showLoader = (reason: "init" | "restore" = "init") => {
       animationStartRef.current = performance.now();
       loaderDone = false;
@@ -141,15 +119,7 @@ export const LoaderSection: FC = () => {
       gsap.set(section, { autoAlpha: 1 });
       document.body.style.overflow = "hidden";
 
-      requestAnimationFrame(() => {
-        setIsBlockingScroll(true);
-        setProgress(0);
-      });
-
-      if (raf) {
-        cancelAnimationFrame(raf);
-      }
-      raf = requestAnimationFrame(step);
+      setIsBlockingScroll(true);
 
       if (fallbackTimeout) {
         window.clearTimeout(fallbackTimeout);
@@ -175,9 +145,6 @@ export const LoaderSection: FC = () => {
     fallbackTimeout = window.setTimeout(scheduleFinalize, FALLBACK_TIMEOUT_MS);
 
     return () => {
-      if (raf) {
-        cancelAnimationFrame(raf);
-      }
       if (fallbackTimeout) {
         clearTimeout(fallbackTimeout);
       }
@@ -207,9 +174,6 @@ export const LoaderSection: FC = () => {
       className="fixed inset-0 z-50 flex min-h-screen flex-col items-center justify-center bg-neutral-950 text-neutral-100"
       style={{ pointerEvents: isBlockingScroll ? "auto" : "none" }}
     >
-      <p className="text-xs uppercase tracking-[0.4em] text-neutral-400">
-        Loading NMD Universe
-      </p>
       <div
         ref={logoRef}
         className="mt-6 flex h-24 w-24 items-center justify-center"
@@ -223,17 +187,7 @@ export const LoaderSection: FC = () => {
           className="brightness-0 invert"
         />
       </div>
-      <div className="mt-10 flex w-48 flex-col items-center gap-3">
-        <div className="h-1.5 w-full overflow-hidden rounded-full bg-neutral-800">
-          <div
-            className="h-full rounded-full bg-white transition-[width] duration-200"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
-        <p className="text-[10px] tracking-[0.45em] text-neutral-500">
-          {progress.toString().padStart(3, "0")}%
-        </p>
-      </div>
     </section>
   );
 };
+

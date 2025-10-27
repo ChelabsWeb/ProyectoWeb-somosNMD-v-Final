@@ -1,4 +1,4 @@
 
-> web@0.1.0 lint C:\Users\lucci\OneDrive\Desktop\ProyectoWeb-somosNMD-v-Final\apps\web
+> web@0.1.0 lint C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\apps\web
 > eslint "src/**/*.{ts,tsx,js,jsx}"
 

@@ -1,0 +1,10 @@
+node_modules
+.turbo
+apps/web/.next
+**/dist
+**/build
+pnpm-lock.yaml
+.bmad-core
+docs
+web-bundles
+apps/web/public/assets

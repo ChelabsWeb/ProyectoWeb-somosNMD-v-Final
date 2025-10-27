@@ -1,14 +1,15 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { useEffect, useRef, type FC } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useReducedMotionPreference } from "@nmd/animation";
-
-const HERO_IMAGE_SRC = "/assets/hero/nmdfinal-25.jpg";
+import { trackEvent } from "@/lib/analytics";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const HERO_IMAGE_SRC = "/assets/hero/nmdfinal-25.jpg";
 
 export const HeroSection: FC = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -47,6 +48,7 @@ export const HeroSection: FC = () => {
     if (!el) {
       return;
     }
+    trackEvent("hero_cta_click", { target: id });
     el.scrollIntoView({
       behavior: prefersReducedMotion ? "auto" : "smooth",
       block: "start",
@@ -60,7 +62,7 @@ export const HeroSection: FC = () => {
       aria-label="Hero scene"
       className="relative flex min-h-screen flex-col justify-end gap-6 overflow-hidden px-6 py-16 text-neutral-50 md:px-12"
     >
-      <div className="pointer-events-none absolute left-6 top-6 z-20 md:left-12 md:top-10">
+      <div className="pointer-events-none absolute left-6 top-6 z-30 md:left-12 md:top-10">
         <Image
           src="/assets/logo/logoNMD.svg"
           alt="Project Web NMD logo"
@@ -81,13 +83,13 @@ export const HeroSection: FC = () => {
         />
         <div
           ref={overlayRef}
-          className="absolute inset-0 bg-neutral-950/85"
+          className="absolute inset-0 bg-neutral-950/75"
           aria-hidden
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/55 to-transparent" />
       </div>
 
-      <div className="relative z-10 flex w-full justify-start px-6 py-16 md:px-12">
+      <div className="relative z-20 flex w-full justify-start px-6 py-16 md:px-12">
         <div
           className="flex flex-col items-start gap-4 text-left"
           style={{
@@ -120,4 +122,4 @@ export const HeroSection: FC = () => {
       </div>
     </section>
   );
-}
+};

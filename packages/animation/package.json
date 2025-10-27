@@ -7,10 +7,14 @@
   "scripts": {
     "build": "echo \"@nmd/animation build placeholder\"",
     "dev": "pnpm build",
-    "lint": "echo \"@nmd/animation lint placeholder\"",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "test": "echo \"@nmd/animation test placeholder\""
   },
   "peerDependencies": {
     "react": "^18 || ^19"
+  },
+  "devDependencies": {
+    "eslint": "^9.14.0",
+    "@nmd/config": "workspace:*"
   }
 }

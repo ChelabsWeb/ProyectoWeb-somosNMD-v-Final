@@ -18,4 +18,3 @@ export function markAppReady(options?: Options) {
 }
 
 export const appReadyEventName = APP_READY_EVENT;
-

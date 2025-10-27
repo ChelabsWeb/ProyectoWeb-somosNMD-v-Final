@@ -229,7 +229,7 @@ graph TD
 - Hero portrait with GTA VI–style mask reveal overlaid copy (“ENTER THE WORLD OF NMD”).
 - Floating nav markers + “Listen on Spotify” CTA.
 
-**Interaction Notes:** Loader eases to hero using GSAP timeline; nav markers fade/slide in after transition; hero responds to cursor tilt within ±6°.
+**Interaction Notes:** On scroll, the hero image zooms out. Simultaneously, a transparent SVG logo mask zooms in from fullscreen, revealing the hero image through its outline while the background fades to black. The animation is synchronized using GSAP ScrollTrigger and Lenis for smooth scrolling. The hero may also respond to cursor tilt within ±6°.
 
 **Design File Reference:** Figma Frame `Loader-Hero_v01`.
 
@@ -258,14 +258,14 @@ graph TD
 **Design File Reference:** Figma Frame `Music-Grid_v01`.
 
 ### Release Teaser Screen
-**Purpose:** Build anticipation for “Midnight Is Close” with bold typography and motion.
+**Purpose:** Build anticipation for “Midnight’s too close...” with an immersive typographic zoom and particle background.
 
 **Key Elements:**
-- Oversized wordmark with distortion shader.
-- Sub-headline describing drop window.
+- Central text: "Midnight’s too close...".
+- Fullscreen, dynamic particle background (e.g., using Vanta.js or tsparticles.js).
 - Two CTAs (“Notify me”, “Preview mood”).
 
-**Interaction Notes:** Typography wavers with GSAP noise function; CTA hover triggers chromatic aberration effect; reduced-motion uses static blur gradient.
+**Interaction Notes:** The text starts filling the screen and progressively shrinks on scroll (typographic zoom-out) until it fades before the next section. The animation is driven by GSAP. The particle background floats slowly and continuously.
 
 **Design File Reference:** Figma Frame `Teaser_v01`.
 

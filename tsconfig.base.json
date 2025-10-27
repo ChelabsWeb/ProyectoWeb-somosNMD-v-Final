@@ -14,6 +14,14 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
-    "types": ["node", "react", "react-dom"]
+    "types": ["node", "react", "react-dom", "vitest/globals"],
+    "baseUrl": ".",
+    "paths": {
+      "@nmd/animation": ["packages/animation/src"],
+      "@nmd/animation/*": ["packages/animation/src/*"],
+      "@nmd/ui": ["packages/ui/src"],
+      "@nmd/ui/*": ["packages/ui/src/*"],
+      "@nmd/config/*": ["packages/config/*"]
+    }
   }
 }

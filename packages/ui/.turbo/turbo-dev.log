@@ -1,9 +1,9 @@
 
-> @nmd/ui@0.0.0 dev C:\Users\lucci\OneDrive\Desktop\ProyectoWeb-somosNMD-v-Final\packages\ui
+> @nmd/ui@0.0.0 dev C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\packages\ui
 > pnpm build
 
 
-> @nmd/ui@0.0.0 build C:\Users\lucci\OneDrive\Desktop\ProyectoWeb-somosNMD-v-Final\packages\ui
+> @nmd/ui@0.0.0 build C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\packages\ui
 > echo "@nmd/ui build placeholder"
 
 "@nmd/ui build placeholder"

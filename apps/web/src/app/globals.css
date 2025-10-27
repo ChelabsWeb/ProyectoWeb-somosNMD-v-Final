@@ -1,4 +1,71 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 233 47% 4%;
+    --foreground: 230 43% 97%;
+    --muted: 230 25% 65%;
+    --muted-foreground: 230 25% 85%;
+    --card: 236 28% 11%;
+    --card-foreground: 230 43% 97%;
+    --popover: 235 27% 8%;
+    --popover-foreground: 230 43% 97%;
+    --border: 237 20% 19%;
+    --input: 237 20% 19%;
+    --primary: 337 83% 55%;
+    --primary-foreground: 233 47% 4%;
+    --secondary: 218 94% 55%;
+    --secondary-foreground: 230 43% 97%;
+    --accent: 44 89% 63%;
+    --accent-foreground: 233 47% 4%;
+    --ring: 337 83% 60%;
+    --radius: 24px;
+    --font-geist-sans: "Geist Variable", "Space Grotesk", system-ui, sans-serif;
+    --font-geist-mono: "Geist Mono Variable", "JetBrains Mono", monospace;
+    --color-bg: #05060e;
+    --color-surface-950: #080811;
+    --color-surface-900: #0f101a;
+    --color-surface-800: #151625;
+    --color-surface-700: #27283b;
+    --color-text: #f5f6fb;
+    --color-muted: rgba(245, 246, 251, 0.6);
+    --color-primary: #eb2c75;
+    --color-secondary: #1e6df8;
+    --color-accent: #f5c84c;
+    --shadow-neon: 0 0 32px rgba(235, 44, 117, 0.45);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background:
+      radial-gradient(circle at top, rgba(30, 109, 248, 0.2), transparent 45%),
+      radial-gradient(circle at 20% 60%, rgba(235, 44, 117, 0.18), transparent 55%),
+      hsl(var(--background));
+    font-family:
+      var(--font-geist-sans),
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  section {
+    scroll-margin-top: 6rem;
+  }
+}
 
 html {
   scrollbar-width: none;
@@ -73,46 +140,6 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-:root {
-  --color-bg: #05060e;
-  --color-surface-950: #080811;
-  --color-surface-900: #0f101a;
-  --color-surface-800: #151625;
-  --color-surface-700: #27283b;
-  --color-text: #f5f6fb;
-  --color-muted: rgba(245, 246, 251, 0.6);
-  --color-primary: #eb2c75;
-  --color-secondary: #1e6df8;
-  --color-accent: #f5c84c;
-  --shadow-neon: 0 0 32px rgba(235, 44, 117, 0.45);
-}
-
-@theme inline {
-  --color-background: var(--color-bg);
-  --color-foreground: var(--color-text);
-  --color-muted: var(--color-muted);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-body {
-  background: radial-gradient(circle at top, rgba(30, 109, 248, 0.2), transparent 45%),
-    radial-gradient(circle at 20% 60%, rgba(235, 44, 117, 0.18), transparent 55%),
-    var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-a {
-  color: inherit;
-}
-
-section {
-  scroll-margin-top: 6rem;
-}
-
 .hero-nav-link {
   position: relative;
   display: inline-flex;
@@ -129,7 +156,11 @@ section {
   content: "";
   position: absolute;
   inset: -0.35rem -0.85rem;
-  background: radial-gradient(120% 120% at 0% 50%, rgba(12, 12, 15, 0.52), rgba(5, 6, 14, 0) 70%);
+  background: radial-gradient(
+    120% 120% at 0% 50%,
+    rgba(12, 12, 15, 0.52),
+    rgba(5, 6, 14, 0) 70%
+  );
   opacity: 0;
   transform: translateX(-18%) scale(0.92);
   filter: blur(12px);
@@ -208,3 +239,110 @@ section {
     opacity: 0.5;
   }
 }
+
+.hero-image-layer {
+  will-change: transform;
+  overflow: hidden;
+}
+
+.hero-mask-layer {
+  will-change: transform, filter, opacity;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  mask-image: url("/assets/hero/logoNMD.svg");
+  -webkit-mask-image: url("/assets/hero/logoNMD.svg");
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  opacity: 0;
+  filter: blur(12px);
+}
+
+.hero-intro {
+  position: relative;
+  height: 140vh;
+  overflow: hidden;
+}
+
+.hero-intro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      circle at 20% 20%,
+      rgba(235, 44, 117, 0.25),
+      transparent 60%
+    ),
+    radial-gradient(circle at 80% 30%, rgba(30, 109, 248, 0.2), transparent 55%),
+    rgba(0, 0, 0, 0.92);
+  z-index: 0;
+}
+
+.hero-intro-mask {
+  position: relative;
+  z-index: 1;
+  width: min(65vmin, 520px);
+  height: min(65vmin, 520px);
+  background: url("/assets/hero/nmdfinal-25.jpg") center / cover no-repeat;
+  mask-image: url("/assets/hero/logoNMD.svg");
+  -webkit-mask-image: url("/assets/hero/logoNMD.svg");
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+  will-change: transform, filter, opacity;
+  opacity: 0.6;
+  filter: blur(14px);
+}
+
+.hero-intro-mask::before {
+  content: "";
+  position: absolute;
+  inset: -10%;
+  border-radius: inherit;
+  pointer-events: none;
+  background: conic-gradient(
+    from 0deg,
+    rgba(235, 44, 117, 0.45),
+    rgba(30, 109, 248, 0.45),
+    rgba(245, 200, 76, 0.45),
+    rgba(235, 44, 117, 0.45)
+  );
+  mask: radial-gradient(circle, rgba(0, 0, 0, 0) 65%, rgba(0, 0, 0, 1) 100%);
+  opacity: 0.55;
+  filter: blur(18px);
+}
+
+.hero-intro-mask::after {
+  content: "";
+  position: absolute;
+  inset: -6%;
+  border-radius: inherit;
+  pointer-events: none;
+  border: 2px solid rgba(245, 246, 251, 0.18);
+  box-shadow: 0 0 60px rgba(235, 44, 117, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-intro {
+    height: 100vh;
+  }
+
+  .hero-intro-mask {
+    transform: scale(1);
+    opacity: 1;
+    filter: none;
+  }
+
+  .hero-mask-layer {
+    opacity: 0;
+    filter: none;
+  }
+}
+

@@ -24,7 +24,7 @@ Project Web NMD is a monorepo-hosted, server-rendered web experience built on Ne
 1. **Architectural Style:** Modular monolith (Next.js app with serverless endpoints) optimized for immersive frontends; no separate backend services required initially.  
 2. **Repo Structure:** Monorepo using Turborepo/PNPM workspaces housing `apps/web`, shared component packages, and infrastructure scripts.  
 3. **Service Architecture:** Frontend-focused Next.js server handling SSR/ISR, API routes for form submissions + telemetry, and integrations with external services (Spotify deep links, Supabase).
-4. **Primary Flow:** User hits Vercel edge → Next.js streams loader/hero UI → GSAP/Three orchestrate client-side motion → audio previews served via CDN → contact submissions POST to Vercel Function → stored in Supabase and notified via webhook/email.
+4. **Primary Flow:** User hits Vercel edge → Next.js shows SVG logo stroke animation → streams hero UI → GSAP/Three orchestrate client-side motion → audio previews served via CDN → contact submissions POST to Vercel Function → stored in Supabase and notified via webhook/email.
 5. **Key Decisions:** Use App Router/RSC for performance, centralize motion helpers in shared package, rely on Vercel platform for hosting + analytics, keep data footprint light (Supabase for form data) while instrumenting custom events in PostHog for KPI tracking.
 6. **Commerce Extension:** Integrate a headless commerce provider (preferred: Shopify Storefront API; fallback Commerce Layer) via server-side SDK wrappers to expose merch catalog, cart, and checkout handoff without spinning up custom payment infrastructure.
 
@@ -65,7 +65,7 @@ graph TD
 | Framework | Next.js | 16.x (App Router) | Primary web framework (SSR/ISR, RSC) | Matches PRD, excellent for cinematic UX + streaming |
 | UI Library | Shadcn UI | 2024.05 snapshot | Accessible, composable component primitives | Rapid theming with Tailwind, matches UX spec |
 | Styling | Tailwind CSS | 3.4.x | Utility-first styling + theming tokens | Fast iteration for bespoke visuals |
-| Animation | GSAP / Three.js | GSAP 3.12.x, Three.js 0.164.x | Scroll/motion/3D engine | Meets FR1–FR5 animation requirements |
+| Animation | GSAP / Three.js / Lenis / tsparticles.js | GSAP 3.12.x, Three.js 0.164.x | Scroll/motion/3D engine & effects | Meets PRD animation requirements |
 | State/Data Layer | React Server Components + Zustand (optional) | RSC native, Zustand 4.x | Lightweight shared state for audio/teaser toggles | Avoids heavier global stores |
 | Commerce | Shopify Storefront API (preferred) / Commerce Layer | Latest stable | Headless merch catalog, cart, checkout APIs | Provides PCI-compliant payments without custom backend |
 | Bundler/Build | Turborepo + PNPM | Turborepo 1.12, PNPM 9 | Monorepo orchestration & package management | Speeds shared package builds (`ui`, `animation`) |
@@ -326,18 +326,23 @@ project-web-nmd/
 ├── apps/
 │   └── web/
 │       ├── app/                     # Next.js App Router routes
-│       │   ├── (sections)/          # Loader, hero, artists, music, teaser
 │       │   ├── api/
 │       │   │   ├── contact/route.ts # POST contact handler
 │       │   │   └── event/route.ts   # Custom analytics ingest
+│       │   ├── page.tsx
 │       │   └── layout.tsx
 │       ├── components/
+│       │   ├── loader.tsx           # Loader component
+│       │   ├── hero.tsx             # Hero component
+│       │   ├── midnight.tsx         # Midnight Teaser component
+│       │   ├── artists.tsx          # Artists Gallery component
+│       │   └── particles.tsx        # Shared particle effects
 │       ├── lib/
 │       │   ├── analytics/
 │       │   ├── validations/
 │       │   └── supabase.ts
 │       ├── styles/
-│       ├── public/                  # Fallback assets (static)
+│       ├── public/                  # assets (logo.svg, etc.)
 │       └── package.json
 ├── packages/
 │   ├── ui/                          # Shadcn component extensions + tokens
