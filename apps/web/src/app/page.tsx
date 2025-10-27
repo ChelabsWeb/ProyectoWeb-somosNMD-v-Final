@@ -1,5 +1,4 @@
 import { LoaderSection } from "@/components/sections/LoaderSection";
-import { HeroIntroSection } from "@/components/sections/HeroIntroSection";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ArtistsSection } from "@/components/sections/ArtistsSection";
 import { MusicSection } from "@/components/sections/MusicSection";
@@ -12,7 +11,6 @@ export default function Home() {
   return (
     <main className="flex flex-col">
       <LoaderSection />
-      <HeroIntroSection />
       <HeroSection />
       <ArtistsSection />
       <MusicSection />

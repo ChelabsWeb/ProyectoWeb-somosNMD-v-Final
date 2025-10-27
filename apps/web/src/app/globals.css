@@ -240,109 +240,53 @@ body::-webkit-scrollbar {
   }
 }
 
-.hero-image-layer {
-  will-change: transform;
-  overflow: hidden;
-}
-
-.hero-mask-layer {
-  will-change: transform, filter, opacity;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  mask-image: url("/assets/hero/logoNMD.svg");
-  -webkit-mask-image: url("/assets/hero/logoNMD.svg");
-  mask-repeat: no-repeat;
-  -webkit-mask-repeat: no-repeat;
-  mask-position: center;
-  -webkit-mask-position: center;
-  mask-size: contain;
-  -webkit-mask-size: contain;
-  opacity: 0;
-  filter: blur(12px);
-}
-
-.hero-intro {
+.hero-mask-section {
   position: relative;
-  height: 140vh;
+  height: 200vh;
+  background-color: #000;
+}
+
+.hero-mask-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
   overflow: hidden;
 }
 
-.hero-intro::before {
-  content: "";
+.hero-mask-image {
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-      circle at 20% 20%,
-      rgba(235, 44, 117, 0.25),
-      transparent 60%
-    ),
-    radial-gradient(circle at 80% 30%, rgba(30, 109, 248, 0.2), transparent 55%),
-    rgba(0, 0, 0, 0.92);
-  z-index: 0;
+  background-color: #000;
+  background-position: center;
+  background-size: cover;
+  will-change: transform;
+  transform-origin: 50% 50%;
 }
 
-.hero-intro-mask {
-  position: relative;
-  z-index: 1;
-  width: min(65vmin, 520px);
-  height: min(65vmin, 520px);
-  background: url("/assets/hero/nmdfinal-25.jpg") center / cover no-repeat;
-  mask-image: url("/assets/hero/logoNMD.svg");
-  -webkit-mask-image: url("/assets/hero/logoNMD.svg");
-  mask-size: contain;
-  -webkit-mask-size: contain;
-  mask-repeat: no-repeat;
-  -webkit-mask-repeat: no-repeat;
-  mask-position: center;
-  -webkit-mask-position: center;
-  will-change: transform, filter, opacity;
-  opacity: 0.6;
-  filter: blur(14px);
+.hero-mask-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
 }
 
-.hero-intro-mask::before {
-  content: "";
-  position: absolute;
-  inset: -10%;
-  border-radius: inherit;
-  pointer-events: none;
-  background: conic-gradient(
-    from 0deg,
-    rgba(235, 44, 117, 0.45),
-    rgba(30, 109, 248, 0.45),
-    rgba(245, 200, 76, 0.45),
-    rgba(235, 44, 117, 0.45)
-  );
-  mask: radial-gradient(circle, rgba(0, 0, 0, 0) 65%, rgba(0, 0, 0, 1) 100%);
-  opacity: 0.55;
-  filter: blur(18px);
+.hero-mask-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
-.hero-intro-mask::after {
-  content: "";
-  position: absolute;
-  inset: -6%;
-  border-radius: inherit;
-  pointer-events: none;
-  border: 2px solid rgba(245, 246, 251, 0.18);
-  box-shadow: 0 0 60px rgba(235, 44, 117, 0.35);
+.mask-rect {
+  will-change: opacity;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-intro {
+  .hero-mask-section {
+    height: auto;
+  }
+
+  .hero-mask-sticky {
+    position: relative;
     height: 100vh;
-  }
-
-  .hero-intro-mask {
-    transform: scale(1);
-    opacity: 1;
-    filter: none;
-  }
-
-  .hero-mask-layer {
-    opacity: 0;
-    filter: none;
   }
 }
 

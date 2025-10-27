@@ -1,8 +1,12 @@
 "use client";
 
 import Lenis from "lenis";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, type FC, type ReactNode } from "react";
 import { CustomCursor } from "@/components/system/CustomCursor";
+
+gsap.registerPlugin(ScrollTrigger);
 
 type PageShellProps = {
   children: ReactNode;
@@ -30,6 +34,7 @@ export const PageShell: FC<PageShellProps> = ({ children }) => {
     });
 
     let animationFrameId: number;
+    let currentScroll = 0;
 
     const raf = (time: number) => {
       lenis.raf(time);
@@ -37,6 +42,38 @@ export const PageShell: FC<PageShellProps> = ({ children }) => {
     };
 
     animationFrameId = requestAnimationFrame(raf);
+
+    const handleLenisScroll = ({ scroll }: { scroll: number }) => {
+      currentScroll = scroll;
+      ScrollTrigger.update();
+    };
+
+    lenis.on("scroll", handleLenisScroll);
+
+    ScrollTrigger.scrollerProxy(document.body, {
+      scrollTop(value) {
+        if (typeof value === "number") {
+          lenis.scrollTo(value, { immediate: true });
+        }
+        return currentScroll;
+      },
+      getBoundingClientRect() {
+        return {
+          top: 0,
+          left: 0,
+          width: window.innerWidth,
+          height: window.innerHeight,
+        };
+      },
+      pinType: document.body.style.transform ? "transform" : "fixed",
+    });
+
+    const handleRefresh = () => {
+      lenis.resize();
+    };
+
+    ScrollTrigger.addEventListener("refresh", handleRefresh);
+    ScrollTrigger.refresh();
 
     const handleMotionPreferenceChange = (event: MediaQueryListEvent) => {
       if (event.matches) {
@@ -52,10 +89,29 @@ export const PageShell: FC<PageShellProps> = ({ children }) => {
 
     return () => {
       cancelAnimationFrame(animationFrameId);
+      lenis.off("scroll", handleLenisScroll);
       prefersReducedMotion.removeEventListener(
         "change",
         handleMotionPreferenceChange,
       );
+      ScrollTrigger.removeEventListener("refresh", handleRefresh);
+      ScrollTrigger.scrollerProxy(document.body, {
+        scrollTop(value?: number) {
+          if (typeof value === "number") {
+            window.scrollTo(0, value);
+          }
+          return window.scrollY || window.pageYOffset;
+        },
+        getBoundingClientRect() {
+          return {
+            top: 0,
+            left: 0,
+            width: window.innerWidth,
+            height: window.innerHeight,
+          };
+        },
+        pinType: "fixed",
+      });
       lenis.destroy();
     };
   }, []);
