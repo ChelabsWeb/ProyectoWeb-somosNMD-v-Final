@@ -11,7 +11,7 @@ const INTERACTIVE_ELEMENTS_SELECTOR =
  */
 export const CustomCursor: FC = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number | null>(null);
   const pointerRef = useRef({ x: 0, y: 0 });
   const positionRef = useRef({ x: 0, y: 0 });
   const visibleRef = useRef(false);
@@ -154,8 +154,9 @@ export const CustomCursor: FC = () => {
         if (isActiveRef.current) {
           isActiveRef.current = false;
           document.body.classList.remove("custom-cursor-active");
-          if (animationFrameRef.current) {
+          if (animationFrameRef.current !== null) {
             cancelAnimationFrame(animationFrameRef.current);
+            animationFrameRef.current = null;
           }
         }
       }
@@ -169,8 +170,9 @@ export const CustomCursor: FC = () => {
         handleReducedMotionChange,
       );
 
-      if (animationFrameRef.current) {
+      if (animationFrameRef.current !== null) {
         cancelAnimationFrame(animationFrameRef.current);
+        animationFrameRef.current = null;
       }
 
       window.removeEventListener("pointermove", handlePointerMove);

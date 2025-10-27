@@ -27,7 +27,6 @@ export const PageShell: FC<PageShellProps> = ({ children }) => {
       lerp: 0.075,
       duration: 1.1,
       smoothWheel: true,
-      smoothTouch: false,
     });
 
     let animationFrameId: number;
