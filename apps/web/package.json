@@ -12,6 +12,9 @@
   "dependencies": {
     "@nmd/animation": "workspace:*",
     "@nmd/ui": "workspace:*",
+    "@tsparticles/engine": "^3.9.1",
+    "@tsparticles/preset-links": "^3.2.0",
+    "@tsparticles/react": "^3.0.0",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "gsap": "^3.13.0",

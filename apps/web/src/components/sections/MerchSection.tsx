@@ -2,6 +2,7 @@
 
 import type { FC } from "react";
 import { Button } from "@nmd/ui";
+import { ParticleBackground } from "@/components/system/ParticleBackground";
 
 const MERCH_PLACEHOLDERS = [
   {
@@ -25,9 +26,10 @@ export const MerchSection: FC = () => (
   <section
     id="merch"
     aria-label="Merch shop teaser"
-    className="flex min-h-screen items-center bg-black px-6 py-16 text-neutral-50 md:px-12"
+    className="relative flex min-h-screen items-center overflow-hidden bg-black px-6 py-16 text-neutral-50 md:px-12"
   >
-    <div className="mx-auto flex max-w-5xl flex-col gap-8">
+    <ParticleBackground />
+    <div className="relative z-10 mx-auto flex max-w-5xl flex-col gap-8">
       <header className="space-y-2">
         <p className="text-sm uppercase tracking-[0.35em] text-neutral-400">
           Merch Drop
