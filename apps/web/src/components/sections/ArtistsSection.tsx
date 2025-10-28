@@ -262,21 +262,7 @@ export const ArtistsSection: FC = () => {
       ref={sectionRef}
     >
       <ParticleBackground />
-      <div className="relative z-10 w-full px-6 pt-12 md:px-12">
-        <div className="mx-auto max-w-6xl space-y-2">
-          <p className="text-sm uppercase tracking-[0.35em] text-neutral-400">
-            The Collective
-          </p>
-          <h2 className="text-3xl font-semibold sm:text-4xl">
-            Meet the 12 artists powering Project Web NMD.
-          </h2>
-          <p className="text-neutral-300">
-            Scroll sideways through the lineup. Upcoming iterations will add
-            parallax layers, particles, and overlay interactions sourced from
-            the CMS.
-          </p>
-        </div>
-      </div>
+      <div className="relative z-10 w-full px-6 pt-12 md:px-12" />
 
       {prefersReducedMotion ? (
         <div className="relative z-10 mx-auto flex w-full flex-1 items-center px-6 pb-12 md:px-12">
