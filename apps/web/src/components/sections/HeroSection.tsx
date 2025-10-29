@@ -4,11 +4,12 @@ import Image from "next/image";
 import { useLayoutEffect, useRef, type FC, type RefObject, useCallback } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { useLenis } from "@/context/LenisContext";
 import { useReducedMotionPreference } from "@nmd/animation";
 import { trackEvent } from "../../lib/analytics";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
 const HERO_IMAGE_SRC = "/assets/hero/nmdfinal-25.jpg";
 const HERO_LOGO_MASK = "/assets/logo/logoNMD.svg";
@@ -113,7 +114,7 @@ export const HeroSection: FC = () => {
       const duration = distance / velocity;
 
       trackEvent("hero_cta_click", { target: id });
-      lenis.scrollTo(el, { duration: duration, easing: (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2) });
+      lenis.scrollTo(el, { duration: duration, easing: (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2) });
     },
     [lenis, prefersReducedMotion],
   );

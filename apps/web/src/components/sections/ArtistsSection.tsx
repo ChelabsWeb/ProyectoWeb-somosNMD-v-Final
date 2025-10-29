@@ -252,6 +252,53 @@ export const ArtistsSection: FC = () => {
     };
   }, [prefersReducedMotion, sidePadding]);
 
+  // ScrollTrigger batch animation for grid layout (reduced motion fallback)
+  useEffect(() => {
+    if (!prefersReducedMotion) {
+      return;
+    }
+    if (typeof window === "undefined") {
+      return;
+    }
+    if (!scrollTriggerRegistered) {
+      gsap.registerPlugin(ScrollTrigger);
+      scrollTriggerRegistered = true;
+    }
+    if (!ScrollTrigger) {
+      return;
+    }
+
+    const section = sectionRef.current;
+    if (!section) {
+      return;
+    }
+
+    // Set initial state for all artist cards
+    gsap.set(".artist-card-batch", { opacity: 0, y: 30 });
+
+    const ctx = gsap.context(() => {
+      ScrollTrigger.batch(".artist-card-batch", {
+        onEnter: (batch) =>
+          gsap.to(batch, {
+            opacity: 1,
+            y: 0,
+            stagger: 0.15,
+            duration: 0.8,
+            ease: "power2.out",
+            overwrite: true,
+          }),
+        start: "top 85%",
+        once: true,
+      });
+
+      ScrollTrigger.refresh();
+    }, section);
+
+    return () => {
+      ctx.revert();
+    };
+  }, [prefersReducedMotion]);
+
 
 
   return (
@@ -268,14 +315,15 @@ export const ArtistsSection: FC = () => {
         <div className="relative z-10 mx-auto flex w-full flex-1 items-center px-6 pb-12 md:px-12">
           <div className="grid w-full gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {ARTIST_PLACEHOLDERS.map((artist) => (
-              <ArtistCard
-                key={artist.id}
-                artist={artist}
-                onSelect={() => {
-                  setSelectedArtist(artist);
-                  trackEvent("artist_profile_view", { artist_id: artist.id });
-                }}
-              />
+              <div key={artist.id} className="artist-card-batch">
+                <ArtistCard
+                  artist={artist}
+                  onSelect={() => {
+                    setSelectedArtist(artist);
+                    trackEvent("artist_profile_view", { artist_id: artist.id });
+                  }}
+                />
+              </div>
             ))}
           </div>
         </div>

@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useEffect, useMemo, type FC } from "react";
+import { useEffect, useMemo, useId, type FC } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadLinksPreset } from "@tsparticles/preset-links";
 import { useReducedMotionPreference } from "@nmd/animation";
@@ -21,10 +21,7 @@ export const ParticleBackground: FC<ParticleBackgroundProps> = ({
     });
   }, []);
 
-  const instanceId = useMemo(
-    () => `particles-${Math.random().toString(36).slice(2)}`,
-    []
-  );
+  const instanceId = useId();
 
   const options = useMemo(
     () => ({
@@ -46,10 +43,10 @@ export const ParticleBackground: FC<ParticleBackgroundProps> = ({
           width: 1,
         },
         move: {
-          direction: "none",
+          direction: "none" as const,
           enable: true,
           outModes: {
-            default: "bounce",
+            default: "bounce" as const,
           },
           random: false,
           speed: 1,

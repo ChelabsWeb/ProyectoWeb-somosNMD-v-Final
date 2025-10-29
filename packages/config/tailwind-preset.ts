@@ -77,6 +77,7 @@ const preset = {
     },
   },
   plugins: [animate],
+  content: [], // Preset doesn't need content, consuming projects will define it
 } satisfies Config;
 
 export default preset;

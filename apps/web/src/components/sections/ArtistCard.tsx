@@ -47,7 +47,7 @@ export const ArtistCard: FC<ArtistCardProps> = ({ artist, onSelect }) => {
 
   return (
     <article className="group relative aspect-[3/4] w-[min(380px,80vw)] flex-shrink-0 overflow-hidden rounded-3xl border border-neutral-800 bg-black transition-transform duration-500 hover:border-neutral-700">
-      <div ref={imageRef} className="absolute inset-0">
+      <div ref={imageRef} className="absolute inset-0 h-[110%]">
         <Image
           src={artist.imageSrc}
           alt={`${artist.name} portrait`}
