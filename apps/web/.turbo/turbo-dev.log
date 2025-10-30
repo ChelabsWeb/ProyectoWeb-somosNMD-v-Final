@@ -7,32 +7,9 @@
    - Network:      http://172.23.96.1:3000
 
  ✓ Starting...
- ✓ Ready in 981ms
+ ✓ Ready in 730ms
 useLenis must be used within a LenisProvider
- GET / 200 in 3.2s (compile: 2.8s, render: 334ms)
- GET /assets/artworks/junta-artwork.jpg 404 in 586ms (compile: 491ms, render: 95ms)
+ GET / 200 in 3.3s (compile: 2.9s, render: 356ms)
 useLenis must be used within a LenisProvider
- GET / 200 in 136ms (compile: 8ms, render: 128ms)
- GET /assets/artworks/junta-artwork.jpg 404 in 58ms (compile: 11ms, render: 46ms)
-useLenis must be used within a LenisProvider
- GET / 200 in 138ms (compile: 3ms, render: 135ms)
- GET /assets/artworks/junta-artwork.jpg 404 in 68ms (compile: 11ms, render: 57ms)
-useLenis must be used within a LenisProvider
- GET / 200 in 127ms (compile: 5ms, render: 122ms)
- GET /assets/artworks/junta-artwork.jpg 404 in 53ms (compile: 8ms, render: 45ms)
- ✓ Compiled in 75ms
- ✓ Compiled in 63ms
- ✓ Compiled in 71ms
- ✓ Compiled in 61ms
- ✓ Compiled in 64ms
- ✓ Compiled in 65ms
- GET /assets/audio/junta-preview.mp3 404 in 40ms (compile: 7ms, render: 34ms)
- ✓ Compiled in 89ms
- ✓ Compiled in 95ms
- GET /assets/artworks/egolatra-artwork.jpg 404 in 55ms (compile: 8ms, render: 47ms)
- ✓ Compiled in 59ms
- ✓ Compiled in 50ms
- ✓ Compiled in 40ms
- ✓ Compiled in 51ms
- GET /assets/audio/junta-preview.mp3 404 in 30ms (compile: 4ms, render: 27ms)
- ✓ Compiled in 46ms
+ GET / 200 in 86ms (compile: 3ms, render: 82ms)
+ ✓ Compiled in 128ms
