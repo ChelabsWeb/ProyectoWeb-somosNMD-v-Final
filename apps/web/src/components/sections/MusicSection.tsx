@@ -330,17 +330,13 @@ export const MusicSection: FC = () => (
   >
     <ParticleBackground />
     <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-12">
-      <header className="space-y-3">
+      <header className="space-y-2">
         <p className="text-xs uppercase tracking-[0.45em] text-neutral-500">
           Releases
         </p>
-        <h2 className="text-3xl font-semibold sm:text-4xl">
-          Listen inside the living music video.
+        <h2 className="text-3xl font-semibold uppercase tracking-[0.3em] text-neutral-300 sm:text-[2.5rem]">
+          Manteca mantecosa
         </h2>
-        <p className="text-neutral-300/90">
-          Immersive cards showcase each drop with animated artwork, glowing accents,
-          and quick access to previews, detailed tracklists, and Spotify deep links.
-        </p>
       </header>
 
       <div className="grid gap-10 md:grid-cols-2">
