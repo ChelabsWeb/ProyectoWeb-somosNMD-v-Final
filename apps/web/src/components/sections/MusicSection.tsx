@@ -10,28 +10,41 @@ import { trackEvent } from "../../lib/analytics";
 const PROJECT_PLACEHOLDERS = [
   {
     id: "junta",
-    title: "Junta",
-    description: "Debut collective album with cinematic trap and neon R&B.",
-    artworkSrc: "/assets/artworks/junta-artwork.jpg", // Replace with actual artwork
+    title: "JUNTA",
+    description: "Nomades debut album.",
+    artworkSrc: "/assets/artworks/Portada JUNTA.jpg", // Replace with actual artwork
     audioSrc: "/assets/audio/junta-preview.mp3", // Replace with actual audio file
-    spotifyUrl: "https://open.spotify.com/album/123456789", // Replace with actual URL
+    spotifyUrl: "https://open.spotify.com/intl-es/album/0JfCrGbMDwV0FuQwqmpOde?si=fpKPQyy-R-SvnToxetbmGg", // Replace with actual URL
     tracklist: [
-      { title: "Track 1", duration: "3:45" },
-      { title: "Track 2", duration: "4:15" },
-      { title: "Track 3", duration: "3:30" },
+      { title: "PANIKO", duration: "3:24" },
+      { title: "NIKE", duration: "2:58" },
+      { title: "SWING", duration: "2:20" },
+      { title: "PARQUE SOÑADO", duration: "3:04" },
+      { title: "BOTIJAS / JUNTA", duration: "4:16" },
+      { title: "NOMADES", duration: "5:27" },
+      { title: "COMO ES ESO", duration: "3:49" },
+      { title: "RUIDO", duration: "3:02" },
+      { title: "AMSTERDAM", duration: "2:50" },
+      { title: "NO PARE", duration: "3:54" },
     ],
   },
   {
-    id: "midnight-is-close",
-    title: "Midnight Is Close",
-    description: "Teaser EP unlocking the GTA VI-inspired narrative arc.",
-    artworkSrc: "/assets/artworks/midnight-artwork.jpg", // Replace with actual artwork
-    audioSrc: "/assets/audio/midnight-preview.mp3", // Replace with actual audio file
-    spotifyUrl: "https://open.spotify.com/album/987654321", // Replace with actual URL
+    id: "egolatra",
+    title: "EGOLATRA",
+    description: "Nacht debut album.",
+    artworkSrc: "/assets/artworks/EGOLATRA.png",
+    audioSrc: "/assets/audio/egolatra-preview.mp3", // Replace with actual audio file
+    spotifyUrl: "https://open.spotify.com/intl-es/album/7MlGv3nb7tM9jTQsuYHVMx?si=1g6PYr-OSGG3mBdpAXR8bg", // Replace with actual URL
     tracklist: [
-      { title: "Intro", duration: "1:15" },
-      { title: "Midnight", duration: "3:30" },
-      { title: "Outro", duration: "1:30" },
+      { title: "hiraeth (INTRO)", duration: "1:24" },
+      { title: "Nqssa.", duration: "2:07" },
+      { title: "MASERATI", duration: "2:37" },
+      { title: "nada q decir.", duration: "2:07" },
+      { title: "(piscis)", duration: "2:42" },
+      { title: "tan lejos </3", duration: "2:42" },
+      { title: "SOLO", duration: "2:17" },
+      { title: "NO SIENTO NADA", duration: "1:49" },
+      { title: "Sol", duration: "2:56" },
     ],
   },
 ];

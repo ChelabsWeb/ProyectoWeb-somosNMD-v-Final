@@ -19,17 +19,6 @@ type ArtistEntry = {
 
 const ARTIST_PLACEHOLDERS: ArtistEntry[] = [
   {
-    id: "artist-caba",
-    name: "Caba",
-    blurb: "Director creativo y storyteller visual del colectivo.",
-    imageSrc: "/assets/artists/Caba.jpg",
-    socials: [
-      { name: "Instagram", url: "https://www.instagram.com/caba.nmd/" },
-      { name: "Spotify", url: "#" },
-      { name: "YouTube", url: "#" },
-    ],
-  },
-  {
     id: "artist-gervi",
     name: "Gervi",
     blurb: "Beatmaker experimental y arquitecto sonoro.",
@@ -58,6 +47,17 @@ const ARTIST_PLACEHOLDERS: ArtistEntry[] = [
     imageSrc: "/assets/artists/JuanMa.jpg",
     socials: [
       { name: "Instagram", url: "https://www.instagram.com/juanma.nmd/" },
+      { name: "Spotify", url: "#" },
+      { name: "YouTube", url: "#" },
+    ],
+  },
+  {
+    id: "artist-caba",
+    name: "Caba",
+    blurb: "Director creativo y storyteller visual del colectivo.",
+    imageSrc: "/assets/artists/Caba.jpg",
+    socials: [
+      { name: "Instagram", url: "https://www.instagram.com/caba.nmd/" },
       { name: "Spotify", url: "#" },
       { name: "YouTube", url: "#" },
     ],
