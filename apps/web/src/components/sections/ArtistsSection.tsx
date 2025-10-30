@@ -24,7 +24,7 @@ const ARTIST_PLACEHOLDERS: ArtistEntry[] = [
     blurb: "Director creativo y storyteller visual del colectivo.",
     imageSrc: "/assets/artists/Caba.jpg",
     socials: [
-      { name: "Instagram", url: "#" },
+      { name: "Instagram", url: "https://www.instagram.com/caba.nmd/" },
       { name: "Spotify", url: "#" },
       { name: "YouTube", url: "#" },
     ],
@@ -35,9 +35,9 @@ const ARTIST_PLACEHOLDERS: ArtistEntry[] = [
     blurb: "Beatmaker experimental y arquitecto sonoro.",
     imageSrc: "/assets/artists/Gervi.jpg",
     socials: [
-      { name: "Instagram", url: "#" },
+      { name: "Instagram", url: "https://www.instagram.com/gervi.nmd/" },
       { name: "Spotify", url: "#" },
-      { name: "SoundCloud", url: "#" },
+      { name: "YouTube", url: "#" },
     ],
   },
   {
@@ -46,7 +46,7 @@ const ARTIST_PLACEHOLDERS: ArtistEntry[] = [
     blurb: "MC y letrista con barras cinematográficas.",
     imageSrc: "/assets/artists/Izquierdo.jpg",
     socials: [
-      { name: "Instagram", url: "#" },
+      { name: "Instagram", url: "https://www.instagram.com/izquierdo.nmd/" },
       { name: "Spotify", url: "#" },
       { name: "YouTube", url: "#" },
     ],
@@ -57,7 +57,7 @@ const ARTIST_PLACEHOLDERS: ArtistEntry[] = [
     blurb: "Voz principal y compositor del universo NMD.",
     imageSrc: "/assets/artists/JuanMa.jpg",
     socials: [
-      { name: "Instagram", url: "#" },
+      { name: "Instagram", url: "https://www.instagram.com/juanma.nmd/" },
       { name: "Spotify", url: "#" },
       { name: "YouTube", url: "#" },
     ],
@@ -68,9 +68,9 @@ const ARTIST_PLACEHOLDERS: ArtistEntry[] = [
     blurb: "Productor ejecutivo y guardian del sonido final.",
     imageSrc: "/assets/artists/Justino.jpg",
     socials: [
-      { name: "Instagram", url: "#" },
+      { name: "Instagram", url: "https://www.instagram.com/justino.nmd/" },
       { name: "Spotify", url: "#" },
-      { name: "LinkedIn", url: "#" },
+      { name: "YouTube", url: "#" },
     ],
   },
   {
@@ -79,9 +79,9 @@ const ARTIST_PLACEHOLDERS: ArtistEntry[] = [
     blurb: "Productor y beatmaker con ADN trap futurista.",
     imageSrc: "/assets/artists/Kenma.jpg",
     socials: [
-      { name: "Instagram", url: "#" },
+      { name: "Instagram", url: "https://www.instagram.com/kenma.nmd/" },
       { name: "Spotify", url: "#" },
-      { name: "SoundCloud", url: "#" },
+      { name: "YouTube", url: "#" },
     ],
   },
   {
@@ -90,18 +90,18 @@ const ARTIST_PLACEHOLDERS: ArtistEntry[] = [
     blurb: "Cantante neo-soul y curadora de armonías.",
     imageSrc: "/assets/artists/Letie.jpg",
     socials: [
-      { name: "Instagram", url: "#" },
+      { name: "Instagram", url: "https://www.instagram.com/letie.nmd/" },
       { name: "Spotify", url: "#" },
-      { name: "TikTok", url: "#" },
+      { name: "YouTube", url: "#" },
     ],
   },
   {
     id: "artist-luccio",
     name: "Luccio",
-    blurb: "Compositor híbrido entre r&b y electrónica.",
+    blurb: "Demonio atrapado en cuerpo de humano.",
     imageSrc: "/assets/artists/Luccio.jpg",
     socials: [
-      { name: "Instagram", url: "#" },
+      { name: "Instagram", url: "https://www.instagram.com/luccio.nmd/" },
       { name: "Spotify", url: "#" },
       { name: "YouTube", url: "#" },
     ],
@@ -112,9 +112,9 @@ const ARTIST_PLACEHOLDERS: ArtistEntry[] = [
     blurb: "Diseñadora vocal y exploradora de texturas.",
     imageSrc: "/assets/artists/Luquilla.jpg",
     socials: [
-      { name: "Instagram", url: "#" },
+      { name: "Instagram", url: "https://www.instagram.com/lucaghizzo._.nmd/" },
       { name: "Spotify", url: "#" },
-      { name: "TikTok", url: "#" },
+      { name: "YouTube", url: "#" },
     ],
   },
   {
@@ -123,9 +123,9 @@ const ARTIST_PLACEHOLDERS: ArtistEntry[] = [
     blurb: "DJ y compositor de atmósferas nocturnas.",
     imageSrc: "/assets/artists/Nacht.jpg",
     socials: [
-      { name: "Instagram", url: "#" },
+      { name: "Instagram", url: "https://www.instagram.com/nacht.nmd/" },
       { name: "Spotify", url: "#" },
-      { name: "SoundCloud", url: "#" },
+      { name: "YouTube", url: "#" },
     ],
   },
   {
@@ -134,8 +134,8 @@ const ARTIST_PLACEHOLDERS: ArtistEntry[] = [
     blurb: "Productora audiovisual y arquitecta del live set.",
     imageSrc: "/assets/artists/Nei.jpg",
     socials: [
-      { name: "Instagram", url: "#" },
-      { name: "Vimeo", url: "#" },
+      { name: "Instagram", url: "https://www.instagram.com/nei.nmd/" },
+      { name: "Spotify", url: "#" },
       { name: "YouTube", url: "#" },
     ],
   },
@@ -145,9 +145,9 @@ const ARTIST_PLACEHOLDERS: ArtistEntry[] = [
     blurb: "Lyricist y curadora de storytelling urbano.",
     imageSrc: "/assets/artists/Quei.jpg",
     socials: [
-      { name: "Instagram", url: "#" },
+      { name: "Instagram", url: "https://www.instagram.com/quei.nmd/" },
       { name: "Spotify", url: "#" },
-      { name: "Twitter", url: "#" },
+      { name: "YouTube", url: "#" },
     ],
   },
 ] ;
