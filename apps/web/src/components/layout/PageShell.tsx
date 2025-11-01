@@ -24,8 +24,10 @@ export const PageShell: FC<PageShellProps> = ({ children }) => {
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     );
+    const prefersCoarsePointer = window.matchMedia("(pointer: coarse)");
 
-    if (prefersReducedMotion.matches) {
+    if (prefersReducedMotion.matches || prefersCoarsePointer.matches) {
+      ScrollTrigger.refresh();
       return;
     }
 

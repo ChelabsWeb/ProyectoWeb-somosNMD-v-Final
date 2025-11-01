@@ -46,6 +46,14 @@ export const LoaderSection: FC = () => {
       return;
     }
 
+    const isCoarsePointer =
+      typeof window !== "undefined" &&
+      window.matchMedia("(pointer: coarse)").matches;
+
+    if (isCoarsePointer) {
+      return;
+    }
+
     const ctx = gsap.context(() => {
       gsap.to(logoRef.current, {
         scale: 1.08,
@@ -76,12 +84,17 @@ export const LoaderSection: FC = () => {
       return;
     }
 
+    const prefersCoarsePointer =
+      typeof window !== "undefined" &&
+      window.matchMedia("(pointer: coarse)").matches;
+
     const originalOverflow = document.body.style.overflow;
     let fallbackTimeout: number | null = null;
     let finishTimeout: number | null = null;
     let loaderDone = false;
 
-    const duration = prefersReducedMotion ? 800 : PROGRESS_DURATION;
+    const duration =
+      prefersReducedMotion || prefersCoarsePointer ? 1200 : PROGRESS_DURATION;
 
     const finalize = () => {
       if (loaderDone) {
