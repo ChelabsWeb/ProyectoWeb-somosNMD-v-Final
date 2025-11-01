@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArtistOverlay } from "./ArtistOverlay";
 import { ParticleBackground } from "@/components/system/ParticleBackground";
 import { trackEvent } from "../../lib/analytics";
+import { useCoarsePointer } from "@/lib/useCoarsePointer";
 
 type ArtistEntry = {
   id: string;
@@ -161,13 +162,15 @@ let scrollTriggerRegistered = false;
 
 export const ArtistsSection: FC = () => {
   const prefersReducedMotion = useReducedMotionPreference();
+  const isCoarsePointer = useCoarsePointer();
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const trackRef = useRef<HTMLDivElement | null>(null);
   const [sidePadding, setSidePadding] = useState(0);
   const [selectedArtist, setSelectedArtist] = useState<ArtistEntry | null>(null);
+  const useGridLayout = prefersReducedMotion || isCoarsePointer;
 
   useEffect(() => {
-    if (prefersReducedMotion) {
+    if (useGridLayout) {
       return;
     }
     if (typeof window === "undefined") {
@@ -177,10 +180,10 @@ export const ArtistsSection: FC = () => {
       gsap.registerPlugin(ScrollTrigger);
       scrollTriggerRegistered = true;
     }
-  }, [prefersReducedMotion]);
+  }, [useGridLayout]);
 
   useEffect(() => {
-    if (prefersReducedMotion) {
+    if (useGridLayout) {
       return;
     }
     if (typeof window === "undefined") {
@@ -198,10 +201,10 @@ export const ArtistsSection: FC = () => {
     updateMetrics();
     window.addEventListener("resize", updateMetrics);
     return () => window.removeEventListener("resize", updateMetrics);
-  }, [prefersReducedMotion]);
+  }, [useGridLayout]);
 
   useEffect(() => {
-    if (prefersReducedMotion) {
+    if (useGridLayout) {
       return;
     }
     const section = sectionRef.current;
@@ -250,11 +253,11 @@ export const ArtistsSection: FC = () => {
     return () => {
       ctx.revert();
     };
-  }, [prefersReducedMotion, sidePadding]);
+  }, [useGridLayout, sidePadding]);
 
   // ScrollTrigger batch animation for grid layout (reduced motion fallback)
   useEffect(() => {
-    if (!prefersReducedMotion) {
+    if (!useGridLayout) {
       return;
     }
     if (typeof window === "undefined") {
@@ -297,7 +300,7 @@ export const ArtistsSection: FC = () => {
     return () => {
       ctx.revert();
     };
-  }, [prefersReducedMotion]);
+  }, [useGridLayout]);
 
 
 
@@ -311,7 +314,7 @@ export const ArtistsSection: FC = () => {
       <ParticleBackground />
       <div className="relative z-10 w-full px-6 pt-12 md:px-12" />
 
-      {prefersReducedMotion ? (
+      {useGridLayout ? (
         <div className="relative z-10 mx-auto flex w-full flex-1 items-center px-6 pb-12 md:px-12">
           <div className="grid w-full gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {ARTIST_PLACEHOLDERS.map((artist) => (
