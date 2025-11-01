@@ -5,7 +5,6 @@ import { useEffect, useMemo, useId, type FC } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadLinksPreset } from "@tsparticles/preset-links";
 import { useReducedMotionPreference } from "@nmd/animation";
-import { useCoarsePointer } from "@/lib/useCoarsePointer";
 
 type ParticleBackgroundProps = {
   className?: string;
@@ -15,17 +14,12 @@ export const ParticleBackground: FC<ParticleBackgroundProps> = ({
   className = "",
 }) => {
   const prefersReducedMotion = useReducedMotionPreference();
-  const isCoarsePointer = useCoarsePointer();
 
   useEffect(() => {
-    if (prefersReducedMotion || isCoarsePointer) {
-      return;
-    }
-
     initParticlesEngine(async (engine) => {
       await loadLinksPreset(engine);
     });
-  }, [prefersReducedMotion, isCoarsePointer]);
+  }, []);
 
   const instanceId = useId();
 
@@ -83,7 +77,7 @@ export const ParticleBackground: FC<ParticleBackgroundProps> = ({
     []
   );
 
-  if (prefersReducedMotion || isCoarsePointer) {
+  if (prefersReducedMotion) {
     return null;
   }
 
