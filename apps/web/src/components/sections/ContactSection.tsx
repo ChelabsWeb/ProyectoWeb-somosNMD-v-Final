@@ -2,14 +2,16 @@
 
 import type { FC } from "react";
 import { Button } from "@nmd/ui";
+import { ParticleBackground } from "@/components/system/ParticleBackground";
 
 export const ContactSection: FC = () => (
   <section
     id="contact"
     aria-label="Collaboration inquiries"
-    className="bg-neutral-950 px-6 py-20 text-neutral-50 md:px-12"
+    className="relative overflow-hidden bg-neutral-950 px-6 py-20 text-neutral-50 md:px-12"
   >
-    <div className="mx-auto flex max-w-4xl flex-col gap-8">
+    <ParticleBackground />
+    <div className="relative z-10 mx-auto flex max-w-4xl flex-col gap-8">
       <header className="space-y-2">
         <p className="text-sm uppercase tracking-[0.35em] text-neutral-500">
           Collaborate

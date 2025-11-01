@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, DetailedHTMLProps, ReactNode } from "react";
+﻿import type { ButtonHTMLAttributes, DetailedHTMLProps, ReactNode } from "react";
 
 type Variant = "primary" | "secondary" | "ghost";
 
@@ -47,3 +47,4 @@ export function Button({
     </button>
   );
 }
+

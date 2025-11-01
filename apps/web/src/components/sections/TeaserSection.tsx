@@ -2,6 +2,7 @@
 
 import type { FC } from "react";
 import { Button } from "@nmd/ui";
+import { ParticleBackground } from "@/components/system/ParticleBackground";
 import { useReducedMotionPreference } from "@nmd/animation";
 
 export const TeaserSection: FC = () => {
@@ -13,6 +14,7 @@ export const TeaserSection: FC = () => {
       aria-label="Upcoming release teaser"
       className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-purple-700 via-fuchsia-600 to-black px-6 py-20 text-neutral-50 md:px-12"
     >
+      <ParticleBackground />
       {!prefersReducedMotion && (
         <div className="pointer-events-none absolute inset-0 opacity-30">
           <div className="animate-pulse-slow absolute -top-24 left-1/3 h-64 w-64 rounded-full bg-white/20 blur-3xl" />
@@ -20,7 +22,7 @@ export const TeaserSection: FC = () => {
         </div>
       )}
 
-      <div className="relative mx-auto flex max-w-4xl flex-col gap-6 text-center">
+      <div className="relative z-10 mx-auto flex max-w-4xl flex-col gap-6 text-center">
         <p className="text-sm uppercase tracking-[0.35em] text-white/60">
           Upcoming Release
         </p>

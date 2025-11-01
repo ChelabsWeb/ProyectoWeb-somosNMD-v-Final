@@ -1,0 +1,29 @@
+{
+  "name": "@nmd/config",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "files": [
+    "tailwind-preset.ts",
+    "eslint",
+    "prettier.config.mjs",
+    "tsconfig.json"
+  ],
+  "dependencies": {
+    "@eslint/js": "^9.14.0",
+    "eslint-plugin-jsx-a11y": "^6.10.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "globals": "^15.9.0",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript-eslint": "^8.12.1",
+    "prettier-plugin-tailwindcss": "^0.6.8"
+  },
+  "exports": {
+    "./tailwind-preset": "./tailwind-preset.ts",
+    "./eslint/library": "./eslint/library.mjs",
+    "./prettier": "./prettier.config.mjs"
+  },
+  "peerDependencies": {
+    "tailwindcss": ">=3.0.0"
+  }
+}

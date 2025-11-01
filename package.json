@@ -6,11 +6,26 @@
     "dev": "turbo dev",
     "build": "turbo build",
     "lint": "turbo lint",
-    "test": "turbo test"
+    "test": "turbo test",
+    "prepare": "husky",
+    "format": "prettier --write apps/web/src/app/globals.css apps/web/src/app/layout.tsx apps/web/src/lib/app-ready.ts apps/web/src/lib/app-ready.test.ts apps/web/tailwind.config.ts apps/web/vitest.config.ts apps/web/vitest.setup.ts apps/web/package.json \"packages/config/**/*.{ts,tsx,js,jsx,json,mjs}\" packages/config/eslint/library.mjs packages/config/prettier.config.mjs \"packages/ui/**/*.{ts,tsx,js,jsx,json}\" packages/ui/package.json package.json tsconfig.base.json \"tsconfig*.json\" turbo.json",
+    "format:check": "prettier --check apps/web/src/app/globals.css apps/web/src/app/layout.tsx apps/web/src/lib/app-ready.ts apps/web/src/lib/app-ready.test.ts apps/web/tailwind.config.ts apps/web/vitest.config.ts apps/web/vitest.setup.ts apps/web/package.json \"packages/config/**/*.{ts,tsx,js,jsx,json,mjs}\" packages/config/eslint/library.mjs packages/config/prettier.config.mjs \"packages/ui/**/*.{ts,tsx,js,jsx,json}\" packages/ui/package.json package.json tsconfig.base.json \"tsconfig*.json\" turbo.json"
   },
   "devDependencies": {
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.1",
-    "turbo": "^2.1.0"
+    "@vitejs/plugin-react": "^5.1.0",
+    "@vitest/ui": "^4.0.3",
+    "husky": "^9.1.7",
+    "jsdom": "^27.0.1",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.8",
+    "shadcn-ui": "^0.9.5",
+    "turbo": "^2.1.0",
+    "vitest": "^4.0.3",
+    "@nmd/config": "workspace:*"
+  },
+  "dependencies": {
+    "gsap": "^3.13.0"
   }
 }

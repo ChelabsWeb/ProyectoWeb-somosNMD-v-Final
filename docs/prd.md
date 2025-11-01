@@ -29,11 +29,11 @@ Project Web NMD responds to a fragmented digital presence where social snippets,
 ## Requirements
 
 ### Functional
-1. **FR1:** The experience must open with a Three.js-powered 3D logo loader that transitions into the hero scene without visible stutter.
-2. **FR2:** The hero section must implement a GTA VI–style SVG scroll-mask reveal using GSAP (or equivalent) so the logo animates into view as the user scrolls past the hero.
+1. **FR1:** The experience must open with an SVG logo animation using a stroke reveal effect, which then transitions into the hero scene.
+2. **FR2:** On scroll, the hero section must implement a "GTA VI" effect where the hero image zooms out progressively. Simultaneously, the SVG logo, acting as a mask, zooms in from fullscreen to a small, centered position. The logo's outline reveals the hero image behind it as the general background fades to black.
 3. **FR3:** The artist showcase must present all 12 members in a horizontal gallery with GSAP parallax, interactive particles, and click/tap-to-expand profiles containing bio, socials, and related projects.
 4. **FR4:** The music projects area must feature album/single cards (starting with “Junta”) that display artwork, concept summary, tracklist, Spotify link, and play an authorized 5–10 second preview on hover or tap with mobile fallbacks.
-5. **FR5:** The “Upcoming Release” teaser must display large animated typography (e.g., “Midnight Is Close”) with subtle distortion/parallax and optionally link to more info when available.
+5. **FR5:** The “Midnight’s too close...” teaser section must feature a typographic zoom-out animation. On scroll, the fullscreen text progressively shrinks and fades out. The background will be composed of dynamic, slow-floating particles.
 6. **FR6:** The site must provide clear pathways for collaboration/booking inquiries (CTA + form) and store submissions for follow-up.
 7. **FR7:** The experience must surface a merch storefront that lets users browse featured products, manage a cart, and complete checkout via an integrated headless commerce provider without leaving the site.
 
@@ -150,20 +150,20 @@ so that we can ship reliable builds and enforce quality gates from day one.
 3: Vercel + Codex CI/CD pipeline deploys to preview/production with automated checks.
 4: Observability baseline (Vercel Analytics + logging) captures deployments and initial load metrics.
 
-### Story 1.2 3D Logo Asset Pipeline
+### Story 1.2 SVG Logo & Animation Setup
 As a motion developer,
-I want Three.js wired into the project with optimized 3D logo assets,
-so that the loader renders smoothly on desktop/mobile with graceful fallbacks.
+I want an optimized SVG of the logo and the GSAP library integrated into the project,
+so that I can create a stroke reveal animation for the loader.
 #### Acceptance Criteria
 1: Three.js scene renders the provided 3D logo with lighting/materials and ≥45fps on target devices.
 2: Assets are compressed/preloaded (GLB/DRACO) with fallback SVG animation if WebGL fails.
 3: Reduced-motion setting swaps to a simplified fade animation verified via `prefers-reduced-motion`.
 4: Performance profiling shows loader adds <300ms to initial paint on modern hardware.
 
-### Story 1.3 Immersive Loading Experience
+### Story 1.3 SVG Stroke Reveal Loader
 As a visitor,
-I want the 3D logo loader to feel cinematic and transition seamlessly into the hero,
-so that the site immediately communicates polish and identity.
+I want to see a minimalist and professional logo animation when the site loads,
+so that the experience feels polished from the very first moment.
 #### Acceptance Criteria
 1: Loader timeline includes easing, subtle camera drift, and progress indicator tied to real asset readiness.
 2: GSAP (or equivalent) orchestrates the fade/blur transition from loader to hero with CLS < 0.05.
@@ -172,8 +172,8 @@ so that the site immediately communicates polish and identity.
 
 ### Story 1.4 Hero Layout & Scroll-Mask Reveal
 As a storytelling designer,
-I want the hero scene to showcase the group portrait with the GTA VI–style logo mask animation and navigation markers,
-so that visitors immediately grasp the collective’s identity and how to explore.
+I want the hero scene to feature a synchronized zoom and mask animation on scroll,
+so that the entrance feels cinematic and guides the user's focus. The main portrait will zoom out while the SVG logo mask simultaneously zooms in, revealing the image through its contour before settling into place.
 #### Acceptance Criteria
 1: Hero renders the group image full-bleed with responsive cropping, overlay copy, and nav markers pointing to downstream sections.
 2: GSAP scroll trigger animates the SVG logo mask smoothly as users reach the defined threshold, maintaining ~60fps on modern devices.
@@ -238,10 +238,10 @@ so that I can sample music without leaving the site.
 
 Goal: Deliver the “Midnight Is Close” teaser scene, collaboration/contact flows, and analytics enhancements so the site drives future-release hype and actionable conversions.
 
-### Story 3.1 Teaser Scene Layout & Typography System
+### Story 3.1 Teaser Scene with Typographic Zoom
 As a motion art director,
-I want a dedicated section showcasing “Midnight Is Close” with bold animated typography,
-so that upcoming releases feel mysterious and high stakes.
+I want the “Midnight’s too close...” section to feature a typographic zoom-out effect on scroll with a dynamic particle background,
+so that the teaser feels immersive and builds anticipation.
 #### Acceptance Criteria
 1: Section includes responsive headline typography, supporting copy, and background effects (noise/distortion) aligned to creative references.
 2: Layout supports future teaser variants (multiple releases) via data/config.

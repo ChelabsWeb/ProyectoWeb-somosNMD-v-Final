@@ -1,0 +1,29 @@
+version: 1
+name: project-web-nmd
+env:
+  node: 20
+  pnpm: 10.19.0
+steps:
+  - name: Install
+    run: pnpm install --frozen-lockfile
+  - name: Format Check
+    run: pnpm format:check
+  - name: Lint
+    run: pnpm lint
+  - name: Unit Tests
+    run: pnpm --filter web test
+  - name: Build
+    run: pnpm build
+  - name: Vercel Preview Deploy
+    when: branch != main
+    run: vercel deploy --cwd apps/web --prebuilt --token ${{ secrets.VERCEL_TOKEN }}
+  - name: Vercel Production Deploy
+    when: branch == main
+    run: vercel deploy --cwd apps/web --prebuilt --prod --token ${{ secrets.VERCEL_TOKEN }}
+artifacts:
+  - path: apps/web/.next
+    name: next-build
+notifications:
+  - type: summary
+    channels:
+      - console

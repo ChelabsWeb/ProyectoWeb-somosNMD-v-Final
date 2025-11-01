@@ -1,33 +1,157 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect, useMemo, useRef, useState, type FC } from "react";
-import { Button } from "@nmd/ui";
+import { useEffect, useRef, useState, type FC } from "react";
+import { ArtistCard } from "./ArtistCard";
 import { useReducedMotionPreference } from "@nmd/animation";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ArtistOverlay } from "./ArtistOverlay";
+import { ParticleBackground } from "@/components/system/ParticleBackground";
+import { trackEvent } from "../../lib/analytics";
 
-const ARTIST_IMAGE_FILES = [
-  "01",
-  "02",
-  "05",
-  "08",
-  "10",
-  "11",
-  "13",
-  "15",
-  "18",
-  "19",
-  "21",
-  "23",
-] as const;
+type ArtistEntry = {
+  id: string;
+  name: string;
+  blurb: string;
+  imageSrc: string;
+  socials: { name: string; url: string }[];
+};
 
-const ARTIST_PLACEHOLDERS = ARTIST_IMAGE_FILES.map((suffix, index) => ({
-  id: `artist-${suffix}`,
-  name: `Artist ${String(index + 1).padStart(2, "0")}`,
-  blurb: "Placeholder bio copy for the collective member.",
-  imageSrc: `/assets/artists/nmdfinal-${suffix}.jpg`,
-}));
+const ARTIST_PLACEHOLDERS: ArtistEntry[] = [
+  {
+    id: "artist-gervi",
+    name: "Gervi",
+    blurb: "Beatmaker experimental y arquitecto sonoro.",
+    imageSrc: "/assets/artists/Gervi.jpg",
+    socials: [
+      { name: "Instagram", url: "https://www.instagram.com/gervi.nmd/" },
+      { name: "Spotify", url: "#" },
+      { name: "YouTube", url: "#" },
+    ],
+  },
+  {
+    id: "artist-izquierdo",
+    name: "Izquierdo",
+    blurb: "MC y letrista con barras cinematográficas.",
+    imageSrc: "/assets/artists/Izquierdo.jpg",
+    socials: [
+      { name: "Instagram", url: "https://www.instagram.com/izquierdo.nmd/" },
+      { name: "Spotify", url: "#" },
+      { name: "YouTube", url: "#" },
+    ],
+  },
+  {
+    id: "artist-juanma",
+    name: "JuanMa",
+    blurb: "Voz principal y compositor del universo NMD.",
+    imageSrc: "/assets/artists/JuanMa.jpg",
+    socials: [
+      { name: "Instagram", url: "https://www.instagram.com/juanma.nmd/" },
+      { name: "Spotify", url: "#" },
+      { name: "YouTube", url: "#" },
+    ],
+  },
+  {
+    id: "artist-caba",
+    name: "Caba",
+    blurb: "Director creativo y storyteller visual del colectivo.",
+    imageSrc: "/assets/artists/Caba.jpg",
+    socials: [
+      { name: "Instagram", url: "https://www.instagram.com/caba.nmd/" },
+      { name: "Spotify", url: "#" },
+      { name: "YouTube", url: "#" },
+    ],
+  },
+  {
+    id: "artist-justino",
+    name: "Justino",
+    blurb: "Productor ejecutivo y guardian del sonido final.",
+    imageSrc: "/assets/artists/Justino.jpg",
+    socials: [
+      { name: "Instagram", url: "https://www.instagram.com/justino.nmd/" },
+      { name: "Spotify", url: "#" },
+      { name: "YouTube", url: "#" },
+    ],
+  },
+  {
+    id: "artist-kenma",
+    name: "Kenma",
+    blurb: "Productor y beatmaker con ADN trap futurista.",
+    imageSrc: "/assets/artists/Kenma.jpg",
+    socials: [
+      { name: "Instagram", url: "https://www.instagram.com/kenma.nmd/" },
+      { name: "Spotify", url: "#" },
+      { name: "YouTube", url: "#" },
+    ],
+  },
+  {
+    id: "artist-letie",
+    name: "Letie",
+    blurb: "Cantante neo-soul y curadora de armonías.",
+    imageSrc: "/assets/artists/Letie.jpg",
+    socials: [
+      { name: "Instagram", url: "https://www.instagram.com/letie.nmd/" },
+      { name: "Spotify", url: "#" },
+      { name: "YouTube", url: "#" },
+    ],
+  },
+  {
+    id: "artist-luccio",
+    name: "Luccio",
+    blurb: "Demonio atrapado en cuerpo de humano.",
+    imageSrc: "/assets/artists/Luccio.jpg",
+    socials: [
+      { name: "Instagram", url: "https://www.instagram.com/luccio.nmd/" },
+      { name: "Spotify", url: "#" },
+      { name: "YouTube", url: "#" },
+    ],
+  },
+  {
+    id: "artist-luquilla",
+    name: "Luquilla",
+    blurb: "Diseñadora vocal y exploradora de texturas.",
+    imageSrc: "/assets/artists/Luquilla.jpg",
+    socials: [
+      { name: "Instagram", url: "https://www.instagram.com/lucaghizzo._.nmd/" },
+      { name: "Spotify", url: "#" },
+      { name: "YouTube", url: "#" },
+    ],
+  },
+  {
+    id: "artist-nacht",
+    name: "Nacht",
+    blurb: "DJ y compositor de atmósferas nocturnas.",
+    imageSrc: "/assets/artists/Nacht.jpg",
+    socials: [
+      { name: "Instagram", url: "https://www.instagram.com/nacht.nmd/" },
+      { name: "Spotify", url: "#" },
+      { name: "YouTube", url: "#" },
+    ],
+  },
+  {
+    id: "artist-nei",
+    name: "Nei",
+    blurb: "Productora audiovisual y arquitecta del live set.",
+    imageSrc: "/assets/artists/Nei.jpg",
+    socials: [
+      { name: "Instagram", url: "https://www.instagram.com/nei.nmd/" },
+      { name: "Spotify", url: "#" },
+      { name: "YouTube", url: "#" },
+    ],
+  },
+  {
+    id: "artist-quei",
+    name: "Quei",
+    blurb: "Lyricist y curadora de storytelling urbano.",
+    imageSrc: "/assets/artists/Quei.jpg",
+    socials: [
+      { name: "Instagram", url: "https://www.instagram.com/quei.nmd/" },
+      { name: "Spotify", url: "#" },
+      { name: "YouTube", url: "#" },
+    ],
+  },
+] ;
+
 
 /**
  * Horizontal artist gallery with GSAP ScrollTrigger.
@@ -40,6 +164,7 @@ export const ArtistsSection: FC = () => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const trackRef = useRef<HTMLDivElement | null>(null);
   const [sidePadding, setSidePadding] = useState(0);
+  const [selectedArtist, setSelectedArtist] = useState<ArtistEntry | null>(null);
 
   useEffect(() => {
     if (prefersReducedMotion) {
@@ -127,37 +252,54 @@ export const ArtistsSection: FC = () => {
     };
   }, [prefersReducedMotion, sidePadding]);
 
-  const artistCards = useMemo(() => {
-    const widthClasses = prefersReducedMotion
-      ? "w-full"
-      : "w-[min(420px,85vw)] flex-shrink-0";
-    return ARTIST_PLACEHOLDERS.map((artist) => (
-      <article
-        key={artist.id}
-        className={`group relative flex h-[min(460px,80vh)] ${widthClasses} flex-col overflow-hidden rounded-3xl border border-neutral-800 bg-neutral-900/40 backdrop-blur`}
-      >
-        <div className="relative h-full">
-          <Image
-            src={artist.imageSrc}
-            alt={`${artist.name} portrait`}
-            fill
-            sizes="(min-width: 1280px) 25vw, (min-width: 768px) 40vw, 80vw"
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-        </div>
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 flex flex-col gap-3 p-6">
-          <h3 className="text-xl font-semibold">{artist.name}</h3>
-          <p className="text-sm text-neutral-300">{artist.blurb}</p>
-        </div>
-        <div className="pointer-events-auto absolute inset-x-0 bottom-6 flex justify-center">
-          <Button variant="secondary" className="w-auto px-5">
-            View Profile
-          </Button>
-        </div>
-      </article>
-    ));
+  // ScrollTrigger batch animation for grid layout (reduced motion fallback)
+  useEffect(() => {
+    if (!prefersReducedMotion) {
+      return;
+    }
+    if (typeof window === "undefined") {
+      return;
+    }
+    if (!scrollTriggerRegistered) {
+      gsap.registerPlugin(ScrollTrigger);
+      scrollTriggerRegistered = true;
+    }
+    if (!ScrollTrigger) {
+      return;
+    }
+
+    const section = sectionRef.current;
+    if (!section) {
+      return;
+    }
+
+    // Set initial state for all artist cards
+    gsap.set(".artist-card-batch", { opacity: 0, y: 30 });
+
+    const ctx = gsap.context(() => {
+      ScrollTrigger.batch(".artist-card-batch", {
+        onEnter: (batch) =>
+          gsap.to(batch, {
+            opacity: 1,
+            y: 0,
+            stagger: 0.15,
+            duration: 0.8,
+            ease: "power2.out",
+            overwrite: true,
+          }),
+        start: "top 85%",
+        once: true,
+      });
+
+      ScrollTrigger.refresh();
+    }, section);
+
+    return () => {
+      ctx.revert();
+    };
   }, [prefersReducedMotion]);
+
+
 
   return (
     <section
@@ -166,32 +308,30 @@ export const ArtistsSection: FC = () => {
       className="relative flex min-h-screen flex-col overflow-hidden bg-black text-neutral-50"
       ref={sectionRef}
     >
-      <div className="z-10 w-full px-6 pt-12 md:px-12">
-        <div className="mx-auto max-w-6xl space-y-2">
-          <p className="text-sm uppercase tracking-[0.35em] text-neutral-400">
-            The Collective
-          </p>
-          <h2 className="text-3xl font-semibold sm:text-4xl">
-            Meet the 12 artists powering Project Web NMD.
-          </h2>
-          <p className="text-neutral-300">
-            Scroll sideways through the lineup. Upcoming iterations will add
-            parallax layers, particles, and overlay interactions sourced from
-            the CMS.
-          </p>
-        </div>
-      </div>
+      <ParticleBackground />
+      <div className="relative z-10 w-full px-6 pt-12 md:px-12" />
 
       {prefersReducedMotion ? (
-        <div className="mx-auto flex w-full flex-1 items-center px-6 pb-12 md:px-12">
+        <div className="relative z-10 mx-auto flex w-full flex-1 items-center px-6 pb-12 md:px-12">
           <div className="grid w-full gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {artistCards}
+            {ARTIST_PLACEHOLDERS.map((artist) => (
+              <div key={artist.id} className="artist-card-batch">
+                <ArtistCard
+                  artist={artist}
+                  onSelect={() => {
+                    setSelectedArtist(artist);
+                    trackEvent("artist_profile_view", { artist_id: artist.id });
+                  }}
+                />
+              </div>
+            ))}
           </div>
         </div>
       ) : (
-        <div className="flex flex-1 items-center overflow-hidden">
+        <div className="relative z-10 flex flex-1 items-center overflow-hidden">
           <div
             ref={trackRef}
+            id="artists-track"
             className="flex h-full w-max items-center gap-8"
             aria-hidden={false}
             style={{
@@ -199,10 +339,20 @@ export const ArtistsSection: FC = () => {
               paddingRight: `${sidePadding}px`,
             }}
           >
-            {artistCards}
+            {ARTIST_PLACEHOLDERS.map((artist) => (
+              <ArtistCard
+                key={artist.id}
+                artist={artist}
+                onSelect={() => {
+                  setSelectedArtist(artist);
+                  trackEvent("artist_profile_view", { artist_id: artist.id });
+                }}
+              />
+            ))}
           </div>
         </div>
       )}
+      <ArtistOverlay artist={selectedArtist} onClose={() => setSelectedArtist(null)} />
     </section>
   );
 };

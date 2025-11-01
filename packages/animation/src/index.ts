@@ -1,2 +1,1 @@
 export { useReducedMotionPreference } from "./useReducedMotionPreference";
-
