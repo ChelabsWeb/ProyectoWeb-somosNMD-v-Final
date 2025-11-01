@@ -4,12 +4,12 @@ import Image from "next/image";
 import { useLayoutEffect, useRef, type FC, type RefObject, useCallback } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { useLenis } from "@/context/LenisContext";
 import { useReducedMotionPreference } from "@nmd/animation";
 import { trackEvent } from "../../lib/analytics";
-import { useCoarsePointer } from "@/lib/useCoarsePointer";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
 const HERO_IMAGE_SRC = "/assets/hero/nmdfinal-25.jpg";
 const HERO_LOGO_MASK = "/assets/logo/logoNMD.svg";
@@ -34,8 +34,6 @@ export const HeroSection: FC = () => {
   const lenis = useLenis();
   const hasTrackedCompletionRef = useRef(false);
   const prefersReducedMotion = useReducedMotionPreference();
-  const isCoarsePointer = useCoarsePointer();
-  const shouldReduceMotion = prefersReducedMotion || isCoarsePointer;
 
   useLayoutEffect(() => {
     const section = sectionRef.current;
@@ -46,7 +44,7 @@ export const HeroSection: FC = () => {
 
     if (!section || !heroImage || !overlayRect || !logoGroup || !fadeOut) return;
 
-    if (shouldReduceMotion) {
+    if (prefersReducedMotion) {
       gsap.set(heroImage, { scale: 1 });
       gsap.set(overlayRect, { opacity: 1 });
       gsap.set(logoGroup, {
@@ -104,33 +102,21 @@ export const HeroSection: FC = () => {
     });
 
     return () => ctx.revert();
-  }, [shouldReduceMotion]);
+  }, [prefersReducedMotion]);
 
   const handleScrollTo = useCallback(
     (id: string) => {
       const el = document.getElementById(id);
-      if (!el) return;
+      if (!el || !lenis) return;
+
+      const distance = Math.abs(el.offsetTop - lenis.scroll);
+      const velocity = 1500; // pixels per second
+      const duration = distance / velocity;
 
       trackEvent("hero_cta_click", { target: id });
-      if (lenis) {
-        const distance = Math.abs(el.offsetTop - lenis.scroll);
-        const velocity = 1500; // pixels per second
-        const duration = distance / velocity;
-
-        lenis.scrollTo(el, {
-          duration,
-          easing: (t: number) =>
-            t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2,
-        });
-        return;
-      }
-
-      el.scrollIntoView({
-        behavior: shouldReduceMotion ? "auto" : "smooth",
-        block: "start",
-      });
+      lenis.scrollTo(el, { duration: duration, easing: (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2) });
     },
-    [lenis, shouldReduceMotion],
+    [lenis, prefersReducedMotion],
   );
 
   return (

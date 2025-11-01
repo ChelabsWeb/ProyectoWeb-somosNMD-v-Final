@@ -5,7 +5,6 @@ import { useEffect, useRef, useState, type FC } from "react";
 import gsap from "gsap";
 import { useReducedMotionPreference } from "@nmd/animation";
 import { appReadyEventName } from "@/lib/app-ready";
-import { useCoarsePointer } from "@/lib/useCoarsePointer";
 
 const FALLBACK_TIMEOUT_MS = 7000;
 const PROGRESS_DURATION = 3000;
@@ -18,7 +17,6 @@ export const LoaderSection: FC = () => {
   const logoRef = useRef<HTMLDivElement | null>(null);
   const containerRef = useRef<HTMLElement | null>(null);
   const prefersReducedMotion = useReducedMotionPreference();
-  const isCoarsePointer = useCoarsePointer();
   const [isBlockingScroll, setIsBlockingScroll] = useState(true);
   const animationStartRef = useRef<number>(0);
   const scrollRestorationRef =
@@ -44,7 +42,7 @@ export const LoaderSection: FC = () => {
   }, []);
 
   useEffect(() => {
-    if (!logoRef.current || prefersReducedMotion || isCoarsePointer) {
+    if (!logoRef.current || prefersReducedMotion) {
       return;
     }
 
@@ -66,7 +64,7 @@ export const LoaderSection: FC = () => {
     }, logoRef);
 
     return () => ctx.revert();
-  }, [prefersReducedMotion, isCoarsePointer]);
+  }, [prefersReducedMotion]);
 
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -83,8 +81,7 @@ export const LoaderSection: FC = () => {
     let finishTimeout: number | null = null;
     let loaderDone = false;
 
-    const duration =
-      prefersReducedMotion || isCoarsePointer ? 1200 : PROGRESS_DURATION;
+    const duration = prefersReducedMotion ? 800 : PROGRESS_DURATION;
 
     const finalize = () => {
       if (loaderDone) {
@@ -164,7 +161,7 @@ export const LoaderSection: FC = () => {
       window.scrollTo({ top: 0, left: 0, behavior: "auto" });
       setIsBlockingScroll(false);
     };
-  }, [prefersReducedMotion, isCoarsePointer]);
+  }, [prefersReducedMotion]);
 
   return (
     <section
