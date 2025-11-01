@@ -7,6 +7,7 @@ import { useEffect, useState, type FC, type ReactNode } from "react";
 import { CustomCursor } from "@/components/system/CustomCursor";
 import { AudioProvider } from "@/context/AudioProvider";
 import { LenisProvider } from "@/context/LenisContext";
+import { useCoarsePointer } from "@/lib/useCoarsePointer";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,13 +21,24 @@ type PageShellProps = {
  */
 export const PageShell: FC<PageShellProps> = ({ children }) => {
   const [lenis, setLenis] = useState<Lenis | null>(null);
+  const isCoarsePointer = useCoarsePointer();
+
   useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     );
-    const prefersCoarsePointer = window.matchMedia("(pointer: coarse)");
 
-    if (prefersReducedMotion.matches || prefersCoarsePointer.matches) {
+    if (prefersReducedMotion.matches || isCoarsePointer) {
+      setLenis((current) => {
+        if (current) {
+          current.destroy();
+        }
+        return null;
+      });
       ScrollTrigger.refresh();
       return;
     }
@@ -92,15 +104,26 @@ export const PageShell: FC<PageShellProps> = ({ children }) => {
       }
     };
 
-    prefersReducedMotion.addEventListener("change", handleMotionPreferenceChange);
+    if (typeof prefersReducedMotion.addEventListener === "function") {
+      prefersReducedMotion.addEventListener(
+        "change",
+        handleMotionPreferenceChange,
+      );
+    } else if (typeof prefersReducedMotion.addListener === "function") {
+      prefersReducedMotion.addListener(handleMotionPreferenceChange);
+    }
 
     return () => {
       cancelAnimationFrame(animationFrameId);
       lenisInstance.off("scroll", handleLenisScroll);
-      prefersReducedMotion.removeEventListener(
-        "change",
-        handleMotionPreferenceChange,
-      );
+      if (typeof prefersReducedMotion.removeEventListener === "function") {
+        prefersReducedMotion.removeEventListener(
+          "change",
+          handleMotionPreferenceChange,
+        );
+      } else if (typeof prefersReducedMotion.removeListener === "function") {
+        prefersReducedMotion.removeListener(handleMotionPreferenceChange);
+      }
       ScrollTrigger.removeEventListener("refresh", handleRefresh);
       ScrollTrigger.scrollerProxy(document.body, {
         scrollTop(value?: number) {
@@ -122,10 +145,10 @@ export const PageShell: FC<PageShellProps> = ({ children }) => {
       lenisInstance.destroy();
       setLenis(null);
     };
-  }, []);
+  }, [isCoarsePointer]);
 
   return (
-    <LenisProvider value={lenis}>
+    <LenisProvider value={isCoarsePointer ? null : lenis}>
       <AudioProvider>
         <div className="relative min-h-screen w-full overflow-x-hidden bg-neutral-950 text-neutral-50">
           {children}

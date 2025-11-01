@@ -5,6 +5,7 @@ import { useEffect, useRef, useState, type FC } from "react";
 import gsap from "gsap";
 import { useReducedMotionPreference } from "@nmd/animation";
 import { appReadyEventName } from "@/lib/app-ready";
+import { useCoarsePointer } from "@/lib/useCoarsePointer";
 
 const FALLBACK_TIMEOUT_MS = 7000;
 const PROGRESS_DURATION = 3000;
@@ -17,6 +18,7 @@ export const LoaderSection: FC = () => {
   const logoRef = useRef<HTMLDivElement | null>(null);
   const containerRef = useRef<HTMLElement | null>(null);
   const prefersReducedMotion = useReducedMotionPreference();
+  const isCoarsePointer = useCoarsePointer();
   const [isBlockingScroll, setIsBlockingScroll] = useState(true);
   const animationStartRef = useRef<number>(0);
   const scrollRestorationRef =
@@ -42,15 +44,7 @@ export const LoaderSection: FC = () => {
   }, []);
 
   useEffect(() => {
-    if (!logoRef.current || prefersReducedMotion) {
-      return;
-    }
-
-    const isCoarsePointer =
-      typeof window !== "undefined" &&
-      window.matchMedia("(pointer: coarse)").matches;
-
-    if (isCoarsePointer) {
+    if (!logoRef.current || prefersReducedMotion || isCoarsePointer) {
       return;
     }
 
@@ -72,7 +66,7 @@ export const LoaderSection: FC = () => {
     }, logoRef);
 
     return () => ctx.revert();
-  }, [prefersReducedMotion]);
+  }, [prefersReducedMotion, isCoarsePointer]);
 
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -84,17 +78,13 @@ export const LoaderSection: FC = () => {
       return;
     }
 
-    const prefersCoarsePointer =
-      typeof window !== "undefined" &&
-      window.matchMedia("(pointer: coarse)").matches;
-
     const originalOverflow = document.body.style.overflow;
     let fallbackTimeout: number | null = null;
     let finishTimeout: number | null = null;
     let loaderDone = false;
 
     const duration =
-      prefersReducedMotion || prefersCoarsePointer ? 1200 : PROGRESS_DURATION;
+      prefersReducedMotion || isCoarsePointer ? 1200 : PROGRESS_DURATION;
 
     const finalize = () => {
       if (loaderDone) {
@@ -174,7 +164,7 @@ export const LoaderSection: FC = () => {
       window.scrollTo({ top: 0, left: 0, behavior: "auto" });
       setIsBlockingScroll(false);
     };
-  }, [prefersReducedMotion]);
+  }, [prefersReducedMotion, isCoarsePointer]);
 
   return (
     <section
