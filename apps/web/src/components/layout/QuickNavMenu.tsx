@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState, type FC } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLenis } from "@/context/LenisContext";
 import { trackEvent } from "@/lib/analytics";
+import { loaderHiddenEventName } from "@/lib/app-ready";
 
 type MenuSection = {
   id: string;
@@ -24,10 +25,37 @@ const SECTIONS: MenuSection[] = [
  * Provides quick links to primary sections, jumping instantly to targets.
  */
 export const QuickNavMenu: FC = () => {
+  const [isReady, setIsReady] = useState<boolean>(() =>
+    typeof window !== "undefined" ? Boolean((window as Window & { __nmdLoaderHidden?: boolean }).__nmdLoaderHidden) : false,
+  );
   const [isOpen, setIsOpen] = useState(false);
   const lenis = useLenis();
   const menuRef = useRef<HTMLDivElement | null>(null);
   const toggleButtonRef = useRef<HTMLButtonElement | null>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    const win = window as Window & { __nmdLoaderHidden?: boolean };
+    if (win.__nmdLoaderHidden) {
+      setIsReady(true);
+      return;
+    }
+
+    const handleReady = () => {
+      setIsReady(true);
+    };
+
+    window.addEventListener(loaderHiddenEventName, handleReady);
+    const fallbackTimeout = window.setTimeout(() => setIsReady(true), 10000);
+
+    return () => {
+      window.removeEventListener(loaderHiddenEventName, handleReady);
+      window.clearTimeout(fallbackTimeout);
+    };
+  }, []);
 
   const handleClose = useCallback(() => {
     setIsOpen(false);
@@ -115,6 +143,10 @@ export const QuickNavMenu: FC = () => {
     },
     [lenis, refreshScrollTriggers],
   );
+
+  if (!isReady) {
+    return null;
+  }
 
   return (
     <div className="quick-nav fixed right-4 top-4 z-[70] md:right-6 md:top-6">
