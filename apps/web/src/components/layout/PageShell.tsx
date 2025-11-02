@@ -5,8 +5,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useState, type FC, type ReactNode } from "react";
 import { CustomCursor } from "@/components/system/CustomCursor";
-import { AudioProvider } from "@/context/AudioProvider";
 import { LenisProvider } from "@/context/LenisContext";
+import { AudioProvider } from "@/context/AudioProvider";
+import { QuickNavMenu } from "./QuickNavMenu";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -126,6 +127,7 @@ export const PageShell: FC<PageShellProps> = ({ children }) => {
     <LenisProvider value={lenis}>
       <AudioProvider>
         <div className="relative min-h-screen w-full overflow-x-hidden bg-neutral-950 text-neutral-50">
+          <QuickNavMenu />
           {children}
           <CustomCursor />
         </div>

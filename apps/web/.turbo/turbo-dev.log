@@ -1,0 +1,144 @@
+
+> web@0.1.0 dev C:\Users\lucci\OneDrive\Desktop\ProyectoWeb-somosNMD-v-Final\apps\web
+> next dev
+
+   ▲ Next.js 16.0.0 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://172.23.96.1:3000
+
+ ✓ Starting...
+ ✓ Ready in 740ms
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ GET / 200 in 3.1s (compile: 2.8s, render: 307ms)
+ ✓ Compiled in 77ms
+ ✓ Compiled in 66ms
+ ✓ Compiled in 81ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ ✓ Compiled in 64ms
+ GET / 200 in 179ms (compile: 58ms, render: 122ms)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ ✓ Compiled in 82ms
+ GET / 200 in 169ms (compile: 36ms, render: 133ms)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ ✓ Compiled in 57ms
+ GET / 200 in 186ms (compile: 53ms, render: 133ms)
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ GET / 200 in 73ms (compile: 5ms, render: 68ms)
+ ✓ Compiled in 61ms
+ ✓ Compiled in 55ms
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ GET / 200 in 194ms (compile: 49ms, render: 145ms)
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ GET / 200 in 64ms (compile: 3ms, render: 61ms)
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ GET / 200 in 76ms (compile: 2ms, render: 74ms)
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ GET / 200 in 52ms (compile: 3ms, render: 49ms)
+ ✓ Compiled in 74ms
+ ✓ Compiled in 103ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 77ms
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ GET / 200 in 174ms (compile: 58ms, render: 115ms)
+ ✓ Compiled in 54ms
+ ✓ Compiled in 62ms
+ ✓ Compiled in 45ms
+ ✓ Compiled in 85ms
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ GET / 200 in 211ms (compile: 52ms, render: 158ms)
+ ✓ Compiled in 83ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ ✓ Compiled in 68ms
+ GET / 200 in 151ms (compile: 34ms, render: 116ms)
+ ✓ Compiled in 59ms
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ GET / 200 in 216ms (compile: 63ms, render: 153ms)
+ ✓ Compiled in 102ms
+ ✓ Compiled in 94ms
+ ✓ Compiled in 229ms
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ GET / 200 in 336ms (compile: 96ms, render: 240ms)
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ GET / 200 in 79ms (compile: 3ms, render: 76ms)
+ ✓ Compiled in 90ms
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ GET / 200 in 287ms (compile: 97ms, render: 191ms)
+ ✓ Compiled in 76ms
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ GET / 200 in 282ms (compile: 83ms, render: 198ms)
+ ✓ Compiled in 188ms
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ GET / 200 in 323ms (compile: 96ms, render: 228ms)
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ ✓ Compiled in 90ms
+ GET / 200 in 294ms (compile: 109ms, render: 185ms)
+ ✓ Compiled in 50ms
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ GET / 200 in 92ms (compile: 4ms, render: 88ms)
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ GET / 200 in 63ms (compile: 3ms, render: 60ms)
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ GET / 200 in 64ms (compile: 3ms, render: 61ms)
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ GET / 200 in 68ms (compile: 3ms, render: 65ms)
+ ✓ Compiled in 51ms
+ ✓ Compiled in 62ms
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ GET / 200 in 342ms (compile: 104ms, render: 237ms)
+ GET / 200 in 205ms (compile: 5ms, render: 200ms)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 91ms
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ GET / 200 in 272ms (compile: 100ms, render: 172ms)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ ✓ Compiled in 94ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET / 200 in 306ms (compile: 88ms, render: 218ms)
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ GET / 200 in 50ms (compile: 4ms, render: 47ms)
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ GET / 200 in 83ms (compile: 1987µs, render: 81ms)
+ ✓ Compiled in 55ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 46ms
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ GET / 200 in 267ms (compile: 87ms, render: 180ms)
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ GET / 200 in 50ms (compile: 3ms, render: 47ms)

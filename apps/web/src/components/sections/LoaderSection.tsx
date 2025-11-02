@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState, type FC } from "react";
 import gsap from "gsap";
 import { useReducedMotionPreference } from "@nmd/animation";
-import { appReadyEventName } from "@/lib/app-ready";
+import { appReadyEventName, markLoaderHidden } from "@/lib/app-ready";
 
 const FALLBACK_TIMEOUT_MS = 7000;
 const PROGRESS_DURATION = 3000;
@@ -19,6 +19,7 @@ export const LoaderSection: FC = () => {
   const prefersReducedMotion = useReducedMotionPreference();
   const [isBlockingScroll, setIsBlockingScroll] = useState(true);
   const animationStartRef = useRef<number>(0);
+  const hasNotifiedHiddenRef = useRef(false);
   const scrollRestorationRef =
     useRef<History["scrollRestoration"] | null>(null);
 
@@ -89,6 +90,11 @@ export const LoaderSection: FC = () => {
       }
       loaderDone = true;
       window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      section.style.pointerEvents = "none";
+      if (!hasNotifiedHiddenRef.current) {
+        hasNotifiedHiddenRef.current = true;
+        requestAnimationFrame(() => markLoaderHidden());
+      }
       gsap.to(section, {
         autoAlpha: 0,
         duration: prefersReducedMotion ? 0.3 : 0.8,
