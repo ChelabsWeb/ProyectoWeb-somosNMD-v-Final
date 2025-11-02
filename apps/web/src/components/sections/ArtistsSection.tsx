@@ -158,12 +158,13 @@ const ARTIST_PLACEHOLDERS: ArtistEntry[] = [
  * Falls back to grid when reduced motion preference is enabled.
  */
 let scrollTriggerRegistered = false;
-
+const ARTISTS_SCROLL_TRIGGER_ID = "artists-horizontal-scroll";
 export const ArtistsSection: FC = () => {
   const prefersReducedMotion = useReducedMotionPreference();
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const trackRef = useRef<HTMLDivElement | null>(null);
   const [sidePadding, setSidePadding] = useState(0);
+  const [resetTick, setResetTick] = useState(0);
   const [selectedArtist, setSelectedArtist] = useState<ArtistEntry | null>(null);
 
   useEffect(() => {
@@ -234,6 +235,7 @@ export const ArtistsSection: FC = () => {
         x: () => -horizontalDistance,
         ease: "none",
         scrollTrigger: {
+          id: ARTISTS_SCROLL_TRIGGER_ID,
           trigger: section,
           start: "top top",
           end: () => `+=${horizontalDistance + window.innerHeight * 0.6}`,
@@ -250,7 +252,29 @@ export const ArtistsSection: FC = () => {
     return () => {
       ctx.revert();
     };
-  }, [prefersReducedMotion, sidePadding]);
+  }, [prefersReducedMotion, sidePadding, resetTick]);
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      return;
+    }
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    const handleReset = () => {
+      setResetTick((tick) => tick + 1);
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
+    };
+
+    window.addEventListener("artists:reset", handleReset);
+
+    return () => {
+      window.removeEventListener("artists:reset", handleReset);
+    };
+  }, [prefersReducedMotion]);
 
   // ScrollTrigger batch animation for grid layout (reduced motion fallback)
   useEffect(() => {
@@ -332,6 +356,7 @@ export const ArtistsSection: FC = () => {
           <div
             ref={trackRef}
             id="artists-track"
+            key={resetTick}
             className="flex h-full w-max items-center gap-8"
             aria-hidden={false}
             style={{

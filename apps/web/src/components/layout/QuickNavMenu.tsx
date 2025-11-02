@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState, type FC } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLenis } from "@/context/LenisContext";
 import { trackEvent } from "@/lib/analytics";
 
@@ -68,6 +69,15 @@ export const QuickNavMenu: FC = () => {
     };
   }, [isOpen, handleClose]);
 
+  const refreshScrollTriggers = useCallback(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+    requestAnimationFrame(() => {
+      ScrollTrigger.refresh();
+    });
+  }, []);
+
   const handleNavigate = useCallback(
     (sectionId: string) => {
       trackEvent("menu_nav_click", { section: sectionId });
@@ -79,6 +89,7 @@ export const QuickNavMenu: FC = () => {
           window.scrollTo({ top: 0, behavior: "auto" });
         }
         setIsOpen(false);
+        refreshScrollTriggers();
         return;
       }
 
@@ -94,8 +105,15 @@ export const QuickNavMenu: FC = () => {
       }
 
       setIsOpen(false);
+      if (sectionId === "artists" && typeof window !== "undefined") {
+        requestAnimationFrame(() => {
+          window.dispatchEvent(new Event("artists:reset"));
+        });
+        return;
+      }
+      refreshScrollTriggers();
     },
-    [lenis],
+    [lenis, refreshScrollTriggers],
   );
 
   return (
