@@ -4,7 +4,7 @@ import { useRef, useLayoutEffect, type FC } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useReducedMotionPreference } from "@nmd/animation";
-import { ParticleText } from "@/components/effects/ParticleText";
+import { ParticleText, type ParticleTextHandle } from "@/components/effects/ParticleText";
 import { trackEvent } from "@/lib/analytics";
 
 // Register GSAP plugins
@@ -15,6 +15,7 @@ if (typeof window !== "undefined") {
 export const SoloPolvoSection: FC = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const contentRef = useRef<HTMLDivElement | null>(null);
+  const particleRef = useRef<ParticleTextHandle | null>(null);
   const prefersReducedMotion = useReducedMotionPreference();
 
   useLayoutEffect(() => {
@@ -27,64 +28,68 @@ export const SoloPolvoSection: FC = () => {
     if (prefersReducedMotion) {
       gsap.set(content, {
         opacity: 1,
-        scale: 1,
-        y: 0,
       });
+      // Set particles to formed state immediately
+      particleRef.current?.setProgress(1);
       return;
     }
 
     // Create GSAP context for proper cleanup
     const ctx = gsap.context(() => {
+      // Progress object for particle formation
+      const progressObj = { value: 0 };
+
       // Set initial states
       gsap.set(content, {
         opacity: 0,
-        scale: 0.8,
-        y: 50,
       });
 
-      // Main timeline for section entrance
+      // Main timeline for particle formation with scroll
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
-          start: "top 80%",
-          end: "top 20%",
-          scrub: 1,
+          start: "top bottom",   // Start when section enters viewport
+          end: "center center",  // Complete when section is centered in viewport
+          scrub: 1,             // Direct scrubbing for responsive feel
+          markers: false,       // Set to true to debug scroll positions
+          onUpdate: (self) => {
+            // Update particle formation progress
+            const progress = self.progress;
+            particleRef.current?.setProgress(progress);
+            progressObj.value = progress;
+
+
+            // Track milestones
+            if (progress >= 0.25 && !self.vars.milestone25) {
+              trackEvent("solo_polvo_formation_25");
+              self.vars.milestone25 = true;
+            }
+            if (progress >= 0.5 && !self.vars.milestone50) {
+              trackEvent("solo_polvo_formation_50");
+              self.vars.milestone50 = true;
+            }
+            if (progress >= 0.75 && !self.vars.milestone75) {
+              trackEvent("solo_polvo_formation_75");
+              self.vars.milestone75 = true;
+            }
+          },
           onComplete: () => {
-            trackEvent("solo_polvo_section_viewed");
+            trackEvent("solo_polvo_formation_complete");
           },
         },
       });
 
-      // Animate content entrance
+      // Fade in content while particles form
       tl.to(content, {
         opacity: 1,
-        scale: 1,
-        y: 0,
-        duration: 1.5,
+        duration: 1,
         ease: "power2.out",
-      });
+      }, 0);
 
-      // Add a subtle floating animation that plays continuously
-      gsap.to(content, {
-        y: -10,
-        duration: 3,
-        repeat: -1,
-        yoyo: true,
-        ease: "power1.inOut",
-        delay: 1,
-      });
-
-      // Optional: Add parallax effect for the background gradient
-      gsap.to(".solo-polvo-gradient", {
-        yPercent: -30,
-        ease: "none",
-        scrollTrigger: {
-          trigger: section,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
+      // Refresh ScrollTrigger after a small delay to ensure proper initialization
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 100);
     }, sectionRef);
 
     // Cleanup
@@ -100,47 +105,18 @@ export const SoloPolvoSection: FC = () => {
       aria-label="Solo Polvo section"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black"
     >
-      {/* Black and white gradient background */}
-      <div className="absolute inset-0 solo-polvo-gradient">
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black" />
-
-        {/* Subtle white gradient orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse delay-1000" />
-      </div>
 
       {/* Main content */}
       <div
         ref={contentRef}
-        className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8"
+        className="relative z-10 w-full flex flex-col items-center justify-center"
       >
         <ParticleText
+          ref={particleRef}
           text="SOLO POLVO..."
-          className="w-full h-[400px] md:h-[500px]"
+          className="w-full max-w-[1600px] h-[400px] md:h-[500px]"
         />
-
-        {/* Optional subtitle or additional text */}
-        <div className="mt-8 text-center opacity-60">
-          <p className="text-xl md:text-2xl text-white/80 font-light tracking-wider">
-            Un viaje sonoro que trasciende
-          </p>
-        </div>
       </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-bounce" />
-        </div>
-      </div>
-
-      <style jsx>{`
-        @keyframes delay-1000 {
-          0% {
-            animation-delay: 1s;
-          }
-        }
-      `}</style>
     </section>
   );
 };

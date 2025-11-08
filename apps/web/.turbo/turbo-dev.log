@@ -2,20 +2,40 @@
 > web@0.1.0 dev C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\apps\web
 > next dev
 
- ⚠ Port 3000 is in use by process 28992, using available port 3001 instead.
  ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
  We detected multiple lockfiles and selected the directory of C:\Users\Estudiante UCU\package-lock.json as the root directory.
  To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
    See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
  Detected additional lockfiles: 
-   * C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\pnpm-lock.yaml
    ▲ Next.js 16.0.0 (Turbopack)
+   * C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\pnpm-lock.yaml
+   - Local:        http://localhost:3000
 
-   - Local:        http://localhost:3001
-   - Network:      http://192.168.56.1:3001
+   - Network:      http://192.168.56.1:3000
 
  ✓ Starting...
- ⨯ Unable to acquire lock at C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\apps\web\.next\dev\lock, is another instance of next dev running?
-   Suggestion: If you intended to restart next dev, terminate the other process, and then try again.
+ ✓ Ready in 2.4s
+ ○ Compiling / ...
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ GET / 200 in 14.2s (compile: 13.5s, render: 744ms)
+ ✓ Compiled in 165ms
+ GET / 200 in 193ms (compile: 95ms, render: 97ms)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ ✓ Compiled in 150ms
+ GET / 200 in 385ms (compile: 110ms, render: 275ms)
+ ✓ Compiled in 136ms
+ ✓ Compiled in 150ms
+ ✓ Compiled in 137ms
+ ✓ Compiled in 139ms
+ ✓ Compiled in 124ms
+ ✓ Compiled in 148ms
+ ✓ Compiled in 129ms
+ ✓ Compiled in 134ms
+ ✓ Compiled in 122ms
+ ✓ Compiled in 433ms
+ ✓ Compiled in 218ms
 [?25h
- ELIFECYCLE  Command failed with exit code 1.
+ ELIFECYCLE  Command failed with exit code 4294967295.

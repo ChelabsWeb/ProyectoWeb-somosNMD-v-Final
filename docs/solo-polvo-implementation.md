@@ -39,6 +39,17 @@ The "SOLO POLVO..." section is a cinematic particle text effect that appears aft
 4. **Reduced Motion**: Falls back to static gradient text when motion is disabled
 5. **Canvas Size**: Fixed dimensions (1600x400) for consistent performance
 
+### Scroll Animation Implementation
+The particles animate from scattered positions to form the text "SOLO POLVO..." as the user scrolls:
+1. **Initial State**: Particles start scattered randomly across the viewport
+2. **Scroll Progress**: As the section enters the viewport, particles gradually move to form the text
+3. **Complete State**: When the section reaches the center of the viewport, text is fully formed
+4. **ScrollTrigger Configuration**:
+   - Start: `top bottom` (when section enters viewport)
+   - End: `center center` (when section is centered)
+   - Scrub: Direct scrubbing for responsive feel
+5. **Interpolation**: Uses eased interpolation between scattered and target positions
+
 ### Interaction Effects
 - **Default**: Light particle scatter on mouse hover
 - **Spark**: Strong scatter effect with more dramatic repulsion

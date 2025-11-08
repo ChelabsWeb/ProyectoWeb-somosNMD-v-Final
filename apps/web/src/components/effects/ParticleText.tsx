@@ -1,25 +1,29 @@
 "use client";
 
 import type React from "react";
-import { useEffect, useRef, useState, useId } from "react";
+import { useEffect, useRef, useId, forwardRef, useImperativeHandle } from "react";
 import * as THREE from "three";
 import { useReducedMotionPreference } from "@nmd/animation";
-
-type Effect = "default" | "spark" | "wave" | "vortex";
 
 interface ParticleTextProps {
   text?: string;
   className?: string;
 }
 
-export const ParticleText: React.FC<ParticleTextProps> = ({
+export type ParticleTextHandle = {
+  setProgress: (progress: number) => void;
+};
+
+export const ParticleText = forwardRef<ParticleTextHandle, ParticleTextProps>(({
   text = "SOLO POLVO...",
   className = ""
-}) => {
+}, ref) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [currentEffect, setCurrentEffect] = useState<Effect>("default");
   const prefersReducedMotion = useReducedMotionPreference();
   const particleId = useId();
+
+  // Progress ref for scroll animation (0 = scattered, 1 = formed)
+  const progressRef = useRef<{ value: number }>({ value: prefersReducedMotion ? 1 : 0 });
 
   const sceneRef = useRef<{
     scene: THREE.Scene;
@@ -28,6 +32,8 @@ export const ParticleText: React.FC<ParticleTextProps> = ({
     points: THREE.Points;
     geometry: THREE.BufferGeometry;
     originalPositions: Float32Array;
+    scatteredPositions: Float32Array;
+    targetPositions: Float32Array;
     velocities: Float32Array;
     phases: Float32Array;
     intersectionPoint: THREE.Vector3 | null;
@@ -39,11 +45,23 @@ export const ParticleText: React.FC<ParticleTextProps> = ({
     particleCount: number;
   } | null>(null);
 
-  const currentEffectRef = useRef<Effect>(currentEffect);
+  // Expose setProgress method to parent component
+  useImperativeHandle(ref, () => ({
+    setProgress: (value: number) => {
+      if (progressRef.current) {
+        progressRef.current.value = Math.max(0, Math.min(1, value)); // Clamp between 0 and 1
+      }
+    }
+  }), []);
 
-  useEffect(() => {
-    currentEffectRef.current = currentEffect;
-  }, [currentEffect]);
+  // Seeded random number generator for consistent scattered positions
+  const seededRandom = (seed: number) => {
+    let value = seed;
+    return () => {
+      value = (value * 9301 + 49297) % 233280;
+      return value / 233280;
+    };
+  };
 
   useEffect(() => {
     // Skip animation if user prefers reduced motion
@@ -52,7 +70,7 @@ export const ParticleText: React.FC<ParticleTextProps> = ({
     const canvas = canvasRef.current;
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
-      75,
+      50, // Reduced FOV for less distortion
       canvas.width / canvas.height,
       0.1,
       1000
@@ -72,8 +90,8 @@ export const ParticleText: React.FC<ParticleTextProps> = ({
     // Create text texture for particle sampling
     const textCanvas = document.createElement("canvas");
     const textCtx = textCanvas.getContext("2d")!;
-    const fontSize = 120;
-    const padding = 50;
+    const fontSize = 180; // Increased font size
+    const padding = 80; // Increased padding
 
     textCtx.font = `bold ${fontSize}px "Space Grotesk", "Geist", sans-serif`;
     const metrics = textCtx.measureText(text);
@@ -95,8 +113,8 @@ export const ParticleText: React.FC<ParticleTextProps> = ({
 
     const positions: number[] = [];
     const colors: number[] = [];
-    const samplingRate = 2; // Sample every N pixels for performance
-    const scale = 0.004; // Scale factor for positioning
+    const samplingRate = 2; // Optimal sampling for performance
+    const scale = 0.0025; // Smaller scale for better fit
 
     for (let y = 0; y < textCanvas.height; y += samplingRate) {
       for (let x = 0; x < textCanvas.width; x += samplingRate) {
@@ -123,14 +141,40 @@ export const ParticleText: React.FC<ParticleTextProps> = ({
     }
 
     const numParticles = positions.length / 3;
-    const positionsArray = new Float32Array(positions);
+    const targetPositions = new Float32Array(positions); // Final text positions
     const colorsArray = new Float32Array(colors);
-    const originalPositions = positionsArray.slice();
+
+    // Generate scattered initial positions using seeded random
+    const seed = particleId.split(':').reduce((acc, val) => acc + val.charCodeAt(0), 0);
+    const random = seededRandom(seed);
+
+    const scatteredPositions = new Float32Array(numParticles * 3);
+    for (let i = 0; i < numParticles; i++) {
+      const idx = i * 3;
+      // Scatter particles across a wider area
+      scatteredPositions[idx] = (random() - 0.5) * 6;     // X: -3 to 3
+      scatteredPositions[idx + 1] = (random() - 0.5) * 4; // Y: -2 to 2
+      scatteredPositions[idx + 2] = (random() - 0.5) * 2; // Z: -1 to 1
+    }
+
+    // Start with scattered positions (will be interpolated based on progress)
+    const positionsArray = new Float32Array(numParticles * 3);
+
+    // Initialize positions based on initial progress
+    const initialProgress = progressRef.current.value;
+    for (let i = 0; i < numParticles; i++) {
+      const idx = i * 3;
+      positionsArray[idx] = scatteredPositions[idx] + (targetPositions[idx] - scatteredPositions[idx]) * initialProgress;
+      positionsArray[idx + 1] = scatteredPositions[idx + 1] + (targetPositions[idx + 1] - scatteredPositions[idx + 1]) * initialProgress;
+      positionsArray[idx + 2] = scatteredPositions[idx + 2] + (targetPositions[idx + 2] - scatteredPositions[idx + 2]) * initialProgress;
+    }
+
+    const originalPositions = targetPositions.slice(); // Keep for compatibility
     const velocities = new Float32Array(numParticles * 3);
     const phases = new Float32Array(numParticles);
 
     for (let i = 0; i < numParticles; i++) {
-      phases[i] = Math.random() * Math.PI * 2;
+      phases[i] = random() * Math.PI * 2;
     }
 
     const geometry = new THREE.BufferGeometry();
@@ -138,7 +182,7 @@ export const ParticleText: React.FC<ParticleTextProps> = ({
     geometry.setAttribute("color", new THREE.BufferAttribute(colorsArray, 3));
 
     const material = new THREE.PointsMaterial({
-      size: 0.008,
+      size: 0.01, // Slightly larger particles for better visibility
       sizeAttenuation: true,
       vertexColors: true,
       transparent: true,
@@ -148,7 +192,10 @@ export const ParticleText: React.FC<ParticleTextProps> = ({
     const points = new THREE.Points(geometry, material);
     scene.add(points);
 
-    camera.position.set(0, 0, 2);
+    // Center the text properly
+    points.position.set(0, 0, 0); // Center position
+    camera.position.set(0, 0, 2.5); // Optimal distance for viewing
+    camera.lookAt(0, 0, 0);
 
     // Store scene data
     sceneRef.current = {
@@ -158,6 +205,8 @@ export const ParticleText: React.FC<ParticleTextProps> = ({
       points,
       geometry,
       originalPositions,
+      scatteredPositions,
+      targetPositions,
       velocities,
       phases,
       intersectionPoint: null,
@@ -207,6 +256,8 @@ export const ParticleText: React.FC<ParticleTextProps> = ({
         geometry,
         points,
         originalPositions,
+        scatteredPositions,
+        targetPositions,
         velocities,
         phases,
         intersectionPoint,
@@ -222,15 +273,15 @@ export const ParticleText: React.FC<ParticleTextProps> = ({
       const angularSpeed = 0.5;
       const effectRadius = 0.3;
 
-      let repelStrength = 0;
-      if (currentEffectRef.current === "default") {
-        repelStrength = 0.05;
-      } else if (currentEffectRef.current === "spark") {
-        repelStrength = 0.3;
-      }
+      // Easing function for smoother transitions
+      const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 
-      const attractStrength = 0.05;
-      const damping = 0.95;
+      // Get current progress (0 = scattered, 1 = formed)
+      const progress = easeOutCubic(progressRef.current.value);
+
+      // Increase attraction strength during formation (lower progress values)
+      const attractStrength = progress < 0.9 ? 0.15 : 0.05;
+      const damping = progress < 0.9 ? 0.9 : 0.95;
 
       // Update rotations
       points.rotation.y += (rotationY - points.rotation.y) * 0.1;
@@ -248,17 +299,32 @@ export const ParticleText: React.FC<ParticleTextProps> = ({
       // Update particles
       for (let j = 0; j < particleCount; j++) {
         const idx = j * 3;
-        const ox = originalPositions[idx];
-        const oy = originalPositions[idx + 1];
-        const oz = originalPositions[idx + 2];
 
-        const theta = angularSpeed * time + phases[j];
-        const swirlDx = radiusSwirl * Math.cos(theta);
-        const swirlDy = radiusSwirl * Math.sin(theta);
+        // Get scattered and target positions
+        const sx = scatteredPositions[idx];
+        const sy = scatteredPositions[idx + 1];
+        const sz = scatteredPositions[idx + 2];
 
-        const targetX = ox + swirlDx;
-        const targetY = oy + swirlDy;
-        const targetZ = oz;
+        const tx = targetPositions[idx];
+        const ty = targetPositions[idx + 1];
+        const tz = targetPositions[idx + 2];
+
+        // Interpolate between scattered and target based on progress
+        const baseX = sx + (tx - sx) * progress;
+        const baseY = sy + (ty - sy) * progress;
+        const baseZ = sz + (tz - sz) * progress;
+
+        // Only add swirl when particles are forming the text (progress > 0.7)
+        let targetX = baseX;
+        let targetY = baseY;
+        let targetZ = baseZ;
+
+        if (progress > 0.7) {
+          const theta = angularSpeed * time + phases[j];
+          const swirlIntensity = (progress - 0.7) / 0.3; // 0 at progress=0.7, 1 at progress=1
+          targetX += radiusSwirl * Math.cos(theta) * swirlIntensity;
+          targetY += radiusSwirl * Math.sin(theta) * swirlIntensity;
+        }
 
         let px = positionAttribute.getX(j);
         let py = positionAttribute.getY(j);
@@ -268,50 +334,24 @@ export const ParticleText: React.FC<ParticleTextProps> = ({
         let vy = velocities[idx + 1];
         let vz = velocities[idx + 2];
 
-        // Mouse interaction effects
-        if (localIntersection) {
+        // Wave interaction effect (only when particles are mostly formed)
+        if (localIntersection && progress > 0.8) {
           const dx = px - localIntersection.x;
           const dy = py - localIntersection.y;
           const dz = pz - localIntersection.z;
           const distSq = dx * dx + dy * dy + dz * dz;
           const dist = Math.sqrt(distSq);
 
-          if (currentEffectRef.current === "wave") {
-            if (distSq < effectRadius * effectRadius) {
-              const waveStrength = 0.2;
-              const waveFreq = 15;
-              const wavePhase = time * 8 - dist * waveFreq;
-              const waveForce = Math.sin(wavePhase) * waveStrength * (1 - dist / effectRadius);
+          if (distSq < effectRadius * effectRadius) {
+            const waveStrength = 0.2;
+            const waveFreq = 15;
+            const wavePhase = time * 8 - dist * waveFreq;
+            const waveForce = Math.sin(wavePhase) * waveStrength * (1 - dist / effectRadius);
 
-              if (dist > 0.001) {
-                vx += (dx / dist) * waveForce;
-                vy += (dy / dist) * waveForce;
-                vz += waveForce * 0.5;
-              }
-            }
-          } else if (currentEffectRef.current === "vortex") {
-            if (distSq < effectRadius * effectRadius && dist > 0.05) {
-              const vortexStrength = 0.15;
-              const spiralForce = vortexStrength * (1 - dist / effectRadius);
-              const tangentX = -dy;
-              const tangentY = dx;
-              const tangentLength = Math.sqrt(tangentX * tangentX + tangentY * tangentY);
-
-              if (tangentLength > 0.001) {
-                vx += (tangentX / tangentLength) * spiralForce;
-                vy += (tangentY / tangentLength) * spiralForce;
-              }
-
-              const pullStrength = spiralForce * 0.3;
-              vx -= (dx / dist) * pullStrength;
-              vy -= (dy / dist) * pullStrength;
-            }
-          } else if (currentEffectRef.current === "default" || currentEffectRef.current === "spark") {
-            if (distSq < effectRadius * effectRadius && distSq > 0.0001) {
-              const force = (1 - dist / effectRadius) * repelStrength;
-              vx += (dx / dist) * force;
-              vy += (dy / dist) * force;
-              vz += (dz / dist) * force;
+            if (dist > 0.001) {
+              vx += (dx / dist) * waveForce;
+              vy += (dy / dist) * waveForce;
+              vz += waveForce * 0.5;
             }
           }
         }
@@ -474,54 +514,8 @@ export const ParticleText: React.FC<ParticleTextProps> = ({
         onTouchEnd={handleTouchEnd}
         style={{ cursor: "grab" }}
       />
-
-      {/* Effect selector */}
-      <div className="absolute bottom-4 left-4 flex gap-2">
-        <button
-          onClick={() => setCurrentEffect("default")}
-          className={`px-4 py-2 text-sm rounded-lg transition-all border ${
-            currentEffect === "default"
-              ? "bg-white text-black border-white"
-              : "bg-black/50 text-white/80 border-white/30 hover:bg-white/10 hover:border-white/50"
-          }`}
-          aria-label="Default particle effect"
-        >
-          Default
-        </button>
-        <button
-          onClick={() => setCurrentEffect("spark")}
-          className={`px-4 py-2 text-sm rounded-lg transition-all border ${
-            currentEffect === "spark"
-              ? "bg-white text-black border-white"
-              : "bg-black/50 text-white/80 border-white/30 hover:bg-white/10 hover:border-white/50"
-          }`}
-          aria-label="Spark particle effect"
-        >
-          Spark
-        </button>
-        <button
-          onClick={() => setCurrentEffect("wave")}
-          className={`px-4 py-2 text-sm rounded-lg transition-all border ${
-            currentEffect === "wave"
-              ? "bg-white text-black border-white"
-              : "bg-black/50 text-white/80 border-white/30 hover:bg-white/10 hover:border-white/50"
-          }`}
-          aria-label="Wave particle effect"
-        >
-          Wave
-        </button>
-        <button
-          onClick={() => setCurrentEffect("vortex")}
-          className={`px-4 py-2 text-sm rounded-lg transition-all border ${
-            currentEffect === "vortex"
-              ? "bg-white text-black border-white"
-              : "bg-black/50 text-white/80 border-white/30 hover:bg-white/10 hover:border-white/50"
-          }`}
-          aria-label="Vortex particle effect"
-        >
-          Vortex
-        </button>
-      </div>
     </div>
   );
-};
+});
+
+ParticleText.displayName = "ParticleText";
