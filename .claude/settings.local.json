@@ -10,7 +10,9 @@
       "Bash(powershell -Command \"echo $env:APPDATA\")",
       "Bash(powershell -Command:*)",
       "Bash(claude mcp add:*)",
-      "Bash(claude mcp remove:*)"
+      "Bash(claude mcp remove:*)",
+      "Bash(dir /b \"c:\\Users\\Estudiante UCU\\Desktop\\ProyectoWeb-somosNMD-v-Final\\apps\\web\\src\\components\\sections\")",
+      "Bash(test:*)"
     ],
     "deny": [],
     "ask": []
