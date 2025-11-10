@@ -37,7 +37,9 @@ export const PageShell: FC<PageShellProps> = ({ children }) => {
       smoothWheel: true,
     });
 
-    setLenis(lenisInstance);
+    const setLenisFrame = requestAnimationFrame(() => {
+      setLenis(lenisInstance);
+    });
 
     let animationFrameId: number;
     let currentScroll = 0;
@@ -94,6 +96,7 @@ export const PageShell: FC<PageShellProps> = ({ children }) => {
     prefersReducedMotion.addEventListener("change", handleMotionPreferenceChange);
 
     return () => {
+      cancelAnimationFrame(setLenisFrame);
       cancelAnimationFrame(animationFrameId);
       lenisInstance.off("scroll", handleLenisScroll);
       prefersReducedMotion.removeEventListener(
@@ -119,7 +122,7 @@ export const PageShell: FC<PageShellProps> = ({ children }) => {
         pinType: "fixed",
       });
       lenisInstance.destroy();
-      setLenis(null);
+      requestAnimationFrame(() => setLenis(null));
     };
   }, []);
 

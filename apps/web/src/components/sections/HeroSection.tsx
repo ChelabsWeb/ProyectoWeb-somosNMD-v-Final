@@ -116,7 +116,7 @@ export const HeroSection: FC = () => {
       trackEvent("hero_cta_click", { target: id });
       lenis.scrollTo(el, { duration: duration, easing: (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2) });
     },
-    [lenis, prefersReducedMotion],
+    [lenis],
   );
 
   return (

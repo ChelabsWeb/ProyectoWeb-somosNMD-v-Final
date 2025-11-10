@@ -12,14 +12,18 @@ export function useWebGLSupport(): boolean | null {
       return;
     }
 
+    const commit = (value: boolean) => {
+      requestAnimationFrame(() => setIsSupported(value));
+    };
+
     try {
       const canvas = document.createElement("canvas");
       const context =
         canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
 
-      setIsSupported(!!context);
-    } catch (e) {
-      setIsSupported(false);
+      commit(!!context);
+    } catch {
+      commit(false);
     }
   }, []);
 

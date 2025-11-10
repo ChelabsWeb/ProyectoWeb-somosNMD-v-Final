@@ -418,3 +418,88 @@ body::-webkit-scrollbar {
   }
 }
 
+@keyframes social-link-bounce {
+  40% {
+    transform: scale(1.15);
+  }
+  60% {
+    transform: scale(0.92);
+  }
+  80% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@layer components {
+  .social-links-card {
+    @apply relative flex flex-wrap items-center justify-center gap-4;
+  }
+
+  .social-links-card__link {
+    @apply flex h-12 w-12 items-center justify-center rounded-full text-white transition-all duration-300 ease-out;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: transparent;
+  }
+
+  .social-links-card__link svg {
+    @apply h-5 w-5;
+  }
+}
+
+.social-links-card__link:hover {
+  animation: social-link-bounce 0.4s linear;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.social-links-card__link[data-platform="instagram"]:hover {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.social-links-card__link[data-platform="spotify"]:hover {
+  background-color: #1db954;
+  color: #031b0f;
+}
+
+.social-links-card__link[data-platform="youtube"]:hover {
+  background-color: #ff0033;
+}
+
+.social-links-card__link[data-platform="soundcloud"]:hover {
+  background-color: #f26f23;
+}
+
+.social-links-card__link[data-platform="linkedin"]:hover {
+  background-color: #0a66c2;
+}
+
+.social-links-card__link[data-platform="tiktok"]:hover {
+  background: linear-gradient(135deg, #00f2ea 0%, #ff0050 100%);
+}
+
+.social-links-card__link[data-platform="twitter"]:hover {
+  background-color: #1da1f2;
+}
+
+.social-links-card__link[data-platform="discord"]:hover {
+  background-color: #5865f2;
+}
+
+.social-links-card__link[data-platform="whatsapp"]:hover {
+  background-color: #25d366;
+  color: #041b0d;
+}
+
+.social-links-card__link[data-platform="default"]:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .social-links-card__link:hover {
+    animation: none;
+    transform: none;
+  }
+}
+

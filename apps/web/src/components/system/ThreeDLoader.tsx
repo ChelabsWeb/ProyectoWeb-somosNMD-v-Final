@@ -2,7 +2,7 @@
 
 import { Suspense, useRef, type FC } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useGLTF, PerspectiveCamera } from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 
 const LOGO_MODEL_PATH = "/assets/logo/3D_NMD_LOGO.glb";

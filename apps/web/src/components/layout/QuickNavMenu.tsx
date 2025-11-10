@@ -38,18 +38,22 @@ export const QuickNavMenu: FC = () => {
       return;
     }
 
+    const markReady = () => {
+      requestAnimationFrame(() => setIsReady(true));
+    };
+
     const win = window as Window & { __nmdLoaderHidden?: boolean };
     if (win.__nmdLoaderHidden) {
-      setIsReady(true);
+      markReady();
       return;
     }
 
     const handleReady = () => {
-      setIsReady(true);
+      markReady();
     };
 
     window.addEventListener(loaderHiddenEventName, handleReady);
-    const fallbackTimeout = window.setTimeout(() => setIsReady(true), 10000);
+    const fallbackTimeout = window.setTimeout(() => markReady(), 10000);
 
     return () => {
       window.removeEventListener(loaderHiddenEventName, handleReady);
