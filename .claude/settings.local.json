@@ -12,7 +12,8 @@
       "Bash(claude mcp add:*)",
       "Bash(claude mcp remove:*)",
       "Bash(dir /b \"c:\\Users\\Estudiante UCU\\Desktop\\ProyectoWeb-somosNMD-v-Final\\apps\\web\\src\\components\\sections\")",
-      "Bash(test:*)"
+      "Bash(test:*)",
+      "Bash(dir /b \"c:\\Users\\Estudiante UCU\\Desktop\\ProyectoWeb-somosNMD-v-Final\\docs\\round-8-four-temp\")"
     ],
     "deny": [],
     "ask": []

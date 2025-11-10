@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Round 8 Four Font */
+@font-face {
+  font-family: 'round_8four';
+  src: url('/fonts/round8-four-webfont.woff2') format('woff2'),
+       url('/fonts/round8-four-webfont.woff') format('woff'),
+       url('/fonts/round8-four-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   :root {
     --background: 233 47% 4%;
