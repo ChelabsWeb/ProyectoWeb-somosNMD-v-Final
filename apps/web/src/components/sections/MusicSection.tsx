@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useState, type FC } from "react";
 import { Button } from "@nmd/ui";
 import { useAudio } from "@/context/AudioProvider";
-import { ParticleBackground } from "@/components/system/ParticleBackground";
 import { useReducedMotionPreference } from "@nmd/animation";
 import { trackEvent } from "../../lib/analytics";
 
@@ -326,9 +325,8 @@ export const MusicSection: FC = () => (
   <section
     id="music"
     aria-label="Music projects"
-    className="relative flex min-h-screen items-center overflow-hidden bg-neutral-950 px-6 py-20 text-neutral-50 md:px-12"
+    className="relative flex min-h-screen items-center overflow-hidden bg-black px-6 py-20 text-neutral-50 md:px-12"
   >
-    <ParticleBackground />
     <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-12">
       <header className="space-y-2">
         <p className="text-xs uppercase tracking-[0.45em] text-neutral-500">

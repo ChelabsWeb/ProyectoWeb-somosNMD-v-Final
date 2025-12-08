@@ -254,7 +254,7 @@ body::-webkit-scrollbar {
 .hero-mask-section {
   position: relative;
   height: 200vh;
-  background-color: #000;
+  background-color: transparent;
 }
 
 .hero-mask-sticky {
@@ -267,7 +267,7 @@ body::-webkit-scrollbar {
 .hero-mask-image {
   position: absolute;
   inset: 0;
-  background-color: #000;
+  background-color: transparent;
   background-position: center;
   background-size: cover;
   will-change: transform;

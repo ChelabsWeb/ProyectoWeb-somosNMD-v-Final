@@ -6,7 +6,6 @@ import { useReducedMotionPreference } from "@nmd/animation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArtistOverlay } from "./ArtistOverlay";
-import { ParticleBackground } from "@/components/system/ParticleBackground";
 import { trackEvent } from "../../lib/analytics";
 
 type ArtistEntry = {
@@ -332,7 +331,6 @@ export const ArtistsSection: FC = () => {
       className="relative flex min-h-screen flex-col overflow-hidden bg-black text-neutral-50"
       ref={sectionRef}
     >
-      <ParticleBackground />
       <div className="relative z-10 w-full px-6 pt-12 md:px-12" />
 
       {prefersReducedMotion ? (
