@@ -19,7 +19,7 @@ function LogoModel({ prefersReducedMotion }: LogoModelProps) {
   const clonedScene = scene.clone();
 
   // Ensure materials are set up correctly for visibility
-  clonedScene.traverse((child) => {
+  clonedScene.traverse((child: THREE.Object3D) => {
     if ((child as THREE.Mesh).isMesh) {
       const mesh = child as THREE.Mesh;
       if (mesh.material) {

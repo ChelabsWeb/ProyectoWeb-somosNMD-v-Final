@@ -10,7 +10,16 @@
       "Bash(powershell -Command \"echo $env:APPDATA\")",
       "Bash(powershell -Command:*)",
       "Bash(claude mcp add:*)",
-      "Bash(claude mcp remove:*)"
+      "Bash(claude mcp remove:*)",
+      "Bash(dir /b \"c:\\Users\\Estudiante UCU\\Desktop\\ProyectoWeb-somosNMD-v-Final\\apps\\web\\src\\components\\sections\")",
+      "Bash(test:*)",
+      "Bash(dir /b \"c:\\Users\\Estudiante UCU\\Desktop\\ProyectoWeb-somosNMD-v-Final\\docs\\round-8-four-temp\")",
+      "Bash(taskkill:*)",
+      "Bash(powershell \"Get-Process node -ErrorAction SilentlyContinue | Stop-Process -Force\")",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(dir /s /b 'c:\\Users\\Estudiante UCU\\Desktop\\ProyectoWeb-somosNMD-v-Final\\public')",
+      "Bash(findstr:*)"
     ],
     "deny": [],
     "ask": []

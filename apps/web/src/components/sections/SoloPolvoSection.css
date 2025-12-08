@@ -1,0 +1,115 @@
+/* SoloPolvoSection.css - Additional styles for the Solo Polvo section */
+
+.solo-polvo-section {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(15, 15, 15, 1) 50%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+/* Particle text container styles - white glow */
+.particle-text-container {
+  filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.3))
+          drop-shadow(0 0 60px rgba(255, 255, 255, 0.1));
+}
+
+/* Animated gradient orbs */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+.gradient-orb {
+  animation: float 8s ease-in-out infinite;
+}
+
+.gradient-orb:nth-child(2) {
+  animation-delay: 2s;
+}
+
+.gradient-orb:nth-child(3) {
+  animation-delay: 4s;
+}
+
+/* Glowing text effect for fallback - white glow */
+.glowing-text {
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.6),
+    0 0 30px rgba(255, 255, 255, 0.4),
+    0 0 40px rgba(255, 255, 255, 0.2);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow:
+      0 0 10px rgba(255, 255, 255, 0.8),
+      0 0 20px rgba(255, 255, 255, 0.6),
+      0 0 30px rgba(255, 255, 255, 0.4),
+      0 0 40px rgba(255, 255, 255, 0.2);
+  }
+  to {
+    text-shadow:
+      0 0 20px rgba(255, 255, 255, 0.9),
+      0 0 30px rgba(255, 255, 255, 0.7),
+      0 0 40px rgba(255, 255, 255, 0.5),
+      0 0 50px rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Scroll indicator animation */
+@keyframes scroll-bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(5px);
+  }
+  60% {
+    transform: translateY(3px);
+  }
+}
+
+.scroll-indicator {
+  animation: scroll-bounce 2s infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .particle-text-container {
+    filter: drop-shadow(0 0 20px rgba(235, 44, 117, 0.5))
+            drop-shadow(0 0 40px rgba(30, 109, 248, 0.3));
+  }
+}
+
+/* Performance optimization for low-end devices */
+@media (prefers-reduced-motion: reduce) {
+  .gradient-orb,
+  .scroll-indicator,
+  .glowing-text {
+    animation: none;
+  }
+
+  .particle-text-container {
+    filter: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .solo-polvo-section {
+    background: black;
+  }
+
+  .gradient-orb {
+    display: none;
+  }
+}

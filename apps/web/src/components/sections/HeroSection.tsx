@@ -1,11 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useLayoutEffect, useRef, type FC, type RefObject, useCallback } from "react";
+import { useLayoutEffect, useRef, type FC, type RefObject } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
-import { useLenis } from "@/context/LenisContext";
 import { useReducedMotionPreference } from "@nmd/animation";
 import { trackEvent } from "../../lib/analytics";
 
@@ -31,7 +30,6 @@ export const HeroSection: FC = () => {
   const overlayRectRef = useRef<SVGRectElement | null>(null);
   const logoGroupRef = useRef<SVGGElement | null>(null);
   const fadeOutRef = useRef<HTMLDivElement | null>(null);
-  const lenis = useLenis();
   const hasTrackedCompletionRef = useRef(false);
   const prefersReducedMotion = useReducedMotionPreference();
 
@@ -104,21 +102,6 @@ export const HeroSection: FC = () => {
     return () => ctx.revert();
   }, [prefersReducedMotion]);
 
-  const handleScrollTo = useCallback(
-    (id: string) => {
-      const el = document.getElementById(id);
-      if (!el || !lenis) return;
-
-      const distance = Math.abs(el.offsetTop - lenis.scroll);
-      const velocity = 1500; // pixels per second
-      const duration = distance / velocity;
-
-      trackEvent("hero_cta_click", { target: id });
-      lenis.scrollTo(el, { duration: duration, easing: (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2) });
-    },
-    [lenis, prefersReducedMotion],
-  );
-
   return (
     <section ref={sectionRef} id="hero" aria-label="Hero scene" className="hero-mask-section">
       <div className="hero-mask-sticky">
@@ -132,33 +115,27 @@ export const HeroSection: FC = () => {
 
         <div ref={fadeOutRef} className="absolute inset-0 bg-black opacity-0" />
 
-        <div className="relative z-10 flex min-h-screen flex-col justify-end gap-6 px-6 py-16 text-neutral-50 md:px-12">
+        <div className="relative z-10 flex min-h-screen flex-col justify-between text-neutral-50">
           <div className="pointer-events-none absolute left-6 top-6 z-20 md:left-12 md:top-10">
-            <Image
-              src="/assets/logo/logoNMD.svg"
-              alt="Project Web NMD logo"
-              width={72}
-              height={72}
-              priority
-            />
+            <div className="brightness-0">
+              <Image
+                src="/assets/logo/logoNMD.svg"
+                alt="Project Web NMD logo"
+                width={72}
+                height={72}
+                priority
+              />
+            </div>
           </div>
 
-          <div
-            className="flex flex-col items-start gap-4 text-left"
-            style={{
-              fontFamily:
-                '"Impact", "Haettenschweiler", "Arial Narrow Bold", sans-serif',
-            }}
-          >
-            <button onClick={() => handleScrollTo("artists")} className="hero-nav-link text-left text-5xl uppercase tracking-[0.2em] text-white md:text-6xl">
-              Artists
-            </button>
-            <button onClick={() => handleScrollTo("music")} className="hero-nav-link text-left text-5xl uppercase tracking-[0.2em] text-white md:text-6xl">
-              Music
-            </button>
-            <button onClick={() => handleScrollTo("contact")} className="hero-nav-link text-left text-5xl uppercase tracking-[0.2em] text-white md:text-6xl">
-              Contact
-            </button>
+          {/* NOMADES Text - positioned at the very bottom */}
+          <div className="pointer-events-none mt-auto px-6 pb-4 md:px-12 md:pb-6">
+            <h1
+              className="text-[80px] md:text-[120px] lg:text-[160px] xl:text-[200px] font-normal leading-none text-black"
+              style={{ fontFamily: "'round_8four', sans-serif" }}
+            >
+              NOMADES
+            </h1>
           </div>
         </div>
       </div>
