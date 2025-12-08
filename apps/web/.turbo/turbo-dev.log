@@ -2,7 +2,7 @@
 > web@0.1.0 dev C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\apps\web
 > next dev
 
- ⚠ Port 3000 is in use by process 49720, using available port 3001 instead.
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
  ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
  We detected multiple lockfiles and selected the directory of C:\Users\Estudiante UCU\package-lock.json as the root directory.
  To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
@@ -11,7 +11,167 @@
    * C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\pnpm-lock.yaml
 
    ▲ Next.js 16.0.0 (Turbopack)
-   - Local:        http://localhost:3001
-   - Network:      http://192.168.56.1:3001
+   - Local:        http://localhost:3000
+   - Network:      http://172.25.224.1:3000
 
  ✓ Starting...
+ ✓ Ready in 1754ms
+ ○ Compiling / ...
+useLenis must be used within a LenisProvider
+ GET / 200 in 12.6s (compile: 11.0s, render: 1523ms)
+ ✓ Compiled in 3.2s
+ GET / 200 in 2.6s (compile: 2.1s, render: 492ms)
+ ✓ Compiled in 172ms
+ ✓ Compiled in 135ms
+ ✓ Compiled in 209ms
+useLenis must be used within a LenisProvider
+ GET / 200 in 699ms (compile: 201ms, render: 498ms)
+ ✓ Compiled in 217ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 167ms
+useLenis must be used within a LenisProvider
+ ⨯ ReferenceError: ParticleBackground is not defined
+    at ArtistsSection (src\components\sections\ArtistsSection.tsx:334:8)
+  332 |       ref={sectionRef}
+  333 |     >
+> 334 |       <ParticleBackground />
+      |        ^
+  335 |       <div className="relative z-10 w-full px-6 pt-12 md:px-12" />
+  336 |
+  337 |       {prefersReducedMotion ? ( {
+  digest: '2181856614'
+}
+ GET / 500 in 670ms (compile: 170ms, render: 501ms)
+ ✓ Compiled in 151ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+useLenis must be used within a LenisProvider
+ ⨯ ReferenceError: ParticleBackground is not defined
+    at ArtistsSection (src\components\sections\ArtistsSection.tsx:334:8)
+  332 |       ref={sectionRef}
+  333 |     >
+> 334 |       <ParticleBackground />
+      |        ^
+  335 |       <div className="relative z-10 w-full px-6 pt-12 md:px-12" />
+  336 |
+  337 |       {prefersReducedMotion ? ( {
+  digest: '2181856614'
+}
+ GET / 500 in 638ms (compile: 202ms, render: 436ms)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 129ms
+useLenis must be used within a LenisProvider
+ ⨯ ReferenceError: ParticleBackground is not defined
+    at MusicSection (src\components\sections\MusicSection.tsx:330:6)
+  328 |     className="relative flex min-h-screen items-center overflow-hidden bg-neutral-950 px-6 py-20 text-neutral-50 md:px-12"
+  329 |   >
+> 330 |     <ParticleBackground />
+      |      ^
+  331 |     <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-12">
+  332 |       <header className="space-y-2">
+  333 |         <p className="text-xs uppercase tracking-[0.45em] text-neutral-500"> {
+  digest: '2045850399'
+}
+ GET / 500 in 546ms (compile: 160ms, render: 386ms)
+ ✓ Compiled in 164ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+useLenis must be used within a LenisProvider
+ ⨯ ReferenceError: ParticleBackground is not defined
+    at ContactSection (src\components\sections\ContactSection.tsx:12:6)
+  10 |     className="relative overflow-hidden bg-neutral-950 px-6 py-20 text-neutral-50 md:px-12"
+  11 |   >
+> 12 |     <ParticleBackground />
+     |      ^
+  13 |     <div className="relative z-10 mx-auto flex max-w-4xl flex-col gap-8">
+  14 |       <header className="space-y-2">
+  15 |         <p className="text-sm uppercase tracking-[0.35em] text-neutral-500"> {
+  digest: '781022354'
+}
+ GET / 500 in 626ms (compile: 147ms, render: 479ms)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 141ms
+useLenis must be used within a LenisProvider
+ GET / 200 in 630ms (compile: 172ms, render: 458ms)
+useLenis must be used within a LenisProvider
+ GET / 200 in 102ms (compile: 8ms, render: 94ms)
+ ✓ Compiled in 352ms
+ ✓ Compiled in 505ms
+ ✓ Compiled in 109ms
+ ✓ Compiled in 163ms
+ ✓ Compiled in 147ms
+ ✓ Compiled in 176ms
+useLenis must be used within a LenisProvider
+ GET / 200 in 2.9s (compile: 1603ms, render: 1295ms)
+ ✓ Compiled in 134ms
+ ✓ Compiled in 165ms
+ ✓ Compiled in 133ms
+ ✓ Compiled in 158ms
+ ✓ Compiled in 179ms
+ ✓ Compiled in 749ms
+ ✓ Compiled in 171ms
+ ✓ Compiled in 988ms
+ ✓ Compiled in 920ms
+ ✓ Compiled in 822ms
+ ✓ Compiled in 1171ms
+useLenis must be used within a LenisProvider
+ GET / 200 in 1856ms (compile: 604ms, render: 1252ms)
+ ✓ Compiled in 2.2s
+useLenis must be used within a LenisProvider
+ GET / 200 in 243ms (compile: 15ms, render: 228ms)
+ ✓ Compiled in 172ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 112ms
+useLenis must be used within a LenisProvider
+ ⨯ ReferenceError: isReady is not defined
+    at QuickNavMenu (src\components\layout\QuickNavMenu.tsx:167:3)
+  165 |   );
+  166 |
+> 167 |   if (!isReady) {
+      |   ^
+  168 |     return null;
+  169 |   }
+  170 | {
+  digest: '637392200'
+}
+useLenis must be used within a LenisProvider
+ ⨯ ReferenceError: isReady is not defined
+    at QuickNavMenu (src\components\layout\QuickNavMenu.tsx:167:3)
+  165 |   );
+  166 |
+> 167 |   if (!isReady) {
+      |   ^
+  168 |     return null;
+  169 |   }
+  170 | {
+  digest: '637392200'
+}
+ GET / 500 in 836ms (compile: 189ms, render: 647ms)
+ GET / 500 in 183ms (compile: 8ms, render: 176ms)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 127ms
+useLenis must be used within a LenisProvider
+useLenis must be used within a LenisProvider
+ GET / 200 in 676ms (compile: 153ms, render: 523ms)
+ GET / 200 in 128ms (compile: 12ms, render: 115ms)
+ ✓ Compiled in 129ms
+ ✓ Compiled in 130ms
+ ✓ Compiled in 277ms
+ ✓ Compiled in 125ms
+ ✓ Compiled in 252ms
+ ✓ Compiled in 353ms
+ ✓ Compiled in 252ms
+useLenis must be used within a LenisProvider
+ GET / 200 in 1535ms (compile: 641ms, render: 894ms)
+Error: Turbopack build failed with 1 errors:
+./Desktop/ProyectoWeb-somosNMD-v-Final/apps/web/src/app
+Error: Next.js inferred your workspace root, but it may not be correct.
+    We couldn't find the Next.js package (next/package.json) from the project directory: C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\apps\web\src\app
+     To fix this, set turbopack.root in your Next.js config, or ensure the Next.js package is resolvable from this directory.
+    Note: For security and performance reasons, files outside of the project directory will not be compiled.
+    See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+
+    at ignore-listed frames
+[?25h
+No se ha encontrado el archivo por lotes.
+ ELIFECYCLE  Command failed with exit code 1.
