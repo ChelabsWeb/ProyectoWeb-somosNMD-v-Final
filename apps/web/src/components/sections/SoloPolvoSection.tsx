@@ -39,6 +39,14 @@ export const SoloPolvoSection: FC = () => {
       // Progress object for particle formation
       const progressObj = { value: 0 };
 
+      // Milestone tracking object
+      const milestones = {
+        reached25: false,
+        reached50: false,
+        reached75: false,
+        reached100: false,
+      };
+
       // Set initial states
       gsap.set(content, {
         opacity: 0,
@@ -58,23 +66,23 @@ export const SoloPolvoSection: FC = () => {
             particleRef.current?.setProgress(progress);
             progressObj.value = progress;
 
-
             // Track milestones
-            if (progress >= 0.25 && !self.vars.milestone25) {
+            if (progress >= 0.25 && !milestones.reached25) {
               trackEvent("solo_polvo_formation_25");
-              self.vars.milestone25 = true;
+              milestones.reached25 = true;
             }
-            if (progress >= 0.5 && !self.vars.milestone50) {
+            if (progress >= 0.5 && !milestones.reached50) {
               trackEvent("solo_polvo_formation_50");
-              self.vars.milestone50 = true;
+              milestones.reached50 = true;
             }
-            if (progress >= 0.75 && !self.vars.milestone75) {
+            if (progress >= 0.75 && !milestones.reached75) {
               trackEvent("solo_polvo_formation_75");
-              self.vars.milestone75 = true;
+              milestones.reached75 = true;
             }
-          },
-          onComplete: () => {
-            trackEvent("solo_polvo_formation_complete");
+            if (progress >= 1 && !milestones.reached100) {
+              trackEvent("solo_polvo_formation_complete");
+              milestones.reached100 = true;
+            }
           },
         },
       });
