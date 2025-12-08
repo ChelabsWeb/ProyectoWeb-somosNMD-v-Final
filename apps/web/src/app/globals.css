@@ -369,9 +369,10 @@ body::-webkit-scrollbar {
 }
 
 .fullscreen-menu__gallery-track {
-  display: flex;
-  flex-direction: column;
-  animation: galleryScroll 30s linear infinite;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+  animation: galleryScroll 20s linear infinite;
 }
 
 .fullscreen-menu--open .fullscreen-menu__gallery-track {
@@ -393,9 +394,18 @@ body::-webkit-scrollbar {
 
 .fullscreen-menu__gallery-item {
   position: relative;
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  flex-shrink: 0;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+.fullscreen-menu__gallery-item img {
+  transition: transform 0.4s ease, filter 0.4s ease;
+  filter: grayscale(20%);
+}
+
+.fullscreen-menu__gallery-item:hover img {
+  transform: scale(1.1);
+  filter: grayscale(0%);
 }
 
 /* Navigation Side (Right) */

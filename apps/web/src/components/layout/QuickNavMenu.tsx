@@ -14,9 +14,9 @@ type MenuSection = {
 
 const SECTIONS: MenuSection[] = [
   { id: "hero", label: "Inicio" },
-  { id: "artists", label: "Artists" },
-  { id: "music", label: "Music" },
-  { id: "contact", label: "Contact" },
+  { id: "artists", label: "Artistas" },
+  { id: "music", label: "Música" },
+  { id: "contact", label: "Contacto" },
 ];
 
 const ARTIST_IMAGES = [
@@ -200,7 +200,7 @@ export const QuickNavMenu: FC = () => {
         aria-hidden={!isOpen}
         className={`fullscreen-menu ${isOpen ? "fullscreen-menu--open" : ""}`}
       >
-        {/* Left Side - Artist Gallery */}
+        {/* Left Side - Artist Gallery (3 columns grid) */}
         <div className="fullscreen-menu__gallery">
           <div className="fullscreen-menu__gallery-track">
             {/* First set of images */}
@@ -210,7 +210,7 @@ export const QuickNavMenu: FC = () => {
                   src={artist.src}
                   alt={artist.name}
                   fill
-                  sizes="(min-width: 768px) 33vw, 50vw"
+                  sizes="17vw"
                   className="object-cover"
                 />
               </div>
@@ -222,7 +222,7 @@ export const QuickNavMenu: FC = () => {
                   src={artist.src}
                   alt={artist.name}
                   fill
-                  sizes="(min-width: 768px) 33vw, 50vw"
+                  sizes="17vw"
                   className="object-cover"
                 />
               </div>
