@@ -50,8 +50,9 @@ export const PageShell: FC<PageShellProps> = ({ children }) => {
 
     animationFrameId = requestAnimationFrame(raf);
 
-    const handleLenisScroll = ({ scroll }: { scroll: number }) => {
+    const handleLenisScroll = ({ scroll, limit, progress }: { scroll: number; limit: number; progress: number }) => {
       currentScroll = scroll;
+      document.documentElement.style.setProperty('--scroll-progress', progress.toString());
       ScrollTrigger.update();
     };
 
@@ -127,7 +128,20 @@ export const PageShell: FC<PageShellProps> = ({ children }) => {
   return (
     <LenisProvider value={lenis}>
       <AudioProvider>
-        <div className="relative min-h-screen w-full overflow-x-hidden bg-black text-neutral-50">
+        <div className="relative min-h-screen w-full overflow-x-hidden bg-black text-neutral-50 selection:bg-white selection:text-black">
+          {/* Global Grain Texture */}
+          <div className="pointer-events-none fixed inset-0 z-[100] opacity-[0.03] mix-blend-overlay">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="h-full w-full">
+              <filter id="noiseFilter">
+                <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+              </filter>
+              <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+            </svg>
+          </div>
+
+          {/* Scroll Progress Indicator - Below System Bar */}
+          <div className="fixed top-[44px] left-0 right-0 z-[110] h-[1px] origin-left bg-white/20" style={{ transform: 'scaleX(var(--scroll-progress, 0))' }} />
+
           <ParticleBackground />
           <QuickNavMenu />
           {children}

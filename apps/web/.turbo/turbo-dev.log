@@ -1,177 +1,96 @@
 
-> web@0.1.0 dev C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\apps\web
+> web@0.1.0 dev C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web
 > next dev
 
 [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
- ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
- We detected multiple lockfiles and selected the directory of C:\Users\Estudiante UCU\package-lock.json as the root directory.
- To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
-   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
- Detected additional lockfiles: 
-   * C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\pnpm-lock.yaml
-
-   ▲ Next.js 16.0.0 (Turbopack)
-   - Local:        http://localhost:3000
-   - Network:      http://172.25.224.1:3000
+   ▲ Next.js 16.0.7 (Turbopack)
+   - Local:         http://localhost:3000
+   - Network:       http://192.168.100.186:3000
 
  ✓ Starting...
- ✓ Ready in 1754ms
- ○ Compiling / ...
+ ✓ Ready in 865ms
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
 useLenis must be used within a LenisProvider
- GET / 200 in 12.6s (compile: 11.0s, render: 1523ms)
- ✓ Compiled in 3.2s
- GET / 200 in 2.6s (compile: 2.1s, render: 492ms)
- ✓ Compiled in 172ms
- ✓ Compiled in 135ms
- ✓ Compiled in 209ms
-useLenis must be used within a LenisProvider
- GET / 200 in 699ms (compile: 201ms, render: 498ms)
- ✓ Compiled in 217ms
- ⚠ Fast Refresh had to perform a full reload due to a runtime error.
- ✓ Compiled in 167ms
-useLenis must be used within a LenisProvider
- ⨯ ReferenceError: ParticleBackground is not defined
-    at ArtistsSection (src\components\sections\ArtistsSection.tsx:334:8)
-  332 |       ref={sectionRef}
-  333 |     >
-> 334 |       <ParticleBackground />
-      |        ^
-  335 |       <div className="relative z-10 w-full px-6 pt-12 md:px-12" />
-  336 |
-  337 |       {prefersReducedMotion ? ( {
-  digest: '2181856614'
-}
- GET / 500 in 670ms (compile: 170ms, render: 501ms)
- ✓ Compiled in 151ms
- ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-useLenis must be used within a LenisProvider
- ⨯ ReferenceError: ParticleBackground is not defined
-    at ArtistsSection (src\components\sections\ArtistsSection.tsx:334:8)
-  332 |       ref={sectionRef}
-  333 |     >
-> 334 |       <ParticleBackground />
-      |        ^
-  335 |       <div className="relative z-10 w-full px-6 pt-12 md:px-12" />
-  336 |
-  337 |       {prefersReducedMotion ? ( {
-  digest: '2181856614'
-}
- GET / 500 in 638ms (compile: 202ms, render: 436ms)
- ⚠ Fast Refresh had to perform a full reload due to a runtime error.
- ✓ Compiled in 129ms
-useLenis must be used within a LenisProvider
- ⨯ ReferenceError: ParticleBackground is not defined
-    at MusicSection (src\components\sections\MusicSection.tsx:330:6)
-  328 |     className="relative flex min-h-screen items-center overflow-hidden bg-neutral-950 px-6 py-20 text-neutral-50 md:px-12"
-  329 |   >
-> 330 |     <ParticleBackground />
-      |      ^
-  331 |     <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-12">
-  332 |       <header className="space-y-2">
-  333 |         <p className="text-xs uppercase tracking-[0.45em] text-neutral-500"> {
-  digest: '2045850399'
-}
- GET / 500 in 546ms (compile: 160ms, render: 386ms)
- ✓ Compiled in 164ms
- ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-useLenis must be used within a LenisProvider
- ⨯ ReferenceError: ParticleBackground is not defined
-    at ContactSection (src\components\sections\ContactSection.tsx:12:6)
-  10 |     className="relative overflow-hidden bg-neutral-950 px-6 py-20 text-neutral-50 md:px-12"
-  11 |   >
-> 12 |     <ParticleBackground />
-     |      ^
-  13 |     <div className="relative z-10 mx-auto flex max-w-4xl flex-col gap-8">
-  14 |       <header className="space-y-2">
-  15 |         <p className="text-sm uppercase tracking-[0.35em] text-neutral-500"> {
-  digest: '781022354'
-}
- GET / 500 in 626ms (compile: 147ms, render: 479ms)
- ⚠ Fast Refresh had to perform a full reload due to a runtime error.
- ✓ Compiled in 141ms
-useLenis must be used within a LenisProvider
- GET / 200 in 630ms (compile: 172ms, render: 458ms)
-useLenis must be used within a LenisProvider
- GET / 200 in 102ms (compile: 8ms, render: 94ms)
- ✓ Compiled in 352ms
- ✓ Compiled in 505ms
- ✓ Compiled in 109ms
- ✓ Compiled in 163ms
- ✓ Compiled in 147ms
- ✓ Compiled in 176ms
-useLenis must be used within a LenisProvider
- GET / 200 in 2.9s (compile: 1603ms, render: 1295ms)
- ✓ Compiled in 134ms
- ✓ Compiled in 165ms
- ✓ Compiled in 133ms
- ✓ Compiled in 158ms
- ✓ Compiled in 179ms
- ✓ Compiled in 749ms
- ✓ Compiled in 171ms
- ✓ Compiled in 988ms
- ✓ Compiled in 920ms
- ✓ Compiled in 822ms
- ✓ Compiled in 1171ms
-useLenis must be used within a LenisProvider
- GET / 200 in 1856ms (compile: 604ms, render: 1252ms)
- ✓ Compiled in 2.2s
-useLenis must be used within a LenisProvider
- GET / 200 in 243ms (compile: 15ms, render: 228ms)
- ✓ Compiled in 172ms
- ⚠ Fast Refresh had to perform a full reload due to a runtime error.
- ⚠ Fast Refresh had to perform a full reload due to a runtime error.
- ✓ Compiled in 112ms
-useLenis must be used within a LenisProvider
- ⨯ ReferenceError: isReady is not defined
-    at QuickNavMenu (src\components\layout\QuickNavMenu.tsx:167:3)
-  165 |   );
-  166 |
-> 167 |   if (!isReady) {
-      |   ^
-  168 |     return null;
-  169 |   }
-  170 | {
-  digest: '637392200'
-}
-useLenis must be used within a LenisProvider
- ⨯ ReferenceError: isReady is not defined
-    at QuickNavMenu (src\components\layout\QuickNavMenu.tsx:167:3)
-  165 |   );
-  166 |
-> 167 |   if (!isReady) {
-      |   ^
-  168 |     return null;
-  169 |   }
-  170 | {
-  digest: '637392200'
-}
- GET / 500 in 836ms (compile: 189ms, render: 647ms)
- GET / 500 in 183ms (compile: 8ms, render: 176ms)
- ⚠ Fast Refresh had to perform a full reload due to a runtime error.
- ⚠ Fast Refresh had to perform a full reload due to a runtime error.
- ✓ Compiled in 127ms
-useLenis must be used within a LenisProvider
-useLenis must be used within a LenisProvider
- GET / 200 in 676ms (compile: 153ms, render: 523ms)
- GET / 200 in 128ms (compile: 12ms, render: 115ms)
- ✓ Compiled in 129ms
+ GET / 200 in 3.2s (compile: 2.9s, render: 337ms)
+ ✓ Compiled in 114ms
  ✓ Compiled in 130ms
- ✓ Compiled in 277ms
- ✓ Compiled in 125ms
- ✓ Compiled in 252ms
- ✓ Compiled in 353ms
- ✓ Compiled in 252ms
+ ✓ Compiled in 89ms
+ ✓ Compiled in 133ms
+ ✓ Compiled in 93ms
+ ✓ Compiled in 89ms
+ ✓ Compiled in 88ms
+ ✓ Compiled in 103ms
+ ✓ Compiled in 107ms
+ ✓ Compiled in 140ms
+ ✓ Compiled in 107ms
+ ✓ Compiled in 93ms
+ ✓ Compiled in 102ms
+ ✓ Compiled in 97ms
+ ✓ Compiled in 93ms
+ ✓ Compiled in 320ms
+ ✓ Compiled in 122ms
+ ✓ Compiled in 132ms
+ ✓ Compiled in 117ms
+ ✓ Compiled in 117ms
+ ✓ Compiled in 150ms
+ GET / 200 in 169ms (compile: 122ms, render: 47ms)
+ GET / 200 in 20ms (compile: 3ms, render: 17ms)
+ GET / 200 in 18ms (compile: 2ms, render: 16ms)
+ GET / 200 in 17ms (compile: 3ms, render: 15ms)
+ GET / 200 in 20ms (compile: 2ms, render: 17ms)
+ GET / 200 in 17ms (compile: 3ms, render: 14ms)
+ GET / 200 in 19ms (compile: 2ms, render: 17ms)
+ GET / 200 in 20ms (compile: 3ms, render: 17ms)
+ ✓ Compiled in 90ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
 useLenis must be used within a LenisProvider
- GET / 200 in 1535ms (compile: 641ms, render: 894ms)
-Error: Turbopack build failed with 1 errors:
-./Desktop/ProyectoWeb-somosNMD-v-Final/apps/web/src/app
-Error: Next.js inferred your workspace root, but it may not be correct.
-    We couldn't find the Next.js package (next/package.json) from the project directory: C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\apps\web\src\app
-     To fix this, set turbopack.root in your Next.js config, or ensure the Next.js package is resolvable from this directory.
-    Note: For security and performance reasons, files outside of the project directory will not be compiled.
-    See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
-
-    at ignore-listed frames
-[?25h
-No se ha encontrado el archivo por lotes.
- ELIFECYCLE  Command failed with exit code 1.
+C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\.next\dev\server\chunks\ssr\apps_web_src_b796599a._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+ ⨯ ReferenceError: ARTIST_PLACEHOLDERS is not defined
+    at ArtistsSection (C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\.next\dev\server\chunks\ssr\apps_web_src_b796599a._.js:1904:33) {
+  digest: '3265536224'
+}
+ ✓ Compiled in 105ms
+ GET / 500 in 196ms (compile: 56ms, render: 140ms)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+useLenis must be used within a LenisProvider
+C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\.next\dev\server\chunks\ssr\apps_web_src_b796599a._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+ ⨯ ReferenceError: ARTIST_PLACEHOLDERS is not defined
+    at ArtistsSection (C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\.next\dev\server\chunks\ssr\apps_web_src_b796599a._.js:1874:33) {
+  digest: '2233611085'
+}
+ ✓ Compiled in 140ms
+ GET / 500 in 224ms (compile: 72ms, render: 152ms)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+useLenis must be used within a LenisProvider
+ ✓ Compiled in 97ms
+ GET / 200 in 192ms (compile: 53ms, render: 139ms)
+ ✓ Compiled in 133ms
+ ✓ Compiled in 152ms
+ ✓ Compiled in 172ms
+ ✓ Compiled in 132ms
+ ✓ Compiled in 112ms
+ ✓ Compiled in 110ms
+C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\.next\dev\server\chunks\ssr\node_modules__pnpm_31849b30._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\.next\dev\server\chunks\ssr\[root-of-the-server]__c1a339e7._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+Error: Route "/artists/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at <unknown> (C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\.next\dev\server\chunks\ssr\[root-of-the-server]__c1a339e7._.js:272:191)
+    at Array.find (<anonymous>)
+    at ArtistPage (C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\.next\dev\server\chunks\ssr\[root-of-the-server]__c1a339e7._.js:272:165)
+ GET /artists/gervi 200 in 1170ms (compile: 1121ms, render: 49ms)
+ ✓ Compiled in 148ms
+ ✓ Compiled in 132ms
+ ✓ Compiled in 99ms
+ ✓ Compiled in 91ms
+ GET / 200 in 107ms (compile: 66ms, render: 41ms)
+ ✓ Compiled in 98ms
+ ✓ Compiled in 114ms
+ ✓ Compiled in 98ms
+ GET / 200 in 106ms (compile: 53ms, render: 53ms)
+ ✓ Compiled in 170ms
+ ✓ Compiled in 176ms
+ ✓ Compiled in 135ms
+ ✓ Compiled in 129ms
+ ✓ Compiled in 98ms
+C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\.next\dev\server\chunks\ssr\node_modules__pnpm_31849b30._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\.next\dev\server\chunks\ssr\[root-of-the-server]__c1a339e7._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+Error: Route "/artists/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis

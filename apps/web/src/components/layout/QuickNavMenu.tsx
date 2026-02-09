@@ -179,17 +179,16 @@ export const QuickNavMenu: FC = () => {
         aria-expanded={isOpen}
         aria-controls="quick-nav-panel"
         onClick={() => isMenuReady && setIsOpen((prev) => !prev)}
-        className={`quick-nav__toggle fixed right-4 top-4 z-[80] md:right-6 md:top-6 ${!isMenuReady ? "opacity-50" : ""}`}
+        className={`fixed right-0 top-0 z-[110] group flex h-[44px] items-center gap-3 border-l border-b border-white/10 bg-black/40 px-6 backdrop-blur-sm transition-all hover:bg-white hover:text-black ${!isMenuReady ? "opacity-30" : ""}`}
         disabled={!isMenuReady}
       >
-        <span className="sr-only">
-          {isOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
+        <span className="font-mono text-[9px] tracking-[0.4em] uppercase transition-colors">
+          {isOpen ? "[ CLOSE_SYS ]" : "[ ACCESS_CMD ]"}
         </span>
-        <span aria-hidden="true" className={`quick-nav__icon ${isOpen ? "quick-nav__icon--open" : ""}`}>
-          <span />
-          <span />
-          <span />
-        </span>
+        <div className="relative h-2 w-2">
+          <div className={`absolute inset-0 border border-current transition-transform duration-500 ${isOpen ? "rotate-45 scale-125" : "rotate-0"}`} />
+          {!isOpen && <div className="absolute inset-[2px] bg-current animate-pulse" />}
+        </div>
       </button>
 
       {/* Fullscreen Menu Panel */}
@@ -232,13 +231,17 @@ export const QuickNavMenu: FC = () => {
 
         {/* Right Side - Navigation */}
         <nav className="fullscreen-menu__nav">
-          <ul className="fullscreen-menu__list">
+          <ul className="fullscreen-menu__list items-start">
+            <li className="mb-8 overflow-hidden">
+              <span className="text-[10px] uppercase tracking-[0.5em] text-white/30">Seleccionar Camino</span>
+            </li>
             {SECTIONS.map((section) => (
-              <li key={section.id} role="none">
+              <li key={section.id} role="none" className="overflow-hidden">
                 <button
                   type="button"
                   role="menuitem"
-                  className="fullscreen-menu__link"
+                  className="fullscreen-menu__link font-bold tracking-tighter hover:text-white transition-colors"
+                  style={{ fontFamily: "var(--font-geist-sans)" }}
                   onClick={() => handleNavigate(section.id)}
                 >
                   {section.label}

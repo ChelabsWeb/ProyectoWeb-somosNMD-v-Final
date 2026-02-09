@@ -17,11 +17,9 @@ const SOCIAL_ICONS: Record<SocialPlatform, ReactNode> = {
     <svg
       viewBox="0 0 24 24"
       aria-hidden="true"
-      className="h-6 w-6 fill-current"
+      className="h-5 w-5 fill-current"
     >
-      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.349 3.608 1.324.975.975 1.262 2.242 1.324 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.349 2.633-1.324 3.608-.975.975-2.242 1.262-3.608 1.324-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.349-3.608-1.324-.975-.975-1.262-2.242-1.324-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.062-1.366.349-2.633 1.324-3.608.975-.975 2.242-1.262 3.608-1.324C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.014 7.052.072 5.775.13 4.687.428 3.757 1.358c-.93.93-1.228 2.018-1.286 3.295C2.014 5.332 2 5.741 2 9s.014 3.668.072 4.948c.058 1.277.356 2.365 1.286 3.295.93.93 2.018 1.228 3.295 1.286C8.332 18.986 8.741 19 12 19s3.668-.014 4.948-.072c1.277-.058 2.365-.356 3.295-1.286.93-.93 1.228-2.018 1.286-3.295C21.986 12.668 22 12.259 22 9s-.014-3.668-.072-4.948c-.058-1.277-.356-2.365-1.286-3.295C19.712.428 18.624.13 17.348.072 16.068.014 15.659 0 12 0z" />
-      <path d="M12 5.838A6.162 6.162 0 0 0 5.838 12c0 3.403 2.759 6.162 6.162 6.162S18.162 15.403 18.162 12 15.403 5.838 12 5.838zm0 10.162A3.999 3.999 0 1 1 16 12a3.999 3.999 0 0 1-4 3.999z" />
-      <circle cx="18.406" cy="5.594" r="1.44" />
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.349 3.608 1.324.975.975 1.262 2.242 1.324 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.349 2.633-1.324 3.608-.975.975-2.242 1.262-3.608 1.324-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.349-3.608-1.324-.975-.975-1.262-2.242-1.324-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.062-1.366.349-2.633 1.324-3.608.975-.975 2.242-1.262 3.608-1.324C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.014 7.052.072 5.775.13 4.687.428 3.757 1.358c-.93.93-1.228 2.018-1.286 3.295C2.014 5.332 2 5.741 2 9s.014 3.668.072 4.948c.058 1.277.356 2.365 1.286 3.295.93.93 2.018 1.228 3.295 1.286C8.332 18.986 8.741 19 12 19s3.668-.014 4.948-.072c1.277-.058 2.365-.356 3.295-1.286.93-.93 1.228-2.018 1.286-3.295C21.986 12.668 22 12.259 22 9s-.014-3.668-.072-4.948c-.058-1.277-.356-2.365-1.286-3.295C19.712.428 18.624.13 17.348.072 16.068.014 15.659 0 12 0zm0 4.622a7.378 7.378 0 1 0 0 14.756 7.378 7.378 0 0 0 0-14.756zm0 12.09a4.712 4.712 0 1 1 0-9.424 4.712 4.712 0 0 1 0 9.424zm5.13-10.871a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z" />
     </svg>
   ),
   spotify: (
@@ -105,31 +103,38 @@ export const ArtistOverlay: FC<ArtistOverlayProps> = ({ artist, onClose }) => {
   }
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-lg flex items-center justify-center" onClick={onClose}>
-      <div className="relative bg-neutral-900 rounded-3xl max-w-3xl w-full mx-4 max-h-[90vh] overflow-y-auto p-8" onClick={(e) => e.stopPropagation()}>
-        <div className="flex justify-end">
-          <Button onClick={onClose} variant="ghost" className="absolute top-4 right-4">
-            Close
-          </Button>
-        </div>
-        <div className="flex flex-col md:flex-row gap-8">
-          <div className="md:w-1/3">
-            <img src={artist.imageSrc} alt={artist.name} className="rounded-2xl" />
+    <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 md:p-8" onClick={onClose}>
+      <div className="relative bg-neutral-950 border border-white/10 rounded-[40px] max-w-4xl w-full max-h-[90vh] overflow-y-auto p-8 md:p-12 shadow-2xl" onClick={(e) => e.stopPropagation()}>
+        <button
+          onClick={onClose}
+          className="absolute top-6 right-6 h-10 w-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-colors border border-white/10"
+          aria-label="Cerrar perfil"
+        >
+          <svg viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current stroke-2">
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
+        </button>
+
+        <div className="flex flex-col md:flex-row gap-12">
+          <div className="md:w-1/3 aspect-[3/4] relative overflow-hidden rounded-3xl">
+            <img src={artist.imageSrc} alt={artist.name} className="absolute inset-0 h-full w-full object-cover" />
           </div>
-          <div className="md:w-2/3">
-            <h2 className="text-3xl font-semibold">{artist.name}</h2>
-            <p className="mt-4 text-neutral-300">{artist.blurb}</p>
-            <div className="mt-6">
-              <h3 className="font-semibold">Socials</h3>
-              <div className="mt-2 flex flex-wrap gap-3">
+          <div className="md:w-2/3 flex flex-col justify-center">
+            <p className="text-[10px] uppercase tracking-[0.5em] text-white/30 mb-2">Miembro del Colectivo</p>
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white">{artist.name}</h2>
+            <p className="mt-6 text-lg text-white/60 leading-relaxed font-medium">{artist.blurb}</p>
+
+            <div className="mt-10">
+              <h3 className="text-xs uppercase tracking-[0.3em] text-white/20 font-bold mb-4">Presencia Digital</h3>
+              <div className="flex flex-wrap gap-4">
                 {artist.socials.map((social) => (
                   <a
                     key={social.name}
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`${artist.name} on ${social.name}`}
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-neutral-700 text-neutral-300 transition hover:border-neutral-500 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900"
+                    aria-label={`${artist.name} en ${social.name}`}
+                    className="flex h-14 w-14 items-center justify-center rounded-full bg-white/5 border border-white/5 text-white/60 transition-all hover:bg-white hover:text-black hover:scale-110 active:scale-95 shadow-xl"
                   >
                     <span className="sr-only">{social.name}</span>
                     {getSocialIcon(social.name)}

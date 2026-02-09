@@ -6,8 +6,8 @@
 @font-face {
   font-family: 'round_8four';
   src: url('/fonts/round8-four-webfont.woff2') format('woff2'),
-       url('/fonts/round8-four-webfont.woff') format('woff'),
-       url('/fonts/round8-four-webfont.ttf') format('truetype');
+    url('/fonts/round8-four-webfont.woff') format('woff'),
+    url('/fonts/round8-four-webfont.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -15,37 +15,39 @@
 
 @layer base {
   :root {
-    --background: 233 47% 4%;
-    --foreground: 230 43% 97%;
-    --muted: 230 25% 65%;
-    --muted-foreground: 230 25% 85%;
-    --card: 236 28% 11%;
-    --card-foreground: 230 43% 97%;
-    --popover: 235 27% 8%;
-    --popover-foreground: 230 43% 97%;
-    --border: 237 20% 19%;
-    --input: 237 20% 19%;
-    --primary: 337 83% 55%;
-    --primary-foreground: 233 47% 4%;
-    --secondary: 218 94% 55%;
-    --secondary-foreground: 230 43% 97%;
-    --accent: 44 89% 63%;
-    --accent-foreground: 233 47% 4%;
-    --ring: 337 83% 60%;
-    --radius: 24px;
-    --font-geist-sans: "Geist Variable", "Space Grotesk", system-ui, sans-serif;
+    /* Apple-inspired refined palette */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --ring: 240 4.9% 83.9%;
+    --radius: 0px;
+
+    /* Custom Tokens */
+    --font-geist-sans: "Inter", "Geist Variable", system-ui, -apple-system, sans-serif;
     --font-geist-mono: "Geist Mono Variable", "JetBrains Mono", monospace;
-    --color-bg: #05060e;
-    --color-surface-950: #080811;
-    --color-surface-900: #0f101a;
-    --color-surface-800: #151625;
-    --color-surface-700: #27283b;
-    --color-text: #f5f6fb;
-    --color-muted: rgba(245, 246, 251, 0.6);
-    --color-primary: #eb2c75;
-    --color-secondary: #1e6df8;
-    --color-accent: #f5c84c;
-    --shadow-neon: 0 0 32px rgba(235, 44, 117, 0.45);
+
+    --color-bg: #000000;
+    --color-surface: #121212;
+    --color-primary: #ffffff;
+    --color-accent: #eb2c75;
+
+    --glass-background: rgba(255, 255, 255, 0.01);
+    --glass-border: rgba(255, 255, 255, 0.1);
+
+    --border-archival: rgba(255, 255, 255, 0.1);
   }
 
   * {
@@ -54,19 +56,10 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    background:
-      radial-gradient(circle at top, rgba(30, 109, 248, 0.2), transparent 45%),
-      radial-gradient(circle at 20% 60%, rgba(235, 44, 117, 0.18), transparent 55%),
-      hsl(var(--background));
-    font-family:
-      var(--font-geist-sans),
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Segoe UI",
-      sans-serif;
+    font-family: var(--font-geist-sans);
+    letter-spacing: -0.02em;
+    background: black;
     overflow-x: hidden;
-    overflow-y: auto;
   }
 
   a {
@@ -124,6 +117,7 @@ html.lenis body {
 }
 
 @media (pointer: fine) {
+
   body.custom-cursor-active,
   body.custom-cursor-active * {
     cursor: none !important;
@@ -167,11 +161,9 @@ body::-webkit-scrollbar {
   content: "";
   position: absolute;
   inset: -0.35rem -0.85rem;
-  background: radial-gradient(
-    120% 120% at 0% 50%,
-    rgba(12, 12, 15, 0.52),
-    rgba(5, 6, 14, 0) 70%
-  );
+  background: radial-gradient(120% 120% at 0% 50%,
+      rgba(12, 12, 15, 0.52),
+      rgba(5, 6, 14, 0) 70%);
   opacity: 0;
   transform: translateX(-18%) scale(0.92);
   filter: blur(12px);
@@ -217,6 +209,7 @@ body::-webkit-scrollbar {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .hero-nav-link,
   .hero-nav-link::before,
   .hero-nav-link::after {
@@ -242,10 +235,12 @@ body::-webkit-scrollbar {
 }
 
 @keyframes pulse {
+
   0%,
   100% {
     opacity: 0.2;
   }
+
   50% {
     opacity: 0.5;
   }
@@ -297,9 +292,9 @@ body::-webkit-scrollbar {
   align-items: center;
   justify-content: center;
   padding: 0.65rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(8, 8, 17, 0.6);
+  border-radius: 0px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(18px);
   transition:
     background 0.3s ease,
@@ -387,6 +382,7 @@ body::-webkit-scrollbar {
   0% {
     transform: translateY(0);
   }
+
   100% {
     transform: translateY(-50%);
   }
@@ -474,4 +470,3 @@ body::-webkit-scrollbar {
     height: 100vh;
   }
 }
-

@@ -115,27 +115,75 @@ export const HeroSection: FC = () => {
 
         <div ref={fadeOutRef} className="absolute inset-0 bg-black opacity-0" />
 
-        <div className="relative z-10 flex min-h-screen flex-col justify-between text-neutral-50">
-          <div className="pointer-events-none absolute left-6 top-6 z-20 md:left-12 md:top-10">
-            <div className="brightness-0">
-              <Image
-                src="/assets/logo/logoNMD.svg"
-                alt="Project Web NMD logo"
-                width={72}
-                height={72}
-                priority
-              />
+        <div className="relative z-10 flex min-h-screen flex-col justify-end text-neutral-50">
+          {/* HUD Frame Elements */}
+          <div className="pointer-events-none absolute inset-0 z-20">
+            {/* Grid Overlay Dots */}
+            <div className="absolute inset-0 opacity-[0.15]"
+              style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+
+            {/* Corners Crosshairs */}
+            <div className="absolute left-6 top-6 h-6 w-6 border-l border-t border-white/30" />
+            <div className="absolute right-6 top-6 h-6 w-6 border-r border-t border-white/30" />
+            <div className="absolute bottom-6 left-6 h-6 w-6 border-l border-b border-white/30" />
+            <div className="absolute right-6 bottom-6 h-6 w-6 border-r border-b border-white/30" />
+
+            {/* Left Technical Bar */}
+            <div className="absolute left-6 top-1/2 h-64 w-px -translate-y-1/2 bg-white/10">
+              <div className="absolute top-0 left-0 h-8 w-1 bg-white/40" />
+              <div className="absolute bottom-0 left-0 h-8 w-1 bg-white/40" />
+            </div>
+
+            {/* Data Scanning Label */}
+            <div className="absolute left-[34px] top-[20%] font-mono text-[8px] tracking-[0.6em] text-white/40 uppercase vertical-text">
+              SYS_SCAN: DATA_STREAM_STABLE...
             </div>
           </div>
 
-          {/* NOMADES Text - positioned at the very bottom */}
-          <div className="pointer-events-none mt-auto px-6 pb-4 md:px-12 md:pb-6">
-            <h1
-              className="text-[80px] md:text-[120px] lg:text-[160px] xl:text-[200px] font-normal leading-none text-black"
-              style={{ fontFamily: "'round_8four', sans-serif" }}
-            >
-              NOMADES
-            </h1>
+          {/* Integrated System Bar - Top */}
+          <div className="absolute left-0 top-0 z-30 w-full border-b border-white/10 bg-black/40 p-0 font-mono text-[9px] tracking-[0.4em] text-white/30 uppercase flex justify-between backdrop-blur-sm h-[44px]">
+            <div className="flex items-center">
+              {/* Logo Integrated */}
+              <div className="px-6 border-r border-white/10 flex items-center h-full">
+                <Image
+                  src="/assets/logo/logoNMD.svg"
+                  alt="NMD"
+                  width={20}
+                  height={20}
+                  className="invert opacity-80"
+                />
+              </div>
+              <div className="px-6 flex items-center gap-12 h-full">
+                <div className="flex items-center gap-2">
+                  <div className="h-1.5 w-1.5 bg-green-500 rounded-full animate-pulse" />
+                  <span>SYS_ACTIVE</span>
+                </div>
+                <span className="hidden lg:inline text-white/20">LOC_ Montevideo, UY</span>
+                <span className="hidden xl:inline text-white/20">COORDS_ 34.9064 S / 56.1861 W</span>
+              </div>
+            </div>
+
+            <div className="flex items-center px-6">
+              <span className="hidden sm:inline">UNIT_PROTO_v2.0</span>
+            </div>
+          </div>
+
+          {/* NOMADES Text - Archival Style */}
+          <div className="pointer-events-none p-0 border-t border-white/10 bg-black/20 backdrop-blur-sm">
+            <div className="flex flex-col md:flex-row md:items-end w-full">
+              <h1
+                className="text-[15vw] font-bold leading-[0.75] tracking-tighter text-white uppercase px-2 py-4"
+                style={{ fontFamily: "var(--font-geist-sans)" }}
+              >
+                NOMADES
+              </h1>
+              <div className="hidden md:flex flex-1 justify-end border-l border-white/10 p-6 self-stretch items-center">
+                <p className="font-mono text-[10px] text-white/30 tracking-[0.2em] max-w-[200px] leading-relaxed uppercase">
+                  Colectivo musical independiente basado en Montevideo.
+                  Acceso autorizado_2024.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
