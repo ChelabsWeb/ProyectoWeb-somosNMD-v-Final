@@ -46,6 +46,9 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         setCart(prev => {
             const existing = prev.find(i => i.uniqueId === item.uniqueId);
             if (existing) {
+                // For beats/digital, we don't want to increment quantity, just keep it at 1
+                if (item.type === "digital") return prev;
+
                 return prev.map(i => i.uniqueId === item.uniqueId ? { ...i, quantity: i.quantity + 1 } : i);
             }
             return [...prev, item];

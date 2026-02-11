@@ -38,36 +38,6 @@ export const MOCK_PRODUCTS: Product[] = [
 
 export const MOCK_BEATS: Beat[] = [
     {
-        id: "b1",
-        title: "Midnight Drive",
-        producer: "Kenma",
-        bpm: 140,
-        key: "D Minor",
-        tags: ["Trap", "Dark", "Spooky"],
-        previewUrl: "/assets/audio/samples/beat1.mp3",
-        artworkUrl: "/assets/shop/beats_cover.png",
-        priceTiers: [
-            { name: "Basic", price: 29.99, features: ["MP3", "2000 Radio Plays"] },
-            { name: "Premium", price: 49.99, features: ["WAV", "Unlimited Plays"] },
-            { name: "Unlimited", price: 199.99, features: ["Stems", "Exclusive"] }
-        ]
-    },
-    {
-        id: "b2",
-        title: "Uruguay Drills",
-        producer: "Gervi",
-        bpm: 144,
-        key: "F# Major",
-        tags: ["Drill", "Aggressive", "Hard"],
-        previewUrl: "/assets/audio/samples/beat2.mp3",
-        artworkUrl: "/assets/shop/beats_cover.png",
-        priceTiers: [
-            { name: "Basic", price: 29.99, features: ["MP3", "2000 Radio Plays"] },
-            { name: "Premium", price: 49.99, features: ["WAV", "Unlimited Plays"] },
-            { name: "Unlimited", price: 199.99, features: ["Stems", "Exclusive"] }
-        ]
-    },
-    {
         id: "b3",
         title: "CARDO",
         producer: "Caba",
