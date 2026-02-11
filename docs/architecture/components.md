@@ -30,6 +30,12 @@
 **Dependencies:** Contact/API events, client-side hooks.  
 **Technology Stack:** PostHog, Vercel Analytics, Logflare (optional).
 
+### NMD Shop Components
+**Responsibility:** Provide a specialized e-commerce interface for Merch, Furniture, and Beats.  
+**Key Interfaces:** `<ShopSegmentController />`, `<BeatList />`, `<BeatPlayer />`, `<ProductGrid />`, `<CartOverlay />`.  
+**Dependencies:** Shadcn UI, Framer Motion/GSAP, Lucide icons, Commerce Provider API.  
+**Technology Stack:** Next.js RSC/RCC, Shopify Storefront API (preferred).
+
 ### Component Diagram
 ```mermaid
 graph TD
@@ -37,10 +43,12 @@ graph TD
         WebApp[Next.js Web App]
         AnimPkg[Animation Package]
         AudioCtrl[Audio Preview Controller]
+        ShopModule[NMD Shop Module]
     end
     subgraph Backend
         ContactAPI[Vercel Function /api/contact]
         EventsAPI[/api/event]
+        CommerceAPI[Commerce Provider API]
         SupabaseDB[(Supabase Postgres)]
     end
     subgraph Infra
@@ -50,12 +58,14 @@ graph TD
 
     WebApp --> AnimPkg
     WebApp --> AudioCtrl
+    WebApp --> ShopModule
     WebApp --> Blob
     WebApp --> ContactAPI
     WebApp --> EventsAPI
+    ShopModule --> CommerceAPI
     ContactAPI --> SupabaseDB
     ContactAPI --> AnalyticsSvc
     EventsAPI --> AnalyticsSvc
     AnimPkg --> Blob
 ```
-
+

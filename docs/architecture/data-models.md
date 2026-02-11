@@ -30,4 +30,41 @@
 
 **Relationships:**
 - Can reference `collaboration_inquiries.email` for deduplication but not enforced.
-
+
+### Product (Merch/Furniture)
+**Purpose:** Represent physical items available for purchase in the shop.
+
+**Key Attributes:**
+- `id`: string
+- `title`: text
+- `description`: text
+- `category`: enum (`merch`, `furniture`)
+- `price`: decimal
+- `images`: text[] (URLs)
+- `variants`: jsonb (sizes, colors, etc.)
+- `stock_status`: text
+
+### Beat
+**Purpose:** Represent digital audio tracks available for licensing.
+
+**Key Attributes:**
+- `id`: string
+- `title`: text
+- `producer`: text
+- `bpm`: integer
+- `key`: text
+- `tags`: text[]
+- `preview_url`: text
+- `price_tiers`: jsonb (Basic, Premium, Unlimited)
+- `artwork_url`: text
+
+### CartItem
+**Purpose:** Represent an item added to the user's shopping cart.
+
+**Key Attributes:**
+- `id`: string (product/beat id)
+- `type`: enum (`physical`, `digital`)
+- `quantity`: integer
+- `variant_id`: string (optional)
+- `selected_price_tier`: string (for beats)
+

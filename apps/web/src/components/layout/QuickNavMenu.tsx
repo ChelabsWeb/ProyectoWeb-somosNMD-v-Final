@@ -16,6 +16,7 @@ const SECTIONS: MenuSection[] = [
   { id: "hero", label: "Inicio" },
   { id: "artists", label: "Artistas" },
   { id: "music", label: "Música" },
+  { id: "shop", label: "Tienda" },
   { id: "contact", label: "Contacto" },
 ];
 
@@ -130,19 +131,40 @@ export const QuickNavMenu: FC = () => {
     (sectionId: string) => {
       trackEvent("menu_nav_click", { section: sectionId });
 
+      const isHomePage = typeof window !== "undefined" && window.location.pathname === "/";
+
+      // 1. Handle Top/Hero
       if (sectionId === "hero") {
-        if (lenis) {
-          lenis.scrollTo(0, { immediate: true });
+        if (isHomePage) {
+          if (lenis) {
+            lenis.scrollTo(0, { immediate: true });
+          } else {
+            window.scrollTo({ top: 0, behavior: "auto" });
+          }
+          setIsOpen(false);
+          refreshScrollTriggers();
         } else {
-          window.scrollTo({ top: 0, behavior: "auto" });
+          window.location.href = "/";
         }
-        setIsOpen(false);
-        refreshScrollTriggers();
         return;
       }
 
+      // 2. Handle External Page (Shop)
+      if (sectionId === "shop") {
+        setIsOpen(false);
+        if (typeof window !== "undefined" && window.location.pathname === "/shop") {
+          // If already on shop, just close menu
+          return;
+        }
+        window.location.href = "/shop";
+        return;
+      }
+
+      // 3. Handle Other In-Page Sections
       const target = document.getElementById(sectionId);
       if (!target) {
+        // If target not found (probably on other page), go to home with hash
+        window.location.href = `/#${sectionId}`;
         return;
       }
 
@@ -153,6 +175,7 @@ export const QuickNavMenu: FC = () => {
       }
 
       setIsOpen(false);
+
       if (sectionId === "artists" && typeof window !== "undefined") {
         requestAnimationFrame(() => {
           window.dispatchEvent(new Event("artists:reset"));

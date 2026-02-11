@@ -1,34 +1,43 @@
-# Epic 4 Merch Commerce Experience
+# Epic 4 NMD Shop Experience
 
-Goal: Integrate a headless commerce flow so merch can be featured, browsed, and purchased without breaking the cinematic narrative or performance budgets.
+Goal: Integrate a headless commerce flow and a bespoke shop interface segmented into Merch, Furniture, and Beats, maintaining the collective's cinematic aesthetic and high performance.
 
-### Story 4.1 Merch Showcase & Catalog Integration
-As a merch lead,
-I want a storefront section that highlights featured drops within the cinematic flow and lists the full catalog,
-so that fans can browse and add products to their cart without leaving the experience.
+### Story 4.1 NMD Shop Landing & Segmentation
+As a visitor,
+I want a centralized shop page with clear segments for Merch, Furniture, and Beats,
+so that I can easily browse the collective's diverse offerings.
 #### Acceptance Criteria
-1: Commerce or CMS backend exposes product data (name, price, variants, media) and hydrates Next.js RSCs with ISR caching.
-2: Featured merch tiles can be embedded in hero/teaser scenes while the full catalog lives in a dedicated section or modal.
-3: Product detail overlays display sizing guides, availability, and related items with motion that respects accessibility.
-4: Analytics events capture product views and add-to-cart actions with SKU metadata.
+1: New `/shop` page with a HUD-inspired header and smooth transitions between segments.
+2: Navigation includes Tabs or a Filter system for "Merch", "Furniture", and "Beats".
+3: Aesthetic remains consistent with the site (dark mode, grain, particles, HUD elements).
+4: "Shop" link added to the `QuickNavMenu`.
 
-### Story 4.2 Cart State & Checkout Handoff
+### Story 4.2 Merch & Furniture Showcase
+As a collector,
+I want to see high-quality images and details for NMD merch and furniture pieces,
+so that I can appreciate the design before purchasing.
+#### Acceptance Criteria
+1: Product grid for Merch and Furniture with hover effects and cinematic reveals.
+2: Product detail overlays with size guides (for merch) and material info (for furniture).
+3: Integrated "Add to Cart" functionality with local state management.
+
+### Story 4.3 NMD Beats (Beatstars Style)
+As a producer/artist,
+I want a specialized section to browse and preview NMD beats in a "Beatstars" style,
+so that I can find the perfect track for my project.
+#### Acceptance Criteria
+1: Beats list with track artwork, title, producer, BPM, Key, and tags.
+2: Audio player with waveform visualization and playback controls.
+3: Price selection (Basic, Premium, Unlimited) and "Add to Cart" button per track.
+4: Featured beats carousel or highlight section.
+
+### Story 4.4 Checkout & Cart Management
 As a shopper,
-I want to manage my cart and complete checkout confidently,
-so that I can purchase merch through the headless provider using familiar payment methods.
+I want to manage my cart and checkout securely,
+so that I can complete my purchase of physical items and digital beats.
 #### Acceptance Criteria
-1: Client-side cart store supports add/remove/update quantity with persistence across navigation.
-2: Checkout button triggers provider-hosted checkout or secure API flow that meets PCI requirements.
-3: Error states (inventory mismatch, payment failure) surface clear feedback and recovery actions.
-4: Post-checkout confirmation routes users back with order summary and tracking guidance.
+1: Global cart state (persistent) with clear distinction between physical and digital items.
+2: Checkout handoff to a secure provider (simulated or integrated if keys provided).
+3: Order confirmation and download links for purchased beats.
 
-### Story 4.3 Merch Operations & Telemetry
-As an operations analyst,
-I want inventory sync, order webhooks, and conversion dashboards,
-so that the collective can understand demand and support customers.
-#### Acceptance Criteria
-1: Webhooks or scheduled jobs refresh inventory/pricing in cache without full redeploys.
-2: Product analytics records cart -> checkout -> purchase funnel with revenue metrics in PostHog (or equivalent).
-3: Admin alerts notify the team when inventory is low or webhook processing fails.
-4: Documentation outlines support process for refunds/exchanges and links to commerce admin tooling.
-
+
