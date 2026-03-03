@@ -29,12 +29,7 @@ export const ArtistCard: FC<ArtistCardProps> = ({ artist, onSelect, align = "lef
         onClick={onSelect}
         className="group relative flex flex-col cursor-pointer bg-transparent text-left transition-all duration-300 [-webkit-tap-highlight-color:transparent]"
       >
-        {/* Floating tags (Mobile, inline) */}
-        <div className="md:hidden font-mono text-[10px] text-black/70 mb-4 flex flex-col uppercase tracking-widest gap-1">
-          {tags.map((tag, idx) => (
-            <span key={idx}>[ {tag.toUpperCase()} ]</span>
-          ))}
-        </div>
+        {/* Floating tags (Mobile, inline) - REMOVED AS REQUESTED */}
 
         {/* Image Container with inner padding/bg or just raw image */}
         <div className="relative w-full aspect-[4/5] bg-[#EAE9E4] overflow-hidden mb-6">
