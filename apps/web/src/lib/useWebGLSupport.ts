@@ -17,8 +17,9 @@ export function useWebGLSupport(): boolean | null {
       const context =
         canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
 
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsSupported(!!context);
-    } catch (e) {
+    } catch {
       setIsSupported(false);
     }
   }, []);

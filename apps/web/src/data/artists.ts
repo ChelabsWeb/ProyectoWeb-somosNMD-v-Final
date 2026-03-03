@@ -30,6 +30,7 @@ export const ARTISTS: ArtistEntry[] = [
         imageSrc: "/assets/artists/Izquierdo.jpg",
         socials: [
             { name: "Instagram", url: "https://www.instagram.com/izquierdo.nmd/" },
+            { name: "Spotify", url: "#" },
         ],
     },
     {
@@ -41,6 +42,7 @@ export const ARTISTS: ArtistEntry[] = [
         imageSrc: "/assets/artists/JuanMa.jpg",
         socials: [
             { name: "Instagram", url: "https://www.instagram.com/juanma.nmd/" },
+            { name: "Spotify", url: "#" },
         ],
     },
     {
@@ -52,6 +54,7 @@ export const ARTISTS: ArtistEntry[] = [
         imageSrc: "/assets/artists/Caba.jpg",
         socials: [
             { name: "Instagram", url: "https://www.instagram.com/caba.nmd/" },
+            { name: "Spotify", url: "#" },
         ],
     },
     {
@@ -63,6 +66,7 @@ export const ARTISTS: ArtistEntry[] = [
         imageSrc: "/assets/artists/Justino.jpg",
         socials: [
             { name: "Instagram", url: "https://www.instagram.com/justino.nmd/" },
+            { name: "Spotify", url: "#" },
         ],
     },
     {
@@ -74,6 +78,7 @@ export const ARTISTS: ArtistEntry[] = [
         imageSrc: "/assets/artists/Kenma.jpg",
         socials: [
             { name: "Instagram", url: "https://www.instagram.com/kenma.nmd/" },
+            { name: "Spotify", url: "#" },
         ],
     },
     {
@@ -85,6 +90,7 @@ export const ARTISTS: ArtistEntry[] = [
         imageSrc: "/assets/artists/Letie.jpg",
         socials: [
             { name: "Instagram", url: "https://www.instagram.com/letie.nmd/" },
+            { name: "Spotify", url: "#" },
         ],
     },
     {
@@ -96,6 +102,7 @@ export const ARTISTS: ArtistEntry[] = [
         imageSrc: "/assets/artists/Luccio.jpg",
         socials: [
             { name: "Instagram", url: "https://www.instagram.com/luccio.nmd/" },
+            { name: "Spotify", url: "#" },
         ],
     },
     {
@@ -107,6 +114,7 @@ export const ARTISTS: ArtistEntry[] = [
         imageSrc: "/assets/artists/Luquilla.jpg",
         socials: [
             { name: "Instagram", url: "https://www.instagram.com/lucaghizzo._.nmd/" },
+            { name: "Spotify", url: "#" },
         ],
     },
     {
@@ -118,6 +126,7 @@ export const ARTISTS: ArtistEntry[] = [
         imageSrc: "/assets/artists/Nacht.jpg",
         socials: [
             { name: "Instagram", url: "https://www.instagram.com/nacht.nmd/" },
+            { name: "Spotify", url: "#" },
         ],
     },
     {
@@ -129,6 +138,7 @@ export const ARTISTS: ArtistEntry[] = [
         imageSrc: "/assets/artists/Nei.jpg",
         socials: [
             { name: "Instagram", url: "https://www.instagram.com/nei.nmd/" },
+            { name: "Spotify", url: "#" },
         ],
     },
     {
@@ -140,6 +150,7 @@ export const ARTISTS: ArtistEntry[] = [
         imageSrc: "/assets/artists/Quei.jpg",
         socials: [
             { name: "Instagram", url: "https://www.instagram.com/quei.nmd/" },
+            { name: "Spotify", url: "#" },
         ],
     },
 ];

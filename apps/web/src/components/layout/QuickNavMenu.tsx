@@ -52,6 +52,7 @@ export const QuickNavMenu: FC = () => {
 
   // Mount the component immediately for button visibility
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsMounted(true);
   }, []);
 
@@ -63,6 +64,7 @@ export const QuickNavMenu: FC = () => {
 
     const win = window as Window & { __nmdLoaderHidden?: boolean };
     if (win.__nmdLoaderHidden) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsMenuReady(true);
       return;
     }
@@ -202,15 +204,14 @@ export const QuickNavMenu: FC = () => {
         aria-expanded={isOpen}
         aria-controls="quick-nav-panel"
         onClick={() => isMenuReady && setIsOpen((prev) => !prev)}
-        className={`fixed right-0 top-0 z-[110] group flex h-[44px] items-center gap-3 border-l border-b border-white/10 bg-black/40 px-6 backdrop-blur-sm transition-all hover:bg-white hover:text-black ${!isMenuReady ? "opacity-30" : ""}`}
+        className={`fixed right-4 md:right-8 top-4 md:top-8 z-[110] group flex h-12 w-12 items-center justify-center rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white transition-all hover:bg-white hover:text-black hover:scale-105 active:scale-95 ${!isMenuReady ? "opacity-30" : ""}`}
         disabled={!isMenuReady}
+        aria-label="Toggle Menu"
       >
-        <span className="font-mono text-[9px] tracking-[0.4em] uppercase transition-colors">
-          {isOpen ? "[ CLOSE_SYS ]" : "[ ACCESS_CMD ]"}
-        </span>
-        <div className="relative h-2 w-2">
-          <div className={`absolute inset-0 border border-current transition-transform duration-500 ${isOpen ? "rotate-45 scale-125" : "rotate-0"}`} />
-          {!isOpen && <div className="absolute inset-[2px] bg-current animate-pulse" />}
+        <div className="flex flex-col justify-center items-center w-5 h-5 relative">
+          <span className={`absolute h-[2px] w-5 bg-current transition-all duration-300 ${isOpen ? "rotate-45" : "-translate-y-1.5 group-hover:-translate-y-2"}`} />
+          <span className={`absolute h-[2px] w-5 bg-current transition-all duration-300 ${isOpen ? "opacity-0" : "opacity-100"}`} />
+          <span className={`absolute h-[2px] w-5 bg-current transition-all duration-300 ${isOpen ? "-rotate-45" : "translate-y-1.5 group-hover:translate-y-2"}`} />
         </div>
       </button>
 

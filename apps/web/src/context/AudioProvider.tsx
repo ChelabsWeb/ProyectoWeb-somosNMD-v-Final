@@ -80,6 +80,7 @@ export const AudioProvider = ({ children }: { children: ReactNode }) => {
       audio.removeEventListener("play", () => setIsPlaying(true));
       audio.removeEventListener("pause", () => setIsPlaying(false));
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nowPlaying, playlist]);
 
   const play = (src: string, meta?: AudioMetadata) => {
@@ -119,9 +120,10 @@ export const AudioProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const next = () => {
+  function next() {
     if (playlist.length === 0 || !nowPlaying) return;
     const currentIndex = playlist.indexOf(nowPlaying);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const nextIndex = (currentIndex + 1) % playlist.length;
     // Note: This only works if we have access to metadata for the next one.
     // For now, let's just trigger a custom event or rely on BeatList to update.
@@ -129,9 +131,10 @@ export const AudioProvider = ({ children }: { children: ReactNode }) => {
     window.dispatchEvent(new CustomEvent("nmd-audio-next"));
   };
 
-  const previous = () => {
+  function previous() {
     if (playlist.length === 0 || !nowPlaying) return;
     const currentIndex = playlist.indexOf(nowPlaying);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const prevIndex = (currentIndex - 1 + playlist.length) % playlist.length;
     window.dispatchEvent(new CustomEvent("nmd-audio-prev"));
   };

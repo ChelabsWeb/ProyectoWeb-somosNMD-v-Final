@@ -1,0 +1,54 @@
+
+Running 3 tests using 2 workers
+
+  ✘  2 tests\api\booking.spec.ts:4:7 › Booking API (getAvailableSlots) › [P1] should return available slots for a valid ISO date (52ms)
+  ✘  1 tests\e2e\booking-flow.spec.ts:4:7 › Booking Flow E2E › [P0] should open modal from hero and select a timeslot (476ms)
+  ✘  3 tests\api\booking.spec.ts:31:7 › Booking API (getAvailableSlots) › [P1] should fail validation for invalid date format (42ms)
+
+
+  1) tests\api\booking.spec.ts:4:7 › Booking API (getAvailableSlots) › [P1] should return available slots for a valid ISO date 
+
+    TypeError: apiRequestContext.post: Invalid URL
+
+       9 |     const isoDate = testDate.toISOString();
+      10 |
+    > 11 |     const response = await request.post('/api/actions/getAvailableSlots', {
+         |                                    ^
+      12 |       data: [isoDate] // Server Action format (Array of arguments)
+      13 |     });
+      14 |
+        at C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\apps\web\tests\api\booking.spec.ts:11:36
+
+  2) tests\api\booking.spec.ts:31:7 › Booking API (getAvailableSlots) › [P1] should fail validation for invalid date format 
+
+    TypeError: apiRequestContext.post: Invalid URL
+
+      30 |
+      31 |   test('[P1] should fail validation for invalid date format', async ({ request }) => {
+    > 32 |     const response = await request.post('/api/actions/getAvailableSlots', {
+         |                                    ^
+      33 |       data: ['invalid-date-string']
+      34 |     });
+      35 |
+        at C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\apps\web\tests\api\booking.spec.ts:32:36
+
+  3) tests\e2e\booking-flow.spec.ts:4:7 › Booking Flow E2E › [P0] should open modal from hero and select a timeslot 
+
+    Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+    Call log:
+    [2m  - navigating to "/", waiting until "load"[22m
+
+
+      12 |     });
+      13 |
+    > 14 |     await page.goto('/');
+         |                ^
+      15 |
+      16 |     // 1. Open Modal
+      17 |     const bookButton = page.getByRole('button', { name: /INICIAR PROYECTO/i });
+        at C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\apps\web\tests\e2e\booking-flow.spec.ts:14:16
+
+  3 failed
+    tests\api\booking.spec.ts:4:7 › Booking API (getAvailableSlots) › [P1] should return available slots for a valid ISO date 
+    tests\api\booking.spec.ts:31:7 › Booking API (getAvailableSlots) › [P1] should fail validation for invalid date format 
+    tests\e2e\booking-flow.spec.ts:4:7 › Booking Flow E2E › [P0] should open modal from hero and select a timeslot 

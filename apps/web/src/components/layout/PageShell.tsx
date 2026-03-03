@@ -8,7 +8,6 @@ import { CustomCursor } from "@/components/system/CustomCursor";
 import { ParticleBackground } from "@/components/system/ParticleBackground";
 import { LenisProvider } from "@/context/LenisContext";
 import { AudioProvider } from "@/context/AudioProvider";
-import { QuickNavMenu } from "./QuickNavMenu";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,28 +17,27 @@ type PageShellProps = {
 
 /**
  * Shared page shell used across top-level routes.
- * Adds background gradient and nav spacing.
+ * Integrates Awwwards-style Lenis smooth scrolling and global layout features.
  */
 export const PageShell: FC<PageShellProps> = ({ children }) => {
   const [lenis, setLenis] = useState<Lenis | null>(null);
+  
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    );
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-    if (prefersReducedMotion.matches) {
-      return;
-    }
+    if (prefersReducedMotion.matches) return;
 
+    // Awwwards-style ultra-smooth config for Lenis
     const lenisInstance = new Lenis({
-      // Slightly lower lerp and longer duration create a softer easing curve.
-      lerp: 0.075,
-      duration: 1.1,
+      lerp: 0.05,       // Lower lerp for more buttery, trailing momentum
+      duration: 1.2,    // Slightly longer duration for perceived elegance
       smoothWheel: true,
+      orientation: "vertical",
     });
-
-    setLenis(lenisInstance);
-
+    requestAnimationFrame(() => {
+       
+      setLenis(lenisInstance);
+    });
     let animationFrameId: number;
     let currentScroll = 0;
 
@@ -47,12 +45,14 @@ export const PageShell: FC<PageShellProps> = ({ children }) => {
       lenisInstance.raf(time);
       animationFrameId = requestAnimationFrame(raf);
     };
-
     animationFrameId = requestAnimationFrame(raf);
 
-    const handleLenisScroll = ({ scroll, limit, progress }: { scroll: number; limit: number; progress: number }) => {
-      currentScroll = scroll;
-      document.documentElement.style.setProperty('--scroll-progress', progress.toString());
+    // Sync Lenis with GSAP ScrollTrigger
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const handleLenisScroll = (e: any) => {
+      currentScroll = e.scroll;
+      // Update global CSS variable for custom progress bars or reveals
+      document.documentElement.style.setProperty('--scroll-progress', e.progress.toString());
       ScrollTrigger.update();
     };
 
@@ -66,20 +66,12 @@ export const PageShell: FC<PageShellProps> = ({ children }) => {
         return currentScroll;
       },
       getBoundingClientRect() {
-        return {
-          top: 0,
-          left: 0,
-          width: window.innerWidth,
-          height: window.innerHeight,
-        };
+        return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
       },
       pinType: document.body.style.transform ? "transform" : "fixed",
     });
 
-    const handleRefresh = () => {
-      lenisInstance.resize();
-    };
-
+    const handleRefresh = () => lenisInstance.resize();
     ScrollTrigger.addEventListener("refresh", handleRefresh);
     ScrollTrigger.refresh();
 
@@ -92,31 +84,23 @@ export const PageShell: FC<PageShellProps> = ({ children }) => {
         animationFrameId = requestAnimationFrame(raf);
       }
     };
-
     prefersReducedMotion.addEventListener("change", handleMotionPreferenceChange);
 
     return () => {
       cancelAnimationFrame(animationFrameId);
       lenisInstance.off("scroll", handleLenisScroll);
-      prefersReducedMotion.removeEventListener(
-        "change",
-        handleMotionPreferenceChange,
-      );
+      prefersReducedMotion.removeEventListener("change", handleMotionPreferenceChange);
       ScrollTrigger.removeEventListener("refresh", handleRefresh);
+      
       ScrollTrigger.scrollerProxy(document.body, {
         scrollTop(value?: number) {
           if (typeof value === "number") {
-            window.scrollTo(0, value);
+             window.scrollTo(0, value);
           }
           return window.scrollY || window.pageYOffset;
         },
         getBoundingClientRect() {
-          return {
-            top: 0,
-            left: 0,
-            width: window.innerWidth,
-            height: window.innerHeight,
-          };
+          return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
         },
         pinType: "fixed",
       });
@@ -128,23 +112,28 @@ export const PageShell: FC<PageShellProps> = ({ children }) => {
   return (
     <LenisProvider value={lenis}>
       <AudioProvider>
-        <div className="relative min-h-screen w-full overflow-x-hidden bg-black text-neutral-50 selection:bg-white selection:text-black">
-          {/* Global Grain Texture */}
-          <div className="pointer-events-none fixed inset-0 z-[100] opacity-[0.03] mix-blend-overlay">
+        {/* Foundation of the "Tron x Renaissance" Aesthetic: Pure black space, high contrast selection */}
+        <div className="relative min-h-screen w-full overflow-x-hidden bg-background text-foreground selection:bg-[#FF4D00] selection:text-black">
+          
+          {/* Global Texture / Cyber-Noise Overlay for depth */}
+          <div className="pointer-events-none fixed inset-0 z-[100] opacity-[0.035] mix-blend-overlay">
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="h-full w-full">
               <filter id="noiseFilter">
-                <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+                <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch" />
               </filter>
               <rect width="100%" height="100%" filter="url(#noiseFilter)" />
             </svg>
           </div>
 
-          {/* Scroll Progress Indicator - Below System Bar */}
-          <div className="fixed top-[44px] left-0 right-0 z-[110] h-[1px] origin-left bg-white/20" style={{ transform: 'scaleX(var(--scroll-progress, 0))' }} />
+
 
           <ParticleBackground />
-          <QuickNavMenu />
-          {children}
+          
+          {/* Main content insertion */}
+          <main className="relative z-10">
+            {children}
+          </main>
+          
           <CustomCursor />
         </div>
       </AudioProvider>

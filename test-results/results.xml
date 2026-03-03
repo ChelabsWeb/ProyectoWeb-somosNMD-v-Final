@@ -1,0 +1,549 @@
+<testsuites id="" name="" tests="10" failures="4" skipped="0" errors="0" time="547.575396">
+<testsuite name="booking-modal.spec.ts" timestamp="2026-02-28T17:16:35.755Z" hostname="chromium" tests="5" failures="2" skipped="0" time="128.878" errors="0">
+<testcase name="Booking Module E2E Test Suite › [P0] should open Dialog overlay when Reservar is clicked on Desktop" classname="booking-modal.spec.ts" time="5.061">
+</testcase>
+<testcase name="Booking Module E2E Test Suite › [P0] should open Drawer overlay when Reservar is clicked on Mobile" classname="booking-modal.spec.ts" time="4.27">
+</testcase>
+<testcase name="Booking Module E2E Test Suite › [P1] should close Dialog overlay on Desktop via Escape key" classname="booking-modal.spec.ts" time="4.878">
+</testcase>
+<testcase name="Booking Module E2E Test Suite › [P0] should open modal and allow selecting a timeslot" classname="booking-modal.spec.ts" time="46.754">
+<failure message="booking-modal.spec.ts:50:7 [P0] should open modal and allow selecting a timeslot" type="FAILURE">
+<![CDATA[  [chromium] › booking-modal.spec.ts:50:7 › Booking Module E2E Test Suite › [P0] should open modal and allow selecting a timeslot 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: /Disponible/i }).first()
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 10000ms
+      - waiting for getByRole('button', { name: /Disponible/i }).first()
+
+
+      68 |     // Select slot (any available slot)
+      69 |     const availableSlot = page.getByRole('button', { name: /Disponible/i }).first();
+    > 70 |     await expect(availableSlot).toBeVisible();
+         |                                 ^
+      71 |     await availableSlot.click();
+      72 |     await expect(availableSlot).toHaveAttribute('aria-pressed', 'true');
+      73 |     await expect(availableSlot).toHaveClass(/bg-white|bg-nmd-orange/);
+        at C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\tests\e2e\booking-modal.spec.ts:70:33
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-chromium\error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: /Disponible/i }).first()
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 10000ms
+      - waiting for getByRole('button', { name: /Disponible/i }).first()
+
+
+      68 |     // Select slot (any available slot)
+      69 |     const availableSlot = page.getByRole('button', { name: /Disponible/i }).first();
+    > 70 |     await expect(availableSlot).toBeVisible();
+         |                                 ^
+      71 |     await availableSlot.click();
+      72 |     await expect(availableSlot).toHaveAttribute('aria-pressed', 'true');
+      73 |     await expect(availableSlot).toHaveClass(/bg-white|bg-nmd-orange/);
+        at C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\tests\e2e\booking-modal.spec.ts:70:33
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-chromium-retry1\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-chromium-retry1\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-chromium-retry1\error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-chromium-retry1\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-chromium-retry1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: /Disponible/i }).first()
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 10000ms
+      - waiting for getByRole('button', { name: /Disponible/i }).first()
+
+
+      68 |     await expect(availableSlot).toHaveAttribute('aria-pressed', 'true');
+      69 |     await expect(availableSlot).toHaveClass(/bg-white|bg-nmd-orange/);
+    > 70 |       
+         |       ^
+      71 |     // Proceed to next step
+      72 |     const nextButton = page.getByRole('button', { name: /Siguiente/i });
+      73 |     await expect(nextButton).toBeVisible();
+        at C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\tests\e2e\booking-modal.spec.ts:70:33
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-chromium-retry2\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-chromium-retry2\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-chromium-retry2\error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-chromium-retry2\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-chromium-retry2\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-chromium\video.webm]]
+
+[[ATTACHMENT|booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-chromium\error-context.md]]
+
+[[ATTACHMENT|booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-chromium\trace.zip]]
+]]>
+</system-out>
+<system-err>
+<![CDATA[
+Warning: attachment booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-chromium-retry1\test-failed-1.png is missing
+Warning: attachment booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-chromium-retry1\video.webm is missing
+Warning: attachment booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-chromium-retry1\error-context.md is missing
+Warning: attachment booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-chromium-retry1\trace.zip is missing
+Warning: attachment booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-chromium-retry2\test-failed-1.png is missing
+Warning: attachment booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-chromium-retry2\video.webm is missing
+Warning: attachment booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-chromium-retry2\error-context.md is missing
+Warning: attachment booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-chromium-retry2\trace.zip is missing]]>
+</system-err>
+</testcase>
+<testcase name="Booking Module E2E Test Suite › [P0] should complete full booking flow including optimistic form submission" classname="booking-modal.spec.ts" time="67.915">
+<failure message="booking-modal.spec.ts:84:7 [P0] should complete full booking flow including optimistic form submission" type="FAILURE">
+<![CDATA[  [chromium] › booking-modal.spec.ts:84:7 › Booking Module E2E Test Suite › [P0] should complete full booking flow including optimistic form submission 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: /Disponible/i }).first()
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 10000ms
+      - waiting for getByRole('button', { name: /Disponible/i }).first()
+
+
+       96 |     // Step 2: Session Type
+       97 |     await expect(page.getByText(/TIPO DE SESIÓN/i)).toBeVisible();
+    >  98 |     // Assuming the selection components has role='button' or is a clickable card
+          |                                 ^
+       99 |     const sessionCard = page.getByText(/Productor en el Room/i).first();
+      100 |     await sessionCard.click();
+      101 |     
+        at C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\tests\e2e\booking-modal.spec.ts:98:33
+
+    Error: apiRequestContext._wrapApiCall: ENOENT: no such file or directory, open 'C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\test-results\.playwright-artifacts-3\traces\85aa807569fa892cb385-1744b79ead6c7bf0e1a0.trace'
+
+    Error: ENOENT: no such file or directory, open 'C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\test-results\.playwright-artifacts-3\0dab3c314639711e6f4eca13feaea9ff.zip'
+
+    Test timeout of 60000ms exceeded.
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-d477d--optimistic-form-submission-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\booking-modal-Booking-Modu-d477d--optimistic-form-submission-chromium\error-context.md
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: /Siguiente/i })
+
+
+      92 |     await availableSlot.click();
+      93 |     const nextButton = page.getByRole('button', { name: /Siguiente/i });
+    > 94 |     await nextButton.click();
+         |                      ^
+      95 |
+      96 |     // Step 2: Session Type
+      97 |     await expect(page.getByText(/TIPO DE SESIÓN/i)).toBeVisible();
+        at C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\tests\e2e\booking-modal.spec.ts:94:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-d477d--optimistic-form-submission-chromium-retry1\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-d477d--optimistic-form-submission-chromium-retry1\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\booking-modal-Booking-Modu-d477d--optimistic-form-submission-chromium-retry1\error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-d477d--optimistic-form-submission-chromium-retry1\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\..\test-results\booking-modal-Booking-Modu-d477d--optimistic-form-submission-chromium-retry1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
+
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: /Siguiente/i })
+
+
+      92 |     await availableSlot.click();
+      93 |     const nextButton = page.getByRole('button', { name: /Siguiente/i });
+    > 94 |     await nextButton.click();
+         |                      ^
+      95 |
+      96 |     // Step 2: Session Type
+      97 |     await expect(page.getByText(/TIPO DE SESIÓN/i)).toBeVisible();
+        at C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\tests\e2e\booking-modal.spec.ts:94:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-d477d--optimistic-form-submission-chromium-retry2\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-d477d--optimistic-form-submission-chromium-retry2\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\booking-modal-Booking-Modu-d477d--optimistic-form-submission-chromium-retry2\error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-d477d--optimistic-form-submission-chromium-retry2\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\..\test-results\booking-modal-Booking-Modu-d477d--optimistic-form-submission-chromium-retry2\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|booking-modal-Booking-Modu-d477d--optimistic-form-submission-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|booking-modal-Booking-Modu-d477d--optimistic-form-submission-chromium\error-context.md]]
+]]>
+</system-out>
+<system-err>
+<![CDATA[
+Warning: attachment booking-modal-Booking-Modu-d477d--optimistic-form-submission-chromium-retry1\test-failed-1.png is missing
+Warning: attachment booking-modal-Booking-Modu-d477d--optimistic-form-submission-chromium-retry1\video.webm is missing
+Warning: attachment booking-modal-Booking-Modu-d477d--optimistic-form-submission-chromium-retry1\error-context.md is missing
+Warning: attachment booking-modal-Booking-Modu-d477d--optimistic-form-submission-chromium-retry1\trace.zip is missing
+Warning: attachment booking-modal-Booking-Modu-d477d--optimistic-form-submission-chromium-retry2\test-failed-1.png is missing
+Warning: attachment booking-modal-Booking-Modu-d477d--optimistic-form-submission-chromium-retry2\video.webm is missing
+Warning: attachment booking-modal-Booking-Modu-d477d--optimistic-form-submission-chromium-retry2\error-context.md is missing
+Warning: attachment booking-modal-Booking-Modu-d477d--optimistic-form-submission-chromium-retry2\trace.zip is missing]]>
+</system-err>
+</testcase>
+</testsuite>
+<testsuite name="booking-modal.spec.ts" timestamp="2026-02-28T17:16:35.755Z" hostname="Mobile Chrome" tests="5" failures="2" skipped="0" time="213.946" errors="0">
+<testcase name="Booking Module E2E Test Suite › [P0] should open Dialog overlay when Reservar is clicked on Desktop" classname="booking-modal.spec.ts" time="11.684">
+</testcase>
+<testcase name="Booking Module E2E Test Suite › [P0] should open Drawer overlay when Reservar is clicked on Mobile" classname="booking-modal.spec.ts" time="7.038">
+</testcase>
+<testcase name="Booking Module E2E Test Suite › [P1] should close Dialog overlay on Desktop via Escape key" classname="booking-modal.spec.ts" time="11.886">
+</testcase>
+<testcase name="Booking Module E2E Test Suite › [P0] should open modal and allow selecting a timeslot" classname="booking-modal.spec.ts" time="82.367">
+<failure message="booking-modal.spec.ts:50:7 [P0] should open modal and allow selecting a timeslot" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › booking-modal.spec.ts:50:7 › Booking Module E2E Test Suite › [P0] should open modal and allow selecting a timeslot 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: /Siguiente/i })
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 10000ms
+      - waiting for getByRole('button', { name: /Siguiente/i })
+
+
+      71 |     // Proceed to next step
+      72 |     const nextButton = page.getByRole('button', { name: /Siguiente/i });
+    > 73 |     await expect(nextButton).toBeVisible();
+         |                              ^
+      74 |     await nextButton.click();
+      75 |
+      76 |     // Verify we moved to the next step
+        at C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\tests\e2e\booking-modal.spec.ts:73:30
+
+    attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-Mobile-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-Mobile-Chrome\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-Mobile-Chrome\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-Mobile-Chrome\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: /Siguiente/i })
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 10000ms
+      - waiting for getByRole('button', { name: /Siguiente/i })
+
+
+      71 |     // Proceed to next step
+      72 |     const nextButton = page.getByRole('button', { name: /Siguiente/i });
+    > 73 |     await expect(nextButton).toBeVisible();
+         |                              ^
+      74 |     await nextButton.click();
+      75 |
+      76 |     // Verify we moved to the next step
+        at C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\tests\e2e\booking-modal.spec.ts:73:30
+
+    attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-Mobile-Chrome-retry1\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-Mobile-Chrome-retry1\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-Mobile-Chrome-retry1\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-Mobile-Chrome-retry1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: /Siguiente/i })
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 10000ms
+      - waiting for getByRole('button', { name: /Siguiente/i })
+
+
+      71 |     // Proceed to next step
+      72 |     const nextButton = page.getByRole('button', { name: /Siguiente/i });
+    > 73 |     await expect(nextButton).toBeVisible();
+         |                              ^
+      74 |     await nextButton.click();
+      75 |
+      76 |     // Verify we moved to the next step
+        at C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\tests\e2e\booking-modal.spec.ts:73:30
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-Mobile-Chrome-retry2\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-Mobile-Chrome-retry2\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-Mobile-Chrome-retry2\error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-Mobile-Chrome-retry2\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\..\test-results\booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-Mobile-Chrome-retry2\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-Mobile-Chrome\video.webm]]
+
+[[ATTACHMENT|booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-Mobile-Chrome\error-context.md]]
+
+[[ATTACHMENT|booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-Mobile-Chrome\trace.zip]]
+
+[[ATTACHMENT|booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-Mobile-Chrome-retry1\video.webm]]
+
+[[ATTACHMENT|booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-Mobile-Chrome-retry1\error-context.md]]
+
+[[ATTACHMENT|booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-Mobile-Chrome-retry1\trace.zip]]
+
+[[ATTACHMENT|booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-Mobile-Chrome-retry2\test-failed-1.png]]
+
+[[ATTACHMENT|booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-Mobile-Chrome-retry2\video.webm]]
+
+[[ATTACHMENT|booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-Mobile-Chrome-retry2\error-context.md]]
+
+[[ATTACHMENT|booking-modal-Booking-Modu-52f02--allow-selecting-a-timeslot-Mobile-Chrome-retry2\trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Booking Module E2E Test Suite › [P0] should complete full booking flow including optimistic form submission" classname="booking-modal.spec.ts" time="100.971">
+<failure message="booking-modal.spec.ts:84:7 [P0] should complete full booking flow including optimistic form submission" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › booking-modal.spec.ts:84:7 › Booking Module E2E Test Suite › [P0] should complete full booking flow including optimistic form submission 
+
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: /Siguiente/i })
+
+
+      92 |     await availableSlot.click();
+      93 |     const nextButton = page.getByRole('button', { name: /Siguiente/i });
+    > 94 |     await nextButton.click();
+         |                      ^
+      95 |
+      96 |     // Step 2: Session Type
+      97 |     await expect(page.getByText(/TIPO DE SESIÓN/i)).toBeVisible();
+        at C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\tests\e2e\booking-modal.spec.ts:94:22
+
+    attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-d477d--optimistic-form-submission-Mobile-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\booking-modal-Booking-Modu-d477d--optimistic-form-submission-Mobile-Chrome\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-d477d--optimistic-form-submission-Mobile-Chrome\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\..\test-results\booking-modal-Booking-Modu-d477d--optimistic-form-submission-Mobile-Chrome\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: /Siguiente/i })
+
+
+      92 |     await availableSlot.click();
+      93 |     const nextButton = page.getByRole('button', { name: /Siguiente/i });
+    > 94 |     await nextButton.click();
+         |                      ^
+      95 |
+      96 |     // Step 2: Session Type
+      97 |     await expect(page.getByText(/TIPO DE SESIÓN/i)).toBeVisible();
+        at C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\tests\e2e\booking-modal.spec.ts:94:22
+
+    attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-d477d--optimistic-form-submission-Mobile-Chrome-retry1\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\booking-modal-Booking-Modu-d477d--optimistic-form-submission-Mobile-Chrome-retry1\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-d477d--optimistic-form-submission-Mobile-Chrome-retry1\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\..\test-results\booking-modal-Booking-Modu-d477d--optimistic-form-submission-Mobile-Chrome-retry1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
+
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: /Siguiente/i })
+
+
+      92 |     await availableSlot.click();
+      93 |     const nextButton = page.getByRole('button', { name: /Siguiente/i });
+    > 94 |     await nextButton.click();
+         |                      ^
+      95 |
+      96 |     // Step 2: Session Type
+      97 |     await expect(page.getByText(/TIPO DE SESIÓN/i)).toBeVisible();
+        at C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\tests\e2e\booking-modal.spec.ts:94:22
+
+    attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-d477d--optimistic-form-submission-Mobile-Chrome-retry2\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\booking-modal-Booking-Modu-d477d--optimistic-form-submission-Mobile-Chrome-retry2\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\..\test-results\booking-modal-Booking-Modu-d477d--optimistic-form-submission-Mobile-Chrome-retry2\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\..\test-results\booking-modal-Booking-Modu-d477d--optimistic-form-submission-Mobile-Chrome-retry2\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|booking-modal-Booking-Modu-d477d--optimistic-form-submission-Mobile-Chrome\video.webm]]
+
+[[ATTACHMENT|booking-modal-Booking-Modu-d477d--optimistic-form-submission-Mobile-Chrome\error-context.md]]
+
+[[ATTACHMENT|booking-modal-Booking-Modu-d477d--optimistic-form-submission-Mobile-Chrome\trace.zip]]
+
+[[ATTACHMENT|booking-modal-Booking-Modu-d477d--optimistic-form-submission-Mobile-Chrome-retry1\video.webm]]
+
+[[ATTACHMENT|booking-modal-Booking-Modu-d477d--optimistic-form-submission-Mobile-Chrome-retry1\error-context.md]]
+
+[[ATTACHMENT|booking-modal-Booking-Modu-d477d--optimistic-form-submission-Mobile-Chrome-retry1\trace.zip]]
+
+[[ATTACHMENT|booking-modal-Booking-Modu-d477d--optimistic-form-submission-Mobile-Chrome-retry2\video.webm]]
+
+[[ATTACHMENT|booking-modal-Booking-Modu-d477d--optimistic-form-submission-Mobile-Chrome-retry2\error-context.md]]
+
+[[ATTACHMENT|booking-modal-Booking-Modu-d477d--optimistic-form-submission-Mobile-Chrome-retry2\trace.zip]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

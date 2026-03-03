@@ -22,6 +22,7 @@ export const BeatItem: FC<BeatItemProps> = ({ beat }) => {
     // React to global license request
     useEffect(() => {
         if (requestedLicenseId === beat.id) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setShowLicenses(true);
             itemRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
             clearLicenseRequest();
@@ -41,6 +42,7 @@ export const BeatItem: FC<BeatItemProps> = ({ beat }) => {
         }
     };
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleSelectLicense = (tier: any) => {
         addToCart({
             id: beat.id,

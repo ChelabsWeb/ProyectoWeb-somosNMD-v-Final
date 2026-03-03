@@ -1,0 +1,27 @@
+{
+  "detected_stack": "frontend",
+  "total_tests": 3,
+  "api_tests": 2,
+  "e2e_tests": 1,
+  "backend_tests": 0,
+  "fixtures_created": 0,
+  "api_test_files": 1,
+  "e2e_test_files": 1,
+  "backend_test_files": 0,
+  "priority_coverage": {
+    "P0": 1,
+    "P1": 2,
+    "P2": 0,
+    "P3": 0
+  },
+  "knowledge_fragments_used": [
+    "api-request",
+    "data-factories",
+    "api-testing-patterns",
+    "fixture-architecture",
+    "network-first",
+    "selector-resilience"
+  ],
+  "subprocess_execution": "PARALLEL (based on frontend)",
+  "performance_gain": "~40-70% faster than sequential"
+}

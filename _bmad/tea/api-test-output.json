@@ -1,0 +1,21 @@
+{
+  "success": true,
+  "subprocess": "api-tests",
+  "tests": [
+    {
+      "file": "tests/api/booking.spec.ts",
+      "content": "import { test, expect } from '@playwright/test';\nimport { createBookingData } from '../test-utils/factories';\n\ntest.describe('Booking API (getAvailableSlots)', () => {\n  test('[P1] should return available slots for a valid ISO date', async ({ request }) => {\n    // Setup test data\n    const testDate = new Date();\n    testDate.setDate(testDate.getDate() + 1); // Tomorrow\n    testDate.setHours(12, 0, 0, 0);\n    const isoDate = testDate.toISOString();\n\n    const response = await request.post('/api/actions/getAvailableSlots', {\n      data: [isoDate] // Server Action format (Array of arguments)\n    });\n\n    expect(response.status()).toBe(200);\n    const result = await response.json();\n    \n    // Verify ActionState format\n    expect(result).toHaveProperty('success');\n    if (result.success) {\n      expect(Array.isArray(result.data)).toBe(true);\n      // Ensure slots follow format 'HH:00 - HH:00'\n      if (result.data.length > 0) {\n        expect(result.data[0]).toMatch(/^\\d{2}:00 - \\d{2}:00$/);\n      }\n    } else {\n      expect(result.error).toBeDefined();\n    }\n  });\n\n  test('[P1] should fail validation for invalid date format', async ({ request }) => {\n    const response = await request.post('/api/actions/getAvailableSlots', {\n      data: ['invalid-date-string']\n    });\n\n    expect(response.status()).toBe(200);\n    const result = await response.json();\n\n    expect(result.success).toBe(false);\n    expect(result.message).toBe('Error de validación');\n    expect(result.error).toHaveProperty('dateIso');\n  });\n});\n",
+      "description": "API tests for getAvailableSlots server action",
+      "priority_coverage": {
+        "P0": 0,
+        "P1": 2,
+        "P2": 0,
+        "P3": 0
+      }
+    }
+  ],
+  "fixture_needs": ["dataFactoris"],
+  "knowledge_fragments_used": ["api-request", "data-factories", "api-testing-patterns"],
+  "test_count": 2,
+  "summary": "Generated 2 API test cases for booking actions"
+}
