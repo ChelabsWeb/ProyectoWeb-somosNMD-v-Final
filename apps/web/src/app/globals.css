@@ -89,7 +89,7 @@
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-geist-sans);
     letter-spacing: -0.02em;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   a {
