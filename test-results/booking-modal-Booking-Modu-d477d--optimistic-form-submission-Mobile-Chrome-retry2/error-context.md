@@ -1,0 +1,399 @@
+# Page snapshot
+
+```yaml
+- generic:
+  - generic:
+    - generic:
+      - img
+    - button
+    - main:
+      - main:
+        - generic:
+          - region:
+            - generic:
+              - generic:
+                - img
+              - generic:
+                - generic:
+                  - generic: "SYS_SCAN: DATA_STREAM_STABLE..."
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                    - generic:
+                      - generic:
+                        - generic: SYS_ACTIVE
+                      - generic: LOC_ Montevideo, UY
+                      - generic: COORDS_ 34.9064 S / 56.1861 W
+                  - generic:
+                    - generic: UNIT_PROTO_v2.0
+                - generic:
+                  - generic:
+                    - heading [level=1]: NOMADES
+                    - generic:
+                      - paragraph: Colectivo musical independiente basado en Montevideo. Acceso autorizado_2024.
+        - region:
+          - generic:
+            - generic:
+              - generic:
+                - text: Archive_01
+                - heading [level=2]: El Colectivo
+              - generic:
+                - generic: 12 Expedientes Activos
+          - generic:
+            - generic:
+              - generic:
+                - button:
+                  - generic:
+                    - img
+                  - generic:
+                    - generic: ID_GERVI
+                    - generic:
+                      - heading [level=3]: Gervi
+                      - paragraph: Beatmaker experimental y arquitecto sonoro.
+              - generic:
+                - button:
+                  - generic:
+                    - img
+                  - generic:
+                    - generic: ID_IZQUIERDO
+                    - generic:
+                      - heading [level=3]: Izquierdo
+                      - paragraph: MC y letrista con barras cinematográficas.
+              - generic:
+                - button:
+                  - generic:
+                    - img
+                  - generic:
+                    - generic: ID_JUANMA
+                    - generic:
+                      - heading [level=3]: JuanMa
+                      - paragraph: Voz principal y compositor del universo NMD.
+              - generic:
+                - button:
+                  - generic:
+                    - img
+                  - generic:
+                    - generic: ID_CABA
+                    - generic:
+                      - heading [level=3]: Caba
+                      - paragraph: Director creativo y storyteller visual del colectivo.
+              - generic:
+                - button:
+                  - generic:
+                    - img
+                  - generic:
+                    - generic: ID_JUSTINO
+                    - generic:
+                      - heading [level=3]: Justino
+                      - paragraph: Productor ejecutivo y guardian del sonido final.
+              - generic:
+                - button:
+                  - generic:
+                    - img
+                  - generic:
+                    - generic: ID_KENMA
+                    - generic:
+                      - heading [level=3]: Kenma
+                      - paragraph: Productor y beatmaker con ADN trap futurista.
+              - generic:
+                - button:
+                  - generic:
+                    - img
+                  - generic:
+                    - generic: ID_LETIE
+                    - generic:
+                      - heading [level=3]: Letie
+                      - paragraph: Cantante neo-soul y curadora de armonías.
+              - generic:
+                - button:
+                  - generic:
+                    - img
+                  - generic:
+                    - generic: ID_LUCCIO
+                    - generic:
+                      - heading [level=3]: Luccio
+                      - paragraph: Demonio atrapado en cuerpo de humano.
+              - generic:
+                - button:
+                  - generic:
+                    - img
+                  - generic:
+                    - generic: ID_LUQUILLA
+                    - generic:
+                      - heading [level=3]: Luquilla
+                      - paragraph: Diseñadora vocal y exploradora de texturas.
+              - generic:
+                - button:
+                  - generic:
+                    - img
+                  - generic:
+                    - generic: ID_NACHT
+                    - generic:
+                      - heading [level=3]: Nacht
+                      - paragraph: DJ y compositor de atmósferas nocturnas.
+              - generic:
+                - button:
+                  - generic:
+                    - img
+                  - generic:
+                    - generic: ID_NEI
+                    - generic:
+                      - heading [level=3]: Nei
+                      - paragraph: Productora audiovisual y arquitecta del live set.
+              - generic:
+                - button:
+                  - generic:
+                    - img
+                  - generic:
+                    - generic: ID_QUEI
+                    - generic:
+                      - heading [level=3]: Quei
+                      - paragraph: Lyricist y curadora de storytelling urbano.
+        - region:
+          - generic:
+            - generic:
+              - heading [level=2]: Archive_02 / Discografía
+              - generic: Registros_Audio_NMD
+          - generic:
+            - iframe [ref=e1]:
+              - generic [active] [ref=f3e1]:
+                - generic [ref=f3e4]:
+                  - generic [ref=f3e5]:
+                    - button "Play on Spotify" [ref=f3e9] [cursor=pointer]:
+                      - img [ref=f3e10]
+                    - generic [ref=f3e12]:
+                      - heading "JUNTA" [level=1] [ref=f3e13]:
+                        - link "JUNTA" [ref=f3e17] [cursor=pointer]:
+                          - /url: https://open.spotify.com/album/0JfCrGbMDwV0FuQwqmpOde?go=1&sp_cid=dd08c06d4e1caeadeec557c7aabd536b&utm_source=embed_player_p&utm_medium=mobile
+                      - generic [ref=f3e18]:
+                        - list "Tags" [ref=f3e19]:
+                          - generic "Preview" [ref=f3e20]
+                        - heading "Nomades" [level=2] [ref=f3e21]:
+                          - link "Nomades" [ref=f3e26] [cursor=pointer]:
+                            - /url: https://open.spotify.com/album/0JfCrGbMDwV0FuQwqmpOde?go=1&sp_cid=dd08c06d4e1caeadeec557c7aabd536b&utm_source=embed_player_p&utm_medium=mobile
+                      - button "Save on Spotify" [ref=f3e28] [cursor=pointer]:
+                        - img [ref=f3e30]
+                        - generic [ref=f3e33]: Save on Spotify
+                    - generic [ref=f3e35]:
+                      - generic [ref=f3e36]:
+                        - button "Previous" [disabled] [ref=f3e37]:
+                          - img [ref=f3e39]
+                        - button "Next" [disabled] [ref=f3e41]:
+                          - img [ref=f3e43]
+                      - button "More" [ref=f3e45] [cursor=pointer]:
+                        - img [ref=f3e46]
+                      - button "Play" [ref=f3e49] [cursor=pointer]:
+                        - img [ref=f3e50]
+                  - list "Track list" [ref=f3e55]:
+                    - listitem [ref=f3e56]:
+                      - button "Play track" [ref=f3e58] [cursor=pointer]:
+                        - generic [ref=f3e59]: "1"
+                      - heading "PANIKO" [level=3] [ref=f3e60]
+                      - heading "Explicit Nomades" [level=4] [ref=f3e61]:
+                        - generic "Explicit" [ref=f3e62]: E
+                        - text: Nomades
+                      - generic [ref=f3e63]: 03:24
+                    - listitem [ref=f3e64]:
+                      - button "Play track" [ref=f3e66] [cursor=pointer]:
+                        - generic [ref=f3e67]: "2"
+                      - heading "NIKE" [level=3] [ref=f3e68]
+                      - heading "Nomades" [level=4] [ref=f3e69]
+                      - generic [ref=f3e70]: 02:58
+                    - listitem [ref=f3e71]:
+                      - button "Play track" [ref=f3e73] [cursor=pointer]:
+                        - generic [ref=f3e74]: "3"
+                      - heading "SWING" [level=3] [ref=f3e75]
+                      - heading "Explicit Nomades" [level=4] [ref=f3e76]:
+                        - generic "Explicit" [ref=f3e77]: E
+                        - text: Nomades
+                      - generic [ref=f3e78]: 02:20
+                    - listitem [ref=f3e79]:
+                      - button "Play track" [ref=f3e81] [cursor=pointer]:
+                        - generic [ref=f3e82]: "4"
+                      - heading "PARQUE SOÑADO" [level=3] [ref=f3e83]
+                      - heading "Nomades" [level=4] [ref=f3e84]
+                      - generic [ref=f3e85]: 03:04
+                    - listitem [ref=f3e86]:
+                      - button "Play track" [ref=f3e88] [cursor=pointer]:
+                        - generic [ref=f3e89]: "5"
+                      - heading "BOTIJAS / JUNTA" [level=3] [ref=f3e90]
+                      - heading "Nomades" [level=4] [ref=f3e91]
+                      - generic [ref=f3e92]: 04:16
+                    - listitem [ref=f3e93]:
+                      - button "Play track" [ref=f3e95] [cursor=pointer]:
+                        - generic [ref=f3e96]: "6"
+                      - heading "NOMADES" [level=3] [ref=f3e97]
+                      - heading "Nomades" [level=4] [ref=f3e98]
+                      - generic [ref=f3e99]: 05:27
+                    - listitem [ref=f3e100]:
+                      - button "Play track" [ref=f3e102] [cursor=pointer]:
+                        - generic [ref=f3e103]: "7"
+                      - heading "COMO ES ESO" [level=3] [ref=f3e104]
+                      - heading "Explicit Nomades" [level=4] [ref=f3e105]:
+                        - generic "Explicit" [ref=f3e106]: E
+                        - text: Nomades
+                      - generic [ref=f3e107]: 03:49
+                    - listitem [ref=f3e108]:
+                      - button "Play track" [ref=f3e110] [cursor=pointer]:
+                        - generic [ref=f3e111]: "8"
+                      - heading "RUIDO" [level=3] [ref=f3e112]
+                      - heading "Nomades" [level=4] [ref=f3e113]
+                      - generic [ref=f3e114]: 03:02
+                    - listitem [ref=f3e115]:
+                      - button "Play track" [ref=f3e117] [cursor=pointer]:
+                        - generic [ref=f3e118]: "9"
+                      - heading "AMSTERDAM" [level=3] [ref=f3e119]
+                      - heading "Nomades" [level=4] [ref=f3e120]
+                      - generic [ref=f3e121]: 02:50
+                    - listitem [ref=f3e122]:
+                      - button "Play track" [ref=f3e124] [cursor=pointer]:
+                        - generic [ref=f3e125]: "10"
+                      - heading "NO PARE" [level=3] [ref=f3e126]
+                      - heading "Explicit Nomades" [level=4] [ref=f3e127]:
+                        - generic "Explicit" [ref=f3e128]: E
+                        - text: Nomades
+                      - generic [ref=f3e129]: 03:54
+                - alert [ref=f3e130]
+            - iframe [ref=e2]:
+              - generic [active] [ref=f4e1]:
+                - generic [ref=f4e4]:
+                  - generic [ref=f4e5]:
+                    - button "Play on Spotify" [ref=f4e9] [cursor=pointer]:
+                      - img [ref=f4e10]
+                    - generic [ref=f4e12]:
+                      - heading "EGÓLATRA" [level=1] [ref=f4e13]:
+                        - link "EGÓLATRA" [ref=f4e17] [cursor=pointer]:
+                          - /url: https://open.spotify.com/album/7MlGv3nb7tM9jTQsuYHVMx?go=1&sp_cid=1d42544c022569116ae24f3a13590f5a&utm_source=embed_player_p&utm_medium=mobile
+                      - generic [ref=f4e18]:
+                        - list "Tags" [ref=f4e19]:
+                          - generic "Preview" [ref=f4e20]
+                        - heading "nacht" [level=2] [ref=f4e21]:
+                          - link "nacht" [ref=f4e26] [cursor=pointer]:
+                            - /url: https://open.spotify.com/album/7MlGv3nb7tM9jTQsuYHVMx?go=1&sp_cid=1d42544c022569116ae24f3a13590f5a&utm_source=embed_player_p&utm_medium=mobile
+                      - button "Save on Spotify" [ref=f4e28] [cursor=pointer]:
+                        - img [ref=f4e30]
+                        - generic [ref=f4e33]: Save on Spotify
+                    - generic [ref=f4e35]:
+                      - generic [ref=f4e36]:
+                        - button "Previous" [disabled] [ref=f4e37]:
+                          - img [ref=f4e39]
+                        - button "Next" [disabled] [ref=f4e41]:
+                          - img [ref=f4e43]
+                      - button "More" [ref=f4e45] [cursor=pointer]:
+                        - img [ref=f4e46]
+                      - button "Play" [ref=f4e49] [cursor=pointer]:
+                        - img [ref=f4e50]
+                  - list "Track list" [ref=f4e55]:
+                    - listitem [ref=f4e56]:
+                      - button "Play track" [ref=f4e58] [cursor=pointer]:
+                        - generic [ref=f4e59]: "1"
+                      - heading "hiraeth (INTRO)" [level=3] [ref=f4e60]
+                      - heading "nacht" [level=4] [ref=f4e61]
+                      - generic [ref=f4e62]: 01:24
+                    - listitem [ref=f4e63]:
+                      - button "Play track" [ref=f4e65] [cursor=pointer]:
+                        - generic [ref=f4e66]: "2"
+                      - heading "Nqssa." [level=3] [ref=f4e67]
+                      - heading "nacht" [level=4] [ref=f4e68]
+                      - generic [ref=f4e69]: 02:07
+                    - listitem [ref=f4e70]:
+                      - button "Play track" [ref=f4e72] [cursor=pointer]:
+                        - generic [ref=f4e73]: "3"
+                      - heading "MASERATI ψ" [level=3] [ref=f4e74]
+                      - heading "nacht" [level=4] [ref=f4e75]
+                      - generic [ref=f4e76]: 02:37
+                    - listitem [ref=f4e77]:
+                      - button "Play track" [ref=f4e79] [cursor=pointer]:
+                        - generic [ref=f4e80]: "4"
+                      - heading "nada q decir." [level=3] [ref=f4e81]
+                      - heading "nacht" [level=4] [ref=f4e82]
+                      - generic [ref=f4e83]: 02:07
+                    - listitem [ref=f4e84]:
+                      - button "Play track" [ref=f4e86] [cursor=pointer]:
+                        - generic [ref=f4e87]: "5"
+                      - heading "(piscis)" [level=3] [ref=f4e88]
+                      - heading "nacht" [level=4] [ref=f4e89]
+                      - generic [ref=f4e90]: 02:42
+                    - listitem [ref=f4e91]:
+                      - button "Play track" [ref=f4e93] [cursor=pointer]:
+                        - generic [ref=f4e94]: "6"
+                      - heading "tan lejos </3" [level=3] [ref=f4e95]
+                      - heading "nacht" [level=4] [ref=f4e96]
+                      - generic [ref=f4e97]: 02:42
+                    - listitem [ref=f4e98]:
+                      - button "Play track" [ref=f4e100] [cursor=pointer]:
+                        - generic [ref=f4e101]: "7"
+                      - heading "SOLO" [level=3] [ref=f4e102]
+                      - heading "nacht" [level=4] [ref=f4e103]
+                      - generic [ref=f4e104]: 02:17
+                    - listitem [ref=f4e105]:
+                      - button "Play track" [ref=f4e107] [cursor=pointer]:
+                        - generic [ref=f4e108]: "8"
+                      - heading "NO SIENTO NADA" [level=3] [ref=f4e109]
+                      - heading "nacht" [level=4] [ref=f4e110]
+                      - generic [ref=f4e111]: 01:49
+                    - listitem [ref=f4e112]:
+                      - button "Play track" [ref=f4e114] [cursor=pointer]:
+                        - generic [ref=f4e115]: "9"
+                      - heading "Sol" [level=3] [ref=f4e116]
+                      - heading "nacht" [level=4] [ref=f4e117]
+                      - generic [ref=f4e118]: 02:56
+                - alert [ref=f4e119]
+        - region:
+          - generic:
+            - generic:
+              - heading [level=2]: Archive_03 / Contacto
+              - generic: Canal_Comunicación_NMD
+          - generic:
+            - generic:
+              - generic:
+                - generic: "Form_Ref: COLLAB_2024"
+                - generic: Waiting_For_Input...
+              - generic:
+                - generic:
+                  - heading [level=3]: Vamos a crear algo juntos.
+                  - paragraph: Estamos construyendo el futuro del colectivo. Contáctanos para colaboraciones, proyectos o simplemente para decir hola.
+                - generic:
+                  - generic:
+                    - generic:
+                      - text: 01_NOMBRE
+                      - textbox [disabled]:
+                        - /placeholder: NOMADES_USR
+                    - generic:
+                      - text: 02_EMAIL
+                      - textbox [disabled]:
+                        - /placeholder: HOLA@NMD.WORLD
+                  - generic:
+                    - text: 03_MENSAJE
+                    - textbox [disabled]:
+                      - /placeholder: REGISTRA TU VISIÓN AQUÍ...
+                - generic:
+                  - button [disabled]: "[ ENVIAR_REGISTRO ]"
+              - generic: "System_Note: Formulario actualmente en fase de despliegue // NMD_OS v2.4"
+        - button [expanded]: Reservar
+  - button "Open Next.js Dev Tools" [ref=e8] [cursor=pointer]:
+    - img [ref=e9]
+  - alert
+  - dialog "Reserva tu sesión" [active] [ref=e13]:
+    - generic [ref=e14]:
+      - heading "Reserva tu sesión" [level=2] [ref=e15]
+      - paragraph [ref=e16]: Selecciona un horario disponible.
+    - generic [ref=e17]:
+      - button "Volver" [ref=e18] [cursor=pointer]:
+        - img
+        - text: Volver
+      - generic [ref=e21]:
+        - heading "Selecciona la modalidad" [level=3] [ref=e22]
+        - paragraph [ref=e23]: Elige cómo quieres trabajar en tu sesión.
+        - generic [ref=e24]:
+          - button "Solo Estudio Espacio totalmente equipado. Conectate y empezá a crear sin distracciones." [ref=e25] [cursor=pointer]:
+            - generic [ref=e26]: Solo Estudio
+            - generic [ref=e27]: Espacio totalmente equipado. Conectate y empezá a crear sin distracciones.
+          - button "Estudio + Productor Ingeniero de grabación y productor a tu disposición durante toda la sesión." [ref=e29] [cursor=pointer]:
+            - generic [ref=e30]: Estudio + Productor
+            - generic [ref=e31]: Ingeniero de grabación y productor a tu disposición durante toda la sesión.
+    - button "Close" [ref=e33] [cursor=pointer]:
+      - img [ref=e34]
+      - generic [ref=e37]: Close
+```

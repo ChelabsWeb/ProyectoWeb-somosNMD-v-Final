@@ -2,16 +2,16 @@ import type { Config } from "tailwindcss";
 import animate from "tailwindcss-animate";
 
 const palette = {
-  background: "233 47% 4%",
-  foreground: "230 43% 97%",
-  surface900: "236 28% 11%",
-  surface800: "235 27% 8%",
-  surface700: "237 20% 19%",
-  muted: "230 25% 65%",
-  primary: "337 83% 55%",
-  secondary: "218 94% 55%",
-  accent: "44 89% 63%",
-  ring: "337 83% 60%",
+  background: "225 50% 8%", // #0A0F1E (Midnight Blue)
+  foreground: "0 0% 100%", // #FFFFFF
+  surface900: "225 40% 11%",
+  surface800: "225 40% 15%",
+  surface700: "225 40% 20%",
+  muted: "225 20% 65%",
+  primary: "20 100% 50%", // #FF4D00 (Tron Orange)
+  secondary: "225 30% 25%",
+  accent: "20 100% 50%", // #FF4D00 (Tron Orange)
+  ring: "20 100% 50%", // #FF4D00
 };
 
 const preset = {

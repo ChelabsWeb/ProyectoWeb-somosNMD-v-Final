@@ -5,6 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { PageShell } from "@/components/layout/PageShell";
 import { CartProvider } from "@/context/CartContext";
+import { QueryProvider } from "@/components/providers/query-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,11 +33,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-background text-foreground min-h-screen antialiased`}
       >
-        <CartProvider>
-          <PageShell>{children}</PageShell>
-          <Analytics />
-          <SpeedInsights />
-        </CartProvider>
+        <QueryProvider>
+          <CartProvider>
+            <PageShell>{children}</PageShell>
+            <Analytics />
+            <SpeedInsights />
+          </CartProvider>
+        </QueryProvider>
       </body>
     </html>
   );

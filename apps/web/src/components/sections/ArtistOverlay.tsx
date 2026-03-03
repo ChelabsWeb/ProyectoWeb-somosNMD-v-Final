@@ -17,7 +17,7 @@ const SOCIAL_ICONS: Record<SocialPlatform, ReactNode> = {
     <svg
       viewBox="0 0 24 24"
       aria-hidden="true"
-      className="h-5 w-5 fill-current"
+      className="h-6 w-6 fill-current"
     >
       <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.349 3.608 1.324.975.975 1.262 2.242 1.324 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.349 2.633-1.324 3.608-.975.975-2.242 1.262-3.608 1.324-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.349-3.608-1.324-.975-.975-1.262-2.242-1.324-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.062-1.366.349-2.633 1.324-3.608.975-.975 2.242-1.262 3.608-1.324C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.014 7.052.072 5.775.13 4.687.428 3.757 1.358c-.93.93-1.228 2.018-1.286 3.295C2.014 5.332 2 5.741 2 9s.014 3.668.072 4.948c.058 1.277.356 2.365 1.286 3.295.93.93 2.018 1.228 3.295 1.286C8.332 18.986 8.741 19 12 19s3.668-.014 4.948-.072c1.277-.058 2.365-.356 3.295-1.286.93-.93 1.228-2.018 1.286-3.295C21.986 12.668 22 12.259 22 9s-.014-3.668-.072-4.948c-.058-1.277-.356-2.365-1.286-3.295C19.712.428 18.624.13 17.348.072 16.068.014 15.659 0 12 0zm0 4.622a7.378 7.378 0 1 0 0 14.756 7.378 7.378 0 0 0 0-14.756zm0 12.09a4.712 4.712 0 1 1 0-9.424 4.712 4.712 0 0 1 0 9.424zm5.13-10.871a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z" />
     </svg>
@@ -103,29 +103,56 @@ export const ArtistOverlay: FC<ArtistOverlayProps> = ({ artist, onClose }) => {
   }
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 md:p-8" onClick={onClose}>
-      <div className="relative bg-neutral-950 border border-white/10 rounded-[40px] max-w-4xl w-full max-h-[90vh] overflow-y-auto p-8 md:p-12 shadow-2xl" onClick={(e) => e.stopPropagation()}>
+    <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 md:p-8" onClick={onClose}>
+      <div className="relative bg-white border-4 border-black rounded-none max-w-5xl w-full max-h-[90vh] overflow-y-auto p-8 md:p-12 shadow-[16px_16px_0_0_rgba(0,0,0,1)] flex flex-col pt-16 md:pt-12" onClick={(e) => e.stopPropagation()}>
+        
+        {/* Top Bar for Mobile + Close Button */}
+        <div className="absolute top-0 left-0 right-0 border-b-4 border-black bg-black text-white p-3 flex justify-between items-center md:hidden">
+            <span className="font-mono text-xs font-bold uppercase tracking-widest">[ PERFIL DE ARTISTA ]</span>
+        </div>
+
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 h-10 w-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-colors border border-white/10"
+          className="absolute top-4 right-4 md:top-6 md:right-6 h-12 w-12 flex items-center justify-center rounded-none bg-white text-black border-2 border-black hover:bg-black hover:text-white transition-colors shadow-[4px_4px_0_0_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none z-10"
           aria-label="Cerrar perfil"
         >
-          <svg viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current stroke-2">
+          <svg viewBox="0 0 24 24" className="h-6 w-6 stroke-current stroke-[3]">
             <path d="M18 6L6 18M6 6l12 12" />
           </svg>
         </button>
 
-        <div className="flex flex-col md:flex-row gap-12">
-          <div className="md:w-1/3 aspect-[3/4] relative overflow-hidden rounded-3xl">
-            <img src={artist.imageSrc} alt={artist.name} className="absolute inset-0 h-full w-full object-cover" />
+        <div className="flex flex-col md:flex-row gap-8 md:gap-12 mt-4 md:mt-0">
+          <div className="md:w-[40%] aspect-[3/4] relative overflow-hidden rounded-none border-4 border-black bg-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] flex-shrink-0">
+            <img src={artist.imageSrc} alt={artist.name} className="absolute inset-0 h-full w-full object-cover grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500" />
+            
+            {/* Overlay label */}
+            <div className="absolute bottom-4 left-4 right-4">
+              <div className="bg-white border-2 border-black p-2 inline-flex shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
+                <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-black">REGISTRO_NMD</span>
+              </div>
+            </div>
           </div>
-          <div className="md:w-2/3 flex flex-col justify-center">
-            <p className="text-[10px] uppercase tracking-[0.5em] text-white/30 mb-2">Miembro del Colectivo</p>
-            <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white">{artist.name}</h2>
-            <p className="mt-6 text-lg text-white/60 leading-relaxed font-medium">{artist.blurb}</p>
 
-            <div className="mt-10">
-              <h3 className="text-xs uppercase tracking-[0.3em] text-white/20 font-bold mb-4">Presencia Digital</h3>
+          <div className="md:w-[60%] flex flex-col justify-start md:py-4">
+            <div className="flex flex-col border-b-4 border-black pb-6 mb-6">
+              <p className="text-xs uppercase tracking-[0.3em] font-mono text-black/60 font-black mb-3">
+                // Miembro del Colectivo
+              </p>
+              <h2 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-black uppercase leading-none">
+                {artist.name}
+              </h2>
+            </div>
+            
+            <div className="flex-grow">
+              <p className="text-lg md:text-xl text-black/80 leading-relaxed font-medium font-sans">
+                {artist.blurb}
+              </p>
+            </div>
+
+            <div className="mt-8 pt-6 lg:pt-8 border-t-0 lg:border-t-4 border-black border-dashed lg:border-solid">
+              <h3 className="text-sm uppercase tracking-[0.2em] text-black font-black mb-6">
+                Redes & Contacto ::
+              </h3>
               <div className="flex flex-wrap gap-4">
                 {artist.socials.map((social) => (
                   <a
@@ -134,10 +161,12 @@ export const ArtistOverlay: FC<ArtistOverlayProps> = ({ artist, onClose }) => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${artist.name} en ${social.name}`}
-                    className="flex h-14 w-14 items-center justify-center rounded-full bg-white/5 border border-white/5 text-white/60 transition-all hover:bg-white hover:text-black hover:scale-110 active:scale-95 shadow-xl"
+                    className="flex h-14 w-14 items-center justify-center rounded-none bg-white border-2 border-black text-black transition-all hover:bg-black hover:text-white hover:-translate-y-1 shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:shadow-[6px_6px_0_0_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
                   >
                     <span className="sr-only">{social.name}</span>
-                    {getSocialIcon(social.name)}
+                    <div className="scale-110">
+                      {getSocialIcon(social.name)}
+                    </div>
                   </a>
                 ))}
               </div>

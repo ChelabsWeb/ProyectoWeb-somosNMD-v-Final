@@ -2,26 +2,21 @@
 
 import { LoaderSection } from "@/components/sections/LoaderSection";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { SoloPolvoSection } from "@/components/sections/SoloPolvoSection";
 import { ArtistsSection } from "@/components/sections/ArtistsSection";
-import { ContactSection } from "@/components/sections/ContactSection";
+import { BookingModule } from "@/components/sections/booking-module";
 import { AppReadySignal } from "@/components/system/AppReadySignal";
-import dynamic from "next/dynamic";
+import { FooterSection } from "@/components/sections/FooterSection";
 
-const MusicSection = dynamic(() => import("@/components/sections/MusicSection").then(mod => mod.MusicSection), {
-  ssr: false,
-  loading: () => <div className="min-h-screen bg-black" />
-});
 
 export default function Home() {
   return (
-    <main className="flex flex-col">
+    <main className="flex flex-col relative w-full">
       <LoaderSection />
       <HeroSection />
-      <SoloPolvoSection />
       <ArtistsSection />
-      <MusicSection />
-      <ContactSection />
+
+      <BookingModule />
+      <FooterSection />
       <AppReadySignal />
     </main>
   );

@@ -3,13 +3,13 @@
 import { createContext, useContext, type ReactNode } from "react";
 import type Lenis from "lenis";
 
-type LenisContextType = Lenis | null;
+type LenisContextType = Lenis | null | undefined;
 
-const LenisContext = createContext<LenisContextType>(null);
+const LenisContext = createContext<LenisContextType>(undefined);
 
 export const useLenis = () => {
   const context = useContext(LenisContext);
-  if (!context) {
+  if (context === undefined) {
     console.warn("useLenis must be used within a LenisProvider");
   }
   return context;

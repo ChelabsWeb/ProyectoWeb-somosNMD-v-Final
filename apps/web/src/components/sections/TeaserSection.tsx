@@ -12,55 +12,59 @@ export const TeaserSection: FC = () => {
     <section
       id="teaser"
       aria-label="Upcoming release teaser"
-      className="relative flex min-h-screen flex-col bg-black text-neutral-50"
+      className="relative flex min-h-screen flex-col bg-background text-foreground px-4 md:px-8 pb-12"
     >
-      <div className="sticky top-0 z-20 border-b border-white/10 bg-black/80 backdrop-blur-md px-6 py-4 md:px-12">
+      <div className="sticky top-0 z-20 bg-white border-b border-border px-6 py-5 md:px-12 mb-12">
         <div className="flex justify-between items-baseline">
-          <h2 className="text-sm font-mono tracking-[0.5em] text-white uppercase">Archive_04 / Próximo Lanzamiento</h2>
-          <span className="font-mono text-[9px] text-white/30 uppercase tracking-widest">Estado_Prioridad_Alta</span>
+          <h2 className="text-xl md:text-3xl font-black tracking-tight text-foreground uppercase">// PRÓXIMO LANZAMIENTO</h2>
+          <span className="font-mono text-[10px] text-primary uppercase tracking-widest hidden sm:inline">ESTADO_PRIORIDAD_ALTA</span>
         </div>
       </div>
 
-      <div className="flex-1 flex flex-col items-center justify-center p-6 md:p-12 relative">
+      <div className="flex-1 flex flex-col items-center justify-center relative w-full max-w-6xl mx-auto">
         {!prefersReducedMotion && (
           <div className="absolute inset-0 opacity-10 pointer-events-none">
             <div className="h-full w-full bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:40px_40px]" />
           </div>
         )}
 
-        <div className="relative z-10 w-full max-w-4xl border border-white/10 bg-black p-8 md:p-16 space-y-12">
-          <header className="space-y-6 text-center">
-            <h3 className="text-5xl md:text-8xl font-bold tracking-tighter text-white uppercase italic">
-              LA MEDIANOCHE SE ACERCA
+        {/* Central Display Container */}
+        <div className="relative z-10 w-full border-2 border-border bg-white shadow-[8px_8px_0_0_rgba(0,0,0,1)] rounded-none p-8 md:p-24 space-y-12 overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-[12px_12px_0_0_rgba(0,0,0,1)]">
+
+          <header className="space-y-8 text-center relative z-10">
+            <h3 className="text-5xl md:text-7xl font-black tracking-tighter text-foreground uppercase leading-[0.9]">
+              LA MEDIANOCHE
+              <br />
+              <span className="text-primary">SE ACERCA</span>
             </h3>
-            <p className="mx-auto max-w-xl font-mono text-[10px] text-white/40 uppercase leading-loose tracking-[0.4em]">
-              Próximamente más novedades sobre el universo NOMADES. Prepárate para una
-              experiencia sensorial única.
+            <p className="mx-auto max-w-2xl font-mono text-xs md:text-sm text-foreground/70 uppercase leading-relaxed tracking-widest">
+              PRÓXIMAMENTE MÁS NOVEDADES SOBRE EL UNIVERSO NOMADES. PREPÁRATE PARA UNA EXPERIENCIA SENSORIAL ÚNICA.
             </p>
           </header>
 
-          <div className="flex flex-col items-center justify-center gap-8 mt-12 sm:flex-row">
-            <button className="border border-white/10 px-12 py-5 font-mono text-[10px] tracking-[0.4em] text-white/40 uppercase transition-all hover:bg-white hover:text-black hover:border-white">
-              [ NOTIFICAR_REGISTRO ]
+          <div className="flex flex-col items-center justify-center gap-6 mt-16 sm:flex-row relative z-10 w-full md:w-auto">
+            <button className="relative border-2 border-border bg-black px-12 py-4 font-mono text-sm font-bold tracking-[0.2em] text-white uppercase overflow-hidden transition-all duration-300 hover:bg-primary w-full sm:w-auto">
+               [ NOTIFICAR ]
             </button>
-            <button className="font-mono text-[10px] tracking-[0.4em] text-white/20 uppercase hover:text-white transition-colors">
-              [ VER_STORYBOARD ]
+            <button className="relative border-2 border-border bg-white px-12 py-4 font-mono text-sm font-bold tracking-[0.2em] text-foreground uppercase overflow-hidden transition-all duration-300 hover:bg-gray-100 w-full sm:w-auto">
+              [ VER STORYBOARD ]
             </button>
           </div>
 
-          <div className="pt-12 flex justify-center">
-            <div className="flex gap-2">
-              <div className="h-1 w-8 bg-white/40" />
-              <div className="h-1 w-8 bg-white/20" />
-              <div className="h-1 w-8 bg-white/10" />
+          <div className="pt-16 flex justify-center relative z-10">
+            <div className="flex gap-3">
+              <div className="h-1 w-10 bg-[#FF4D00]/80 rounded-full shadow-[0_0_10px_#FF4D00]" />
+              <div className="h-1 w-10 bg-[#eb2c75]/50 rounded-full" />
+              <div className="h-1 w-6 bg-white/10 rounded-full" />
             </div>
           </div>
         </div>
       </div>
 
-      <footer className="border-t border-white/10 p-4 font-mono text-[8px] tracking-[0.5em] text-white/10 italic text-right uppercase">
+      <footer className="mt-8 border-t-2 border-border px-8 py-5 font-mono text-[9px] tracking-widest text-primary font-bold text-center uppercase bg-background w-full hidden md:block">
         NMD_SYS_MSG: ACCEDER_A_LA_DATA_BAJO_SU_PROPIO_RIESGO
       </footer>
     </section>
   );
 };
+

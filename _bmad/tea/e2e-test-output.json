@@ -1,0 +1,21 @@
+{
+  "success": true,
+  "subprocess": "e2e-tests",
+  "tests": [
+    {
+      "file": "tests/e2e/booking-flow.spec.ts",
+      "content": "import { test, expect } from '@playwright/test';\n\ntest.describe('Booking Flow E2E', () => {\n  test('[P0] should open modal from hero and select a timeslot', async ({ page }) => {\n    // Intercept API call to provide deterministic data\n    await page.route('**/api/actions/getAvailableSlots', async (route) => {\n      const json = {\n        success: true,\n        data: ['10:00 - 13:00', '15:00 - 18:00', '18:00 - 21:00']\n      };\n      await route.fulfill({ json });\n    });\n\n    await page.goto('/');\n\n    // 1. Open Modal\n    const bookButton = page.getByRole('button', { name: /INICIAR PROYECTO/i });\n    await expect(bookButton).toBeVisible();\n    await bookButton.click();\n\n    // 2. Wait for modal content (Calendar + Grid)\n    await expect(page.getByText('SELECCIONA UNA FECHA')).toBeVisible();\n    \n    // Wait for the calendar to render the first active day (today)\n    const todayButton = page.locator('button.rdp-day_today');\n    await expect(todayButton).toBeVisible();\n    await todayButton.click();\n\n    // 3. Verify deterministic timeslots from mock\n    const slot = page.getByRole('button', { name: /10:00 - 13:00, Disponible/i });\n    await expect(slot).toBeVisible();\n    \n    // 4. Select slot and verify visual state changes\n    await slot.click();\n    await expect(slot).toHaveAttribute('aria-pressed', 'true');\n    \n    // Wait for visual feedback (orange selection) if applicable\n    await expect(slot).toHaveClass(/bg-nmd-orange/);\n\n    // 5. Proceed to next step\n    const nextButton = page.getByRole('button', { name: /Siguiente/i });\n    await expect(nextButton).toBeVisible();\n    await nextButton.click();\n\n    // Verify we moved to the next step (Type Selection)\n    await expect(page.getByText('TIPO DE SESIÓN')).toBeVisible();\n  });\n});\n",
+      "description": "E2E tests for the interactive timeslot grid journey",
+      "priority_coverage": {
+        "P0": 1,
+        "P1": 0,
+        "P2": 0,
+        "P3": 0
+      }
+    }
+  ],
+  "fixture_needs": ["none"],
+  "knowledge_fragments_used": ["fixture-architecture", "network-first", "selector-resilience"],
+  "test_count": 1,
+  "summary": "Generated 1 E2E test case for booking flow"
+}

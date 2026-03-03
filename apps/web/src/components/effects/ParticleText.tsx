@@ -169,6 +169,7 @@ export const ParticleText = forwardRef<ParticleTextHandle, ParticleTextProps>(({
       positionsArray[idx + 2] = scatteredPositions[idx + 2] + (targetPositions[idx + 2] - scatteredPositions[idx + 2]) * initialProgress;
     }
 
+     
     const originalPositions = targetPositions.slice(); // Keep for compatibility
     const velocities = new Float32Array(numParticles * 3);
     const phases = new Float32Array(numParticles);
@@ -317,7 +318,7 @@ export const ParticleText = forwardRef<ParticleTextHandle, ParticleTextProps>(({
         // Only add swirl when particles are forming the text (progress > 0.7)
         let targetX = baseX;
         let targetY = baseY;
-        let targetZ = baseZ;
+        const targetZ = baseZ;
 
         if (progress > 0.7) {
           const theta = angularSpeed * time + phases[j];

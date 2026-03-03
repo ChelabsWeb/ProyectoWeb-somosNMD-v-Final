@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { type FC } from "react";
 
 interface ArtistPageProps {
-    params: { id: string };
+    params: Promise<{ id: string }>;
 }
 
 export async function generateStaticParams() {
@@ -14,8 +14,9 @@ export async function generateStaticParams() {
     }));
 }
 
-const ArtistPage: FC<ArtistPageProps> = ({ params }) => {
-    const artist = ARTISTS.find((a) => a.id === params.id);
+export default async function ArtistPage({ params }: ArtistPageProps) {
+    const { id } = await params;
+    const artist = ARTISTS.find((a) => a.id === id);
 
     if (!artist) {
         notFound();
@@ -124,5 +125,3 @@ const ArtistPage: FC<ArtistPageProps> = ({ params }) => {
         </main>
     );
 };
-
-export default ArtistPage;

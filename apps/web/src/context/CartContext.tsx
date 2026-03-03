@@ -29,6 +29,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
             if (saved) {
                 const parsed = JSON.parse(saved);
                 if (Array.isArray(parsed)) {
+                    // eslint-disable-next-line react-hooks/set-state-in-effect
                     setCart(parsed);
                 }
             }

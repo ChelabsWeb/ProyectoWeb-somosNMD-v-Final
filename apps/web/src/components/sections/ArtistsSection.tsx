@@ -1,240 +1,112 @@
 "use client";
 
-import { useEffect, useRef, useState, type FC } from "react";
+import { useState, type FC } from "react";
 import { ArtistCard } from "./ArtistCard";
-import { useReducedMotionPreference } from "@nmd/animation";
-import { ParticleBackground } from "@/components/system/ParticleBackground";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArtistOverlay } from "./ArtistOverlay";
 import { trackEvent } from "../../lib/analytics";
-
 import { ARTISTS, type ArtistEntry } from "@/data/artists";
+import { StaticThreeDLogo } from "./StaticThreeDLogo";
 
-
-/**
- * Horizontal artist gallery with GSAP ScrollTrigger.
- * Falls back to grid when reduced motion preference is enabled.
- */
-let scrollTriggerRegistered = false;
-const ARTISTS_SCROLL_TRIGGER_ID = "artists-horizontal-scroll";
 export const ArtistsSection: FC = () => {
-  const prefersReducedMotion = useReducedMotionPreference();
-  const sectionRef = useRef<HTMLDivElement | null>(null);
-  const trackRef = useRef<HTMLDivElement | null>(null);
-  const [sidePadding, setSidePadding] = useState(0);
-  const [resetTick, setResetTick] = useState(0);
   const [selectedArtist, setSelectedArtist] = useState<ArtistEntry | null>(null);
 
-  useEffect(() => {
-    if (prefersReducedMotion) {
-      return;
-    }
-    if (typeof window === "undefined") {
-      return;
-    }
-    if (!scrollTriggerRegistered) {
-      gsap.registerPlugin(ScrollTrigger);
-      scrollTriggerRegistered = true;
-    }
-  }, [prefersReducedMotion]);
-
-  useEffect(() => {
-    if (prefersReducedMotion) {
-      return;
-    }
-    if (typeof window === "undefined") {
-      return;
-    }
-
-    const updateMetrics = () => {
-      const section = sectionRef.current;
-      const viewportWidth = section?.offsetWidth ?? window.innerWidth;
-      const desiredCardWidth = Math.min(420, viewportWidth * 0.85);
-      const padding = Math.max(0, (viewportWidth - desiredCardWidth) / 2);
-      setSidePadding(padding);
-    };
-
-    updateMetrics();
-    window.addEventListener("resize", updateMetrics);
-    return () => window.removeEventListener("resize", updateMetrics);
-  }, [prefersReducedMotion]);
-
-  useEffect(() => {
-    if (prefersReducedMotion) return;
-
-    const updateMetrics = () => {
-      const section = sectionRef.current;
-      const track = trackRef.current;
-      if (!section || !track) return;
-
-      const containerWidth = section.offsetWidth;
-      const totalScrollWidth = track.scrollWidth;
-      const horizontalDistance = Math.max(0, totalScrollWidth - containerWidth);
-
-      const ctx = gsap.context(() => {
-        gsap.to(track, {
-          x: () => -horizontalDistance,
-          ease: "none",
-          scrollTrigger: {
-            id: ARTISTS_SCROLL_TRIGGER_ID,
-            trigger: section,
-            start: "top top",
-            end: () => `+=${horizontalDistance + window.innerHeight * 0.5}`,
-            scrub: true,
-            pin: true,
-            pinSpacing: true,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
-          },
-        });
-        ScrollTrigger.refresh();
-      }, section);
-
-      return ctx;
-    };
-
-    // Give it a small moment for children to mount and layout
-    let ctx: gsap.Context | undefined;
-    const timer = setTimeout(() => {
-      ctx = updateMetrics();
-    }, 100);
-
-    return () => {
-      clearTimeout(timer);
-      ctx?.revert();
-    };
-  }, [prefersReducedMotion, resetTick, sidePadding]);
-
-  useEffect(() => {
-    if (prefersReducedMotion) {
-      return;
-    }
-    if (typeof window === "undefined") {
-      return;
-    }
-
-    const handleReset = () => {
-      setResetTick((tick) => tick + 1);
-      requestAnimationFrame(() => {
-        ScrollTrigger.refresh();
-      });
-    };
-
-    window.addEventListener("artists:reset", handleReset);
-
-    return () => {
-      window.removeEventListener("artists:reset", handleReset);
-    };
-  }, [prefersReducedMotion]);
-
-  // ScrollTrigger batch animation for grid layout (reduced motion fallback)
-  useEffect(() => {
-    if (!prefersReducedMotion) {
-      return;
-    }
-    if (typeof window === "undefined") {
-      return;
-    }
-    if (!scrollTriggerRegistered) {
-      gsap.registerPlugin(ScrollTrigger);
-      scrollTriggerRegistered = true;
-    }
-    if (!ScrollTrigger) {
-      return;
-    }
-
-    const section = sectionRef.current;
-    if (!section) {
-      return;
-    }
-
-    // Set initial state for all artist cards
-    gsap.set(".artist-card-batch", { opacity: 0, y: 30 });
-
-    const ctx = gsap.context(() => {
-      ScrollTrigger.batch(".artist-card-batch", {
-        onEnter: (batch) =>
-          gsap.to(batch, {
-            opacity: 1,
-            y: 0,
-            stagger: 0.15,
-            duration: 0.8,
-            ease: "power2.out",
-            overwrite: true,
-          }),
-        start: "top 85%",
-        once: true,
-      });
-
-      ScrollTrigger.refresh();
-    }, section);
-
-    return () => {
-      ctx.revert();
-    };
-  }, [prefersReducedMotion]);
-
-
+  const rows = [];
+  for (let i = 0; i < ARTISTS.length; i += 2) {
+    rows.push(ARTISTS.slice(i, i + 2));
+  }
 
   return (
     <section
       id="artists"
-      aria-label="Artists gallery"
-      className="relative flex min-h-screen flex-col overflow-hidden bg-black text-neutral-50"
-      ref={sectionRef}
+      className="relative flex flex-col w-full bg-background text-foreground min-h-screen pt-32 pb-64"
     >
-      <ParticleBackground />
-      <div className="relative z-20 w-full border-b border-white/10 bg-black/50 backdrop-blur-md">
-        <div className="flex justify-between items-center px-6 py-4 md:px-12">
-          <div className="flex gap-12 items-baseline">
-            <h2 className="text-sm font-mono tracking-[0.5em] text-white uppercase">Archive_01 / Artistas</h2>
-            <span className="hidden md:block font-mono text-[9px] text-white/30 uppercase tracking-widest">Registros_Membresía_NMD</span>
+      {/* Sticky Background Elements (Typography & Logo) */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="sticky top-0 h-screen w-full flex flex-col justify-start relative">
+          
+          {/* Top Navigation-like Micro Elements */}
+          <div className="hidden lg:flex justify-between w-full px-12 py-8 font-mono text-[10px] uppercase tracking-widest text-black/60">
+            <div className="flex gap-16">
+              <span>INFO@SOMOSNMD.COM</span>
+              <span>MVD,UY_00:00:00</span>
+            </div>
+            <div className="flex text-center opacity-70 leading-none">
+              N<br/>M<br/>D
+            </div>
+            <div className="flex gap-16">
+              <span>ES / EN</span>
+            </div>
           </div>
-          <div className="font-mono text-[9px] text-white/30 uppercase tracking-widest">
-            Total_Expedientes: {ARTISTS.length}
+
+          <div className="hidden lg:block absolute left-12 top-32 text-foreground/40 text-4xl font-light">
+            +
+          </div>
+
+          {/* Big Typography matching the requested substitution */}
+          <div className="w-full px-6 md:px-24 pt-12 lg:pt-0 max-w-full lg:max-w-none 2xl:max-w-[1800px] mx-auto">
+            <h2 className="font-sans font-black uppercase tracking-tighter text-foreground leading-[0.85] md:leading-[0.8] whitespace-nowrap overflow-hidden">
+              <span className="block text-[22vw] sm:text-[18vw] lg:text-[13vw] ml-[2vw] lg:ml-[8vw]">ART IS</span>
+              <span className="block text-[22vw] sm:text-[18vw] lg:text-[13vw] ml-[15vw] lg:ml-[25vw]">TA´s_</span>
+            </h2>
+          </div>
+
+          {/* Center 3D Logo (Static) */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-auto">
+            <StaticThreeDLogo />
+          </div>
+
+          {/* Micro Elements: Side coordinates */}
+          <div className="hidden xl:block absolute right-6 top-1/2 -translate-y-1/2 font-mono text-[9px] uppercase rotate-90 origin-right text-black/60 tracking-widest">
+            0050 Y 0730 H
+          </div>
+          <div className="hidden xl:block absolute left-6 bottom-12 font-mono text-[9px] uppercase text-black/60 tracking-widest">
+            0000 X 1536 W
+          </div>
+          <div className="hidden xl:block absolute right-6 bottom-12 font-mono text-[9px] uppercase text-black/60 tracking-widest">
+            © 2026
           </div>
         </div>
       </div>
 
-      {prefersReducedMotion ? (
-        <div className="relative z-10 mx-auto w-full border-x border-white/10 bg-black">
-          <div className="grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t border-white/10">
-            {ARTISTS.map((artist) => (
-              <div key={artist.id} className="artist-card-batch border-b border-r border-white/10">
+      {/* Grid of Artists (Pushed to Edges) */}
+      <div className="relative z-10 w-full px-6 md:px-12 lg:px-24 xl:px-32 flex flex-col gap-32 md:gap-40 lg:gap-48 mt-[40vh]">
+        {rows.map((row, idx) => (
+          <div key={idx} className="flex flex-col md:flex-row justify-between w-full items-center md:items-start max-w-none mx-0">
+            
+            {/* Left Artist - Pushed to extreme left */}
+            <div className="w-full md:w-[45%] lg:w-[40%] xl:w-[35%] flex justify-start">
+              {row[0] && (
                 <ArtistCard
-                  artist={artist}
+                  artist={row[0]}
+                  align="left"
                   onSelect={() => {
-                    setSelectedArtist(artist);
-                    trackEvent("artist_profile_view", { artist_id: artist.id });
+                    setSelectedArtist(row[0]);
+                    trackEvent("artist_profile_view", { artist_id: row[0].id });
                   }}
                 />
-              </div>
-            ))}
+              )}
+            </div>
+
+            {/* Middle explicit empty space to force the "medio vacio" concept in code */}
+            <div className="hidden md:block flex-1 min-w-[200px]" />
+
+            {/* Right Artist - Pushed to extreme right */}
+            <div className="w-full md:w-[45%] lg:w-[40%] xl:w-[35%] flex justify-end">
+              {row[1] && (
+                <ArtistCard
+                  artist={row[1]}
+                  align="right"
+                  onSelect={() => {
+                    setSelectedArtist(row[1]);
+                    trackEvent("artist_profile_view", { artist_id: row[1].id });
+                  }}
+                />
+              )}
+            </div>
           </div>
-        </div>
-      ) : (
-        <div className="relative z-10 flex h-[70vh] items-center overflow-hidden border-x border-white/10">
-          <div
-            ref={trackRef}
-            id="artists-track"
-            key={resetTick}
-            className="flex h-full w-max items-stretch gap-0 bg-transparent"
-            aria-hidden={false}
-          >
-            {ARTISTS.map((artist) => (
-              <ArtistCard
-                key={artist.id}
-                artist={artist}
-                onSelect={() => {
-                  setSelectedArtist(artist);
-                  trackEvent("artist_profile_view", { artist_id: artist.id });
-                }}
-              />
-            ))}
-          </div>
-        </div>
-      )}
+        ))}
+      </div>
+
       <ArtistOverlay artist={selectedArtist} onClose={() => setSelectedArtist(null)} />
     </section>
   );
