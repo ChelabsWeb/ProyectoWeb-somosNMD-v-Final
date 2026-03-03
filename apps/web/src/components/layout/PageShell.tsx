@@ -113,7 +113,7 @@ export const PageShell: FC<PageShellProps> = ({ children }) => {
     <LenisProvider value={lenis}>
       <AudioProvider>
         {/* Foundation of the "Tron x Renaissance" Aesthetic: Pure black space, high contrast selection */}
-        <div className="relative min-h-screen w-full overflow-x-hidden bg-background text-foreground selection:bg-[#FF4D00] selection:text-black">
+        <div className="relative min-h-screen w-full overflow-x-clip bg-background text-foreground selection:bg-[#FF4D00] selection:text-black">
           
           {/* Global Texture / Cyber-Noise Overlay for depth */}
           <div className="pointer-events-none fixed inset-0 z-[100] opacity-[0.035] mix-blend-overlay">
