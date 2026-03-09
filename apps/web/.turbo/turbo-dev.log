@@ -483,3 +483,26 @@ Google Calendar credentials missing. Fetching will be bypassed.
  GET / 200 in 755ms (compile: 722ms, render: 33ms)
  ✓ Compiled in 273ms
  ✓ Compiled in 214ms
+ GET / 200 in 1280ms (compile: 620ms, render: 660ms)
+ ✓ Compiled in 315ms
+ ✓ Compiled in 279ms
+Google Calendar credentials missing. Fetching will be bypassed.
+ POST / 200 in 759ms (compile: 629ms, render: 129ms)
+Google Calendar credentials missing. Fetching will be bypassed.
+ POST / 200 in 11ms (compile: 3ms, render: 8ms)
+ ✓ Compiled in 211ms
+ ✓ Compiled in 209ms
+ ✓ Compiled in 229ms
+ GET / 200 in 796ms (compile: 714ms, render: 82ms)
+ GET / 200 in 25ms (compile: 8ms, render: 17ms)
+Google Calendar credentials missing. Fetching will be bypassed.
+ POST / 200 in 124ms (compile: 5ms, render: 118ms)
+ ✓ Compiled in 286ms
+Google Calendar credentials missing. Fetching will be bypassed.
+ POST / 200 in 734ms (compile: 618ms, render: 116ms)
+ ✓ Compiled in 258ms
+ ✓ Compiled in 296ms
+ GET / 200 in 701ms (compile: 672ms, render: 29ms)
+ GET / 200 in 26ms (compile: 3ms, render: 23ms)
+ ✓ Compiled in 220ms
+Google Calendar credentials missing. Fetching will be bypassed.

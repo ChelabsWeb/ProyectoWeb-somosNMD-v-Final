@@ -49,6 +49,20 @@ export function TimeSlotGrid({ onNext, isMobile, mobileStep = "date" }: TimeSlot
           locale={es}
           disabled={(d) => d < new Date(new Date().setHours(0, 0, 0, 0))}
         />
+        {isMobile && mobileStep === "date" && (
+          <motion.button
+            disabled={!date}
+            onClick={() => date && onNext(date, "")}
+            className={cn(
+              "w-full mt-4 py-4 text-lg font-sans font-black uppercase tracking-widest transition-all border-4 rounded-none",
+              date 
+                ? "bg-[#FF4D00] text-white border-[#FF4D00] shadow-[6px_6px_0_0_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px]"
+                : "bg-black text-white/40 border-white/20 shadow-none cursor-not-allowed"
+            )}
+          >
+            CONTINUAR AL HORARIO
+          </motion.button>
+        )}
       </div>
       )}
 

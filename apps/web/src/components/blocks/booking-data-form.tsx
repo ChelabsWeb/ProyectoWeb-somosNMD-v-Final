@@ -20,14 +20,9 @@ import type { SessionType } from "@/components/blocks/session-type-cards";
 interface BookingDataFormProps {
   onSubmit: (data: BookingFormData) => void;
   isPending: boolean;
-  bookingData?: {
-    date?: Date;
-    slot?: string;
-    sessionType?: SessionType;
-  };
 }
 
-export function BookingDataForm({ onSubmit, isPending, bookingData }: BookingDataFormProps) {
+export function BookingDataForm({ onSubmit, isPending }: BookingDataFormProps) {
   const form = useForm<BookingFormData>({
     resolver: zodResolver(bookingFormSchema),
     defaultValues: {
@@ -85,6 +80,30 @@ export function BookingDataForm({ onSubmit, isPending, bookingData }: BookingDat
                   />
                 </FormControl>
                 <FormMessage className="text-red-500 font-bold text-xs mt-2" />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="reason"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="uppercase text-[#FF4D00] font-sans font-black tracking-widest text-sm">
+                  MOTIVO DE LA RESERVA
+                </FormLabel>
+                <FormControl>
+                  <Textarea 
+                    placeholder="EJ: GRABACIÓN DE VOCES, TRACKING DE BATERÍA, PRODUCCIÓN..." 
+                    {...field} 
+                    maxLength={500}
+                    className="bg-black border-4 border-white rounded-none px-4 text-xl font-sans font-black text-white placeholder:text-white/30 focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-[#FF4D00] shadow-[6px_6px_0_0_#000000] focus-visible:shadow-[6px_6px_0_0_#FF4D00] py-4 transition-colors uppercase resize-y min-h-[120px]"
+                  />
+                </FormControl>
+                <div className="flex justify-between items-center mt-2">
+                  <FormMessage className="text-red-500 font-bold text-xs" />
+                  <span className="text-white/40 font-mono text-xs text-right w-full">{field.value?.length || 0}/500</span>
+                </div>
               </FormItem>
             )}
           />

@@ -29,8 +29,13 @@ const slideVariants = {
 };
 
 export function BookingModule() {
+  const [mounted, setMounted] = React.useState(false);
   const isMobile = useMediaQuery("(max-width: 767px)");
-  const maxSteps = isMobile ? 5 : 4;
+  const maxSteps = mounted && isMobile ? 5 : 4;
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const {
     step,
@@ -45,6 +50,8 @@ export function BookingModule() {
   } = useBookingFlow({ maxSteps });
 
   const renderStep = () => {
+    if (!mounted) return null;
+
     // Escenario Mobile: 5 pasos (Fecha, Hora, Modalidad, Datos, Resumen)
     if (isMobile) {
       switch (step) {
@@ -76,7 +83,6 @@ export function BookingModule() {
             <BookingDataForm
               onSubmit={handleSubmit}
               isPending={false} // Form solo avanza aquí, submits en resumen
-              bookingData={{}} // Ya no pasamos el resumen por prop acá
             />
           );
         case 5:
@@ -115,7 +121,6 @@ export function BookingModule() {
           <BookingDataForm
             onSubmit={handleSubmit}
             isPending={false} // Submit pasa al paso final
-            bookingData={{}}
           />
         );
       case 4:
@@ -135,13 +140,13 @@ export function BookingModule() {
 
   return (
     <section className="relative w-full h-full bg-transparent flex flex-col">
-      <header className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 md:mb-8 gap-4">
-        <h2 className="text-3xl sm:text-4xl font-sans font-black uppercase tracking-widest text-white drop-shadow-[4px_4px_0_#FF4D00]">
+      <header className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-sans font-black uppercase tracking-widest text-white drop-shadow-[4px_4px_0_#FF4D00] max-w-[80vw]">
           SISTEMA DE RESERVAS
         </h2>
         
         {step <= maxSteps && (
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-3">
             {step > 1 && (
               <button
                 onClick={handleBack}

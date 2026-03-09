@@ -39,14 +39,24 @@ export const FooterSection: FC = () => {
     const content = text.textContent || "";
     text.innerHTML = "";
 
-    // Create span for each letter
+    // Create span for each letter inside an overflow-hidden wrapper
     const letters = content.split("").map((letter) => {
+      const wrapperForMask = document.createElement("span");
+      wrapperForMask.style.display = "inline-block";
+      wrapperForMask.style.overflow = "hidden";
+      wrapperForMask.style.verticalAlign = "bottom";
+
       const span = document.createElement("span");
       span.textContent = letter;
       span.style.display = "inline-block";
-      span.style.opacity = "0";
-      span.style.transform = "translateY(-100px)"; // Start from above
-      text.appendChild(span);
+      // Start hidden below and slightly rotated
+      span.style.transform = "translateY(110%) rotate(10deg)";
+      span.style.transformOrigin = "left bottom";
+      span.style.willChange = "transform";
+
+      wrapperForMask.appendChild(span);
+      text.appendChild(wrapperForMask);
+
       return span;
     });
 
@@ -56,14 +66,15 @@ export const FooterSection: FC = () => {
       gsap.to(letters, {
         scrollTrigger: {
           trigger: text,
-          start: "top 95%",
+          start: "top 90%",
           toggleActions: "play none none reverse",
         },
-        y: 0,
+        y: "0%",
+        rotate: 0,
         opacity: 1,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "bounce.out", // Adds a nice falling bounce effect
+        duration: 1.2,
+        stagger: 0.15,
+        ease: "power4.out",
       });
     });
 
