@@ -10,10 +10,10 @@ export function BentoCard({ children, className }: BentoCardProps) {
   return (
     <div
       className={cn(
-        "rounded-[24px] md:rounded-[32px] overflow-hidden bg-card border border-white/5",
-        "flex flex-col items-center justify-center p-6 text-center",
-        "transition-all duration-500 ease-out",
-        "hover:bg-card/80 hover:border-white/10 hover:shadow-2xl hover:shadow-black/50 hover:scale-[1.02]",
+        "rounded-none overflow-hidden bg-black border-4 border-white shadow-[10px_10px_0_0_#000000]",
+        "flex flex-col items-start justify-start p-6 md:p-8 text-left",
+        "transition-all duration-200 ease-in-out",
+        "hover:translate-y-[10px] hover:translate-x-[10px] hover:shadow-none",
         className
       )}
     >

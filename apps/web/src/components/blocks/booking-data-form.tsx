@@ -37,33 +37,33 @@ export function BookingDataForm({ onSubmit, isPending, bookingData }: BookingDat
   });
 
   return (
-    <div className="flex flex-col p-4 md:p-8 bg-white border-2 border-border border-t-0 shadow-[8px_8px_0_0_rgba(0,0,0,1)] w-full">
-      <h3 className="text-2xl md:text-3xl font-black uppercase tracking-widest text-foreground mb-2">
+    <div className="flex flex-col p-4 md:p-8 w-full h-full bg-transparent text-white">
+      <h3 className="text-2xl md:text-3xl font-sans font-black uppercase tracking-widest text-[#FF4D00] mb-2">
         TUS DATOS
       </h3>
-      <p className="text-xs font-mono uppercase tracking-widest text-foreground/60 mb-6 max-w-xs">
+      <p className="text-xs font-mono uppercase tracking-widest text-white/60 mb-6 max-w-xs">
         INGRESÁ TU NOMBRE Y EMAIL PARA SOLICITAR LA RESERVA.
       </p>
 
       {bookingData && (
-        <div className="mb-8 p-4 border-2 border-border bg-background shadow-[4px_4px_0_0_rgba(0,0,0,1)] rounded-none">
-          <h4 className="text-sm font-black uppercase tracking-widest mb-4 pb-2 border-b-2 border-border text-primary">RESUMEN DE RESERVA</h4>
-          <div className="flex flex-col space-y-3 text-sm font-mono uppercase">
-            <div className="flex justify-between items-center border-b-2 border-border/30 pb-2">
-              <span className="text-foreground/60 font-black">FECHA:</span>
-              <span className="font-bold text-right">{bookingData.date ? new Intl.DateTimeFormat('es-UY', { weekday: 'long', day: 'numeric', month: 'long' }).format(bookingData.date) : "NO SELECCIONADA"}</span>
+        <div className="mb-8 p-6 border-4 border-white shadow-[6px_6px_0_0_#000000] bg-black">
+          <h4 className="text-base font-sans font-black uppercase tracking-widest mb-4 pb-2 border-b-4 border-white text-white">RESUMEN DE RESERVA</h4>
+          <div className="flex flex-col space-y-4 text-sm font-mono uppercase">
+            <div className="flex justify-between items-center border-b-2 border-white/20 pb-2">
+              <span className="text-white/60 font-black">FECHA:</span>
+              <span className="font-bold text-right text-white">{bookingData.date ? new Intl.DateTimeFormat('es-UY', { weekday: 'long', day: 'numeric', month: 'long' }).format(bookingData.date) : "NO SELECCIONADA"}</span>
             </div>
-            <div className="flex justify-between items-center border-b-2 border-border/30 pb-2">
-              <span className="text-foreground/60 font-black">HORA:</span>
-              <span className="font-bold text-right">{bookingData.slot || "NO SELECCIONADA"}</span>
+            <div className="flex justify-between items-center border-b-2 border-white/20 pb-2">
+              <span className="text-white/60 font-black">HORA:</span>
+              <span className="font-bold text-right text-white">{bookingData.slot || "NO SELECCIONADA"}</span>
             </div>
-            <div className="flex justify-between items-center border-b-2 border-border/30 pb-2">
-              <span className="text-foreground/60 font-black">MODALIDAD:</span>
-              <span className="font-bold text-right text-primary">{bookingData.sessionType === "solo" ? "SOLO ESTUDIO" : bookingData.sessionType === "producer" ? "ESTUDIO + PRODUCTOR" : "NO SELECCIONADA"}</span>
+            <div className="flex justify-between items-center border-b-2 border-white/20 pb-2">
+              <span className="text-white/60 font-black">MODALIDAD:</span>
+              <span className="font-sans font-black text-right text-[#FF4D00]">{bookingData.sessionType === "solo" ? "SOLO ESTUDIO" : bookingData.sessionType === "producer" ? "ESTUDIO + PRODUCTOR" : "NO SELECCIONADA"}</span>
             </div>
             <div className="flex justify-between items-center pb-1">
-              <span className="text-foreground/60 font-black">UBICACIÓN:</span>
-              <span className="font-bold text-right">JUAN PAULLIER 1064</span>
+              <span className="text-white/60 font-black">UBICACIÓN:</span>
+              <span className="font-bold text-right text-white">JUAN PAULLIER 1064</span>
             </div>
           </div>
         </div>
@@ -76,17 +76,17 @@ export function BookingDataForm({ onSubmit, isPending, bookingData }: BookingDat
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="uppercase text-primary font-black tracking-widest text-xs">
+                <FormLabel className="uppercase text-[#FF4D00] font-sans font-black tracking-widest text-sm">
                   NOMBRE
                 </FormLabel>
                 <FormControl>
                   <Input 
                     placeholder="JUAN PEREZ" 
                     {...field} 
-                    className="bg-transparent border-0 border-b-2 border-border rounded-none px-0 text-xl font-bold text-foreground placeholder:text-foreground/30 focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-primary h-auto py-2 transition-colors uppercase"
+                    className="bg-black border-4 border-white rounded-none px-4 text-xl font-sans font-black text-white placeholder:text-white/30 focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-[#FF4D00] shadow-[6px_6px_0_0_#000000] focus-visible:shadow-[6px_6px_0_0_#FF4D00] h-auto py-4 transition-colors uppercase"
                   />
                 </FormControl>
-                <FormMessage className="text-red-400 text-xs mt-2" />
+                <FormMessage className="text-red-500 font-bold text-xs mt-2" />
               </FormItem>
             )}
           />
@@ -96,17 +96,17 @@ export function BookingDataForm({ onSubmit, isPending, bookingData }: BookingDat
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="uppercase text-primary font-black tracking-widest text-xs">
+                <FormLabel className="uppercase text-[#FF4D00] font-sans font-black tracking-widest text-sm">
                   EMAIL
                 </FormLabel>
                 <FormControl>
                   <Input 
                     placeholder="TU@EMAIL.COM" 
                     {...field} 
-                    className="bg-transparent border-0 border-b-2 border-border rounded-none px-0 text-xl font-bold text-foreground placeholder:text-foreground/30 focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-primary h-auto py-2 transition-colors uppercase"
+                    className="bg-black border-4 border-white rounded-none px-4 text-xl font-sans font-black text-white placeholder:text-white/30 focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-[#FF4D00] shadow-[6px_6px_0_0_#000000] focus-visible:shadow-[6px_6px_0_0_#FF4D00] h-auto py-4 transition-colors uppercase"
                   />
                 </FormControl>
-                <FormMessage className="text-red-400 text-xs mt-2" />
+                <FormMessage className="text-red-500 font-bold text-xs mt-2" />
               </FormItem>
             )}
           />
@@ -115,15 +115,11 @@ export function BookingDataForm({ onSubmit, isPending, bookingData }: BookingDat
             type="submit"
             disabled={isPending || !form.formState.isValid}
             aria-busy={isPending}
-            whileHover={{ scale: form.formState.isValid && !isPending ? 1.02 : 1 }}
-            whileTap={{ scale: form.formState.isValid && !isPending ? 0.98 : 1 }}
-            className={`w-full mt-8 py-6 flex items-center justify-center text-lg font-black uppercase tracking-widest transition-all border-2 rounded-none hover:-translate-y-1 shadow-[4px_4px_0_0_rgba(0,0,0,1)]
-              ${
-                form.formState.isValid && !isPending
-                  ? "bg-primary text-primary-foreground border-border hover:bg-black hover:text-white hover:border-black hover:shadow-[8px_8px_0_0_rgba(0,0,0,1)]"
-                  : "bg-gray-100 border-gray-300 text-gray-400 cursor-not-allowed shadow-none hover:translate-y-0"
-              }
-            `}
+            className={`w-full mt-8 py-6 text-xl font-sans font-black uppercase tracking-widest transition-all border-4 rounded-none ${
+              form.formState.isValid && !isPending
+                ? "bg-white text-black border-white shadow-[8px_8px_0_0_#FF4D00] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] hover:bg-[#FF4D00] hover:text-white hover:border-[#FF4D00]"
+                : "bg-black text-white/40 border-white/20 cursor-not-allowed shadow-none"
+            }`}
           >
             {isPending ? (
               <>

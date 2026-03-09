@@ -1,6 +1,8 @@
 "use client";
 
 import { type FC } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { ThreeDLogoViewer } from "./ThreeDLogoViewer";
 
 
@@ -10,9 +12,13 @@ export const HeroSection: FC = () => {
   return (
     <section id="hero" aria-label="Hero scene" className="relative min-h-screen bg-background overflow-hidden">
       <div className="absolute inset-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${HERO_IMAGE_SRC})` }}
+        <Image
+          src={HERO_IMAGE_SRC}
+          alt="NOMADES Hero Background"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
         />
 
         {/* 3D Logo Viewer goes behind, acting as the striking visual element */}
@@ -38,20 +44,20 @@ export const HeroSection: FC = () => {
         </div>
 
         {/* Centered Brutalist Navigation */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 flex gap-1 pointer-events-auto flex-wrap justify-center w-[90vw] md:w-auto">
-            <button className="bg-transparent text-white px-4 py-1 text-sm font-bold uppercase hover:bg-white hover:text-black transition-colors rounded-none whitespace-nowrap">
-              [ PROYECTOS ]
-            </button>
-            <button className="bg-transparent text-white border border-white px-4 py-1 text-sm font-bold uppercase hover:bg-white hover:text-black transition-colors rounded-none whitespace-nowrap">
+        <nav aria-label="Navegación principal" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 flex gap-4 pointer-events-auto flex-wrap justify-center w-[90vw] md:w-auto">
+            <Link href="#proyectos" className="bg-transparent text-white border-4 border-white px-6 py-2 text-sm font-black uppercase hover:bg-white hover:text-black transition-all shadow-[6px_6px_0_0_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] rounded-none whitespace-nowrap">
+              PROYECTOS
+            </Link>
+            <Link href="#nosotros" className="bg-transparent text-white border-4 border-white px-6 py-2 text-sm font-black uppercase hover:bg-white hover:text-black transition-all shadow-[6px_6px_0_0_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] rounded-none whitespace-nowrap">
               NOSOTROS
-            </button>
-            <button className="bg-transparent text-white border border-white px-4 py-1 text-sm font-bold uppercase hover:bg-white hover:text-black transition-colors rounded-none whitespace-nowrap">
+            </Link>
+            <Link href="#equipo" className="bg-transparent text-white border-4 border-white px-6 py-2 text-sm font-black uppercase hover:bg-white hover:text-black transition-all shadow-[6px_6px_0_0_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] rounded-none whitespace-nowrap">
               EQUIPO
-            </button>
-            <button className="bg-transparent text-white border border-white px-4 py-1 text-sm font-bold uppercase hover:bg-[var(--primary)] hover:border-transparent transition-colors rounded-none whitespace-nowrap">
+            </Link>
+            <Link href="/contacto" className="bg-[#FF4D00] text-white border-4 border-white px-6 py-2 text-sm font-black uppercase hover:bg-white hover:text-black transition-all shadow-[6px_6px_0_0_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] hover:border-white rounded-none whitespace-nowrap">
               CONTACTO
-            </button>
-        </div>
+            </Link>
+        </nav>
 
         {/* NOMADES Text - Brutalist Style */}
         <div className="absolute bottom-10 left-0 w-full z-30 px-8 mix-blend-difference text-white flex justify-center overflow-hidden pointer-events-none">

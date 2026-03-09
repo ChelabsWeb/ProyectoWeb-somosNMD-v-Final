@@ -46,11 +46,17 @@ export const CustomCursor: FC = () => {
     const handlePointerMove = (event: PointerEvent) => {
       pointerRef.current = { x: event.clientX, y: event.clientY };
       
-      if (!isVisible) setIsVisible(true);
+      setIsVisible(prev => {
+        if (!prev) return true;
+        return prev;
+      });
 
       if (event.target instanceof Element) {
         const isOnInteractive = event.target.closest(INTERACTIVE_ELEMENTS_SELECTOR) !== null;
-        if (isOnInteractive !== isInteractive) setIsInteractive(isOnInteractive);
+        setIsInteractive(prev => {
+          if (prev !== isOnInteractive) return isOnInteractive;
+          return prev;
+        });
       }
     };
 
@@ -72,7 +78,7 @@ export const CustomCursor: FC = () => {
       window.removeEventListener("pointerenter", handlePointerEnter);
       document.body.classList.remove("custom-cursor-active");
     };
-  }, [isInteractive, isVisible]);
+  }, []);
 
   return (
     <div

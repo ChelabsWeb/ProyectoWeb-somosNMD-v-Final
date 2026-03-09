@@ -1,16 +1,45 @@
 
-> web@0.1.0 lint C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\apps\web
+> web@0.1.0 lint C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web
 > eslint "src/**/*.{ts,tsx,js,jsx}"
 
 [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
 
-C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\apps\web\src\app\artists\[id]\page.tsx
+C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\app\api\webhooks\resend\route.test.ts
+    9:13  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   10:13  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   12:25  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   12:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   17:25  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   17:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   70:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   80:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   90:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   91:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   95:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  110:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  114:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  129:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  145:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  146:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  150:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  164:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\app\artists\[id]\page.tsx
   5:15  warning  'FC' is defined but never used  @typescript-eslint/no-unused-vars
 
-C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\effects\ParticleText.tsx
+C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\blocks\time-slot-grid.test.tsx
+  10:30  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\effects\ParticleText.tsx
   259:9  warning  'originalPositions' is assigned a value but never used  @typescript-eslint/no-unused-vars
 
-C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\sections\ArtistCard.test.tsx
+C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\emails\reservation-rejected.tsx
+  25:3  warning  'sessionType' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\emails\reservation-request.tsx
+  23:7  warning  'baseUrl' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\sections\ArtistCard.test.tsx
    8:15   warning  'fill' is defined but never used                                                                           @typescript-eslint/no-unused-vars
    8:33   error    Unexpected any. Specify a different type                                                                   @typescript-eslint/no-explicit-any
   10:12   warning  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
@@ -22,48 +51,42 @@ C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\apps\web\src\compon
   19:91   error    Unexpected any. Specify a different type                                                                   @typescript-eslint/no-explicit-any
   19:101  error    Unexpected any. Specify a different type                                                                   @typescript-eslint/no-explicit-any
 
-C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\sections\ArtistOverlay.tsx
-    5:10  warning  'Button' is defined but never used                                                                                                                                                                                                                                                       @typescript-eslint/no-unused-vars
-  120:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\sections\ArtistOverlay.tsx
+    5:10   warning  'Button' is defined but never used                                                                                                                                                                                                                                                       @typescript-eslint/no-unused-vars
+  126:13   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  138:105  error    Comments inside children section of tag should be placed inside braces                                                                                                                                                                                                                   react/jsx-no-comment-textnodes
 
-C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\sections\ContactSection.tsx
-  4:10  warning  'Button' is defined but never used  @typescript-eslint/no-unused-vars
+C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\sections\FooterSection.tsx
+  48:80  error  Comments inside children section of tag should be placed inside braces  react/jsx-no-comment-textnodes
+  57:80  error  Comments inside children section of tag should be placed inside braces  react/jsx-no-comment-textnodes
+  66:80  error  Comments inside children section of tag should be placed inside braces  react/jsx-no-comment-textnodes
+  77:76  error  Comments inside children section of tag should be placed inside braces  react/jsx-no-comment-textnodes
 
-C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\sections\LoaderSection.tsx
+C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\sections\LoaderSection.tsx
   3:8  warning  'Image' is defined but never used  @typescript-eslint/no-unused-vars
 
-C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\sections\TeaserSection.tsx
-  4:10  warning  'Button' is defined but never used              @typescript-eslint/no-unused-vars
-  5:10  warning  'ParticleBackground' is defined but never used  @typescript-eslint/no-unused-vars
+C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\sections\ThreeDLogoViewer.tsx
+  12:18  warning  'viewport' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  14:20  warning  'delta' is defined but never used              @typescript-eslint/no-unused-vars
+  60:64  error    Unexpected any. Specify a different type       @typescript-eslint/no-explicit-any
 
-C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\sections\artists-grid.tsx
-  10:10  warning  'cn' is defined but never used  @typescript-eslint/no-unused-vars
-
-C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\sections\booking-module.test.tsx
-  76:11  warning  'dialogHeader' is assigned a value but never used  @typescript-eslint/no-unused-vars
-
-C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\shop\BeatPlayer.tsx
+C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\shop\BeatPlayer.tsx
    3:14  warning  'useState' is defined but never used                                                                                                                                                                                                                                                     @typescript-eslint/no-unused-vars
   37:25  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
 
-C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\apps\web\src\hooks\use-media-query.ts
-  8:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\lib\actions\booking.ts
+  7:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
 
-Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
-* Update external systems with the latest state from React.
-* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\lib\services\calendar.test.ts
+  3:10  warning  'google' is defined but never used  @typescript-eslint/no-unused-vars
 
-Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\lib\services\email.test.ts
+   2:10  warning  'Resend' is defined but never used       @typescript-eslint/no-unused-vars
+  29:19  error    A `require()` style import is forbidden  @typescript-eslint/no-require-imports
 
-C:\Users\Estudiante UCU\Desktop\ProyectoWeb-somosNMD-v-Final\apps\web\src\hooks\use-media-query.ts:8:5
-   6 |
-   7 |   useEffect(() => {
->  8 |     setIsMounted(true);
-     |     ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
-   9 |     function onChange(event: MediaQueryListEvent) {
-  10 |       setValue(event.matches);
-  11 |     }  react-hooks/set-state-in-effect
+C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\lib\services\security.test.ts
+  3:8  warning  'crypto' is defined but never used  @typescript-eslint/no-unused-vars
 
-✖ 23 problems (6 errors, 17 warnings)
+✖ 51 problems (32 errors, 19 warnings)
 
  ELIFECYCLE  Command failed with exit code 1.

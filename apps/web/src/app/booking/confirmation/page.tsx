@@ -35,7 +35,7 @@ export default async function BookingConfirmationPage({
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background p-4 text-foreground">
-      <div className="relative w-full max-w-md overflow-hidden rounded-none border-4 border-black bg-background p-8 text-center shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+      <div className="relative w-full max-w-md overflow-hidden card-brutalist border-4 border-black bg-background p-8 text-center hover:translate-y-0">
         <h1 className={`mb-4 text-3xl font-extrabold uppercase tracking-tight ${colorClass}`}>
           {title}
         </h1>
@@ -44,7 +44,7 @@ export default async function BookingConfirmationPage({
         </p>
         <Link 
           href="/"
-          className="inline-block rounded-none bg-black px-6 py-3 font-bold uppercase text-white transition-transform hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[4px_4px_0px_0px_rgba(255,69,0,1)] hover:bg-[#FF4500]"
+          className="inline-block bg-black px-6 py-3 text-white btn-brutalist hover:bg-[#FF4500] hover:-translate-x-1 hover:shadow-[4px_4px_0px_0px_rgba(255,69,0,1)]"
         >
           Volver al Inicio
         </Link>

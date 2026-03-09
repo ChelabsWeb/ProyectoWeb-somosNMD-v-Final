@@ -204,7 +204,7 @@ export const QuickNavMenu: FC = () => {
         aria-expanded={isOpen}
         aria-controls="quick-nav-panel"
         onClick={() => isMenuReady && setIsOpen((prev) => !prev)}
-        className={`fixed right-4 md:right-8 top-4 md:top-8 z-[110] group flex h-12 w-12 items-center justify-center rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white transition-all hover:bg-white hover:text-black hover:scale-105 active:scale-95 ${!isMenuReady ? "opacity-30" : ""}`}
+        className={`fixed right-4 md:right-8 top-4 md:top-8 z-[110] group flex h-14 w-14 items-center justify-center rounded-none bg-black border-4 border-white shadow-[6px_6px_0_0_#000000] text-white transition-all hover:bg-[#FF4D00] hover:text-white hover:border-white hover:shadow-[6px_6px_0_0_#000000] active:shadow-none active:translate-x-[6px] active:translate-y-[6px] ${!isMenuReady ? "opacity-30" : ""}`}
         disabled={!isMenuReady}
         aria-label="Toggle Menu"
       >
@@ -235,6 +235,7 @@ export const QuickNavMenu: FC = () => {
                   fill
                   sizes="17vw"
                   className="object-cover"
+                  loading="lazy"
                 />
               </div>
             ))}
@@ -247,6 +248,7 @@ export const QuickNavMenu: FC = () => {
                   fill
                   sizes="17vw"
                   className="object-cover"
+                  loading="lazy"
                 />
               </div>
             ))}

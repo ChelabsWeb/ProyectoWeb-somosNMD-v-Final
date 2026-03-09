@@ -29,7 +29,7 @@ function Calendar({
     <DayPicker
       showOutsideDays={showOutsideDays}
       className={cn(
-        "bg-background group/calendar p-3 [--cell-size:2rem] [[data-slot=card-content]_&]:bg-transparent [[data-slot=popover-content]_&]:bg-transparent",
+        "bg-black text-white group/calendar p-4 [--cell-size:2.5rem] [[data-slot=card-content]_&]:bg-transparent [[data-slot=popover-content]_&]:bg-transparent border-4 border-white shadow-[8px_8px_0_0_#000000] rounded-none font-sans",
         String.raw`rtl:**:[.rdp-button\_next>svg]:rotate-180`,
         String.raw`rtl:**:[.rdp-button\_previous>svg]:rotate-180`,
         className
@@ -53,12 +53,12 @@ function Calendar({
         ),
         button_previous: cn(
           buttonVariants({ variant: buttonVariant }),
-          "h-[--cell-size] w-[--cell-size] select-none p-0 aria-disabled:opacity-50",
+          "h-[--cell-size] w-[--cell-size] select-none p-0 aria-disabled:opacity-50 rounded-none border-2 border-transparent hover:border-white hover:bg-[#FF4D00] hover:text-white transition-colors",
           defaultClassNames.button_previous
         ),
         button_next: cn(
           buttonVariants({ variant: buttonVariant }),
-          "h-[--cell-size] w-[--cell-size] select-none p-0 aria-disabled:opacity-50",
+          "h-[--cell-size] w-[--cell-size] select-none p-0 aria-disabled:opacity-50 rounded-none border-2 border-transparent hover:border-white hover:bg-[#FF4D00] hover:text-white transition-colors",
           defaultClassNames.button_next
         ),
         month_caption: cn(
@@ -87,7 +87,7 @@ function Calendar({
         table: "w-full border-collapse",
         weekdays: cn("flex", defaultClassNames.weekdays),
         weekday: cn(
-          "text-muted-foreground flex-1 select-none rounded-none text-[0.8rem] font-normal uppercase",
+          "text-white/60 flex-1 select-none rounded-none text-xs font-black uppercase tracking-widest",
           defaultClassNames.weekday
         ),
         week: cn("mt-2 flex w-full", defaultClassNames.week),
@@ -110,7 +110,7 @@ function Calendar({
         range_middle: cn("rounded-none", defaultClassNames.range_middle),
         range_end: cn("bg-accent rounded-none", defaultClassNames.range_end),
         today: cn(
-          "text-primary font-bold data-[selected=true]:text-primary-foreground",
+          "text-[#FF4D00] font-black data-[selected=true]:text-white",
           defaultClassNames.today
         ),
         outside: cn(
@@ -202,7 +202,7 @@ function CalendarDayButton({
       data-range-middle={modifiers.range_middle}
       data-testid="calendar-day"
       className={cn(
-        "data-[selected-single=true]:bg-primary data-[selected-single=true]:text-primary-foreground data-[selected-single=true]:shadow-[2px_2px_0_0_rgba(230,48,38,0.5)] data-[selected-single=true]:opacity-100 data-[range-middle=true]:bg-gray-100 data-[range-middle=true]:text-foreground data-[range-start=true]:bg-primary data-[range-start=true]:text-primary-foreground data-[range-end=true]:bg-primary data-[range-end=true]:text-primary-foreground group-data-[focused=true]/day:border-primary group-data-[focused=true]/day:ring-primary/50 flex aspect-square h-auto w-full min-w-[--cell-size] flex-col gap-1 font-bold leading-none data-[range-end=true]:rounded-none data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-none group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 group-data-[focused=true]/day:ring-[3px] [&>span]:text-xs [&>span]:opacity-70 transition-all hover:bg-black hover:text-white rounded-none border border-transparent hover:border-black data-[selected-single=true]:border-primary",
+        "data-[selected-single=true]:bg-[#FF4D00] data-[selected-single=true]:text-white data-[selected-single=true]:shadow-[4px_4px_0_0_#000000] data-[selected-single=true]:border-white data-[selected-single=true]:border-2 data-[selected-single=true]:opacity-100 flex aspect-square h-auto w-full min-w-[--cell-size] flex-col gap-1 font-sans font-black text-lg leading-none transition-all hover:bg-white hover:text-black rounded-none border-2 border-transparent hover:border-white data-[selected-single=true]:translate-x-[-2px] data-[selected-single=true]:translate-y-[-2px]",
         defaultClassNames.day,
         className
       )}

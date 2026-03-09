@@ -1,0 +1,143 @@
+﻿
+> project-web-nmd@1.0.0 lint C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final
+> turbo lint
+
+node.exe : turbo 2.5.8
+En C:\Users\Usuario\AppData\Roaming\npm\pnpm.ps1: 24 
+Carácter: 5
++     & "node$exe"  
+"$basedir/node_modules/pnpm/bin/pnpm.cjs" $args
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~
+    + CategoryInfo          : NotSpecified: (turbo 2.5.8:St 
+   ring) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+ÔÇó Packages in scope: @nmd/animation, @nmd/commerce, @nmd/config, @nmd/ui, web
+ÔÇó Running lint in 5 packages
+ÔÇó Remote caching disabled
+web:lint: cache miss, executing bc648e44eb650aed
+@nmd/animation:lint: cache miss, executing bcd25d90c287645c
+@nmd/ui:lint: cache miss, executing 8f3dffeb67d37427
+@nmd/commerce:lint: cache miss, executing 50bc10de83088eb5
+web:lint: 
+web:lint: > web@0.1.0 lint C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web
+web:lint: > eslint "src/**/*.{ts,tsx,js,jsx}"
+web:lint: 
+@nmd/ui:lint: 
+@nmd/commerce:lint: 
+@nmd/ui:lint: > @nmd/ui@0.0.0 lint C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\packages\ui
+@nmd/ui:lint: > eslint "src/**/*.{ts,tsx}"
+@nmd/commerce:lint: > @nmd/commerce@0.0.0 lint C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\packages\commerce
+@nmd/commerce:lint: > echo "@nmd/commerce lint placeholder"
+@nmd/ui:lint: 
+@nmd/commerce:lint: 
+@nmd/animation:lint: 
+@nmd/animation:lint: > @nmd/animation@0.0.0 lint C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\packages\animation
+@nmd/animation:lint: > eslint "src/**/*.{ts,tsx}"
+@nmd/animation:lint: 
+@nmd/commerce:lint: "@nmd/commerce lint placeholder"
+web:lint: [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+web:lint: 
+web:lint: C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\app\api\webhooks\resend\route.test.ts
+web:lint:     9:13  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+web:lint:    10:13  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+web:lint:    12:25  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+web:lint:    12:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+web:lint:    17:25  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+web:lint:    17:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+web:lint:    70:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+web:lint:    80:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+web:lint:    90:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+web:lint:    91:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+web:lint:    95:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+web:lint:   110:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+web:lint:   114:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+web:lint:   129:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+web:lint:   145:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+web:lint:   146:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+web:lint:   150:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+web:lint:   164:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+web:lint: 
+web:lint: C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\app\artists\[id]\page.tsx
+web:lint:   5:15  warning  'FC' is defined but never used  @typescript-eslint/no-unused-vars
+web:lint: 
+web:lint: C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\blocks\time-slot-grid.test.tsx
+web:lint:   10:30  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+web:lint: 
+web:lint: C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\effects\ParticleText.tsx
+web:lint:   259:9  warning  'originalPositions' is assigned a value but never used  @typescript-eslint/no-unused-vars
+web:lint: 
+web:lint: C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\emails\reservation-rejected.tsx
+web:lint:   25:3  warning  'sessionType' is defined but never used  @typescript-eslint/no-unused-vars
+web:lint: 
+web:lint: C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\emails\reservation-request.tsx
+web:lint:   23:7  warning  'baseUrl' is assigned a value but never used  @typescript-eslint/no-unused-vars
+web:lint: 
+web:lint: C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\sections\ArtistCard.test.tsx
+web:lint:    8:15   warning  'fill' is defined but never used                                                                           @typescript-eslint/no-unused-vars
+web:lint:    8:33   error    Unexpected any. Specify a different type                                                                   @typescript-eslint/no-explicit-any
+web:lint:   10:12   warning  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+web:lint:   16:17   error    A `require()` style import is forbidden                                                                    @typescript-eslint/no-require-imports
+web:lint:   19:15   error    Component definition is missing display name                                                               react/display-name
+web:lint:   19:45   warning  'whileHover' is defined but never used                                                                     @typescript-eslint/no-unused-vars
+web:lint:   19:57   warning  'whileTap' is defined but never used                                                                       @typescript-eslint/no-unused-vars
+web:lint:   19:67   warning  'transition' is defined but never used                                                                     @typescript-eslint/no-unused-vars
+web:lint:   19:91   error    Unexpected any. Specify a different type                                                                   @typescript-eslint/no-explicit-any
+web:lint:   19:101  error    Unexpected any. Specify a different type                                                                   @typescript-eslint/no-explicit-any
+web:lint: 
+web:lint: C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\sections\ArtistOverlay.tsx
+web:lint:     5:10   warning  'Button' is defined but never used                                                                                                                                                                                                                                                       @typescript-eslint/no-unused-vars
+web:lint:   126:13   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+web:lint:   138:105  error    Comments inside children section of tag should be placed inside braces                                                                                                                                                                                                                   react/jsx-no-comment-textnodes
+web:lint: 
+web:lint: C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\sections\FooterSection.tsx
+web:lint:   48:80  error  Comments inside children section of tag should be placed inside braces  react/jsx-no-comment-textnodes
+web:lint:   57:80  error  Comments inside children section of tag should be placed inside braces  react/jsx-no-comment-textnodes
+web:lint:   66:80  error  Comments inside children section of tag should be placed inside braces  react/jsx-no-comment-textnodes
+web:lint:   77:76  error  Comments inside children section of tag should be placed inside braces  react/jsx-no-comment-textnodes
+web:lint: 
+web:lint: C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\sections\LoaderSection.tsx
+web:lint:   3:8  warning  'Image' is defined but never used  @typescript-eslint/no-unused-vars
+web:lint: 
+web:lint: C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\sections\ThreeDLogoViewer.tsx
+web:lint:   12:18  warning  'viewport' is assigned a value but never used  @typescript-eslint/no-unused-vars
+web:lint:   14:20  warning  'delta' is defined but never used              @typescript-eslint/no-unused-vars
+web:lint:   60:64  error    Unexpected any. Specify a different type       @typescript-eslint/no-explicit-any
+web:lint: 
+web:lint: C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\components\shop\BeatPlayer.tsx
+web:lint:    3:14  warning  'useState' is defined but never used                                                                                                                                                                                                                                                     @typescript-eslint/no-unused-vars
+web:lint:   37:25  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+web:lint: 
+web:lint: C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\lib\actions\booking.ts
+web:lint:   7:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+web:lint: 
+web:lint: C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\lib\services\calendar.test.ts
+web:lint:   3:10  warning  'google' is defined but never used  @typescript-eslint/no-unused-vars
+web:lint: 
+web:lint: C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\lib\services\email.test.ts
+web:lint:    2:10  warning  'Resend' is defined but never used       @typescript-eslint/no-unused-vars
+web:lint:   29:19  error    A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+web:lint: 
+web:lint: C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web\src\lib\services\security.test.ts
+web:lint:   3:8  warning  'crypto' is defined but never used  @typescript-eslint/no-unused-vars
+web:lint: 
+web:lint: Ô£û 51 problems (32 errors, 19 warnings)
+web:lint: 
+web:lint: ÔÇëELIFECYCLEÔÇë Command failed with exit code 1.
+web:lint: ERROR: command finished with error: command (C:\Us
+ers\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\ap
+ps\web) C:\Users\Usuario\AppData\Local\pnpm\.tools\pnpm\10.1
+9.0\bin\pnpm.CMD run lint exited (1)
+web#lint: command (C:\Users\Usuario\Documents\GitHub\Proyect
+oWeb-somosNMD-v-Final\apps\web) C:\Users\Usuario\AppData\Loc
+al\pnpm\.tools\pnpm\10.19.0\bin\pnpm.CMD run lint exited (1)
+
+ Tasks:    3 successful, 4 total
+Cached:    0 cached, 4 total
+  Time:    6.161s 
+Failed:    web#lint
+
+ ERROR  run failed: command  exited (1)
+ÔÇëELIFECYCLEÔÇë Command failed with exit code 1.

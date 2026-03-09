@@ -113,7 +113,7 @@ export const ArtistOverlay: FC<ArtistOverlayProps> = ({ artist, onClose }) => {
 
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 md:top-6 md:right-6 h-12 w-12 flex items-center justify-center rounded-none bg-white text-black border-2 border-black hover:bg-black hover:text-white transition-colors shadow-[4px_4px_0_0_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none z-10"
+          className="absolute top-4 right-4 md:top-6 md:right-6 h-12 w-12 flex items-center justify-center bg-white text-black hover:bg-black hover:text-white z-10 card-brutalist-sm transition-colors cursor-pointer active:translate-x-[2px] active:translate-y-[2px] active:shadow-none border-black"
           aria-label="Cerrar perfil"
         >
           <svg viewBox="0 0 24 24" className="h-6 w-6 stroke-current stroke-[3]">
@@ -122,12 +122,12 @@ export const ArtistOverlay: FC<ArtistOverlayProps> = ({ artist, onClose }) => {
         </button>
 
         <div className="flex flex-col md:flex-row gap-8 md:gap-12 mt-4 md:mt-0">
-          <div className="md:w-[40%] aspect-[3/4] relative overflow-hidden rounded-none border-4 border-black bg-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] flex-shrink-0">
+          <div className="md:w-[40%] aspect-[3/4] relative overflow-hidden bg-black card-brutalist border-4 border-black flex-shrink-0 hover:translate-y-0 hover:shadow-[8px_8px_0_0_rgba(0,0,0,1)]">
             <img src={artist.imageSrc} alt={artist.name} className="absolute inset-0 h-full w-full object-cover grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500" />
             
             {/* Overlay label */}
             <div className="absolute bottom-4 left-4 right-4">
-              <div className="bg-white border-2 border-black p-2 inline-flex shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
+              <div className="bg-white p-2 inline-flex card-brutalist-sm border-black">
                 <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-black">REGISTRO_NMD</span>
               </div>
             </div>
@@ -161,7 +161,7 @@ export const ArtistOverlay: FC<ArtistOverlayProps> = ({ artist, onClose }) => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${artist.name} en ${social.name}`}
-                    className="flex h-14 w-14 items-center justify-center rounded-none bg-white border-2 border-black text-black transition-all hover:bg-black hover:text-white hover:-translate-y-1 shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:shadow-[6px_6px_0_0_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+                    className="h-14 w-14 bg-white text-black hover:bg-black hover:text-white btn-brutalist border-black active:translate-x-[2px] active:translate-y-[2px] hover:shadow-[6px_6px_0_0_rgba(0,0,0,1)] active:shadow-none p-0"
                   >
                     <span className="sr-only">{social.name}</span>
                     <div className="scale-110">

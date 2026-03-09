@@ -25,7 +25,7 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
     return (
         <main className="min-h-screen bg-black text-white font-mono uppercase selection:bg-white selection:text-black">
             {/* Archival Toolbar */}
-            <nav className="sticky top-0 z-[100] flex justify-between border-b border-white/10 bg-black/80 p-4 text-[9px] tracking-[0.4em] backdrop-blur-md">
+            <nav className="sticky top-0 z-[100] flex justify-between border-b-4 border-white bg-black p-4 text-[9px] tracking-[0.4em]">
                 <Link href="/" className="hover:text-white transition-colors">
                     [ BACK_TO_ROOT ]
                 </Link>
@@ -42,27 +42,27 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
 
             <div className="mx-auto flex max-w-7xl flex-col md:flex-row min-h-[calc(100vh-42px)]">
                 {/* Left Column: Technical Data */}
-                <aside className="w-full border-white/10 p-8 md:w-96 md:border-r space-y-12">
+                <aside className="w-full border-white p-8 md:w-96 md:border-r-4 space-y-12">
                     <section className="space-y-4">
-                        <h2 className="text-[10px] tracking-[0.5em] text-white/30">IDENT_DATA</h2>
+                        <h2 className="text-[10px] tracking-[0.5em] text-[#FF4D00]">IDENT_DATA</h2>
                         <div className="space-y-2 text-sm">
-                            <div className="flex justify-between border-b border-white/5 py-2">
+                            <div className="flex justify-between border-b-4 border-white py-2">
                                 <span className="text-white/20">NAME:</span>
                                 <span>{artist.name}</span>
                             </div>
-                            <div className="flex justify-between border-b border-white/5 py-2">
+                            <div className="flex justify-between border-b-4 border-white py-2">
                                 <span className="text-white/20">ID:</span>
                                 <span>00_{artist.id.toUpperCase()}</span>
                             </div>
-                            <div className="flex justify-between border-b border-white/5 py-2">
+                            <div className="flex justify-between border-b-4 border-white py-2">
                                 <span className="text-white/20">STATUS:</span>
-                                <span className="text-green-500">ACTIVE</span>
+                                <span className="text-[#FF4D00]">ACTIVE</span>
                             </div>
                         </div>
                     </section>
 
                     <section className="space-y-4">
-                        <h2 className="text-[10px] tracking-[0.5em] text-white/30">DISCIPLINES</h2>
+                        <h2 className="text-[10px] tracking-[0.5em] text-[#FF4D00]">DISCIPLINES</h2>
                         <ul className="space-y-1 text-xs">
                             {artist.disciplines?.map(d => (
                                 <li key={d} className="flex items-center gap-2">
@@ -74,7 +74,7 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
                     </section>
 
                     <section className="space-y-4">
-                        <div className="h-48 w-full border border-white/5 bg-neutral-950 flex items-center justify-center p-4">
+                        <div className="h-48 w-full border-4 border-white bg-black shadow-[10px_10px_0_0_#000000] flex items-center justify-center p-4">
                             <div className="h-full w-full border border-white/10 flex flex-col items-center justify-center gap-2 opacity-20">
                                 <div className="h-1 w-32 bg-white/20 animate-pulse" />
                                 <div className="h-1 w-24 bg-white/20 animate-pulse" />
@@ -87,7 +87,7 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
 
                 {/* Right Column: Visual & Bio */}
                 <div className="flex-1">
-                    <div className="relative aspect-video w-full overflow-hidden grayscale border-b border-white/10 group">
+                    <div className="relative aspect-video w-full overflow-hidden grayscale border-b-4 border-white group">
                         <Image
                             src={artist.imageSrc}
                             alt={artist.name}
@@ -102,24 +102,24 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
 
                     <div className="p-8 md:p-16 space-y-12">
                         <section className="max-w-2xl space-y-6">
-                            <h2 className="text-[10px] tracking-[0.5em] text-white/30 border-b border-white/10 pb-2">STORY_LOG</h2>
+                            <h2 className="text-[10px] tracking-[0.5em] text-[#FF4D00] border-b-4 border-white pb-2">STORY_LOG</h2>
                             <p className="text-lg md:text-2xl leading-relaxed text-white/80 lowercase italic font-serif">
                                 {artist.bio || artist.blurb}
                             </p>
                         </section>
 
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 grayscale opacity-40">
-                            <div className="h-32 border border-white/10 bg-white/5" />
-                            <div className="h-32 border border-white/10 bg-white/5" />
-                            <div className="h-32 border border-white/10 bg-white/5" />
-                            <div className="h-32 border border-white/10 bg-white/5" />
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 grayscale">
+                            <div className="h-32 border-4 border-white bg-black shadow-[6px_6px_0_0_#000000] hover:-translate-y-2 hover:-translate-x-2 hover:bg-[#FF4D00] hover:shadow-[10px_10px_0_0_#000000] transition-all" />
+                            <div className="h-32 border-4 border-white bg-black shadow-[6px_6px_0_0_#000000] hover:-translate-y-2 hover:-translate-x-2 hover:bg-[#FF4D00] hover:shadow-[10px_10px_0_0_#000000] transition-all" />
+                            <div className="h-32 border-4 border-white bg-black shadow-[6px_6px_0_0_#000000] hover:-translate-y-2 hover:-translate-x-2 hover:bg-[#FF4D00] hover:shadow-[10px_10px_0_0_#000000] transition-all" />
+                            <div className="h-32 border-4 border-white bg-black shadow-[6px_6px_0_0_#000000] hover:-translate-y-2 hover:-translate-x-2 hover:bg-[#FF4D00] hover:shadow-[10px_10px_0_0_#000000] transition-all" />
                         </div>
                     </div>
                 </div>
             </div>
 
             {/* Footer System Label */}
-            <footer className="border-t border-white/10 p-4 text-center text-[8px] tracking-[0.5em] text-white/10 italic">
+            <footer className="border-t-4 border-white p-4 text-center text-[8px] tracking-[0.5em] text-white font-black italic">
                 NOMADES_UNIT_SYSTEM // EXPÉDIENT_D’ARTISTE_INTERNE_AUTORISÉ
             </footer>
         </main>

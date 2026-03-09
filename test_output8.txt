@@ -1,0 +1,418 @@
+﻿
+> project-web-nmd@1.0.0 test C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final
+> turbo test
+
+node.exe : turbo 2.5.8
+En C:\Users\Usuario\AppData\Roaming\npm\pnpm.ps1: 24 
+Carácter: 5
++     & "node$exe"  
+"$basedir/node_modules/pnpm/bin/pnpm.cjs" $args
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~
+    + CategoryInfo          : NotSpecified: (turbo 2.5.8:St 
+   ring) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+ÔÇó Packages in scope: @nmd/animation, @nmd/commerce, @nmd/config, @nmd/ui, web
+ÔÇó Running test in 5 packages
+ÔÇó Remote caching disabled
+@nmd/ui:test: cache hit, replaying logs 3b67215513ca578e
+@nmd/commerce:test: cache hit, replaying logs c821b51683d879ba
+@nmd/animation:test: cache hit, replaying logs 87214ca7539ac453
+@nmd/ui:test: 
+@nmd/animation:test: 
+@nmd/animation:test: > @nmd/animation@0.0.0 test C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\packages\animation
+@nmd/animation:test: > echo "@nmd/animation test placeholder"
+@nmd/ui:test: > @nmd/ui@0.0.0 test C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\packages\ui
+@nmd/ui:test: > echo "@nmd/ui test placeholder"
+@nmd/commerce:test: 
+@nmd/commerce:test: > @nmd/commerce@0.0.0 test C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\packages\commerce
+@nmd/commerce:test: > echo "@nmd/commerce test placeholder"
+@nmd/ui:test: 
+@nmd/ui:test: "@nmd/ui test placeholder"
+@nmd/animation:test: 
+@nmd/animation:test: "@nmd/animation test placeholder"
+@nmd/commerce:test: 
+@nmd/commerce:test: "@nmd/commerce test placeholder"
+web:test: cache miss, executing 1da66eda6f5cd942
+web:test: 
+web:test: > web@0.1.0 test C:\Users\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\apps\web
+web:test: > vitest run
+web:test: 
+web:test: [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+web:test: 
+web:test: [1m[46m RUN [49m[22m [36mv4.0.3 [39m[90mC:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/apps/web[39m
+web:test: 
+web:test:  [32mÔ£ô[39m src/lib/analytics.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 7[2mms[22m[39m
+web:test:  [32mÔ£ô[39m src/lib/app-ready.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+web:test: [90mstderr[2m | src/lib/services/calendar.test.ts[2m > [22m[2mCalendar Service[2m > [22m[2mfetchCalendarEvents[2m > [22m[2mshould handle errors gracefully and throw or return empty/default
+web:test: [22m[39mFailed to fetch calendar events: Error: API Error
+web:test:     at C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/apps/web/src/lib/services/calendar.test.ts:61:34
+web:test:     at file:///C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/node_modules/[4m.pnpm[24m/@vitest+runner@4.0.3/node_modules/[4m@vitest[24m/runner/dist/index.js:157:11
+web:test:     at file:///C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/node_modules/[4m.pnpm[24m/@vitest+runner@4.0.3/node_modules/[4m@vitest[24m/runner/dist/index.js:753:26
+web:test:     at file:///C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/node_modules/[4m.pnpm[24m/@vitest+runner@4.0.3/node_modules/[4m@vitest[24m/runner/dist/index.js:1636:20
+web:test:     at new Promise (<anonymous>)
+web:test:     at runWithTimeout (file:///C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/node_modules/[4m.pnpm[24m/@vitest+runner@4.0.3/node_modules/[4m@vitest[24m/runner/dist/index.js:1602:10)
+web:test:     at runTest (file:///C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/node_modules/[4m.pnpm[24m/@vitest+runner@4.0.3/node_modules/[4m@vitest[24m/runner/dist/index.js:1309:12)
+web:test: [90m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+web:test:     at runSuite (file:///C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/node_modules/[4m.pnpm[24m/@vitest+runner@4.0.3/node_modules/[4m@vitest[24m/runner/dist/index.js:1468:8)
+web:test:     at runSuite (file:///C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/node_modules/[4m.pnpm[24m/@vitest+runner@4.0.3/node_modules/[4m@vitest[24m/runner/dist/index.js:1468:8)
+web:test: 
+web:test: [90mstderr[2m | src/lib/services/calendar.test.ts[2m > [22m[2mCalendar Service[2m > [22m[2mcreateCalendarEvent[2m > [22m[2mshould handle creation errors gracefully
+web:test: [22m[39mFailed to create calendar event: Error: API Error
+web:test:     at C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/apps/web/src/lib/services/calendar.test.ts:95:36
+web:test:     at file:///C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/node_modules/[4m.pnpm[24m/@vitest+runner@4.0.3/node_modules/[4m@vitest[24m/runner/dist/index.js:157:11
+web:test:     at file:///C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/node_modules/[4m.pnpm[24m/@vitest+runner@4.0.3/node_modules/[4m@vitest[24m/runner/dist/index.js:753:26
+web:test:     at file:///C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/node_modules/[4m.pnpm[24m/@vitest+runner@4.0.3/node_modules/[4m@vitest[24m/runner/dist/index.js:1636:20
+web:test:     at new Promise (<anonymous>)
+web:test:     at runWithTimeout (file:///C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/node_modules/[4m.pnpm[24m/@vitest+runner@4.0.3/node_modules/[4m@vitest[24m/runner/dist/index.js:1602:10)
+web:test:     at runTest (file:///C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/node_modules/[4m.pnpm[24m/@vitest+runner@4.0.3/node_modules/[4m@vitest[24m/runner/dist/index.js:1309:12)
+web:test: [90m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+web:test:     at runSuite (file:///C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/node_modules/[4m.pnpm[24m/@vitest+runner@4.0.3/node_modules/[4m@vitest[24m/runner/dist/index.js:1468:8)
+web:test:     at runSuite (file:///C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/node_modules/[4m.pnpm[24m/@vitest+runner@4.0.3/node_modules/[4m@vitest[24m/runner/dist/index.js:1468:8)
+web:test: 
+web:test:  [32mÔ£ô[39m src/lib/services/calendar.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+web:test: [90mstderr[2m | src/lib/services/security.test.ts[2m > [22m[2mSecurity Service[2m > [22m[2mverifySecureToken[2m > [22m[2mshould return null for an expired token
+web:test: [22m[39m[Security] Token expired for booking booking_123
+web:test: 
+web:test:  [32mÔ£ô[39m src/lib/services/security.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+web:test: [90mstderr[2m | src/app/api/webhooks/resend/route.test.ts[2m > [22m[2mResend Webhook GET Route[2m > [22m[2mshould redirect to error confirmation for an invalid token
+web:test: [22m[39m[Security] Error verifying secure token: SyntaxError: Unexpected token '´┐¢', "´┐¢{┌û'" is not valid JSON
+web:test:     at JSON.parse (<anonymous>)
+web:test:     at verifySecureToken (C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/apps/web/src/lib/services/security.ts:56:29)
+web:test:     at Module.GET (C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/apps/web/src/app/api/webhooks/resend/route.ts:19:21)
+web:test:     at C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/apps/web/src/app/api/webhooks/resend/route.test.ts:80:28
+web:test:     at file:///C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/node_modules/[4m.pnpm[24m/@vitest+runner@4.0.3/node_modules/[4m@vitest[24m/runner/dist/index.js:157:11
+web:test:     at file:///C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/node_modules/[4m.pnpm[24m/@vitest+runner@4.0.3/node_modules/[4m@vitest[24m/runner/dist/index.js:753:26
+web:test:     at file:///C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/node_modules/[4m.pnpm[24m/@vitest+runner@4.0.3/node_modules/[4m@vitest[24m/runner/dist/index.js:1636:20
+web:test:     at new Promise (<anonymous>)
+web:test:     at runWithTimeout (file:///C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/node_modules/[4m.pnpm[24m/@vitest+runner@4.0.3/node_modules/[4m@vitest[24m/runner/dist/index.js:1602:10)
+web:test:     at runTest (file:///C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/node_modules/[4m.pnpm[24m/@vitest+runner@4.0.3/node_modules/[4m@vitest[24m/runner/dist/index.js:1309:12)
+web:test: 
+web:test: [90mstdout[2m | src/app/api/webhooks/resend/route.test.ts[2m > [22m[2mResend Webhook GET Route[2m > [22m[2mshould redirect to success confirmation for a valid confirm token
+web:test: [22m[39m[Webhook] Booking booking_123 marked as confirm
+web:test: 
+web:test: [90mstderr[2m | src/app/api/webhooks/resend/route.test.ts[2m > [22m[2mResend Webhook GET Route[2m > [22m[2mshould detect concurrency conflict, send rejection email, and redirect to error
+web:test: [22m[39m[Webhook] Concurrency conflict: Slot 2026-03-01T15:00:00.000Z already taken. Rejecting booking booking_456.
+web:test: 
+web:test: [90mstderr[2m | src/app/api/webhooks/resend/route.test.ts[2m > [22m[2mResend Webhook GET Route[2m > [22m[2mshould redirect to error confirmation if the timeSlot is an invalid date string
+web:test: [22m[39m[Webhook] Invalid timeSlot format for booking booking_999
+web:test: 
+web:test: [90mstderr[2m | src/app/api/webhooks/resend/route.test.ts[2m > [22m[2mResend Webhook GET Route[2m > [22m[2mshould redirect to error confirmation if calendar creation fails
+web:test: [22m[39m[Webhook] Calendar error for booking booking_123: Sync error
+web:test: 
+web:test: [90mstdout[2m | src/app/api/webhooks/resend/route.test.ts[2m > [22m[2mResend Webhook GET Route[2m > [22m[2mshould redirect to success confirmation for a valid reject token
+web:test: [22m[39m[Webhook] Booking booking_456 marked as reject
+web:test: 
+web:test:  [32mÔ£ô[39m src/app/api/webhooks/resend/route.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 28[2mms[22m[39m
+web:test:  [31mÔØ»[39m src/components/sections/ArtistCard.test.tsx [2m([22m[2m3 tests[22m[2m | [22m[31m1 failed[39m[2m)[22m[32m 73[2mms[22m[39m
+web:test: [31m     [31m├ù[31m renders the artist name and id[39m[32m 54[2mms[22m[39m
+web:test:      [32mÔ£ô[39m calls onSelect when the card is clicked[32m 12[2mms[22m[39m
+web:test:      [32mÔ£ô[39m renders the artist image with correct alt text[32m 5[2mms[22m[39m
+web:test: [90mstderr[2m | src/lib/services/email.test.ts[2m > [22m[2msendReservationEmail[2m > [22m[2mshould handle Resend API errors gracefully
+web:test: [22m[39mResend API Error: { message: [32m'API Error'[39m }
+web:test: 
+web:test: [90mstderr[2m | src/lib/services/email.test.ts[2m > [22m[2msendReservationEmail[2m > [22m[2mshould catch unexpected errors
+web:test: [22m[39mFailed to send reservation email: Error: Unexpected failure
+web:test:     at C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/apps/web/src/lib/services/email.test.ts:72:36
+web:test:     at file:///C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/node_modules/[4m.pnpm[24m/@vitest+runner@4.0.3/node_modules/[4m@vitest[24m/runner/dist/index.js:157:11
+web:test:     at file:///C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/node_modules/[4m.pnpm[24m/@vitest+runner@4.0.3/node_modules/[4m@vitest[24m/runner/dist/index.js:753:26
+web:test:     at file:///C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/node_modules/[4m.pnpm[24m/@vitest+runner@4.0.3/node_modules/[4m@vitest[24m/runner/dist/index.js:1636:20
+web:test:     at new Promise (<anonymous>)
+web:test:     at runWithTimeout (file:///C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/node_modules/[4m.pnpm[24m/@vitest+runner@4.0.3/node_modules/[4m@vitest[24m/runner/dist/index.js:1602:10)
+web:test:     at runTest (file:///C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/node_modules/[4m.pnpm[24m/@vitest+runner@4.0.3/node_modules/[4m@vitest[24m/runner/dist/index.js:1309:12)
+web:test: [90m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+web:test:     at runSuite (file:///C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/node_modules/[4m.pnpm[24m/@vitest+runner@4.0.3/node_modules/[4m@vitest[24m/runner/dist/index.js:1468:8)
+web:test:     at runSuite (file:///C:/Users/Usuario/Documents/GitHub/ProyectoWeb-somosNMD-v-Final/node_modules/[4m.pnpm[24m/@vitest+runner@4.0.3/node_modules/[4m@vitest[24m/runner/dist/index.js:1468:8)
+web:test: 
+web:test:  [32mÔ£ô[39m src/lib/services/email.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+web:test:  [31mÔØ»[39m src/components/blocks/session-type-cards.test.tsx [2m([22m[2m4 tests[22m[2m | [22m[31m1 failed[39m[2m)[22m[32m 294[2mms[22m[39m
+web:test:      [32mÔ£ô[39m renders both session type options[32m 48[2mms[22m[39m
+web:test:      [32mÔ£ô[39m calls onNext with 'solo' when Solo Estudio is clicked[32m 129[2mms[22m[39m
+web:test:      [32mÔ£ô[39m calls onNext with 'producer' when Estudio + Productor is clicked[32m 52[2mms[22m[39m
+web:test: [31m     [31m├ù[31m highlights the selected option[39m[32m 64[2mms[22m[39m
+web:test:  [32mÔ£ô[39m src/lib/actions/booking.test.ts [2m([22m[2m7 tests[22m[2m)[22m[33m 819[2mms[22m[39m
+web:test:      [33m[2mÔ£ô[22m[39m [P0] should return success for valid booking data [33m 810[2mms[22m[39m
+web:test:  [32mÔ£ô[39m src/components/blocks/booking-data-form.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[32m 275[2mms[22m[39m
+web:test:  [31mÔØ»[39m src/components/blocks/time-slot-grid.test.tsx [2m([22m[2m4 tests[22m[2m | [22m[31m2 failed[39m[2m)[22m[33m 580[2mms[22m[39m
+web:test: [31m     [31m├ù[31m renders a calendar and time slots[39m[32m 120[2mms[22m[39m
+web:test: [31m     [31m├ù[31m selects a time slot, updates styling and aria tags, and calls onNext[39m[32m 68[2mms[22m[39m
+web:test:      [33m[2mÔ£ô[22m[39m displays loading spinner when isLoading is true [33m 355[2mms[22m[39m
+web:test:      [32mÔ£ô[39m calls sileo.error when isError is true[32m 35[2mms[22m[39m
+web:test: 
+web:test: [31mÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»[39m[1m[41m Failed Tests 4 [49m[22m[31mÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»[39m
+web:test: 
+web:test: [41m[1m FAIL [22m[49m src/components/blocks/session-type-cards.test.tsx[2m > [22mSessionTypeCards[2m > [22mhighlights the selected option
+web:test: [31m[1mAssertionError[22m: expected 'flex flex-col items-start p-6 md:p-8 ÔÇª' to contain 'bg-nmd-orange'[39m
+web:test: 
+web:test: Expected: [32m"bg-nmd-orange"[39m
+web:test: Received: [31m"flex flex-col items-start p-6 md:p-8 rounded-none border-2 transition-all text-left relative overflow-hidden min-h-[180px] bg-primary text-primary-foreground border-primary shadow-[4px_4px_0_0_rgba(230,48,38,0.5)]"[39m
+web:test: 
+web:test: [36m [2mÔØ»[22m src/components/blocks/session-type-cards.test.tsx:[2m45:34[22m[39m
+web:test:     [90m 43| [39m    
+web:test:     [90m 44| [39m    [90m// Check for the selected class (Tron Orange background)[39m
+web:test:     [90m 45| [39m    [34mexpect[39m(soloButton[33m.[39mclassName)[33m.[39m[34mtoContain[39m([32m"bg-nmd-orange"[39m)[33m;[39m
+web:test:     [90m   | [39m                                 [31m^[39m
+web:test:     [90m 46| [39m  })[33m;[39m
+web:test:     [90m 47| [39m})[33m;[39m
+web:test: 
+web:test: [31m[2mÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»[1/4]ÔÄ»[22m[39m
+web:test: 
+web:test: [41m[1m FAIL [22m[49m src/components/blocks/time-slot-grid.test.tsx[2m > [22mTimeSlotGrid[2m > [22mrenders a calendar and time slots
+web:test: [31m[1mTestingLibraryElementError[22m[39m: Unable to find an element with the text: Selecciona una fecha. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+web:test: 
+web:test: Ignored nodes: comments, script, style
+web:test: [36m<body>[39m
+web:test:   [36m<div>[39m
+web:test:     [36m<div[39m
+web:test:       [33mclass[39m=[32m"flex flex-col gap-6 md:flex-row md:items-start p-4 md:p-8 bg-white border-2 border-border border-t-0 shadow-[8px_8px_0_0_rgba(0,0,0,1)] hover:-translate-y-1 transition-transform"[39m
+web:test:     [36m>[39m
+web:test:       [36m<div[39m
+web:test:         [33mclass[39m=[32m"flex-1 min-w-[300px]"[39m
+web:test:       [36m>[39m
+web:test:         [36m<h3[39m
+web:test:           [33mclass[39m=[32m"text-xl md:text-2xl font-black uppercase tracking-widest text-foreground mb-6"[39m
+web:test:         [36m>[39m
+web:test:           [0mSELECCIONA FECHA[0m
+web:test:         [36m</h3>[39m
+web:test:         [36m<div[39m
+web:test:           [33mclass[39m=[32m"rdp-root group/calendar [--cell-size:2rem] [[data-slot=card-content]_&]:bg-transparent [[data-slot=popover-content]_&]:bg-transparent rtl:**:[.rdp-button\\_next>svg]:rotate-180 rtl:**:[.rdp-button\\_previous>svg]:rotate-180 rounded-none border-2 border-border bg-background text-foreground p-4 font-mono w-full shadow-[4px_4px_0_0_rgba(0,0,0,1)]"[39m
+web:test:           [33mdata-mode[39m=[32m"single"[39m
+web:test:           [33mdata-slot[39m=[32m"calendar"[39m
+web:test:           [33mlang[39m=[32m"es"[39m
+web:test:         [36m>[39m
+web:test:           [36m<div[39m
+web:test:             [33mclass[39m=[32m"relative flex flex-col gap-4 md:flex-row rdp-months"[39m
+web:test:           [36m>[39m
+web:test:             [36m<nav[39m
+web:test:               [33maria-label[39m=[32m"Navigation bar"[39m
+web:test:               [33mclass[39m=[32m"absolute inset-x-0 top-0 flex w-full items-center justify-between gap-1 rdp-nav"[39m
+web:test:             [36m>[39m
+web:test:               [36m<button[39m
+web:test:                 [33maria-label[39m=[32m"Go to the Previous Month"[39m
+web:test:                 [33mclass[39m=[32m"inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground rounded-[24px] h-[--cell-size] w-[--cell-size] select-none p-0 aria-disabled:opacity-50 rdp-button_previous"[39m
+web:test:                 [33mtype[39m=[32m"button"[39m
+web:test:               [36m>[39m
+web:test:                 [36m<svg[39m
+web:test:                   [33maria-hidden[39m=[32m"true"[39m
+web:test:                   [33mclass[39m=[32m"lucide lucide-chevron-left size-4 rdp-chevron"[39m
+web:test:                   [33mfill[39m=[32m"none"[39m
+web:test:                   [33mheight[39m=[32m"24"[39m
+web:test:                   [33mstroke[39m=[32m"currentColor"[39m
+web:test:                   [33mstroke-linecap[39m=[32m"round"[39m
+web:test:                   [33mstroke-linejoin[39m=[32m"round"[39m
+web:test:                   [33mstroke-width[39m=[32m"2"[39m
+web:test:                   [33mviewBox[39m=[32m"0 0 24 24"[39m
+web:test:                   [33mwidth[39m=[32m"24"[39m
+web:test:                   [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+web:test:                 [36m>[39m
+web:test:                   [36m<path[39m
+web:test:                     [33md[39m=[32m"m15 18-6-6 6-6"[39m
+web:test:                   [36m/>[39m
+web:test:                 [36m</svg>[39m
+web:test:               [36m</button>[39m
+web:test:               [36m<button[39m
+web:test:                 [33maria-label[39m=[32m"Go to the Next Month"[39m
+web:test:                 [33mclass[39m=[32m"inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground rounded-[24px] h-[--cell-size] w-[--cell-size] select-none p-0 aria-disabled:opacity-50 rdp-button_next"[39m
+web:test:                 [33mtype[39m=[32m"button"[39m
+web:test:               [36m>[39m
+web:test:                 [36m<svg[39m
+web:test:                   [33maria-hidden[39m=[32m"true"[39m
+web:test:                   [33mclass[39m=[32m"lucide lucide-chevron-right size-4 rdp-chevron"[39m
+web:test:                   [33mfill[39m=[32m"none"[39m
+web:test:                   [33mheight[39m=[32m"24"[39m
+web:test:                   [33mstroke[39m=[32m"currentColor"[39m
+web:test:                   [33mstroke-linecap[39m=[32m"round"[39m
+web:test:                   [33mstroke-linejoin[39m=[32m"round"[39m
+web:test:                   [33mstroke-width[39m=[32m"2"[39m
+web:test:                   [33mviewBox[39m=[32m"0 0 24 24"[39m
+web:test:                   [33mwidth[39m=[32m"24"[39m
+web:test:                   [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+web:test:                 [36m>[39m
+web:test:                   [36m<path[39m
+web:test:                     [33md[39m=[32m"m9 18 6-6-6-6"[39m
+web:test:                   [36m/>[39m
+web:test:                 [36m</svg>[39m
+web:test:               [36m</button>[39m
+web:test:             [36m</nav>[39m
+web:test:             [36m<div[39m
+web:test:               [33mclass[39m=[32m"flex w-full flex-col gap-4 rdp-month"[39m
+web:test:             [36m>[39m
+web:test:               [36m<div[39m
+web:test:                 [33mclass[39m=[32m"flex h-[--cell-size] w-full items-center justify-center px-[--cell-size] rdp-month_caption"[39m
+web:test:               [36m>[39m
+web:test:                 [36m<span[39m
+web:test:                   [33maria-live[39m=[32m"polite"[39m
+web:test:                   [33mclass[39m=[32m"select-none font-medium text-sm rdp-caption_label"[39m
+web:test:                   [33mrole[39m=[32m"status"[39m
+web:test:                 [36m>[39m
+web:test:                   [0mmarzo 2026[0m
+web:test:                 [36m</span>[39m
+web:test:               [36m</div>[39m
+web:test:               [36m<table[39m
+web:test:                 [33maria-label[39m=[32m"marzo 2026"[39m
+web:test:                 [33maria-multiselectable[39m=[32m"false"[39m
+web:test:                 [33mclass[39m=[32m"rdp-month_grid"[39m
+web:test:                 [33mrole[39m=[32m"grid"[39m
+web:test:               [36m>[39m
+web:test:                 [36m<thead[39m
+web:test:                   [33maria-hidden[39m=[32m"true"[39m
+web:test:                 [36m>[39m
+web:test:                   [36m<tr[39m
+web:test:                     [33mclass[39m=[32m"flex rdp-weekdays"[39m
+web:test:                   [36m>[39m
+web:test:                     [36m<th[39m
+web:test:                       [33maria-label[39m=[32m"lunes"[39m
+web:test:                       [33mclass[39m=[32m"text-muted-foreground flex-1 select-none rounded-none text-[0.8rem] font-normal uppercase rdp-weekday"[39m
+web:test:                       [33mscope[39m=[32m"col"[39m
+web:test:                     [36m>[39m
+web:test:                       [0mlu[0m
+web:test:                     [36m</th>[39m
+web:test:                     [36m<th[39m
+web:test:                       [33maria-label[39m=[32m"martes"[39m
+web:test:                       [33mclass[39m=[32m"text-muted-foreground flex-1 select-none rounded-none text-[0.8rem] font-normal uppercase rdp-weekday"[39m
+web:test:                       [33mscope[39m=[32m"col"[39m
+web:test:                     [36m>[39m
+web:test:                       [0mma[0m
+web:test:                     [36m</th>[39m
+web:test:                     [36m<th[39m
+web:test:                       [33maria-label[39m=[32m"mi├®rcoles"[39m
+web:test:                       [33mclass[39m=[32m"text-muted-foreground flex-1 select-none rounded-none text-[0.8rem] font-normal uppercase rdp-weekday"[39m
+web:test:        ...
+web:test: [90m [2mÔØ»[22m Object.getElementError ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/config.js:[2m37:19[22m[39m
+web:test: [90m [2mÔØ»[22m ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:[2m76:38[22m[39m
+web:test: [90m [2mÔØ»[22m ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:[2m52:17[22m[39m
+web:test: [90m [2mÔØ»[22m ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:[2m95:19[22m[39m
+web:test: [36m [2mÔØ»[22m src/components/blocks/time-slot-grid.test.tsx:[2m35:19[22m[39m
+web:test:     [90m 33| [39m    [34mrender[39m([33m<[39m[33mTimeSlotGrid[39m [33monNext[39m[33m=[39m[33m{[39mhandleNextStep[33m}[39m [33m/[39m[33m>[39m)[33m;[39m
+web:test:     [90m 34| [39m
+web:test:     [90m 35| [39m    [34mexpect[39m(screen[33m.[39m[34mgetByText[39m([32m"Selecciona una fecha"[39m))[33m.[39m[34mtoBeDefined[39m()[33m;[39m
+web:test:     [90m   | [39m                  [31m^[39m
+web:test:     [90m 36| [39m
+web:test:     [90m 37| [39m    [90m// Check if the slots are rendered[39m
+web:test: 
+web:test: [31m[2mÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»[2/4]ÔÄ»[22m[39m
+web:test: 
+web:test: [41m[1m FAIL [22m[49m src/components/blocks/time-slot-grid.test.tsx[2m > [22mTimeSlotGrid[2m > [22mselects a time slot, updates styling and aria tags, and calls onNext
+web:test: [31m[1mAssertionError[22m: expected 'px-4 py-6 rounded-none text-center foÔÇª' to contain 'bg-nmd-orange'[39m
+web:test: 
+web:test: Expected: [32m"bg-nmd-orange"[39m
+web:test: Received: [31m"px-4 py-6 rounded-none text-center font-mono font-bold transition-all border-2 relative overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 bg-primary text-primary-foreground border-primary shadow-[4px_4px_0_0_rgba(230,48,38,0.5)]"[39m
+web:test: 
+web:test: [36m [2mÔØ»[22m src/components/blocks/time-slot-grid.test.tsx:[2m60:28[22m[39m
+web:test:     [90m 58| [39m    
+web:test:     [90m 59| [39m    // Check that it gets the selected state class and ARIA pressed trÔÇª
+web:test:     [90m 60| [39m    [34mexpect[39m(slot[33m.[39mclassName)[33m.[39m[34mtoContain[39m([32m"bg-nmd-orange"[39m)[33m;[39m
+web:test:     [90m   | [39m                           [31m^[39m
+web:test:     [90m 61| [39m    [34mexpect[39m(slot[33m.[39m[34mgetAttribute[39m([32m"aria-pressed"[39m))[33m.[39m[34mtoBe[39m([32m"true"[39m)[33m;[39m
+web:test:     [90m 62| [39m  })[33m;[39m
+web:test: 
+web:test: [31m[2mÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»[3/4]ÔÄ»[22m[39m
+web:test: 
+web:test: [41m[1m FAIL [22m[49m src/components/sections/ArtistCard.test.tsx[2m > [22mArtistCard[2m > [22mrenders the artist name and id
+web:test: [31m[1mTestingLibraryElementError[22m: Unable to find an element with the text: 76. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+web:test: 
+web:test: Ignored nodes: comments, script, style
+web:test: [36m<body>[31m
+web:test:   [36m<div>[31m
+web:test:     [36m<div[31m
+web:test:       [33mclass[31m=[32m"relative flex flex-col w-full h-full"[31m
+web:test:     [36m>[31m
+web:test:       [36m<div[31m
+web:test:         [33mclass[31m=[32m"hidden lg:flex absolute bottom-[15%] flex-col gap-2 font-mono text-[11px] text-[#1a1a1a] uppercase tracking-widest leading-relaxed z-10 
+web:test:         right-4 text-left p-2 bg-white/50 backdrop-blur-sm"[31m
+web:test:       [36m>[31m
+web:test:         [36m<span>[31m
+web:test:           [0m[ [0m
+web:test:           [0m3D[0m
+web:test:           [0m ][0m
+web:test:         [36m</span>[31m
+web:test:         [36m<span>[31m
+web:test:           [0m[ [0m
+web:test:           [0mMOTION[0m
+web:test:           [0m ][0m
+web:test:         [36m</span>[31m
+web:test:         [36m<span>[31m
+web:test:           [0m[ [0m
+web:test:           [0mUX\UI[0m
+web:test:           [0m ][0m
+web:test:         [36m</span>[31m
+web:test:       [36m</div>[31m
+web:test:       [36m<button[31m
+web:test:         [33mclass[31m=[32m"group relative flex flex-col cursor-pointer bg-transparent text-left transition-all duration-300 [-webkit-tap-highlight-color:transparent]"[31m
+web:test:         [33mdata-testid[31m=[32m"motion-button"[31m
+web:test:       [36m>[31m
+web:test:         [36m<div[31m
+web:test:           [33mclass[31m=[32m"relative w-full aspect-[4/5] bg-[#EAE9E4] overflow-hidden mb-6"[31m
+web:test:         [36m>[31m
+web:test:           [36m<img[31m
+web:test:             [33malt[31m=[32m"John Doe"[31m
+web:test:             [33mclass[31m=[32m"object-cover object-center grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"[31m
+web:test:             [33msizes[31m=[32m"(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"[31m
+web:test:             [33msrc[31m=[32m"/test-image.jpg"[31m
+web:test:           [36m/>[31m
+web:test:         [36m</div>[31m
+web:test:         [36m<div[31m
+web:test:           [33mclass[31m=[32m"flex justify-between items-end w-full gap-4"[31m
+web:test:         [36m>[31m
+web:test:           [36m<div[31m
+web:test:             [33mclass[31m=[32m"flex flex-col"[31m
+web:test:           [36m>[31m
+web:test:             [36m<h3[31m
+web:test:               [33mclass[31m=[32m"font-sans text-[1.5rem] lg:text-[1.75rem] font-bold uppercase tracking-tight text-[#1a1a1a] leading-none mb-1 group-hover:underline decoration-2 underline-offset-4"[31m
+web:test:             [36m>[31m
+web:test:               [0mJohn Doe[0m
+web:test:             [36m</h3>[31m
+web:test:             [36m<p[31m
+web:test:               [33mclass[31m=[32m"font-mono text-[10px] xl:text-xs text-[#1a1a1a]/60 uppercase tracking-widest whitespace-nowrap overflow-hidden text-ellipsis max-w-[200px] xl:max-w-[280px]"[31m
+web:test:             [36m>[31m
+web:test:               [0mCreates stunning visual art.[0m
+web:test:             [36m</p>[31m
+web:test:           [36m</div>[31m
+web:test:           [36m<div[31m
+web:test:             [33mclass[31m=[32m"w-8 h-8 shrink-0 flex items-center justify-center text-[#1a1a1a]/50 font-light text-xl transition-colors group-hover:bg-[#1a1a1a] group-hover:text-white pb-[2px] border border-[#1a1a1a]/30"[31m
+web:test:           [36m>[31m
+web:test:             [0m+[0m
+web:test:           [36m</div>[31m
+web:test:         [36m</div>[31m
+web:test:       [36m</button>[31m
+web:test:     [36m</div>[31m
+web:test:   [36m</div>[31m
+web:test: [36m</body>[31m[39m
+web:test: [90m [2mÔØ»[22m Object.getElementError ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/config.js:[2m37:19[22m[39m
+web:test: [90m [2mÔØ»[22m ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:[2m76:38[22m[39m
+web:test: [90m [2mÔØ»[22m ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:[2m52:17[22m[39m
+web:test: [90m [2mÔØ»[22m ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:[2m95:19[22m[39m
+web:test: [36m [2mÔØ»[22m src/components/sections/ArtistCard.test.tsx:[2m45:19[22m[39m
+web:test:     [90m 43| [39m    [34mexpect[39m(screen[33m.[39m[34mgetByText[39m([32m"John Doe"[39m))[33m.[39m[34mtoBeInTheDocument[39m()[33m;[39m
+web:test:     [90m 44| [39m    // 'test-artist' id results in numericId 76 based on the componentÔÇª
+web:test:     [90m 45| [39m    [34mexpect[39m(screen[33m.[39m[34mgetByText[39m([32m"76"[39m))[33m.[39m[34mtoBeInTheDocument[39m()[33m;[39m
+web:test:     [90m   | [39m                  [31m^[39m
+web:test:     [90m 46| [39m  })[33m;[39m
+web:test:     [90m 47| [39m
+web:test: 
+web:test: [31m[2mÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»[4/4]ÔÄ»[22m[39m
+web:test: 
+web:test: 
+web:test: [2m Test Files [22m [1m[31m3 failed[39m[22m[2m | [22m[1m[32m8 passed[39m[22m[90m (11)[39m
+web:test: [2m      Tests [22m [1m[31m4 failed[39m[22m[2m | [22m[1m[32m47 passed[39m[22m[90m (51)[39m
+web:test: [2m   Start at [22m 20:05:18
+web:test: [2m   Duration [22m 6.31s[2m (transform 1.69s, setup 3.80s, collect 7.28s, tests 2.13s, environment 19.17s, prepare 467ms)[22m
+web:test: 
+web:test: ÔÇëELIFECYCLEÔÇë Test failed. See above for more details.
+web:test: ERROR: command finished with error: command (C:\Us
+ers\Usuario\Documents\GitHub\ProyectoWeb-somosNMD-v-Final\ap
+ps\web) C:\Users\Usuario\AppData\Local\pnpm\.tools\pnpm\10.1
+9.0\bin\pnpm.CMD run test exited (1)
+web#test: command (C:\Users\Usuario\Documents\GitHub\Proyect
+oWeb-somosNMD-v-Final\apps\web) C:\Users\Usuario\AppData\Loc
+al\pnpm\.tools\pnpm\10.19.0\bin\pnpm.CMD run test exited (1)
+
+ Tasks:    3 successful, 4 total
+Cached:    3 cached, 4 total
+  Time:    7.997s 
+Failed:    web#test
+
+ ERROR  run failed: command  exited (1)
+ÔÇëELIFECYCLEÔÇë Test failed. See above for more details.

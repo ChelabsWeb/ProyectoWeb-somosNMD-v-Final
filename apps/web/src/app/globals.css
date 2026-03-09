@@ -49,32 +49,36 @@
   }
 
   .dark {
-    --background: 45 2% 74%;
-    --foreground: 0 0% 0%;
+    --background: 0 0% 0%; /* Pure Black */
+    --foreground: 0 0% 100%; /* Pure White */
     --muted: 0 0% 15%;
-    --muted-foreground: 45 2% 50%;
-    --card: 0 0% 5%;
-    --card-foreground: 45 2% 74%;
-    --popover: 0 0% 5%;
-    --popover-foreground: 45 2% 74%;
-    --border: 45 2% 74%;
+    --muted-foreground: 0 0% 60%;
+    --card: 0 0% 0%; /* Pure Black */
+    --card-foreground: 0 0% 100%; /* Pure White */
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 100%;
+    --border: 0 0% 100%; /* Pure White */
     --input: 0 0% 15%;
-    --primary: 4 80% 53%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 45 2% 74%;
-    --secondary-foreground: 0 0% 5%;
-    --accent: 4 80% 53%;
+    --primary: 18 100% 50%; /* #FF4D00 Orange */
+    --primary-foreground: 0 0% 100%; /* White Text */
+    --secondary: 220 100% 50%; /* #0055FF Blue */
+    --secondary-foreground: 0 0% 100%; /* White Text */
+    --accent: 220 100% 50%; /* Blue */
     --accent-foreground: 0 0% 100%;
-    --ring: 4 80% 53%;
+    --ring: 18 100% 50%; /* Orange */
     --radius: 0rem;
+    --pop-orange: 18 100% 50%; /* #FF4D00 */
+    --pop-blue: 220 100% 50%; /* #0055FF */
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --destructive: 18 100% 50%; /* Orange used as destructive here or we keep it strict */
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Strict subset for charts if needed */
+    --chart-1: 18 100% 50%;
+    --chart-2: 220 100% 50%;
+    --chart-3: 0 0% 100%;
+    --chart-4: 18 100% 50%;
+    --chart-5: 220 100% 50%;
   }
 
   * {
@@ -99,6 +103,38 @@
   section {
     scroll-margin-top: 6rem;
   }
+
+  /* Prevent Radix UI Dialog from shifting the page because we force the scrollbar on html */
+  body[data-scroll-locked] {
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+@layer components {
+  /* Brutalist UI Tokens */
+  .card-brutalist {
+    @apply border-2 border-border bg-background shadow-[8px_8px_0_0_rgba(0,0,0,1)] transition-transform hover:-translate-y-1 rounded-none;
+  }
+  
+  .card-brutalist-sm {
+    @apply border-2 border-border bg-background shadow-[4px_4px_0_0_rgba(0,0,0,1)] rounded-none;
+  }
+
+  /* Brutalist Buttons */
+  .btn-brutalist {
+    @apply flex items-center justify-center font-black uppercase tracking-widest transition-all border-2 border-border rounded-none shadow-[4px_4px_0_0_rgba(0,0,0,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 hover:-translate-y-1 hover:shadow-[8px_8px_0_0_rgba(0,0,0,1)];
+  }
+
+  .btn-brutalist-primary {
+    @apply btn-brutalist bg-primary text-primary-foreground hover:bg-black hover:text-white hover:border-black;
+  }
+  
+  .btn-brutalist:disabled,
+  .btn-brutalist[disabled],
+  .btn-brutalist[aria-disabled="true"] {
+    @apply bg-gray-100 border-gray-300 text-gray-400 cursor-not-allowed shadow-none hover:translate-y-0 hover:shadow-none;
+  }
 }
 
 html {
@@ -107,16 +143,26 @@ html {
   scrollbar-color: #FF4D00 var(--background);
 }
 
+html[style*="pointer-events: none"] {
+  overflow: hidden !important; 
+  padding-right: 0 !important;
+}
+
 html.lenis,
 html.lenis body {
   height: auto;
 }
 
 @media (pointer: fine) {
-  body.custom-cursor-active,
-  body.custom-cursor-active * {
-    cursor: none !important;
+  body {
+    cursor: url('/cursor.cur'), auto;
   }
+  
+  a, button, [role="button"], input, select, textarea {
+    cursor: url('/cursor.cur'), pointer !important;
+  }
+
+
 }
 
 
