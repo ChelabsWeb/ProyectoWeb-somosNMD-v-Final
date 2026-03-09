@@ -506,3 +506,13 @@ Google Calendar credentials missing. Fetching will be bypassed.
  GET / 200 in 26ms (compile: 3ms, render: 23ms)
  ✓ Compiled in 220ms
 Google Calendar credentials missing. Fetching will be bypassed.
+ POST / 200 in 961ms (compile: 800ms, render: 161ms)
+Google Calendar credentials missing. Fetching will be bypassed.
+ POST / 200 in 11ms (compile: 4ms, render: 6ms)
+ ✓ Compiled in 314ms
+ ✓ Compiled in 229ms
+Google Calendar credentials missing. Fetching will be bypassed.
+ POST / 200 in 1088ms (compile: 923ms, render: 164ms)
+Google Calendar credentials missing. Fetching will be bypassed.
+ POST / 200 in 9ms (compile: 3ms, render: 5ms)
+Google Calendar credentials missing. Fetching will be bypassed.

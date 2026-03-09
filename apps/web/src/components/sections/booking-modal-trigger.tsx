@@ -9,11 +9,13 @@ import { BookingModule } from "@/components/sections/booking-module";
 export function BookingModalTrigger() {
   return (
     <DialogPrimitive.Root>
-      <DialogPrimitive.Trigger asChild>
-        <button className="btn-brutalist-primary bg-[#FF4D00] text-white font-black uppercase tracking-widest flex items-center justify-center px-6 py-3 md:px-8 md:py-4 border-4 border-foreground shadow-[8px_8px_0_0_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[6px_6px_0_0_rgba(0,0,0,1)] transition-all active:translate-x-[8px] active:translate-y-[8px] active:shadow-none min-w-[180px] md:min-w-[200px] text-center fixed bottom-4 right-4 md:bottom-8 md:right-8 z-[50] hover:bg-white hover:text-black hover:border-black">
-          RESERVAR SESIÓN
-        </button>
-      </DialogPrimitive.Trigger>
+      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 md:bottom-8 md:left-auto md:right-8 md:translate-x-0 z-[50]">
+        <DialogPrimitive.Trigger asChild>
+          <button className="btn-brutalist-primary bg-[#FF4D00] text-white font-black uppercase tracking-widest flex items-center justify-center px-6 py-3 md:px-8 md:py-4 border-4 border-foreground shadow-[8px_8px_0_0_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[6px_6px_0_0_rgba(0,0,0,1)] transition-all active:translate-x-[8px] active:translate-y-[8px] active:shadow-none min-w-[180px] md:min-w-[200px] text-center hover:bg-white hover:text-black hover:border-black w-max">
+            RESERVAR SESIÓN
+          </button>
+        </DialogPrimitive.Trigger>
+      </div>
 
       <DialogPrimitive.Portal>
         <DialogPrimitive.Overlay className="fixed inset-0 z-[100] bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 flex items-center justify-center p-0 sm:p-4" />

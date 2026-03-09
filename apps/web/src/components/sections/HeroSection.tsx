@@ -60,9 +60,9 @@ export const HeroSection: FC = () => {
         </nav>
 
         {/* NOMADES Text - Brutalist Style */}
-        <div className="absolute bottom-10 left-0 w-full z-30 px-8 mix-blend-difference text-white flex justify-center overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 md:inset-auto md:bottom-10 md:left-0 w-full h-full md:h-auto z-30 p-8 md:px-8 mix-blend-difference text-white flex justify-center items-center md:items-end overflow-hidden pointer-events-none">
           <h1
-            className="text-[14vw] sm:text-[14.5vw] lg:text-[13.5vw] xl:text-[13vw] font-black leading-[0.75] tracking-tight uppercase max-w-full"
+            className="text-[12vh] sm:text-[14vh] md:text-[14.5vw] lg:text-[13.5vw] xl:text-[13vw] font-black leading-[0.85] tracking-tight uppercase [writing-mode:vertical-rl] md:[writing-mode:horizontal-tb] rotate-180 md:rotate-0"
             style={{ fontFamily: "var(--font-geist-sans)" }}
           >
             NOMADES
