@@ -17,9 +17,13 @@ const SOCIAL_ICONS: Record<SocialPlatform, ReactNode> = {
     <svg
       viewBox="0 0 24 24"
       aria-hidden="true"
-      className="h-6 w-6 fill-current"
+      className="h-6 w-6 stroke-current stroke-2 fill-none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
-      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.349 3.608 1.324.975.975 1.262 2.242 1.324 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.349 2.633-1.324 3.608-.975.975-2.242 1.262-3.608 1.324-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.349-3.608-1.324-.975-.975-1.262-2.242-1.324-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.062-1.366.349-2.633 1.324-3.608.975-.975 2.242-1.262 3.608-1.324C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.014 7.052.072 5.775.13 4.687.428 3.757 1.358c-.93.93-1.228 2.018-1.286 3.295C2.014 5.332 2 5.741 2 9s.014 3.668.072 4.948c.058 1.277.356 2.365 1.286 3.295.93.93 2.018 1.228 3.295 1.286C8.332 18.986 8.741 19 12 19s3.668-.014 4.948-.072c1.277-.058 2.365-.356 3.295-1.286.93-.93 1.228-2.018 1.286-3.295C21.986 12.668 22 12.259 22 9s-.014-3.668-.072-4.948c-.058-1.277-.356-2.365-1.286-3.295C19.712.428 18.624.13 17.348.072 16.068.014 15.659 0 12 0zm0 4.622a7.378 7.378 0 1 0 0 14.756 7.378 7.378 0 0 0 0-14.756zm0 12.09a4.712 4.712 0 1 1 0-9.424 4.712 4.712 0 0 1 0 9.424zm5.13-10.871a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z" />
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
     </svg>
   ),
   spotify: (
@@ -82,18 +86,10 @@ const getSocialIcon = (platform: string): ReactNode => {
   );
 };
 
-// This is a placeholder type. In a real application, this would be
-// imported from a shared types package.
-type Artist = {
-  id: string;
-  name: string;
-  blurb: string;
-  imageSrc: string;
-  socials: { name: string; url: string }[];
-};
+import { type ArtistEntry } from "@/data/artists";
 
 type ArtistOverlayProps = {
-  artist: Artist | null;
+  artist: ArtistEntry | null;
   onClose: () => void;
 };
 
@@ -104,16 +100,17 @@ export const ArtistOverlay: FC<ArtistOverlayProps> = ({ artist, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 md:p-8" onClick={onClose}>
-      <div className="relative bg-white border-4 border-black rounded-none max-w-5xl w-full max-h-[90vh] overflow-y-auto p-8 md:p-12 shadow-[16px_16px_0_0_rgba(0,0,0,1)] flex flex-col pt-16 md:pt-12" onClick={(e) => e.stopPropagation()}>
+      <div className="relative bg-white border-4 border-black rounded-none max-w-5xl w-full max-h-[90vh] overflow-y-auto p-6 md:p-12 shadow-[16px_16px_0_0_rgba(0,0,0,1)] flex flex-col pt-16 md:pt-12" onClick={(e) => e.stopPropagation()}>
         
-        {/* Top Bar for Mobile + Close Button */}
+        {/* Top Bar for Mobile */}
         <div className="absolute top-0 left-0 right-0 border-b-4 border-black bg-black text-white p-3 flex justify-between items-center md:hidden">
             <span className="font-mono text-xs font-bold uppercase tracking-widest">[ PERFIL DE ARTISTA ]</span>
         </div>
 
+        {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 md:top-6 md:right-6 h-12 w-12 flex items-center justify-center bg-white text-black hover:bg-black hover:text-white z-10 card-brutalist-sm transition-colors cursor-pointer active:translate-x-[2px] active:translate-y-[2px] active:shadow-none border-black"
+          className="absolute top-1 right-2 md:top-6 md:right-6 h-10 w-10 md:h-12 md:w-12 flex items-center justify-center bg-white text-black hover:bg-black hover:text-white z-20 card-brutalist-sm transition-colors cursor-pointer active:translate-x-[2px] active:translate-y-[2px] active:shadow-none border-black md:border-[3px]"
           aria-label="Cerrar perfil"
         >
           <svg viewBox="0 0 24 24" className="h-6 w-6 stroke-current stroke-[3]">
@@ -121,39 +118,61 @@ export const ArtistOverlay: FC<ArtistOverlayProps> = ({ artist, onClose }) => {
           </svg>
         </button>
 
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12 mt-4 md:mt-0">
-          <div className="md:w-[40%] aspect-[3/4] relative overflow-hidden bg-black card-brutalist border-4 border-black flex-shrink-0 hover:translate-y-0 hover:shadow-[8px_8px_0_0_rgba(0,0,0,1)]">
-            <img src={artist.imageSrc} alt={artist.name} className="absolute inset-0 h-full w-full object-cover grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500" />
+        <div className="flex flex-col md:flex-row gap-6 md:gap-12 mt-2 md:mt-0">
+          
+          {/* Image Container - Reduced size on mobile */}
+          <div className="w-full md:w-[40%] aspect-square md:aspect-[3/4] relative overflow-hidden bg-black card-brutalist border-4 border-black flex-shrink-0 hover:translate-y-0 hover:shadow-[8px_8px_0_0_rgba(0,0,0,1)] max-h-[40vh] md:max-h-none">
+            <img src={artist.imageSrc} alt={artist.name} className="absolute inset-0 h-full w-full object-cover grayscale-0 opacity-100 lg:grayscale lg:opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500" />
             
             {/* Overlay label */}
-            <div className="absolute bottom-4 left-4 right-4">
+            <div className="absolute bottom-4 left-4 right-4 hidden md:block">
               <div className="bg-white p-2 inline-flex card-brutalist-sm border-black">
                 <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-black">REGISTRO_NMD</span>
               </div>
             </div>
           </div>
 
-          <div className="md:w-[60%] flex flex-col justify-start md:py-4">
-            <div className="flex flex-col border-b-4 border-black pb-6 mb-6">
-              <p className="text-xs uppercase tracking-[0.3em] font-mono text-black/60 font-black mb-3">
+          {/* Content Container */}
+          <div className="w-full md:w-[60%] flex flex-col justify-start md:py-4">
+            
+            <div className="flex flex-col border-b-4 border-black pb-4 md:pb-6 mb-4 md:mb-6">
+              <p className="text-[10px] md:text-xs uppercase tracking-[0.3em] font-mono text-black/60 font-black mb-2 md:mb-3">
                 // Miembro del Colectivo
               </p>
-              <h2 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-black uppercase leading-none">
+              <h2 className="text-4xl md:text-7xl lg:text-8xl font-black tracking-tighter text-black uppercase leading-none mb-3">
                 {artist.name}
               </h2>
+
+              {/* Disciplines tags explicitly visible in modal now */}
+              {artist.disciplines && artist.disciplines.length > 0 && (
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {artist.disciplines.map((tag, idx) => (
+                    <span key={idx} className="font-mono text-[10px] md:text-xs text-black border-2 border-black bg-white px-2 py-1 uppercase tracking-widest font-bold">
+                      [ {tag} ]
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
             
-            <div className="flex-grow">
-              <p className="text-lg md:text-xl text-black/80 leading-relaxed font-medium font-sans">
+            <div className="flex-grow space-y-4">
+              <p className="text-base md:text-xl text-black font-bold leading-relaxed font-sans">
                 {artist.blurb}
               </p>
+              
+              {/* Added Bio which is in the data but wasn't displayed previously */}
+              {artist.bio && (
+                  <p className="text-sm md:text-lg text-black/80 leading-relaxed font-sans">
+                    {artist.bio}
+                  </p>
+              )}
             </div>
 
-            <div className="mt-8 pt-6 lg:pt-8 border-t-0 lg:border-t-4 border-black border-dashed lg:border-solid">
-              <h3 className="text-sm uppercase tracking-[0.2em] text-black font-black mb-6">
+            <div className="mt-6 md:mt-8 pt-6 border-t-4 border-black border-dashed md:border-solid">
+              <h3 className="text-xs md:text-sm uppercase tracking-[0.2em] text-black font-black mb-4 md:mb-6">
                 Redes & Contacto ::
               </h3>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-3 md:gap-4 pb-8 md:pb-0">
                 {artist.socials.map((social) => (
                   <a
                     key={social.name}
@@ -161,10 +180,10 @@ export const ArtistOverlay: FC<ArtistOverlayProps> = ({ artist, onClose }) => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${artist.name} en ${social.name}`}
-                    className="h-14 w-14 bg-white text-black hover:bg-black hover:text-white btn-brutalist border-black active:translate-x-[2px] active:translate-y-[2px] hover:shadow-[6px_6px_0_0_rgba(0,0,0,1)] active:shadow-none p-0"
+                    className="h-12 w-12 md:h-14 md:w-14 flex items-center justify-center bg-white text-black hover:bg-black hover:text-white btn-brutalist border-[3px] md:border-black active:translate-x-[2px] active:translate-y-[2px] hover:shadow-[6px_6px_0_0_rgba(0,0,0,1)] active:shadow-none p-0"
                   >
                     <span className="sr-only">{social.name}</span>
-                    <div className="scale-110">
+                    <div className="scale-90 md:scale-110">
                       {getSocialIcon(social.name)}
                     </div>
                   </a>

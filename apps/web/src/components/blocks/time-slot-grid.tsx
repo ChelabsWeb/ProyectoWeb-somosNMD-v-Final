@@ -18,9 +18,11 @@ const TIME_SLOTS = [
 
 interface TimeSlotGridProps {
   onNext: (date: Date, slot: string) => void;
+  isMobile?: boolean;
+  mobileStep?: "date" | "time";
 }
 
-export function TimeSlotGrid({ onNext }: TimeSlotGridProps) {
+export function TimeSlotGrid({ onNext, isMobile, mobileStep = "date" }: TimeSlotGridProps) {
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
   
@@ -33,9 +35,10 @@ export function TimeSlotGrid({ onNext }: TimeSlotGridProps) {
   }, [isError, error]);
 
   return (
-    <div className="flex flex-col gap-6 md:flex-row md:items-start p-4 md:p-8 w-full h-full bg-transparent text-white">
-      <div className={cn("flex-1 min-w-[300px]", date ? "hidden md:block" : "block")}>
-        <h3 className="text-xl md:text-2xl font-sans font-black uppercase tracking-widest text-[#FF4D00] mb-6">
+    <div className="flex flex-col gap-8 md:gap-6 md:flex-row md:items-start p-0 md:p-8 w-full h-full bg-transparent text-white">
+      {(!isMobile || mobileStep === "date") && (
+        <div className="w-full md:flex-1 md:min-w-[300px] animate-in slide-in-from-left-4 fade-in duration-300">
+        <h3 className="text-xl md:text-2xl font-sans font-black uppercase tracking-widest text-[#FF4D00] mb-4 md:mb-6">
           SELECCIONA FECHA
         </h3>
         <Calendar
@@ -47,19 +50,14 @@ export function TimeSlotGrid({ onNext }: TimeSlotGridProps) {
           disabled={(d) => d < new Date(new Date().setHours(0, 0, 0, 0))}
         />
       </div>
-      
-      <div className={cn("flex-1 flex flex-col gap-4 min-w-[300px]", !date ? "hidden md:flex" : "flex")}>
-        <div className="flex justify-between items-center mb-2">
-          <div className="md:hidden">
-            {date && (
-              <button 
-                onClick={() => setDate(undefined)}
-                className="text-xs font-mono uppercase tracking-widest text-white hover:text-[#FF4D00] underline mb-2"
-              >
-                ← Cambiar fecha
-              </button>
-            )}
-          </div>
+      )}
+
+      {(!isMobile || mobileStep === "time") && (
+      <div className={cn(
+        "w-full md:flex-1 flex flex-col gap-4 transition-opacity duration-300 animate-in slide-in-from-right-4 fade-in", 
+        (!date && !isMobile) ? "opacity-30 pointer-events-none" : "opacity-100"
+      )}>
+        <div className="flex justify-between items-center mb-0 md:mb-2 border-t-4 border-white md:border-t-0 pt-6 md:pt-0">
           <h3 className="text-xl md:text-2xl font-sans font-black uppercase tracking-widest text-[#FF4D00]">
             {date ? format(date, "EEEE d 'de' MMMM", { locale: es }) : "DÍA"}
           </h3>
@@ -101,6 +99,7 @@ export function TimeSlotGrid({ onNext }: TimeSlotGridProps) {
           })}
         </div>
       </div>
+      )}
     </div>
   );
 }

@@ -58,7 +58,7 @@ export const PageShell: FC<PageShellProps> = ({ children }) => {
 
     lenisInstance.on("scroll", handleLenisScroll);
 
-    ScrollTrigger.scrollerProxy(document.body, {
+    ScrollTrigger.scrollerProxy(document.documentElement, {
       scrollTop(value) {
         if (typeof value === "number") {
           lenisInstance.scrollTo(value, { immediate: true });
@@ -68,7 +68,7 @@ export const PageShell: FC<PageShellProps> = ({ children }) => {
       getBoundingClientRect() {
         return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
       },
-      pinType: document.body.style.transform ? "transform" : "fixed",
+      pinType: document.documentElement.style.transform ? "transform" : "fixed",
     });
 
     const handleRefresh = () => lenisInstance.resize();
@@ -92,7 +92,7 @@ export const PageShell: FC<PageShellProps> = ({ children }) => {
       prefersReducedMotion.removeEventListener("change", handleMotionPreferenceChange);
       ScrollTrigger.removeEventListener("refresh", handleRefresh);
       
-      ScrollTrigger.scrollerProxy(document.body, {
+      ScrollTrigger.scrollerProxy(document.documentElement, {
         scrollTop(value?: number) {
           if (typeof value === "number") {
              window.scrollTo(0, value);

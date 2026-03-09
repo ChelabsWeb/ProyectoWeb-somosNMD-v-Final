@@ -33,7 +33,7 @@ const SESSION_OPTIONS: {
 
 export function SessionTypeCards({ onNext, selectedType }: SessionTypeCardsProps) {
   return (
-    <div className="flex flex-col p-4 md:p-8 w-full h-full bg-transparent text-white">
+    <div className="flex flex-col p-0 w-full h-full bg-transparent text-white">
       <h3 className="text-xl md:text-2xl font-sans font-black uppercase tracking-widest text-[#FF4D00] mb-2">
         SELECCIONA MODALIDAD
       </h3>

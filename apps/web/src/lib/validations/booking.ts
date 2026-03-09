@@ -7,6 +7,7 @@ export const getAvailableSlotsSchema = z.object({
 export const bookingFormSchema = z.object({
   name: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres" }),
   email: z.string().email({ message: "Email inválido" }),
+  reason: z.string().min(5, { message: "Por favor contanos brevemente qué vas a grabar o producir" }),
 });
 
 export const bookingRequestSchema = bookingFormSchema.extend({

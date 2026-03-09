@@ -11,6 +11,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
 import { bookingFormSchema, type BookingFormData } from "@/lib/validations/booking";
@@ -32,42 +33,19 @@ export function BookingDataForm({ onSubmit, isPending, bookingData }: BookingDat
     defaultValues: {
       name: "",
       email: "",
+      reason: "",
     },
     mode: "onChange",
   });
 
   return (
-    <div className="flex flex-col p-4 md:p-8 w-full h-full bg-transparent text-white">
+    <div className="flex flex-col p-0 w-full h-full bg-transparent text-white">
       <h3 className="text-2xl md:text-3xl font-sans font-black uppercase tracking-widest text-[#FF4D00] mb-2">
         TUS DATOS
       </h3>
-      <p className="text-xs font-mono uppercase tracking-widest text-white/60 mb-6 max-w-xs">
-        INGRESÁ TU NOMBRE Y EMAIL PARA SOLICITAR LA RESERVA.
+      <p className="text-xs font-mono uppercase tracking-widest text-white/60 mb-8 max-w-sm">
+        INGRESÁ TU NOMBRE, EMAIL Y QUÉ VAS A GRABAR PARA SOLICITAR LA RESERVA.
       </p>
-
-      {bookingData && (
-        <div className="mb-8 p-6 border-4 border-white shadow-[6px_6px_0_0_#000000] bg-black">
-          <h4 className="text-base font-sans font-black uppercase tracking-widest mb-4 pb-2 border-b-4 border-white text-white">RESUMEN DE RESERVA</h4>
-          <div className="flex flex-col space-y-4 text-sm font-mono uppercase">
-            <div className="flex justify-between items-center border-b-2 border-white/20 pb-2">
-              <span className="text-white/60 font-black">FECHA:</span>
-              <span className="font-bold text-right text-white">{bookingData.date ? new Intl.DateTimeFormat('es-UY', { weekday: 'long', day: 'numeric', month: 'long' }).format(bookingData.date) : "NO SELECCIONADA"}</span>
-            </div>
-            <div className="flex justify-between items-center border-b-2 border-white/20 pb-2">
-              <span className="text-white/60 font-black">HORA:</span>
-              <span className="font-bold text-right text-white">{bookingData.slot || "NO SELECCIONADA"}</span>
-            </div>
-            <div className="flex justify-between items-center border-b-2 border-white/20 pb-2">
-              <span className="text-white/60 font-black">MODALIDAD:</span>
-              <span className="font-sans font-black text-right text-[#FF4D00]">{bookingData.sessionType === "solo" ? "SOLO ESTUDIO" : bookingData.sessionType === "producer" ? "ESTUDIO + PRODUCTOR" : "NO SELECCIONADA"}</span>
-            </div>
-            <div className="flex justify-between items-center pb-1">
-              <span className="text-white/60 font-black">UBICACIÓN:</span>
-              <span className="font-bold text-right text-white">JUAN PAULLIER 1064</span>
-            </div>
-          </div>
-        </div>
-      )}
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -127,7 +105,7 @@ export function BookingDataForm({ onSubmit, isPending, bookingData }: BookingDat
                 ENVIANDO...
               </>
             ) : (
-              "SOLICITAR RESERVA"
+              "REVISAR RESERVA"
             )}
           </motion.button>
         </form>

@@ -425,3 +425,61 @@ Google Calendar credentials missing. Fetching will be bypassed.
  POST / 200 in 17ms (compile: 3ms, render: 14ms)
  ✓ Compiled in 489ms
 Google Calendar credentials missing. Fetching will be bypassed.
+ POST / 200 in 843ms (compile: 694ms, render: 148ms)
+Google Calendar credentials missing. Fetching will be bypassed.
+ POST / 200 in 12ms (compile: 4ms, render: 8ms)
+Google Calendar credentials missing. Fetching will be bypassed.
+ POST / 200 in 8ms (compile: 3ms, render: 5ms)
+ GET /ui-test 200 in 970ms (compile: 552ms, render: 418ms)
+Google Calendar credentials missing. Fetching will be bypassed.
+ POST /ui-test 200 in 121ms (compile: 3ms, render: 117ms)
+Google Calendar credentials missing. Fetching will be bypassed.
+ POST / 200 in 14ms (compile: 4ms, render: 10ms)
+Google Calendar credentials missing. Fetching will be bypassed.
+ POST / 200 in 15ms (compile: 5ms, render: 10ms)
+ ✓ Compiled in 391ms
+Missing RESEND_API_KEY environment variable. Cannot send email.
+Warning: Booking recorded but email failed to send Missing API Key
+ POST / 200 in 1859ms (compile: 920ms, render: 939ms)
+ ✓ Compiled in 368ms
+Google Calendar credentials missing. Fetching will be bypassed.
+ POST / 200 in 815ms (compile: 691ms, render: 124ms)
+ ✓ Compiled in 272ms
+ ✓ Compiled in 191ms
+ ✓ Compiled in 195ms
+ ✓ Compiled in 248ms
+ ✓ Compiled in 240ms
+ ✓ Compiled in 284ms
+Google Calendar credentials missing. Fetching will be bypassed.
+ POST / 200 in 1274ms (compile: 1143ms, render: 130ms)
+Google Calendar credentials missing. Fetching will be bypassed.
+ POST / 200 in 10ms (compile: 5ms, render: 6ms)
+ ✓ Compiled in 380ms
+ ✓ Compiled in 306ms
+ ✓ Compiled in 348ms
+Google Calendar credentials missing. Fetching will be bypassed.
+ POST / 200 in 1129ms (compile: 981ms, render: 148ms)
+Google Calendar credentials missing. Fetching will be bypassed.
+ POST / 200 in 16ms (compile: 3ms, render: 12ms)
+ ✓ Compiled in 217ms
+ GET / 200 in 756ms (compile: 714ms, render: 43ms)
+ GET / 200 in 28ms (compile: 6ms, render: 22ms)
+ ✓ Compiled in 246ms
+ ✓ Compiled in 338ms
+ ✓ Compiled in 246ms
+ ✓ Compiled in 192ms
+ ✓ Compiled in 221ms
+ ✓ Compiled in 201ms
+ ✓ Compiled in 259ms
+ ✓ Compiled in 517ms
+ ✓ Compiled in 234ms
+Google Calendar credentials missing. Fetching will be bypassed.
+ POST / 200 in 876ms (compile: 754ms, render: 123ms)
+ ✓ Compiled in 588ms
+ ✓ Compiled in 215ms
+ ✓ Compiled in 561ms
+ GET / 200 in 692ms (compile: 614ms, render: 79ms)
+ ✓ Compiled in 387ms
+ GET / 200 in 755ms (compile: 722ms, render: 33ms)
+ ✓ Compiled in 273ms
+ ✓ Compiled in 214ms

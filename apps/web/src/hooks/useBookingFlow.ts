@@ -10,9 +10,14 @@ export interface BookingStateData {
   sessionType?: SessionType;
   name?: string;
   email?: string;
+  reason?: string;
 }
 
-export function useBookingFlow() {
+interface UseBookingFlowOptions {
+  maxSteps?: number;
+}
+
+export function useBookingFlow({ maxSteps = 4 }: UseBookingFlowOptions = {}) {
   const [step, setStep] = useState<number>(1);
   const [direction, setDirection] = useState<number>(0);
   const [bookingData, setBookingData] = useState<BookingStateData>({});
@@ -23,8 +28,8 @@ export function useBookingFlow() {
       setBookingData((prev) => ({ ...prev, ...stepData }));
     }
     setDirection(1);
-    setStep((prev) => prev + 1);
-  }, []);
+    setStep((prev) => Math.min(prev + 1, maxSteps));
+  }, [maxSteps]);
 
   const handleBack = useCallback(() => {
     setDirection(-1);
@@ -41,13 +46,14 @@ export function useBookingFlow() {
   const bookingMutation = useMutation({
     mutationFn: async (finalData: BookingStateData) => {
       // Validate that all required fields are present
-      if (!finalData.date || !finalData.timeSlot || !finalData.sessionType || !finalData.name || !finalData.email) {
+      if (!finalData.date || !finalData.timeSlot || !finalData.sessionType || !finalData.name || !finalData.email || !finalData.reason) {
         throw new Error("Missing required booking data");
       }
       
       const payload: BookingRequestData = {
         name: finalData.name,
         email: finalData.email,
+        reason: finalData.reason,
         sessionType: finalData.sessionType as "solo" | "producer",
         timeSlot: finalData.date.toISOString(), // Real implementation would merge date and timeSlot, but schema expects an ISO string. TimeSlotGrid guarantees a date, but we might need to properly format it based on the slot if required. For now, sending dateIso.
       };
@@ -66,10 +72,16 @@ export function useBookingFlow() {
     },
   });
 
-  const handleSubmit = useCallback((formData: { name: string; email: string }) => {
+  const handleSubmit = useCallback((formData: { name: string; email: string; reason: string }) => {
     const payload = { ...bookingData, ...formData };
     setBookingData(payload);
-    bookingMutation.mutate(payload);
+    // Don't mutate here anymore, the new Summary step will trigger the mutation
+    // So handleSubmit just saves the form data for the next step.
+    handleNext(formData);
+  }, [bookingData, handleNext]);
+
+  const confirmBooking = useCallback(() => {
+    bookingMutation.mutate(bookingData);
   }, [bookingData, bookingMutation]);
 
   return {
@@ -80,6 +92,7 @@ export function useBookingFlow() {
     handleBack,
     handleReset,
     handleSubmit,
+    confirmBooking,
     isSubmitting: bookingMutation.isPending,
     isSuccess: bookingMutation.isSuccess,
     isError: bookingMutation.isError,
