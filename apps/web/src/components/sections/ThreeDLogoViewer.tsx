@@ -5,6 +5,7 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useGLTF, Environment } from "@react-three/drei";
 import * as THREE from "three";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 function Model() {
   const { scene } = useGLTF("/assets/logo/3D_NMD_LOGO.glb");
@@ -43,6 +44,7 @@ function Model() {
 }
 
 export function ThreeDLogoViewer() {
+  const isDesktop = useMediaQuery('(min-width: 768px)');
   const { scrollY } = useScroll();
   
   // Transform scale and opacity based on scroll position
@@ -53,6 +55,8 @@ export function ThreeDLogoViewer() {
   
   // Disable pointer events when scrolling down to avoid blocking interactions
   const pointerEvents = useTransform(scrollY, [0, 500], ["auto", "none"]);
+
+  if (!isDesktop) return null;
 
   return (
     <motion.div 

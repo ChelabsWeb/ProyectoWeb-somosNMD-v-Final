@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF, Environment } from "@react-three/drei";
 import * as THREE from "three";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 function StaticModel() {
   const { scene } = useGLTF("/assets/logo/3D_NMD_LOGO.glb");
@@ -37,6 +38,10 @@ function StaticModel() {
 }
 
 export function StaticThreeDLogo() {
+  const isDesktop = useMediaQuery('(min-width: 768px)');
+
+  if (!isDesktop) return null;
+
   return (
     <div className="w-[80vw] md:w-[60vw] lg:w-[50vw] xl:w-[45vw] aspect-square mx-auto mix-blend-multiply opacity-80 pointer-events-none">
       <Canvas camera={{ position: [0, 0, 5], fov: 45 }} dpr={[1, 2]}>
