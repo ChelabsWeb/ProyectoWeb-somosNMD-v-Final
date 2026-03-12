@@ -160,10 +160,10 @@ export const LoaderSection: FC = () => {
       aria-live="polite"
       aria-busy={isBlockingScroll}
       ref={containerRef}
-      className="fixed inset-0 z-[100] flex h-[100dvh] w-screen items-center justify-center bg-transparent pointer-events-none"
+      className="fixed -inset-[150px] z-[100] flex items-center justify-center bg-transparent pointer-events-none"
       style={{ pointerEvents: isBlockingScroll ? "auto" : "none" }}
     >
-      <svg className="absolute inset-0 w-full h-[100dvh] pointer-events-none" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1920 1080" style={{ overflow: "visible" }}>
+      <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1920 1080" style={{ overflow: "visible" }}>
         <defs>
           <filter id="white-filter" x="-50%" y="-50%" width="200%" height="200%" colorInterpolationFilters="sRGB">
             <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0" />
