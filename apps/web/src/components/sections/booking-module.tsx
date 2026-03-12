@@ -141,7 +141,7 @@ export function BookingModule() {
   return (
     <section className="relative w-full h-full bg-transparent flex flex-col">
       <header className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-sans font-black uppercase tracking-widest text-white drop-shadow-[4px_4px_0_#FF4D00] max-w-[80vw]">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-sans font-black uppercase tracking-widest text-white [text-shadow:2px_2px_0_#FF4D00] md:[text-shadow:4px_4px_0_#FF4D00] max-w-[80vw] leading-tight sm:leading-snug md:leading-normal">
           SISTEMA DE RESERVAS
         </h2>
         
