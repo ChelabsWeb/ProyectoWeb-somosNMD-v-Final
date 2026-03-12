@@ -17,6 +17,7 @@ export const HeroSection: FC = () => {
           alt="NOMADES Hero Background"
           fill
           priority
+          quality={100}
           sizes="100vw"
           className="object-cover object-center"
         />

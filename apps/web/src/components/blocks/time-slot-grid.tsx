@@ -45,7 +45,7 @@ export function TimeSlotGrid({ onNext, isMobile, mobileStep = "date" }: TimeSlot
           mode="single"
           selected={date}
           onSelect={setDate}
-          className="p-2 sm:p-4 w-full"
+          className="p-2 sm:p-4 w-full mb-4 md:mb-0"
           locale={es}
           disabled={(d) => d < new Date(new Date().setHours(0, 0, 0, 0))}
         />
