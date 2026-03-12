@@ -35,9 +35,9 @@ export function TimeSlotGrid({ onNext, isMobile, mobileStep = "date" }: TimeSlot
   }, [isError, error]);
 
   return (
-    <div className="flex flex-col gap-8 md:gap-6 md:flex-row md:items-start p-0 md:p-8 w-full h-full bg-transparent text-white">
+    <div className="flex flex-col gap-8 md:gap-6 md:flex-row md:items-start p-0 md:p-8 w-full bg-transparent text-white">
       {(!isMobile || mobileStep === "date") && (
-        <div className="w-full md:flex-1 md:min-w-[300px] animate-in slide-in-from-left-4 fade-in duration-300">
+        <div className="w-full shrink-0 h-max md:flex-1 md:min-w-[300px] animate-in slide-in-from-left-4 fade-in duration-300">
         <h3 className="text-xl md:text-2xl font-sans font-black uppercase tracking-widest text-[#FF4D00] mb-4 md:mb-6">
           SELECCIONA FECHA
         </h3>
