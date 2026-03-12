@@ -18,9 +18,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Project Web NMD",
-  description:
-    "Living music video experience for the NMD collective — cinematic storytelling, motion, and merch.",
+  title: "Proyecto Web NMD",
+  description: "Bienvenido a la pagina web de nmd lokitaaa",
 };
 
 export default function RootLayout({
@@ -29,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-background text-foreground min-h-screen antialiased`}
       >
