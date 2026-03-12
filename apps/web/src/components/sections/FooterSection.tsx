@@ -85,6 +85,7 @@ export const FooterSection: FC = () => {
 
   return (
     <motion.footer
+      id="contacto"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}

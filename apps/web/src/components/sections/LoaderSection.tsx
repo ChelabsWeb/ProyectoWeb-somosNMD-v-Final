@@ -173,11 +173,17 @@ export const LoaderSection: FC = () => {
     >
       <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1920 1080">
         <defs>
+          <filter id="white-filter" colorInterpolationFilters="sRGB">
+            <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0" />
+          </filter>
+          <filter id="black-filter" colorInterpolationFilters="sRGB">
+            <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" />
+          </filter>
           <mask id="loader-reveal-mask" x="0" y="0" width="100%" height="100%" maskUnits="userSpaceOnUse" mask-type="luminance">
             <rect width="1920" height="1080" fill="white" />
             <g transform="translate(960 540)">
               <g ref={maskLogoRef} style={{ transformOrigin: "50% 50%", transform: "scale(0.124)" }}>
-                <image href="/assets/logo/logoNMD.svg" width="774" height="793.02" x="-387" y="-396.51" filter="contrast(0) brightness(0)" />
+                <image href="/assets/logo/logoNMD.svg" width="774" height="793.02" x="-387" y="-396.51" filter="url(#black-filter)" />
               </g>
             </g>
           </mask>
@@ -187,7 +193,7 @@ export const LoaderSection: FC = () => {
 
         <g transform="translate(960 540)">
           <g ref={whiteLogoRef} style={{ transformOrigin: "50% 50%", transform: "scale(0.124)" }}>
-            <image href="/assets/logo/logoNMD.svg" width="774" height="793.02" x="-387" y="-396.51" filter="contrast(0) brightness(2)" />
+            <image href="/assets/logo/logoNMD.svg" width="774" height="793.02" x="-387" y="-396.51" filter="url(#white-filter)" />
           </g>
         </g>
       </svg>
