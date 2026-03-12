@@ -51,7 +51,7 @@ export const LoaderSection: FC = () => {
       // Set initial scale
       gsap.set([maskLogoRef.current, whiteLogoRef.current], { 
         scale: INIT_SCALE,
-        transformOrigin: "0 0" // translate handles positioning, scale from center of the logo group
+        transformOrigin: "50% 50%" // translate handles positioning, scale from center of the logo group
       });
       
       // Pulse animation
@@ -172,20 +172,20 @@ export const LoaderSection: FC = () => {
           <filter id="black-filter" x="-50%" y="-50%" width="200%" height="200%" colorInterpolationFilters="sRGB">
             <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" />
           </filter>
-          <mask id="loader-reveal-mask" x="-20%" y="-20%" width="140%" height="140%" maskUnits="userSpaceOnUse" mask-type="luminance">
-            <rect x="-1920" y="-1080" width="5760" height="3240" fill="white" />
+          <mask id="loader-reveal-mask" x="-10000" y="-10000" width="20000" height="20000" maskUnits="userSpaceOnUse" mask-type="luminance">
+            <rect x="-10000" y="-10000" width="20000" height="20000" fill="white" />
             <g transform="translate(960 540)">
-              <g ref={maskLogoRef} style={{ transformOrigin: "0 0", transform: "scale(0.124)" }}>
+              <g ref={maskLogoRef} style={{ transformOrigin: "50% 50%", transform: "scale(0.124)" }}>
                 <image href="/assets/logo/logoNMD.svg" width="774" height="793.02" x="-387" y="-396.51" filter="url(#black-filter)" />
               </g>
             </g>
           </mask>
         </defs>
 
-        <rect x="-1920" y="-1080" width="5760" height="3240" fill="var(--background)" mask="url(#loader-reveal-mask)" />
+        <rect x="-10000" y="-10000" width="20000" height="20000" fill="var(--background)" mask="url(#loader-reveal-mask)" />
 
         <g transform="translate(960 540)">
-          <g ref={whiteLogoRef} style={{ transformOrigin: "0 0", transform: "scale(0.124)" }}>
+          <g ref={whiteLogoRef} style={{ transformOrigin: "50% 50%", transform: "scale(0.124)" }}>
             <image href="/assets/logo/logoNMD.svg" width="774" height="793.02" x="-387" y="-396.51" filter="url(#white-filter)" />
           </g>
         </g>
