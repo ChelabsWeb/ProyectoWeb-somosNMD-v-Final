@@ -29,7 +29,7 @@ function Calendar({
     <DayPicker
       showOutsideDays={showOutsideDays}
       className={cn(
-        "bg-black text-white group/calendar p-2 sm:p-4 [--cell-size:2.25rem] sm:[--cell-size:2.5rem] [[data-slot=card-content]_&]:bg-transparent [[data-slot=popover-content]_&]:bg-transparent border-4 border-white shadow-[6px_6px_0_0_#000000] sm:shadow-[8px_8px_0_0_#000000] rounded-none font-sans",
+        "bg-black text-white group/calendar mx-auto w-fit p-3 sm:p-5 [--cell-size:2.5rem] sm:[--cell-size:3rem] [[data-slot=card-content]_&]:bg-transparent [[data-slot=popover-content]_&]:bg-transparent border-4 border-white shadow-[6px_6px_0_0_#000000] sm:shadow-[8px_8px_0_0_#000000] rounded-none font-sans",
         String.raw`rtl:**:[.rdp-button\_next>svg]:rotate-180`,
         String.raw`rtl:**:[.rdp-button\_previous>svg]:rotate-180`,
         className
@@ -84,13 +84,13 @@ function Calendar({
             : "[&>svg]:text-muted-foreground flex h-8 items-center gap-1 rounded-none pl-2 pr-1 text-sm [&>svg]:size-3.5",
           defaultClassNames.caption_label
         ),
-        table: "w-full table-fixed border-collapse",
-        weekdays: cn("table-row", defaultClassNames.weekdays),
+        table: "w-full border-collapse border-spacing-0",
+        weekdays: cn("", defaultClassNames.weekdays),
         weekday: cn(
-          "text-white/60 select-none pb-2 text-[10px] sm:text-xs font-black uppercase tracking-widest text-center",
+          "text-white/60 select-none pb-2 pt-1 text-[10px] sm:text-xs font-black uppercase tracking-widest text-center",
           defaultClassNames.weekday
         ),
-        week: cn("table-row", defaultClassNames.week),
+        week: cn("", defaultClassNames.week),
         week_number_header: cn(
           "w-10 select-none",
           defaultClassNames.week_number_header
@@ -100,7 +100,7 @@ function Calendar({
           defaultClassNames.week_number
         ),
         day: cn(
-          "group/day relative select-none p-[2px] sm:p-1 text-center touch-manipulation [&:first-child[data-selected=true]_button]:rounded-none [&:last-child[data-selected=true]_button]:rounded-none",
+          "group/day relative select-none p-0 text-center touch-manipulation [&:first-child[data-selected=true]_button]:rounded-none [&:last-child[data-selected=true]_button]:rounded-none",
           defaultClassNames.day
         ),
         range_start: cn(
@@ -203,7 +203,7 @@ function CalendarDayButton({
       data-testid="calendar-day"
       className={cn(
         "data-[selected-single=true]:bg-[#FF4D00] data-[selected-single=true]:text-white data-[selected-single=true]:shadow-[4px_4px_0_0_#000000] sm:data-[selected-single=true]:shadow-[6px_6px_0_0_#000000] data-[selected-single=true]:border-white data-[selected-single=true]:border-2 data-[selected-single=true]:opacity-100",
-        "flex aspect-square h-auto w-full items-center justify-center font-sans font-black text-base sm:text-lg leading-none transition-all hover:bg-white hover:text-black rounded-none border-2 border-transparent hover:border-white",
+        "flex h-[--cell-size] w-[--cell-size] mx-auto items-center justify-center font-sans font-black text-base sm:text-lg leading-none transition-all hover:bg-white hover:text-black rounded-none border-2 border-transparent hover:border-white",
         "data-[selected-single=true]:-translate-y-[2px] data-[selected-single=true]:-translate-x-[2px] sm:data-[selected-single=true]:-translate-y-[4px] sm:data-[selected-single=true]:-translate-x-[4px]",
         defaultClassNames.day,
         className
