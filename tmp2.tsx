@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef, useEffect, type FC } from "react";
 import Link from "next/link";
@@ -39,27 +39,14 @@ export const FooterSection: FC = () => {
     const content = text.textContent || "";
     text.innerHTML = "";
 
-    // Create span for each letter inside an overflow-hidden wrapper
+    // Create span for each letter
     const letters = content.split("").map((letter) => {
-      const wrapperForMask = document.createElement("span");
-      wrapperForMask.style.display = "inline-block";
-      wrapperForMask.style.overflow = "hidden";
-      wrapperForMask.style.verticalAlign = "bottom";
-      // Prevent strict bounding box from clipping the right curve (especially for "D")
-      wrapperForMask.style.paddingRight = "0.1em";
-      wrapperForMask.style.marginRight = "-0.1em";
-
       const span = document.createElement("span");
       span.textContent = letter;
       span.style.display = "inline-block";
-      // Start hidden below and slightly rotated
-      span.style.transform = "translateY(110%) rotate(10deg)";
-      span.style.transformOrigin = "left bottom";
-      span.style.willChange = "transform";
-
-      wrapperForMask.appendChild(span);
-      text.appendChild(wrapperForMask);
-
+      span.style.opacity = "0";
+      span.style.transform = "translateY(-100px)"; // Start from above
+      text.appendChild(span);
       return span;
     });
 
@@ -69,15 +56,14 @@ export const FooterSection: FC = () => {
       gsap.to(letters, {
         scrollTrigger: {
           trigger: text,
-          start: "top 90%",
+          start: "top 95%",
           toggleActions: "play none none reverse",
         },
-        y: "0%",
-        rotate: 0,
+        y: 0,
         opacity: 1,
-        duration: 1.2,
-        stagger: 0.15,
-        ease: "power4.out",
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "bounce.out", // Adds a nice falling bounce effect
       });
     });
 
@@ -88,12 +74,11 @@ export const FooterSection: FC = () => {
 
   return (
     <motion.footer
-      id="contacto"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}
       variants={containerVariants}
-      className="relative flex min-h-dvh flex-col overflow-hidden border-t-4 border-white bg-black font-mono uppercase text-white shadow-[0_-10px_0_0_#000000]"
+      className="relative flex min-h-[100vh] flex-col overflow-hidden border-t-4 border-white bg-black font-mono uppercase text-white shadow-[0_-10px_0_0_#000000]"
     >
       {/* Top Border / Marquee style or small text */}
       <motion.div
@@ -101,7 +86,7 @@ export const FooterSection: FC = () => {
         className="flex shrink-0 items-center justify-between border-b-4 border-white px-6 py-4 text-xs tracking-widest md:text-sm"
       >
         <span>NOMADES_MVD_UY</span>
-        <span>© {new Date().getFullYear()} TODOS LOS DERECHOS RESERVADOS</span>
+        <span>┬® {new Date().getFullYear()} TODOS LOS DERECHOS RESERVADOS</span>
       </motion.div>
 
       {/* Main Content */}
@@ -189,12 +174,12 @@ export const FooterSection: FC = () => {
               <ul className="space-y-4 font-sans text-xl font-black tracking-tight md:text-2xl">
                 <li>
                   <Link href="/terminos" className="block hover:underline">
-                    TÉRMINOS Y CONDICIONES
+                    T├ëRMINOS Y CONDICIONES
                   </Link>
                 </li>
                 <li>
                   <Link href="/privacidad" className="block hover:underline">
-                    POLÍTICA DE PRIVACIDAD
+                    POL├ìTICA DE PRIVACIDAD
                   </Link>
                 </li>
               </ul>

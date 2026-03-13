@@ -54,9 +54,9 @@ export function TimeSlotGrid({ onNext, isMobile, mobileStep = "date" }: TimeSlot
             disabled={!date}
             onClick={() => date && onNext(date, "")}
             className={cn(
-              "w-full mt-4 py-4 text-lg font-sans font-black uppercase tracking-widest transition-all border-4 rounded-none",
+              "w-full mt-6 py-4 px-6 md:px-8 text-base md:text-lg font-sans font-black uppercase tracking-widest transition-all border-4 rounded-none btn-brutalist-primary text-center flex items-center justify-center max-w-[320px] mx-auto",
               date 
-                ? "bg-[#FF4D00] text-white border-[#FF4D00] shadow-[6px_6px_0_0_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px]"
+                ? "bg-[#FF4D00] text-white border-foreground shadow-[8px_8px_0_0_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[6px_6px_0_0_rgba(0,0,0,1)] active:translate-x-[8px] active:translate-y-[8px] active:shadow-none hover:bg-white hover:text-black hover:border-black"
                 : "bg-black text-white/40 border-white/20 shadow-none cursor-not-allowed"
             )}
           >

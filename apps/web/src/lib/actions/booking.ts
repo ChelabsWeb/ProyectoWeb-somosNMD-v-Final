@@ -92,8 +92,11 @@ export async function createBookingRequest(data: BookingRequestData): Promise<Ac
     const emailResult = await sendReservationEmail(validatedData.data);
     if (!emailResult.success) {
       console.error("Warning: Booking recorded but email failed to send", emailResult.error);
-      // We still return success: true to the user so the optimistic UI succeeds,
-      // but we might log this to an error tracking system in production.
+      return {
+        success: false,
+        message: "Error enviando email: " + emailResult.error,
+        error: emailResult.error
+      };
     }
 
     return {
@@ -103,6 +106,9 @@ export async function createBookingRequest(data: BookingRequestData): Promise<Ac
     };
 
   } catch (error: unknown) {
+    try {
+      require('fs').appendFileSync('error-log.txt', new Date().toISOString() + ' ERROR in createBookingRequest: ' + (error instanceof Error ? error.stack : String(error)) + '\n');
+    } catch (e) {}
     return {
       success: false,
       message: "Error procesando la solicitud",

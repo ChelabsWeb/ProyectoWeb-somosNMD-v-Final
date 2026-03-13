@@ -323,7 +323,7 @@ body::-webkit-scrollbar-track {
 .hero-mask-sticky {
   position: sticky;
   top: 0;
-  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
 }
 
@@ -543,6 +543,6 @@ body::-webkit-scrollbar-track {
 
   .hero-mask-sticky {
     position: relative;
-    height: 100vh;
+    height: 100dvh;
   }
 }

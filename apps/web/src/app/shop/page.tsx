@@ -32,7 +32,7 @@ export default function ShopPage() {
     };
 
     return (
-        <main className="min-h-screen bg-black text-white selection:bg-white selection:text-black overflow-x-hidden">
+        <main className="min-h-dvh bg-black text-white selection:bg-white selection:text-black overflow-x-hidden">
             <ShopHeader
                 activeCategory={activeCategory}
                 onCategoryChange={setActiveCategory}

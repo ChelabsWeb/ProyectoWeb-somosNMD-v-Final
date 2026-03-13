@@ -1,0 +1,47 @@
+﻿commit 39c29fb4029b2160b905a0a27a71f0719cc60742
+Author: Mate-Cardenas <chelabsweb@gmail.com>
+Date:   Mon Mar 2 21:12:50 2026 -0300
+
+    semefue
+
+diff --git a/apps/web/src/components/system/ThreeDLoader.tsx b/apps/web/src/components/system/ThreeDLoader.tsx
+index 1660e22..ac2c6da 100644
+--- a/apps/web/src/components/system/ThreeDLoader.tsx
++++ b/apps/web/src/components/system/ThreeDLoader.tsx
+@@ -2,7 +2,7 @@
+ 
+ import { Suspense, useRef, type FC } from "react";
+ import { Canvas, useFrame } from "@react-three/fiber";
+-import { useGLTF, PerspectiveCamera } from "@react-three/drei";
++import { useGLTF } from "@react-three/drei";
+ import * as THREE from "three";
+ 
+ const LOGO_MODEL_PATH = "/assets/logo/3D_NMD_LOGO.glb";
+
+commit 81b35a8ad87a1ce8534fb17f4dd9f598af176fbd
+Author: Mate-Cardenas <chelabsweb@gmail.com>
+Date:   Mon Dec 8 20:10:38 2025 -0300
+
+    Fix TypeScript errors in SoloPolvoSection and ThreeDLoader
+    
+    - Use external milestones object instead of self.vars for tracking
+    - Remove onComplete from ScrollTrigger config (not in type)
+    - Add explicit THREE.Object3D type to traverse callback
+    
+    ­ƒñû Generated with [Claude Code](https://claude.com/claude-code)
+    
+    Co-Authored-By: Claude <noreply@anthropic.com>
+
+diff --git a/apps/web/src/components/system/ThreeDLoader.tsx b/apps/web/src/components/system/ThreeDLoader.tsx
+index ea1b867..1660e22 100644
+--- a/apps/web/src/components/system/ThreeDLoader.tsx
++++ b/apps/web/src/components/system/ThreeDLoader.tsx
+@@ -19,7 +19,7 @@ function LogoModel({ prefersReducedMotion }: LogoModelProps) {
+   const clonedScene = scene.clone();
+ 
+   // Ensure materials are set up correctly for visibility
+-  clonedScene.traverse((child) => {
++  clonedScene.traverse((child: THREE.Object3D) => {
+     if ((child as THREE.Mesh).isMesh) {
+       const mesh = child as THREE.Mesh;
+       if (mesh.material) {

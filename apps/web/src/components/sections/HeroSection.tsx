@@ -25,7 +25,7 @@ export const HeroSection: FC = () => {
   }, [isMobileMenuOpen]);
 
   return (
-    <section id="hero" aria-label="Hero scene" className="relative min-h-screen bg-background overflow-hidden">
+    <section id="hero" aria-label="Hero scene" className="relative min-h-dvh bg-background overflow-hidden">
       <div className="absolute inset-0">
         <Image
           src={HERO_IMAGE_SRC}
@@ -87,12 +87,12 @@ export const HeroSection: FC = () => {
 
         {/* Mobile Hamburger Button */}
         <button
-          className={`absolute top-6 right-6 z-[60] md:hidden flex items-center justify-center p-3 bg-black text-white border-2 border-white pointer-events-auto transition-transform ${isMobileMenuOpen ? "scale-0 opacity-0" : "scale-100 opacity-100"}`}
+          className={`absolute top-6 right-6 z-[60] md:hidden flex items-center justify-center p-3 bg-transparent text-[#FF4D00] border border-black backdrop-blur-sm pointer-events-auto transition-all hover:border-[#FF4D00] ${isMobileMenuOpen ? "scale-0 opacity-0" : "scale-100 opacity-100"}`}
           onClick={() => setIsMobileMenuOpen(true)}
           aria-label="Abrir menú"
           aria-expanded={isMobileMenuOpen}
         >
-          <Menu size={28} strokeWidth={2.5} />
+          <Menu size={28} strokeWidth={2} />
         </button>
 
         {/* Mobile Fullscreen Menu - Creative Brutalist Design */}

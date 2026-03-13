@@ -111,7 +111,7 @@ export const SoloPolvoSection: FC = () => {
       ref={sectionRef}
       id="solo-polvo"
       aria-label="Solo Polvo section"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black"
+      className="relative min-h-dvh flex items-center justify-center overflow-hidden bg-black"
     >
 
       {/* Main content */}

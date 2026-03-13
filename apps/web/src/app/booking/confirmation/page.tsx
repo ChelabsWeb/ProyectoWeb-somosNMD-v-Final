@@ -34,7 +34,7 @@ export default async function BookingConfirmationPage({
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background p-4 text-foreground">
+    <div className="flex min-h-dvh items-center justify-center bg-background p-4 text-foreground">
       <div className="relative w-full max-w-md overflow-hidden card-brutalist border-4 border-black bg-background p-8 text-center hover:translate-y-0">
         <h1 className={`mb-4 text-3xl font-extrabold uppercase tracking-tight ${colorClass}`}>
           {title}

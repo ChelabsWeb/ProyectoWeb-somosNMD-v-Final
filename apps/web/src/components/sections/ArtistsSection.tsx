@@ -33,7 +33,7 @@ export const ArtistsSection: FC = () => {
       <div className="absolute inset-0 z-0 pointer-events-none" style={{ clipPath: 'inset(0 0 0 0)' }}>
         
         {/* Real Fixed Background */}
-        <div className="fixed top-0 left-0 h-screen w-full flex flex-col justify-center overflow-hidden">
+        <div className="fixed top-0 left-0 h-dvh w-full flex flex-col justify-center overflow-hidden">
           
           {/* Top Navigation-like Micro Elements */}
           <div className="absolute top-0 left-0 w-full hidden lg:flex justify-between px-12 py-8 font-mono text-[10px] uppercase tracking-widest text-black/60">

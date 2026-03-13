@@ -23,7 +23,7 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
     }
 
     return (
-        <main className="min-h-screen bg-black text-white font-mono uppercase selection:bg-white selection:text-black">
+        <main className="min-h-dvh bg-black text-white font-mono uppercase selection:bg-white selection:text-black">
             {/* Archival Toolbar */}
             <nav className="sticky top-0 z-[100] flex justify-between border-b-4 border-white bg-black p-4 text-[9px] tracking-[0.4em]">
                 <Link href="/" className="hover:text-white transition-colors">
@@ -40,7 +40,7 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
                 </div>
             </nav>
 
-            <div className="mx-auto flex max-w-7xl flex-col md:flex-row min-h-[calc(100vh-42px)]">
+            <div className="mx-auto flex max-w-7xl flex-col md:flex-row min-h-[calc(100dvh-42px)]">
                 {/* Left Column: Technical Data */}
                 <aside className="w-full border-white p-8 md:w-96 md:border-r-4 space-y-12">
                     <section className="space-y-4">

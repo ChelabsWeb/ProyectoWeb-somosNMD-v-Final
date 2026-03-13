@@ -1,0 +1,237 @@
+﻿commit 46026886595f8b29f78a2012cee8260aa7334700
+Author: Mate-Cardenas <chelabsweb@gmail.com>
+Date:   Thu Mar 12 17:09:15 2026 -0300
+
+    Update LoaderSection.tsx
+
+diff --git a/apps/web/src/components/sections/LoaderSection.tsx b/apps/web/src/components/sections/LoaderSection.tsx
+index d8822d8..d8178fa 100644
+--- a/apps/web/src/components/sections/LoaderSection.tsx
++++ b/apps/web/src/components/sections/LoaderSection.tsx
+@@ -160,10 +160,10 @@ export const LoaderSection: FC = () => {
+       aria-live="polite"
+       aria-busy={isBlockingScroll}
+       ref={containerRef}
+-      className="fixed inset-0 z-[100] flex h-[100dvh] w-screen items-center justify-center bg-transparent pointer-events-none"
++      className="fixed -inset-[150px] z-[100] flex items-center justify-center bg-transparent pointer-events-none"
+       style={{ pointerEvents: isBlockingScroll ? "auto" : "none" }}
+     >
+-      <svg className="absolute inset-0 w-full h-[100dvh] pointer-events-none" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1920 1080" style={{ overflow: "visible" }}>
++      <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1920 1080" style={{ overflow: "visible" }}>
+         <defs>
+           <filter id="white-filter" x="-50%" y="-50%" width="200%" height="200%" colorInterpolationFilters="sRGB">
+             <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0" />
+
+commit 7c6af6677906efd566808ce0fccf4c3a6673f6b3
+Author: Mate-Cardenas <chelabsweb@gmail.com>
+Date:   Thu Mar 12 16:57:14 2026 -0300
+
+    Update LoaderSection.tsx
+
+diff --git a/apps/web/src/components/sections/LoaderSection.tsx b/apps/web/src/components/sections/LoaderSection.tsx
+index 8697e1e..d8822d8 100644
+--- a/apps/web/src/components/sections/LoaderSection.tsx
++++ b/apps/web/src/components/sections/LoaderSection.tsx
+@@ -51,7 +51,7 @@ export const LoaderSection: FC = () => {
+       // Set initial scale
+       gsap.set([maskLogoRef.current, whiteLogoRef.current], { 
+         scale: INIT_SCALE,
+-        transformOrigin: "50% 50%" // translate handles positioning, scale from center of the logo group
++        transformOrigin: "0 0" // translate handles positioning, scale from center of the logo group
+       });
+       
+       // Pulse animation
+@@ -160,22 +160,22 @@ export const LoaderSection: FC = () => {
+       aria-live="polite"
+       aria-busy={isBlockingScroll}
+       ref={containerRef}
+-      className="fixed inset-0 z-[100] flex min-h-screen items-center justify-center bg-transparent pointer-events-none"
++      className="fixed inset-0 z-[100] flex h-[100dvh] w-screen items-center justify-center bg-transparent pointer-events-none"
+       style={{ pointerEvents: isBlockingScroll ? "auto" : "none" }}
+     >
+-      <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1920 1080" style={{ overflow: "visible" }}>
++      <svg className="absolute inset-0 w-full h-[100dvh] pointer-events-none" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1920 1080" style={{ overflow: "visible" }}>
+         <defs>
+           <filter id="white-filter" x="-50%" y="-50%" width="200%" height="200%" colorInterpolationFilters="sRGB">
+             <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0" />
+             <feDropShadow dx="0" dy="0" stdDeviation="16" floodColor="#ffffff" floodOpacity="0.35" />
+           </filter>
+-          <filter id="black-filter" x="-50%" y="-50%" width="200%" height="200%" colorInterpolationFilters="sRGB">
++          <filter id="black-filter" x="-10000" y="-10000" width="20000" height="20000" colorInterpolationFilters="sRGB">
+             <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" />
+           </filter>
+           <mask id="loader-reveal-mask" x="-10000" y="-10000" width="20000" height="20000" maskUnits="userSpaceOnUse" mask-type="luminance">
+             <rect x="-10000" y="-10000" width="20000" height="20000" fill="white" />
+             <g transform="translate(960 540)">
+-              <g ref={maskLogoRef} style={{ transformOrigin: "50% 50%", transform: "scale(0.124)" }}>
++              <g ref={maskLogoRef} style={{ transformOrigin: "0 0", transform: "scale(0.124)" }}>
+                 <image href="/assets/logo/logoNMD.svg" width="774" height="793.02" x="-387" y="-396.51" filter="url(#black-filter)" />
+               </g>
+             </g>
+@@ -185,7 +185,7 @@ export const LoaderSection: FC = () => {
+         <rect x="-10000" y="-10000" width="20000" height="20000" fill="var(--background)" mask="url(#loader-reveal-mask)" />
+ 
+         <g transform="translate(960 540)">
+-          <g ref={whiteLogoRef} style={{ transformOrigin: "50% 50%", transform: "scale(0.124)" }}>
++          <g ref={whiteLogoRef} style={{ transformOrigin: "0 0", transform: "scale(0.124)" }}>
+             <image href="/assets/logo/logoNMD.svg" width="774" height="793.02" x="-387" y="-396.51" filter="url(#white-filter)" />
+           </g>
+         </g>
+
+commit 8d27c59772ab42bd6fef80e01520140819707882
+Author: Mate-Cardenas <chelabsweb@gmail.com>
+Date:   Thu Mar 12 16:35:18 2026 -0300
+
+    Update LoaderSection.tsx
+
+diff --git a/apps/web/src/components/sections/LoaderSection.tsx b/apps/web/src/components/sections/LoaderSection.tsx
+index 19d39ed..8697e1e 100644
+--- a/apps/web/src/components/sections/LoaderSection.tsx
++++ b/apps/web/src/components/sections/LoaderSection.tsx
+@@ -51,7 +51,7 @@ export const LoaderSection: FC = () => {
+       // Set initial scale
+       gsap.set([maskLogoRef.current, whiteLogoRef.current], { 
+         scale: INIT_SCALE,
+-        transformOrigin: "0 0" // translate handles positioning, scale from center of the logo group
++        transformOrigin: "50% 50%" // translate handles positioning, scale from center of the logo group
+       });
+       
+       // Pulse animation
+@@ -172,20 +172,20 @@ export const LoaderSection: FC = () => {
+           <filter id="black-filter" x="-50%" y="-50%" width="200%" height="200%" colorInterpolationFilters="sRGB">
+             <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" />
+           </filter>
+-          <mask id="loader-reveal-mask" x="-20%" y="-20%" width="140%" height="140%" maskUnits="userSpaceOnUse" mask-type="luminance">
+-            <rect x="-1920" y="-1080" width="5760" height="3240" fill="white" />
++          <mask id="loader-reveal-mask" x="-10000" y="-10000" width="20000" height="20000" maskUnits="userSpaceOnUse" mask-type="luminance">
++            <rect x="-10000" y="-10000" width="20000" height="20000" fill="white" />
+             <g transform="translate(960 540)">
+-              <g ref={maskLogoRef} style={{ transformOrigin: "0 0", transform: "scale(0.124)" }}>
++              <g ref={maskLogoRef} style={{ transformOrigin: "50% 50%", transform: "scale(0.124)" }}>
+                 <image href="/assets/logo/logoNMD.svg" width="774" height="793.02" x="-387" y="-396.51" filter="url(#black-filter)" />
+               </g>
+             </g>
+           </mask>
+         </defs>
+ 
+-        <rect x="-1920" y="-1080" width="5760" height="3240" fill="var(--background)" mask="url(#loader-reveal-mask)" />
++        <rect x="-10000" y="-10000" width="20000" height="20000" fill="var(--background)" mask="url(#loader-reveal-mask)" />
+ 
+         <g transform="translate(960 540)">
+-          <g ref={whiteLogoRef} style={{ transformOrigin: "0 0", transform: "scale(0.124)" }}>
++          <g ref={whiteLogoRef} style={{ transformOrigin: "50% 50%", transform: "scale(0.124)" }}>
+             <image href="/assets/logo/logoNMD.svg" width="774" height="793.02" x="-387" y="-396.51" filter="url(#white-filter)" />
+           </g>
+         </g>
+
+commit 5525e688eeb4c9596cd11e0542e1c28ddad234b5
+Author: Mate-Cardenas <chelabsweb@gmail.com>
+Date:   Thu Mar 12 15:04:10 2026 -0300
+
+    safari fix
+
+diff --git a/apps/web/src/components/sections/LoaderSection.tsx b/apps/web/src/components/sections/LoaderSection.tsx
+index f73604b..19d39ed 100644
+--- a/apps/web/src/components/sections/LoaderSection.tsx
++++ b/apps/web/src/components/sections/LoaderSection.tsx
+@@ -51,7 +51,7 @@ export const LoaderSection: FC = () => {
+       // Set initial scale
+       gsap.set([maskLogoRef.current, whiteLogoRef.current], { 
+         scale: INIT_SCALE,
+-        transformOrigin: "50% 50%" // translate handles positioning, scale from center of the logo group
++        transformOrigin: "0 0" // translate handles positioning, scale from center of the logo group
+       });
+       
+       // Pulse animation
+@@ -63,14 +63,6 @@ export const LoaderSection: FC = () => {
+           yoyo: true,
+           repeat: -1,
+         });
+-
+-        gsap.to(whiteLogoRef.current, {
+-          filter: "drop-shadow(0 0 16px rgba(255,255,255,0.35))",
+-          duration: 1.2,
+-          ease: "sine.inOut",
+-          yoyo: true,
+-          repeat: -1,
+-        });
+       }
+ 
+       const finalize = () => {
+@@ -171,28 +163,29 @@ export const LoaderSection: FC = () => {
+       className="fixed inset-0 z-[100] flex min-h-screen items-center justify-center bg-transparent pointer-events-none"
+       style={{ pointerEvents: isBlockingScroll ? "auto" : "none" }}
+     >
+-      <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1920 1080">
++      <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1920 1080" style={{ overflow: "visible" }}>
+         <defs>
+-          <filter id="white-filter" colorInterpolationFilters="sRGB">
++          <filter id="white-filter" x="-50%" y="-50%" width="200%" height="200%" colorInterpolationFilters="sRGB">
+             <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0" />
++            <feDropShadow dx="0" dy="0" stdDeviation="16" floodColor="#ffffff" floodOpacity="0.35" />
+           </filter>
+-          <filter id="black-filter" colorInterpolationFilters="sRGB">
++          <filter id="black-filter" x="-50%" y="-50%" width="200%" height="200%" colorInterpolationFilters="sRGB">
+             <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" />
+           </filter>
+-          <mask id="loader-reveal-mask" x="0" y="0" width="100%" height="100%" maskUnits="userSpaceOnUse" mask-type="luminance">
+-            <rect width="1920" height="1080" fill="white" />
++          <mask id="loader-reveal-mask" x="-20%" y="-20%" width="140%" height="140%" maskUnits="userSpaceOnUse" mask-type="luminance">
++            <rect x="-1920" y="-1080" width="5760" height="3240" fill="white" />
+             <g transform="translate(960 540)">
+-              <g ref={maskLogoRef} style={{ transformOrigin: "50% 50%", transform: "scale(0.124)" }}>
++              <g ref={maskLogoRef} style={{ transformOrigin: "0 0", transform: "scale(0.124)" }}>
+                 <image href="/assets/logo/logoNMD.svg" width="774" height="793.02" x="-387" y="-396.51" filter="url(#black-filter)" />
+               </g>
+             </g>
+           </mask>
+         </defs>
+ 
+-        <rect width="1920" height="1080" fill="var(--background)" mask="url(#loader-reveal-mask)" />
++        <rect x="-1920" y="-1080" width="5760" height="3240" fill="var(--background)" mask="url(#loader-reveal-mask)" />
+ 
+         <g transform="translate(960 540)">
+-          <g ref={whiteLogoRef} style={{ transformOrigin: "50% 50%", transform: "scale(0.124)" }}>
++          <g ref={whiteLogoRef} style={{ transformOrigin: "0 0", transform: "scale(0.124)" }}>
+             <image href="/assets/logo/logoNMD.svg" width="774" height="793.02" x="-387" y="-396.51" filter="url(#white-filter)" />
+           </g>
+         </g>
+
+commit 6b53bd84f82810a4416dfabda2ac17aff12e6334
+Author: Mate-Cardenas <chelabsweb@gmail.com>
+Date:   Thu Mar 12 14:39:52 2026 -0300
+
+    sas
+
+diff --git a/apps/web/src/components/sections/LoaderSection.tsx b/apps/web/src/components/sections/LoaderSection.tsx
+index 6264104..f73604b 100644
+--- a/apps/web/src/components/sections/LoaderSection.tsx
++++ b/apps/web/src/components/sections/LoaderSection.tsx
+@@ -173,11 +173,17 @@ export const LoaderSection: FC = () => {
+     >
+       <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1920 1080">
+         <defs>
++          <filter id="white-filter" colorInterpolationFilters="sRGB">
++            <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0" />
++          </filter>
++          <filter id="black-filter" colorInterpolationFilters="sRGB">
++            <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" />
++          </filter>
+           <mask id="loader-reveal-mask" x="0" y="0" width="100%" height="100%" maskUnits="userSpaceOnUse" mask-type="luminance">
+             <rect width="1920" height="1080" fill="white" />
+             <g transform="translate(960 540)">
+               <g ref={maskLogoRef} style={{ transformOrigin: "50% 50%", transform: "scale(0.124)" }}>
+-                <image href="/assets/logo/logoNMD.svg" width="774" height="793.02" x="-387" y="-396.51" filter="contrast(0) brightness(0)" />
++                <image href="/assets/logo/logoNMD.svg" width="774" height="793.02" x="-387" y="-396.51" filter="url(#black-filter)" />
+               </g>
+             </g>
+           </mask>
+@@ -187,7 +193,7 @@ export const LoaderSection: FC = () => {
+ 
+         <g transform="translate(960 540)">
+           <g ref={whiteLogoRef} style={{ transformOrigin: "50% 50%", transform: "scale(0.124)" }}>
+-            <image href="/assets/logo/logoNMD.svg" width="774" height="793.02" x="-387" y="-396.51" filter="contrast(0) brightness(2)" />
++            <image href="/assets/logo/logoNMD.svg" width="774" height="793.02" x="-387" y="-396.51" filter="url(#white-filter)" />
+           </g>
+         </g>
+       </svg>
