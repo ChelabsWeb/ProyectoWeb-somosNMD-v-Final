@@ -88,14 +88,13 @@ export async function createBookingRequest(data: BookingRequestData): Promise<Ac
     // Simulate network latency for other parts of the process
     await new Promise(resolve => setTimeout(resolve, 800));
 
-    // Send the email in background (fire-and-forget) to avoid blocking the HTTP response
-    void sendReservationEmail(validatedData.data).then((emailResult) => {
-      if (!emailResult.success) {
-        console.error("Warning: Booking recorded but email failed to send", emailResult.error);
-        // We still return success: true to the user so the optimistic UI succeeds,
-        // but we might log this to an error tracking system in production.
-      }
-    });
+    // Await the email send to ensure it completes in serverless environments
+    const emailResult = await sendReservationEmail(validatedData.data);
+    if (!emailResult.success) {
+      console.error("Warning: Booking recorded but email failed to send", emailResult.error);
+      // We still return success: true to the user so the optimistic UI succeeds,
+      // but we might log this to an error tracking system in production.
+    }
 
     return {
       success: true,
