@@ -32,9 +32,9 @@ describe("ArtistCard", () => {
     blurb: "Creates stunning visual art.",
     imageSrc: "/test-image.jpg",
     bio: "Detailed bio here.",
-    socials: {
-      instagram: "https://instagram.com/johndoe",
-    },
+    socials: [
+      { name: "Instagram", url: "https://instagram.com/johndoe" },
+    ],
   };
 
   it("renders the artist name and id", () => {

@@ -5,9 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ThreeDLogoViewer } from "./ThreeDLogoViewer";
-
-
 const HERO_IMAGE_SRC = "/assets/hero/nmdfinal-25.jpg";
 
 export const HeroSection: FC = () => {
@@ -36,11 +33,6 @@ export const HeroSection: FC = () => {
           sizes="(max-width: 768px) 250vw, 100vw" // Pide una imagen mucho más grande en mobile para compensar el object-cover
           className="object-cover object-center"
         />
-
-        {/* 3D Logo Viewer goes behind, acting as the striking visual element */}
-        <div className="absolute inset-0 z-0 flex items-center justify-center opacity-80 mix-blend-multiply">
-          <ThreeDLogoViewer />
-        </div>
 
         {/* HUD Frame Elements - Updated for Brutalism */}
         <div className="pointer-events-none absolute inset-0 z-20">

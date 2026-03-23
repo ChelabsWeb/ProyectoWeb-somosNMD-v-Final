@@ -35,9 +35,9 @@ describe("sendReservationEmail", () => {
   const mockBookingData = {
     name: "Test User",
     email: "test@example.com",
+    reason: "Grabación de demo",
     timeSlot: "15:00 - 18:00",
     sessionType: "solo" as const,
-    dateIso: "2026-03-01T00:00:00.000Z",
   };
 
   beforeEach(() => {

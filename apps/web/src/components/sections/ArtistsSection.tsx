@@ -5,7 +5,6 @@ import { ArtistCard } from "./ArtistCard";
 import { ArtistOverlay } from "./ArtistOverlay";
 import { trackEvent } from "../../lib/analytics";
 import { ARTISTS, type ArtistEntry } from "@/data/artists";
-import { StaticThreeDLogo } from "./StaticThreeDLogo";
 
 export const ArtistsSection: FC = () => {
   const [selectedArtist, setSelectedArtist] = useState<ArtistEntry | null>(null);
@@ -60,11 +59,6 @@ export const ArtistsSection: FC = () => {
               <span className="block text-[22vw] sm:text-[18vw] lg:text-[13vw] ml-[2vw] lg:ml-[8vw]">ART IS</span>
               <span className="block text-[22vw] sm:text-[18vw] lg:text-[13vw] ml-[15vw] lg:ml-[25vw]">TA´s_</span>
             </h2>
-          </div>
-
-          {/* Center 3D Logo (Static) hidden on mobile */}
-          <div className="hidden md:flex absolute inset-0 items-center justify-center pointer-events-auto z-10">
-            <StaticThreeDLogo />
           </div>
 
           {/* Micro Elements: Side coordinates */}

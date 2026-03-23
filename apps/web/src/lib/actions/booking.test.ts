@@ -68,6 +68,7 @@ describe('createBookingRequest Server Action', () => {
     const validData = {
       name: 'Test Artist',
       email: 'test@example.com',
+      reason: 'Grabación de demo',
       sessionType: 'solo' as const,
       timeSlot: new Date().toISOString()
     };
@@ -83,6 +84,7 @@ describe('createBookingRequest Server Action', () => {
     const invalidData = {
       name: 'Test Artist',
       email: 'not-an-email',
+      reason: 'Grabación de demo',
       sessionType: 'solo' as const,
       timeSlot: new Date().toISOString()
     };
@@ -98,6 +100,7 @@ describe('createBookingRequest Server Action', () => {
     const invalidData = {
       name: 'A',
       email: 'test@example.com',
+      reason: 'Grabación de demo',
       sessionType: 'solo' as const,
       timeSlot: new Date().toISOString()
     };

@@ -106,9 +106,10 @@ export async function createBookingRequest(data: BookingRequestData): Promise<Ac
     };
 
   } catch (error: unknown) {
-    try {
-      require('fs').appendFileSync('error-log.txt', new Date().toISOString() + ' ERROR in createBookingRequest: ' + (error instanceof Error ? error.stack : String(error)) + '\n');
-    } catch (e) {}
+    console.error(
+      `[${new Date().toISOString()}] ERROR in createBookingRequest:`,
+      error instanceof Error ? error.stack : String(error)
+    );
     return {
       success: false,
       message: "Error procesando la solicitud",

@@ -4,7 +4,7 @@ import React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { BookingModule } from "@/components/sections/booking-module";
+import { BookingModule } from "@/components/sections/BookingModule";
 
 export function BookingModalTrigger() {
   return (
