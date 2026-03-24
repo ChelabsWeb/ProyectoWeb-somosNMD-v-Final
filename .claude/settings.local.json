@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc:*)",
+      "Bash(npx turbo:*)",
+      "Bash(pnpm --filter web exec tsc --noEmit --pretty)",
+      "mcp__chrome-devtools__list_pages",
+      "mcp__chrome-devtools__navigate_page",
+      "mcp__chrome-devtools__take_snapshot",
+      "Bash(netstat -ano)",
+      "Bash(powershell.exe -c \"Get-NetTCPConnection -State Listen | Where-Object {$_calPort -in 3000,3001,3002} | Select LocalPort,OwningProcess\")",
+      "mcp__chrome-devtools__emulate"
+    ]
+  }
+}

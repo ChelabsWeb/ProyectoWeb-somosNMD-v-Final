@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
+import { BookingModalTrigger } from "@/components/sections/booking-modal-trigger";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -119,7 +120,9 @@ export const FooterSection: FC = () => {
               <ul className="space-y-4 font-sans text-2xl font-black tracking-tight md:text-3xl">
                 <li>
                   <Link
-                    href="https://instagram.com"
+                    href="https://www.instagram.com/nomades.nmd/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center justify-between hover:underline"
                   >
                     INSTAGRAM <ArrowUpRight className="h-6 w-6" />
@@ -127,15 +130,19 @@ export const FooterSection: FC = () => {
                 </li>
                 <li>
                   <Link
-                    href="https://twitter.com"
+                    href="https://open.spotify.com/intl-es/artist/7yQPk9iIrIMhFGRnz1mQXP?si=kHFi8c3ORMmgdxZu39jyBQ"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center justify-between hover:underline"
                   >
-                    TWITTER <ArrowUpRight className="h-6 w-6" />
+                    SPOTIFY <ArrowUpRight className="h-6 w-6" />
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="https://youtube.com"
+                    href="https://www.youtube.com/@NMD.uy."
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center justify-between hover:underline"
                   >
                     YOUTUBE <ArrowUpRight className="h-6 w-6" />
@@ -154,7 +161,7 @@ export const FooterSection: FC = () => {
               <ul className="space-y-4 font-sans text-2xl font-black tracking-tight md:text-3xl">
                 <li>
                   <Link
-                    href="#proyectos"
+                    href="/proyectos"
                     className="flex items-center justify-between hover:underline"
                   >
                     PROYECTOS <ArrowUpRight className="h-6 w-6" />
@@ -170,7 +177,7 @@ export const FooterSection: FC = () => {
                 </li>
                 <li>
                   <Link
-                    href="#contacto"
+                    href="/contacto"
                     className="flex items-center justify-between hover:underline"
                   >
                     CONTACTO <ArrowUpRight className="h-6 w-6" />
@@ -216,12 +223,7 @@ export const FooterSection: FC = () => {
               <br />
               JUNTOS.
             </h3>
-            <a
-              href="mailto:hola@nomades.uy"
-              className="inline-block whitespace-nowrap border-4 border-white bg-[#FF4D00] px-8 py-4 text-sm font-black text-white shadow-[6px_6px_0_0_#000000] transition-all hover:translate-x-[4px] hover:translate-y-[4px] hover:bg-white hover:text-black hover:shadow-none"
-            >
-              ENVIAR EMAIL
-            </a>
+            <BookingModalTrigger />
           </div>
         </motion.div>
       </div>
