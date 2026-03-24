@@ -34,25 +34,6 @@ export const ArtistsSection: FC = () => {
         {/* Real Fixed Background */}
         <div className="fixed top-0 left-0 h-dvh w-full flex flex-col justify-center overflow-hidden">
           
-          {/* Top Navigation-like Micro Elements */}
-          <div className="absolute top-0 left-0 w-full hidden lg:flex justify-between px-12 py-8 font-mono text-[10px] uppercase tracking-widest text-black/60">
-            <div className="flex gap-16">
-              <span>INFO@SOMOSNMD.COM</span>
-              <span>MVD,UY_00:00:00</span>
-            </div>
-            <div className="flex text-center opacity-70 leading-none">
-              N<br/>M<br/>D
-            </div>
-            <div className="flex gap-16">
-              <span>ES / EN</span>
-            </div>
-          </div>
-
-          {/* Plus icon on left */}
-          <div className="hidden lg:block absolute left-12 top-32 text-black/40 text-4xl font-light">
-            +
-          </div>
-
           {/* Big Typography matching the requested substitution, structurally centered. */}
           <div className="w-full px-6 md:px-24 flex flex-col justify-center items-center max-w-[1800px] mx-auto z-0 relative mt-[-10vh] md:mt-[0]">
             <h2 className="font-sans font-black uppercase tracking-tighter text-[#1a1a1a] leading-[0.85] md:leading-[0.8] whitespace-nowrap overflow-hidden w-full">
@@ -61,16 +42,6 @@ export const ArtistsSection: FC = () => {
             </h2>
           </div>
 
-          {/* Micro Elements: Side coordinates */}
-          <div className="hidden xl:block absolute right-6 top-1/2 -translate-y-1/2 font-mono text-[9px] uppercase rotate-90 origin-right text-black/60 tracking-widest">
-            0050 Y 0730 H
-          </div>
-          <div className="hidden xl:block absolute left-6 bottom-12 font-mono text-[9px] uppercase text-black/60 tracking-widest">
-            0000 X 1536 W
-          </div>
-          <div className="hidden xl:block absolute right-6 bottom-12 font-mono text-[9px] uppercase text-black/60 tracking-widest">
-            © 2026
-          </div>
         </div>
       </div>
 

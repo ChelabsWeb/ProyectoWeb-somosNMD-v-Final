@@ -34,21 +34,12 @@ export const HeroSection: FC = () => {
           className="object-cover object-center"
         />
 
-        {/* HUD Frame Elements - Updated for Brutalism */}
+        {/* Brutalist Border Frame */}
         <div className="pointer-events-none absolute inset-0 z-20">
-          {/* Brutalist Border Lines */}
           <div className="absolute left-6 top-6 bottom-6 w-px bg-border" />
           <div className="absolute right-6 top-6 bottom-6 w-px bg-border" />
           <div className="absolute top-6 left-6 right-6 h-px bg-border" />
           <div className="absolute bottom-6 left-6 right-6 h-px bg-border" />
-
-          {/* Coordinates / Data Labels */}
-          <div className="absolute right-[10px] top-[40%] font-mono text-[10px] !text-white uppercase vertical-text transform rotate-90 origin-right whitespace-nowrap">
-            0200 Y 0710 H
-          </div>
-          <div className="absolute left-[34px] bottom-10 font-mono text-[10px] !text-white uppercase whitespace-nowrap">
-            0200 X 1270 W
-          </div>
         </div>
 
         {/* Centered Brutalist Navigation (Desktop Only) */}

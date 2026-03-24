@@ -6,13 +6,21 @@ import { ArtistsSection } from "@/components/sections/ArtistsSection";
 import { BookingModalTrigger } from "@/components/sections/booking-modal-trigger";
 import { AppReadySignal } from "@/components/system/AppReadySignal";
 import { FooterSection } from "@/components/sections/FooterSection";
-import { ThreeDLogoViewer } from "@/components/sections/ThreeDLogoViewer";
+import Image from "next/image";
 
 
 export default function Home() {
   return (
     <main className="flex flex-col relative w-full">
-      <ThreeDLogoViewer />
+      <div className="fixed top-8 left-8 z-[45] pointer-events-none">
+        <Image
+          src="/assets/logo/logoNMD.svg"
+          alt="NMD Logo"
+          width={44}
+          height={44}
+          priority
+        />
+      </div>
       <LoaderSection />
       <HeroSection />
       <ArtistsSection />
