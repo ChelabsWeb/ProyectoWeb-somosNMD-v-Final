@@ -92,7 +92,7 @@ export default function TerminosPage() {
           </section>
 
           <p className="pt-4 text-xs opacity-50">
-            Última actualización: Marzo 2026
+            Última actualización: Abril 2026
           </p>
         </div>
       </div>

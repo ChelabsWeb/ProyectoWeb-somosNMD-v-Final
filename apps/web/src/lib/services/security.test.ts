@@ -29,8 +29,31 @@ describe("Security Service", () => {
     it("should generate different signatures for different payloads", () => {
       const sig1 = createSignature("booking_123:confirm");
       const sig2 = createSignature("booking_123:reject");
-      
+
       expect(sig1).not.toEqual(sig2);
+    });
+
+    it("should throw when WEBHOOK_SECRET is not set", () => {
+      delete process.env.WEBHOOK_SECRET;
+      expect(() => createSignature("anything")).toThrow(
+        /Missing WEBHOOK_SECRET/i
+      );
+    });
+
+    it("should throw when WEBHOOK_SECRET is empty string", () => {
+      process.env.WEBHOOK_SECRET = "";
+      expect(() => createSignature("anything")).toThrow(
+        /Missing WEBHOOK_SECRET/i
+      );
+    });
+  });
+
+  describe("missing secret safety", () => {
+    it("verifySecureToken returns null when WEBHOOK_SECRET is missing (no crash)", () => {
+      const token = generateSecureToken({ bookingId: "b1", action: "confirm" });
+      delete process.env.WEBHOOK_SECRET;
+      const result = verifySecureToken(token);
+      expect(result).toBeNull();
     });
   });
 

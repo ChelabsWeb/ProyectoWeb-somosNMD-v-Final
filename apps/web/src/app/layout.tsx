@@ -17,9 +17,65 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
+
 export const metadata: Metadata = {
-  title: "Proyecto Web NMD",
-  description: "Bienvenido a la pagina web de nmd lokitaaa",
+  metadataBase: new URL(appUrl),
+  title: {
+    default: "NMD — Nómades",
+    template: "%s | NMD",
+  },
+  description:
+    "NMD (Nómades) — colectivo musical uruguayo. Reservá sesiones, explorá a los artistas y descubrí la obra del colectivo.",
+  keywords: [
+    "NMD",
+    "Nómades",
+    "música uruguaya",
+    "estudio de grabación",
+    "colectivo musical",
+    "rap uruguayo",
+    "hip hop Uruguay",
+  ],
+  authors: [{ name: "NMD" }],
+  creator: "NMD",
+  publisher: "NMD",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "es_UY",
+    url: appUrl,
+    siteName: "NMD",
+    title: "NMD — Nómades",
+    description:
+      "Colectivo musical uruguayo. Reservá sesiones y descubrí a los artistas.",
+    images: [
+      {
+        url: "/assets/logo/logoNMD.svg",
+        width: 1200,
+        height: 630,
+        alt: "NMD — Nómades",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NMD — Nómades",
+    description:
+      "Colectivo musical uruguayo. Reservá sesiones y descubrí a los artistas.",
+    images: ["/assets/logo/logoNMD.svg"],
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
