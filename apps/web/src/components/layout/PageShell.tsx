@@ -3,11 +3,22 @@
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import dynamic from "next/dynamic";
 import { useEffect, useState, type FC, type ReactNode } from "react";
 import { CustomCursor } from "@/components/system/CustomCursor";
-import { ParticleBackground } from "@/components/system/ParticleBackground";
 import { LenisProvider } from "@/context/LenisContext";
 import { AudioProvider } from "@/context/AudioProvider";
+
+// tsParticles is heavy and client-only; dynamic-load so it does not block
+// the initial bundle or render. PageShell is already a Client Component, so
+// dynamic() with ssr:false is allowed here.
+const ParticleBackground = dynamic(
+  () =>
+    import("@/components/system/ParticleBackground").then(
+      (m) => m.ParticleBackground
+    ),
+  { ssr: false, loading: () => null }
+);
 
 gsap.registerPlugin(ScrollTrigger);
 
