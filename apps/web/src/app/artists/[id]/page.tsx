@@ -1,8 +1,8 @@
+import type { Metadata } from "next";
 import { ARTISTS } from "@/data/artists";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { type FC } from "react";
 
 interface ArtistPageProps {
     params: Promise<{ id: string }>;
@@ -12,6 +12,33 @@ export async function generateStaticParams() {
     return ARTISTS.map((artist) => ({
         id: artist.id,
     }));
+}
+
+export async function generateMetadata({ params }: ArtistPageProps): Promise<Metadata> {
+    const { id } = await params;
+    const artist = ARTISTS.find((a) => a.id === id);
+    if (!artist) {
+        return { title: "Artista no encontrado" };
+    }
+    const title = artist.name;
+    const description = artist.bio ?? artist.blurb ?? `Perfil de ${artist.name} en NMD.`;
+    return {
+        title,
+        description,
+        alternates: { canonical: `/artists/${artist.id}` },
+        openGraph: {
+            title: `${artist.name} | NMD`,
+            description,
+            images: [{ url: artist.imageSrc, alt: artist.name }],
+            type: "profile",
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: `${artist.name} | NMD`,
+            description,
+            images: [artist.imageSrc],
+        },
+    };
 }
 
 export default async function ArtistPage({ params }: ArtistPageProps) {
