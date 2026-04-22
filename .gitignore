@@ -22,3 +22,18 @@ out/
 dist/
 .vscode/
 .gitignore~
+
+# Test artefacts
+**/test-results/
+**/playwright-report/
+
+# Build artefacts
+**/tsconfig.tsbuildinfo
+**/build_log.txt
+**/dev_error.log
+**/lh-report.json
+
+# Generic noise
+*.log
+tmp*
+*_output.txt
